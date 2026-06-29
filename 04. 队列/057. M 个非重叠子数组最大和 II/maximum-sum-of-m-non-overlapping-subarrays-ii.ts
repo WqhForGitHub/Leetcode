@@ -80,17 +80,9 @@ function maxSumOfMSubarraysII2(nums: number[], m: number): number {
 // ------------------------------------------------------------
 function test(): void {
   console.log("测试1:", maxSumOfMSubarraysII1([1, 2, 3, 4, 5], 2), "期望: 15");
-  console.log(
-    "测试2:",
-    maxSumOfMSubarraysII1([-1, -2, -3, -4, -5], 2),
-    "期望: -3",
-  );
+  console.log("测试2:", maxSumOfMSubarraysII1([-1, -2, -3, -4, -5], 2), "期望: -3");
   console.log("测试3:", maxSumOfMSubarraysII2([1, 2, 3, 4, 5], 2), "期望: 15");
-  console.log(
-    "测试4:",
-    maxSumOfMSubarraysII2([-1, 2, -3, 4, -5], 2),
-    "期望: 6",
-  );
+  console.log("测试4:", maxSumOfMSubarraysII2([-1, 2, -3, 4, -5], 2), "期望: 6");
 }
 
 test();

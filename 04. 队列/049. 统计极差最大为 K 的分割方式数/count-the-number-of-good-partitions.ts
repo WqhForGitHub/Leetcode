@@ -21,17 +21,9 @@ function countPartitions1(nums: number[], k: number): number {
   prefix[1] = 1;
   let left = 0;
   for (let i = 0; i < n; i++) {
-    while (
-      maxDeque.length > 0 &&
-      nums[maxDeque[maxDeque.length - 1]] <= nums[i]
-    )
-      maxDeque.pop();
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[i]) maxDeque.pop();
     maxDeque.push(i);
-    while (
-      minDeque.length > 0 &&
-      nums[minDeque[minDeque.length - 1]] >= nums[i]
-    )
-      minDeque.pop();
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[i]) minDeque.pop();
     minDeque.push(i);
     while (nums[maxDeque[0]] - nums[minDeque[0]] > k) {
       left++;
@@ -60,17 +52,9 @@ function countPartitions2(nums: number[], k: number): number {
   let left = 0;
   let segments = 0;
   for (let i = 0; i < n; i++) {
-    while (
-      maxDeque.length > 0 &&
-      nums[maxDeque[maxDeque.length - 1]] <= nums[i]
-    )
-      maxDeque.pop();
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[i]) maxDeque.pop();
     maxDeque.push(i);
-    while (
-      minDeque.length > 0 &&
-      nums[minDeque[minDeque.length - 1]] >= nums[i]
-    )
-      minDeque.pop();
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[i]) minDeque.pop();
     minDeque.push(i);
     while (nums[maxDeque[0]] - nums[minDeque[0]] > k) {
       left++;
@@ -89,11 +73,9 @@ function countPartitions2(nums: number[], k: number): number {
   const minDq: number[] = [];
   let l = 0;
   for (let i = 0; i < n; i++) {
-    while (maxDq.length > 0 && nums[maxDq[maxDq.length - 1]] <= nums[i])
-      maxDq.pop();
+    while (maxDq.length > 0 && nums[maxDq[maxDq.length - 1]] <= nums[i]) maxDq.pop();
     maxDq.push(i);
-    while (minDq.length > 0 && nums[minDq[minDq.length - 1]] >= nums[i])
-      minDq.pop();
+    while (minDq.length > 0 && nums[minDq[minDq.length - 1]] >= nums[i]) minDq.pop();
     minDq.push(i);
     while (nums[maxDq[0]] - nums[minDq[0]] > k) {
       l++;

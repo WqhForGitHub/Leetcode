@@ -8,11 +8,7 @@
 
 // 方法1：遍历处理边界（推荐）
 // 将 lower-1 和 upper+1 作为哨兵，统一处理相邻两个数之间的缺失区间
-function findMissingRanges(
-  nums: number[],
-  lower: number,
-  upper: number,
-): string[] {
+function findMissingRanges(nums: number[], lower: number, upper: number): string[] {
   const result: string[] = [];
   // 引入哨兵 prev，初始为 lower - 1（注意用 Number 防止溢出问题，这里用普通 number 即可）
   let prev = lower - 1;

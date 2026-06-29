@@ -73,7 +73,9 @@ function nthUglyNumber(n: number): number {
 // 方法2：三指针 DP
 function nthUglyNumberDP(n: number): number {
   const dp: number[] = [1];
-  let p2 = 0, p3 = 0, p5 = 0;
+  let p2 = 0,
+    p3 = 0,
+    p5 = 0;
   for (let i = 1; i < n; i++) {
     const v2 = dp[p2] * 2;
     const v3 = dp[p3] * 3;

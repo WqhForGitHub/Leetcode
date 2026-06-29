@@ -15,7 +15,7 @@ function longestValidParentheses(s: string): number {
   const stack: number[] = [-1];
   let maxLen = 0;
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') {
+    if (s[i] === "(") {
       stack.push(i);
     } else {
       stack.pop();
@@ -41,7 +41,7 @@ function longestValidParenthesesTwoPass(s: string): number {
     maxLen = 0;
   // 从左到右
   for (const ch of s) {
-    if (ch === '(') left++;
+    if (ch === "(") left++;
     else right++;
     if (right > left) {
       left = right = 0;
@@ -52,7 +52,7 @@ function longestValidParenthesesTwoPass(s: string): number {
   left = right = 0;
   // 从右到左
   for (let i = s.length - 1; i >= 0; i--) {
-    if (s[i] === '(') left++;
+    if (s[i] === "(") left++;
     else right++;
     if (left > right) {
       left = right = 0;
@@ -67,11 +67,11 @@ function longestValidParenthesesTwoPass(s: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', longestValidParentheses('(()'), '期望: 2');
-  console.log('测试2 - 栈法:', longestValidParentheses(')()())'), '期望: 4');
-  console.log('测试3 - 栈法:', longestValidParentheses(''), '期望: 0');
-  console.log('测试4 - 双指针:', longestValidParenthesesTwoPass('(()())'), '期望: 6');
-  console.log('测试5 - 双指针:', longestValidParenthesesTwoPass('()(()'), '期望: 2');
+  console.log("测试1 - 栈法:", longestValidParentheses("(()"), "期望: 2");
+  console.log("测试2 - 栈法:", longestValidParentheses(")()())"), "期望: 4");
+  console.log("测试3 - 栈法:", longestValidParentheses(""), "期望: 0");
+  console.log("测试4 - 双指针:", longestValidParenthesesTwoPass("(()())"), "期望: 6");
+  console.log("测试5 - 双指针:", longestValidParenthesesTwoPass("()(()"), "期望: 2");
 }
 
 test();

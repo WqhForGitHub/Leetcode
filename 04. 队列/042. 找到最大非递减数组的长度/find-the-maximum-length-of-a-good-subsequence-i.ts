@@ -74,9 +74,7 @@ function findMaximumLength2(nums: number[]): number {
   const dp: number[] = new Array(n + 1).fill(0);
   const lastSum: number[] = new Array(n + 1).fill(0);
   // 存储候选转移点的 (prefix[j] + lastSum[j], j)
-  const candidates: { threshold: number; index: number }[] = [
-    { threshold: 0, index: 0 },
-  ];
+  const candidates: { threshold: number; index: number }[] = [{ threshold: 0, index: 0 }];
 
   for (let i = 1; i <= n; i++) {
     // 二分找最大 j 使得 prefix[j] + lastSum[j] <= prefix[i]
@@ -96,10 +94,7 @@ function findMaximumLength2(nums: number[]): number {
     lastSum[i] = prefix[i] - prefix[bestJ];
     const threshold = prefix[i] + lastSum[i];
     // 保持单调递增
-    while (
-      candidates.length > 0 &&
-      candidates[candidates.length - 1].threshold >= threshold
-    ) {
+    while (candidates.length > 0 && candidates[candidates.length - 1].threshold >= threshold) {
       candidates.pop();
     }
     candidates.push({ threshold, index: i });

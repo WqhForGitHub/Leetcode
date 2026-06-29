@@ -71,7 +71,10 @@ function topKFrequentSort(words: string[], k: number): string[] {
 // ============================================================
 console.log("===== 031. 前K个高频单词 =====");
 console.log("堆:", topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望 ["i","love"]
-console.log("排序:", topKFrequentSort(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4));
+console.log(
+  "排序:",
+  topKFrequentSort(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4),
+);
 // 期望 ["the","is","sunny","day"]
 
 export {};

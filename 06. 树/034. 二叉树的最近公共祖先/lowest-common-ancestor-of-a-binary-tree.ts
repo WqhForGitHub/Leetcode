@@ -17,11 +17,7 @@ class TreeNode {
 }
 
 // 方法1：递归后序遍历（推荐）
-function lowestCommonAncestor(
-  root: TreeNode | null,
-  p: TreeNode,
-  q: TreeNode
-): TreeNode | null {
+function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null || root === p || root === q) return root;
   const left = lowestCommonAncestor(root.left, p, q);
   const right = lowestCommonAncestor(root.right, p, q);
@@ -33,7 +29,7 @@ function lowestCommonAncestor(
 function lowestCommonAncestorHash(
   root: TreeNode | null,
   p: TreeNode,
-  q: TreeNode
+  q: TreeNode,
 ): TreeNode | null {
   if (root === null) return null;
   const parent = new Map<TreeNode, TreeNode>();
@@ -41,11 +37,7 @@ function lowestCommonAncestorHash(
   // 用栈进行 DFS，建立父节点映射
   const stack: TreeNode[] = [root];
   parent.set(root, null as any);
-  while (
-    stack.length > 0 &&
-    !parent.has(p) &&
-    !parent.has(q)
-  ) {
+  while (stack.length > 0 && !parent.has(p) && !parent.has(q)) {
     const node = stack.pop()!;
     if (node.left !== null) {
       parent.set(node.left, node);
@@ -78,12 +70,8 @@ console.log("===== 034. 二叉树的最近公共祖先 =====");
 // 构造树: [3,5,1,6,2,0,8,null,null,7,4]
 const tree34 = new TreeNode(
   3,
-  new TreeNode(
-    5,
-    new TreeNode(6),
-    new TreeNode(2, new TreeNode(7), new TreeNode(4))
-  ),
-  new TreeNode(1, new TreeNode(0), new TreeNode(8))
+  new TreeNode(5, new TreeNode(6), new TreeNode(2, new TreeNode(7), new TreeNode(4))),
+  new TreeNode(1, new TreeNode(0), new TreeNode(8)),
 );
 const p34 = tree34.left!; // 5
 const q34 = tree34.right!; // 1

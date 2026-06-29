@@ -54,7 +54,7 @@ console.log("[1,2,3]:", maxPathSum(tree023a)); // 6 (2+1+3)
 const tree023b = new TreeNode(
   -10,
   new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
+  new TreeNode(20, new TreeNode(15), new TreeNode(7)),
 );
 console.log("[-10,9,20,null,null,15,7]:", maxPathSum(tree023b)); // 42 (15+20+7)
 

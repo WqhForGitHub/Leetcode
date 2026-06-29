@@ -70,7 +70,7 @@ console.log("BFS [1,2,3]:", sumNumbersBFS(tree024a)); // 25
 const tree024b = new TreeNode(
   4,
   new TreeNode(9, new TreeNode(5), new TreeNode(1)),
-  new TreeNode(0)
+  new TreeNode(0),
 );
 console.log("DFS [4,9,0,5,1]:", sumNumbers(tree024b)); // 1026
 console.log("BFS [4,9,0,5,1]:", sumNumbersBFS(tree024b)); // 1026

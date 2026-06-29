@@ -6,7 +6,13 @@
 // 时间复杂度：O(E log V)，空间复杂度：O(V+E)
 
 // 方法1：Bellman-Ford（推荐）
-function findCheapestPrice(n: number, flights: number[][], src: number, dst: number, k: number): number {
+function findCheapestPrice(
+  n: number,
+  flights: number[][],
+  src: number,
+  dst: number,
+  k: number,
+): number {
   let prices: number[] = new Array(n).fill(Infinity);
   prices[src] = 0;
   for (let i = 0; i <= k; i++) {
@@ -25,7 +31,13 @@ function findCheapestPrice(n: number, flights: number[][], src: number, dst: num
 }
 
 // 方法2：Dijkstra + 最小堆（带站数限制）
-function findCheapestPriceDijkstra(n: number, flights: number[][], src: number, dst: number, k: number): number {
+function findCheapestPriceDijkstra(
+  n: number,
+  flights: number[][],
+  src: number,
+  dst: number,
+  k: number,
+): number {
   const graph: Array<Array<{ to: number; w: number }>> = Array.from({ length: n }, () => []);
   for (const [u, v, w] of flights) graph[u].push({ to: v, w });
   const heap: Array<{ cost: number; node: number; stops: number }> = [];
@@ -80,7 +92,35 @@ function findCheapestPriceDijkstra(n: number, flights: number[][], src: number, 
 // 测试
 // ============================================================
 console.log("===== 038. K 站中转内最便宜的航班 =====");
-console.log("Bellman-Ford:", findCheapestPrice(4, [[0, 1, 100], [1, 2, 100], [2, 0, 100], [1, 3, 600], [2, 3, 200]], 0, 3, 1)); // 期望 700
-console.log("Dijkstra:", findCheapestPriceDijkstra(3, [[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 1)); // 期望 200
+console.log(
+  "Bellman-Ford:",
+  findCheapestPrice(
+    4,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [2, 0, 100],
+      [1, 3, 600],
+      [2, 3, 200],
+    ],
+    0,
+    3,
+    1,
+  ),
+); // 期望 700
+console.log(
+  "Dijkstra:",
+  findCheapestPriceDijkstra(
+    3,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [0, 2, 500],
+    ],
+    0,
+    2,
+    1,
+  ),
+); // 期望 200
 
 export {};

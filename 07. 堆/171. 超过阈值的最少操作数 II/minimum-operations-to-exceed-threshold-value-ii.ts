@@ -11,18 +11,23 @@ function minOperationsII(nums: number[], k: number): number {
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l] < heap[s]) s = l;
       if (r < len && heap[r] < heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i] < heap[p]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i] < heap[p]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);
@@ -47,22 +52,27 @@ function minOperationsII(nums: number[], k: number): number {
 
 // 方法2：最小堆（BigInt 安全版）
 function minOperationsIISafe(nums: number[], k: number): number {
-  const heap: bigint[] = nums.map(x => BigInt(x));
+  const heap: bigint[] = nums.map((x) => BigInt(x));
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l] < heap[s]) s = l;
       if (r < len && heap[r] < heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i] < heap[p]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i] < heap[p]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);

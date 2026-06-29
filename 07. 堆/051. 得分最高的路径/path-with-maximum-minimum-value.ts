@@ -44,7 +44,12 @@ function maximumMinimumPath(grid: number[][]): number {
     return top;
   };
   push({ score: grid[0][0], r: 0, c: 0 });
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   while (heap.length > 0) {
     const cur = pop()!;
     if (cur.r === m - 1 && cur.c === n - 1) return cur.score;
@@ -65,7 +70,8 @@ function maximumMinimumPathUF(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
   const cells: Array<{ v: number; idx: number }> = [];
-  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) cells.push({ v: grid[i][j], idx: i * n + j });
+  for (let i = 0; i < m; i++)
+    for (let j = 0; j < n; j++) cells.push({ v: grid[i][j], idx: i * n + j });
   cells.sort((a, b) => b.v - a.v);
   const parent: number[] = new Array(m * n).fill(-1);
   const find = (x: number): number => {
@@ -75,7 +81,12 @@ function maximumMinimumPathUF(grid: number[][]): number {
     }
     return x;
   };
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const seen: boolean[] = new Array(m * n).fill(false);
   for (const { v, idx } of cells) {
     parent[idx] = idx;
@@ -97,7 +108,21 @@ function maximumMinimumPathUF(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 051. 得分最高的路径 =====");
-console.log("堆:", maximumMinimumPath([[5, 4, 5], [1, 2, 6], [7, 4, 3]])); // 期望 4
-console.log("并查集:", maximumMinimumPathUF([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // 期望 7
+console.log(
+  "堆:",
+  maximumMinimumPath([
+    [5, 4, 5],
+    [1, 2, 6],
+    [7, 4, 3],
+  ]),
+); // 期望 4
+console.log(
+  "并查集:",
+  maximumMinimumPathUF([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ]),
+); // 期望 7
 
 export {};

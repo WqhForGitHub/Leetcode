@@ -78,7 +78,13 @@ class DistanceLimitedPathsExist {
 // 测试
 // ============================================================
 console.log("===== 086. 检查边长度限制的路径是否存在 II =====");
-const dlp = new DistanceLimitedPathsExist(6, [[0, 2, 4], [0, 3, 2], [1, 2, 3], [2, 3, 1], [4, 5, 5]]);
+const dlp = new DistanceLimitedPathsExist(6, [
+  [0, 2, 4],
+  [0, 3, 2],
+  [1, 2, 3],
+  [2, 3, 1],
+  [4, 5, 5],
+]);
 console.log("查询:", dlp.isConnected(2, 3, 2)); // 期望 true
 console.log("查询:", dlp.isConnected(0, 5, 10)); // 期望 false
 

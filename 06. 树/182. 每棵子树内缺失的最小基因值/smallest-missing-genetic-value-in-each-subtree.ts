@@ -14,10 +14,7 @@
 // 4. 基因值 1 所在节点到根的路径上的节点，其 ans 可能 > 1
 // 5. 其他节点的 ans 都是 1
 // 优化：只需处理从基因值1所在节点到根的路径
-function smallestMissingValueSubtree(
-  parents: number[],
-  nums: number[]
-): number[] {
+function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
   const n = parents.length;
   // 建邻接表
   const children: number[][] = Array.from({ length: n }, () => []);
@@ -77,10 +74,7 @@ function smallestMissingValueSubtree(
 }
 
 // 方法2：暴力DFS（用于验证，O(n^2)）
-function smallestMissingValueSubtreeBruteForce(
-  parents: number[],
-  nums: number[]
-): number[] {
+function smallestMissingValueSubtreeBruteForce(parents: number[], nums: number[]): number[] {
   const n = parents.length;
   const children: number[][] = Array.from({ length: n }, () => []);
   for (let i = 1; i < n; i++) {

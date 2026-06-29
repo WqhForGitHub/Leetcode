@@ -12,9 +12,11 @@ function longestSubarray(nums: number[], limit: number): number {
   let left = 0;
   let result = 0;
   for (let right = 0; right < nums.length; right++) {
-    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right]) maxDeque.pop();
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right])
+      maxDeque.pop();
     maxDeque.push(right);
-    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right]) minDeque.pop();
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right])
+      minDeque.pop();
     minDeque.push(right);
     while (nums[maxDeque[0]] - nums[minDeque[0]] > limit) {
       left++;
@@ -30,7 +32,11 @@ function longestSubarray(nums: number[], limit: number): number {
 function longestSubarrayHeap(nums: number[], limit: number): number {
   const maxHeap: Array<{ val: number; idx: number }> = [];
   const minHeap: Array<{ val: number; idx: number }> = [];
-  const pushHeap = (heap: Array<{ val: number; idx: number }>, v: { val: number; idx: number }, isMax: boolean): void => {
+  const pushHeap = (
+    heap: Array<{ val: number; idx: number }>,
+    v: { val: number; idx: number },
+    isMax: boolean,
+  ): void => {
     heap.push(v);
     let i = heap.length - 1;
     while (i > 0) {

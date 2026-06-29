@@ -38,23 +38,14 @@ class SummaryRanges {
       const newEnd = Math.max(this.intervals[i][1], value);
 
       // 检查是否需要与下一个区间合并
-      if (
-        i + 1 < this.intervals.length &&
-        this.intervals[i + 1][0] <= newEnd + 1
-      ) {
+      if (i + 1 < this.intervals.length && this.intervals[i + 1][0] <= newEnd + 1) {
         // 合并第 i 和 i+1 个区间
-        this.intervals[i] = [
-          newStart,
-          Math.max(newEnd, this.intervals[i + 1][1]),
-        ];
+        this.intervals[i] = [newStart, Math.max(newEnd, this.intervals[i + 1][1])];
         this.intervals.splice(i + 1, 1);
       } else {
         this.intervals[i] = [newStart, newEnd];
       }
-    } else if (
-      i < this.intervals.length &&
-      this.intervals[i][0] === value + 1
-    ) {
+    } else if (i < this.intervals.length && this.intervals[i][0] === value + 1) {
       // value 正好在前一个区间的左侧边界外
       this.intervals[i][0] = value;
     } else {

@@ -46,10 +46,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 
 // 方法2：迭代栈
 // 使用栈模拟构造过程
-function buildTreeIterative(
-  preorder: number[],
-  inorder: number[]
-): TreeNode | null {
+function buildTreeIterative(preorder: number[], inorder: number[]): TreeNode | null {
   if (preorder.length === 0) return null;
   const root = new TreeNode(preorder[0]);
   const stack: TreeNode[] = [root];
@@ -62,10 +59,7 @@ function buildTreeIterative(
       stack.push(node.left);
     } else {
       // 弹出栈顶直到不匹配，确定右子树的父节点
-      while (
-        stack.length > 0 &&
-        stack[stack.length - 1].val === inorder[inorderIndex]
-      ) {
+      while (stack.length > 0 && stack[stack.length - 1].val === inorder[inorderIndex]) {
         node = stack.pop()!;
         inorderIndex++;
       }
@@ -102,16 +96,10 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 console.log("===== 011. 从前序与中序遍历序列构造二叉树 =====");
 // 测试1: preorder=[3,9,20,15,7], inorder=[9,3,15,20,7] -> [3,9,20,null,null,15,7]
 const tree1 = buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
-console.log(
-  "pre=[3,9,20,15,7], in=[9,3,15,20,7] (递归):",
-  JSON.stringify(treeToArray(tree1))
-); // [3,9,20,null,null,15,7]
+console.log("pre=[3,9,20,15,7], in=[9,3,15,20,7] (递归):", JSON.stringify(treeToArray(tree1))); // [3,9,20,null,null,15,7]
 
 const tree1b = buildTreeIterative([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
-console.log(
-  "pre=[3,9,20,15,7], in=[9,3,15,20,7] (迭代):",
-  JSON.stringify(treeToArray(tree1b))
-); // [3,9,20,null,null,15,7]
+console.log("pre=[3,9,20,15,7], in=[9,3,15,20,7] (迭代):", JSON.stringify(treeToArray(tree1b))); // [3,9,20,null,null,15,7]
 
 // 测试2: preorder=[-1], inorder=[-1] -> [-1]
 const tree2 = buildTree([-1], [-1]);

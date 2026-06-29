@@ -59,11 +59,7 @@ function test(): void {
   console.log("测试1:", shortestSubarray1([1], 1), "期望: 1");
   console.log("测试2:", shortestSubarray1([1, 2], 4), "期望: -1");
   console.log("测试3:", shortestSubarray1([2, -1, 2], 3), "期望: 3");
-  console.log(
-    "测试4:",
-    shortestSubarray1([84, -37, 32, 40, 95], 167),
-    "期望: 3",
-  );
+  console.log("测试4:", shortestSubarray1([84, -37, 32, 40, 95], 167), "期望: 3");
   console.log("测试5:", shortestSubarray2([1, 2, 3, 4, 5], 11), "期望: 3");
 }
 

@@ -17,8 +17,10 @@ function maxScore(nums1: number[], nums2: number[], k: number): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (minHeap[i] < minHeap[p]) { [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]]; i = p; }
-      else break;
+      if (minHeap[i] < minHeap[p]) {
+        [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -26,11 +28,14 @@ function maxScore(nums1: number[], nums2: number[], k: number): number {
     const len = minHeap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && minHeap[l] < minHeap[s]) s = l;
       if (r < len && minHeap[r] < minHeap[s]) s = r;
-      if (s !== i) { [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = 0; i < n; i++) {
@@ -62,8 +67,10 @@ function maxScoreSort(nums1: number[], nums2: number[], k: number): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (minHeap[i] < minHeap[p]) { [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]]; i = p; }
-      else break;
+      if (minHeap[i] < minHeap[p]) {
+        [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -71,11 +78,14 @@ function maxScoreSort(nums1: number[], nums2: number[], k: number): number {
     const len = minHeap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && minHeap[l] < minHeap[s]) s = l;
       if (r < len && minHeap[r] < minHeap[s]) s = r;
-      if (s !== i) { [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]];
+        i = s;
+      } else break;
     }
   };
   for (const idx of indices) {

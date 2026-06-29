@@ -37,9 +37,7 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
 // 测试
 // ============================================================
 console.log("===== 158. 最常见的单词 =====");
-console.log(
-  mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"]),
-); // 期望: "ball"
+console.log(mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])); // 期望: "ball"
 console.log(mostCommonWord("a.", [])); // 期望: "a"
 
 export {};

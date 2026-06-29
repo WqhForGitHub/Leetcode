@@ -24,8 +24,7 @@ function closestValue(root: TreeNode | null, target: number): number {
     // 若当前节点更接近 target，则更新 closest
     if (
       Math.abs(curr.val - target) < Math.abs(closest - target) ||
-      (Math.abs(curr.val - target) === Math.abs(closest - target) &&
-        curr.val < closest)
+      (Math.abs(curr.val - target) === Math.abs(closest - target) && curr.val < closest)
     ) {
       closest = curr.val;
     }
@@ -64,11 +63,7 @@ function closestValueInorder(root: TreeNode | null, target: number): number {
 // ============================================================
 console.log("===== 038. 最接近的二叉搜索树值 =====");
 // 构造 BST: [4,2,5,1,3]
-const tree38 = new TreeNode(
-  4,
-  new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(5)
-);
+const tree38 = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(5));
 console.log("迭代 target=3.714:", closestValue(tree38, 3.714)); // 期望 4
 console.log("中序 target=3.714:", closestValueInorder(tree38, 3.714)); // 期望 4
 console.log("迭代 target=2.0:", closestValue(tree38, 2.0)); // 期望 2

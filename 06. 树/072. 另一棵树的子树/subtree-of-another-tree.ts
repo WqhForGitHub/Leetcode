@@ -22,9 +22,9 @@ class TreeNode {
 function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
   if (root === null) return subRoot === null;
   // 检查以当前节点为根是否匹配，或左右子树中是否存在匹配
-  return isSameTree(root, subRoot)
-    || isSubtree(root.left, subRoot)
-    || isSubtree(root.right, subRoot);
+  return (
+    isSameTree(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
+  );
 }
 
 // 判断两棵树是否完全相同
@@ -40,10 +40,10 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
 function isSubtreeKMP(root: TreeNode | null, subRoot: TreeNode | null): boolean {
   function serialize(node: TreeNode | null, sb: string[]): void {
     if (node === null) {
-      sb.push('#');
+      sb.push("#");
       return;
     }
-    sb.push(',' + node.val.toString() + ',');
+    sb.push("," + node.val.toString() + ",");
     serialize(node.left, sb);
     serialize(node.right, sb);
   }
@@ -51,8 +51,8 @@ function isSubtreeKMP(root: TreeNode | null, subRoot: TreeNode | null): boolean 
   const subStr: string[] = [];
   serialize(root, rootStr);
   serialize(subRoot, subStr);
-  const text = rootStr.join('');
-  const pattern = subStr.join('');
+  const text = rootStr.join("");
+  const pattern = subStr.join("");
   return kmpSearch(text, pattern);
 }
 
@@ -96,11 +96,7 @@ console.log("===== 072. 另一棵树的子树 =====");
 //     / \
 //    1   2
 // 是子树
-const root1 = new TreeNode(
-  3,
-  new TreeNode(4, new TreeNode(1), new TreeNode(2)),
-  new TreeNode(5)
-);
+const root1 = new TreeNode(3, new TreeNode(4, new TreeNode(1), new TreeNode(2)), new TreeNode(5));
 const sub1 = new TreeNode(4, new TreeNode(1), new TreeNode(2));
 console.log("递归 是子树:", isSubtree(root1, sub1)); // true
 console.log("KMP  是子树:", isSubtreeKMP(root1, sub1)); // true
@@ -121,7 +117,7 @@ console.log("KMP  是子树:", isSubtreeKMP(root1, sub1)); // true
 const root2 = new TreeNode(
   3,
   new TreeNode(4, new TreeNode(1), new TreeNode(2, new TreeNode(0), null)),
-  new TreeNode(5)
+  new TreeNode(5),
 );
 const sub2 = new TreeNode(4, new TreeNode(1), new TreeNode(2));
 console.log("递归 不是子树:", isSubtree(root2, sub2)); // false

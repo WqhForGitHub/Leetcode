@@ -9,21 +9,43 @@
 function minPushBox(grid: char[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  let boxR = 0, boxC = 0;
-  let tarR = 0, tarC = 0;
-  let plR = 0, plC = 0;
+  let boxR = 0,
+    boxC = 0;
+  let tarR = 0,
+    tarC = 0;
+  let plR = 0,
+    plC = 0;
   for (let r = 0; r < m; r++) {
     for (let c = 0; c < n; c++) {
-      if (grid[r][c] === "B") { boxR = r; boxC = c; }
-      else if (grid[r][c] === "T") { tarR = r; tarC = c; }
-      else if (grid[r][c] === "S") { plR = r; plC = c; }
+      if (grid[r][c] === "B") {
+        boxR = r;
+        boxC = c;
+      } else if (grid[r][c] === "T") {
+        tarR = r;
+        tarC = c;
+      } else if (grid[r][c] === "S") {
+        plR = r;
+        plC = c;
+      }
     }
   }
   type State = string;
   const key = (br: number, bc: number, pr: number, pc: number): State => `${br},${bc},${pr},${pc}`;
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const visited: Set<State> = new Set();
-  const canReach = (sr: number, sc: number, tr: number, tc: number, br: number, bc: number): boolean => {
+  const canReach = (
+    sr: number,
+    sc: number,
+    tr: number,
+    tc: number,
+    br: number,
+    bc: number,
+  ): boolean => {
     const seen: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
     const queue: Array<[number, number]> = [[sr, sc]];
     seen[sr][sc] = true;
@@ -104,6 +126,16 @@ function minPushBox(grid: char[][]): number {
 // 测试
 // ============================================================
 console.log("===== 058. 推箱子 =====");
-console.log("推动次数:", minPushBox([["#", "#", "#", "#", "#", "#"], ["#", "T", "#", "#", "#", "#"], ["#", ".", ".", "B", ".", "#"], ["#", ".", "#", "#", ".", "#"], ["#", ".", ".", ".", "S", "#"], ["#", "#", "#", "#", "#", "#"]] as unknown as string[][])); // 期望 3
+console.log(
+  "推动次数:",
+  minPushBox([
+    ["#", "#", "#", "#", "#", "#"],
+    ["#", "T", "#", "#", "#", "#"],
+    ["#", ".", ".", "B", ".", "#"],
+    ["#", ".", "#", "#", ".", "#"],
+    ["#", ".", ".", ".", "S", "#"],
+    ["#", "#", "#", "#", "#", "#"],
+  ] as unknown as string[][]),
+); // 期望 3
 
 export {};

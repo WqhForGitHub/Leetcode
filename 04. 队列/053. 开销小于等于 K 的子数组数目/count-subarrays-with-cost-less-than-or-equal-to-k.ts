@@ -17,10 +17,7 @@ function countSubarraysWithCost1(nums: number[], k: number): number {
   let result = 0;
   for (let right = 0; right < n; right++) {
     sum += nums[right];
-    while (
-      maxDeque.length > 0 &&
-      nums[maxDeque[maxDeque.length - 1]] <= nums[right]
-    ) {
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right]) {
       maxDeque.pop();
     }
     maxDeque.push(right);

@@ -46,8 +46,10 @@ function minimumCostII(nums: number[], k: number, dist: number): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (minHeap[i][0] < minHeap[p][0]) { [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]]; i = p; }
-      else break;
+      if (minHeap[i][0] < minHeap[p][0]) {
+        [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -55,11 +57,14 @@ function minimumCostII(nums: number[], k: number, dist: number): number {
     const len = minHeap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && minHeap[l][0] < minHeap[s][0]) s = l;
       if (r < len && minHeap[r][0] < minHeap[s][0]) s = r;
-      if (s !== i) { [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]];
+        i = s;
+      } else break;
     }
   };
   minHeap.push([dp[0], 0]);

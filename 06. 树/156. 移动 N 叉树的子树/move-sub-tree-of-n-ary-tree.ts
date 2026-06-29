@@ -57,7 +57,11 @@ function moveSubTree(root: Node | null, p: Node, q: Node): Node {
     // 将 q 添加到 p 的原父节点的子列表中（替代 p 的位置）—— 题目原意
     // 实际：若 p 在 q 子树中，需要把 q 加入到 p 的原父节点的子节点列表中 p 的位置
     if (pParent !== null) {
-      pParent.children.splice(pParent.children.indexOf(q) === -1 ? pParent.children.length : pParent.children.length, 0, q);
+      pParent.children.splice(
+        pParent.children.indexOf(q) === -1 ? pParent.children.length : pParent.children.length,
+        0,
+        q,
+      );
       // 从 q 的父节点中移除 q
       const qParent = findParent(root, q, null);
       if (qParent !== null && qParent !== pParent) {

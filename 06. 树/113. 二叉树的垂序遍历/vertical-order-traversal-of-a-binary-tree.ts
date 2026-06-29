@@ -68,9 +68,7 @@ function dfs(node: TreeNode | null, row: number, col: number, nodes: NodeInfo[])
 function verticalTraversalBFS(root: TreeNode | null): number[][] {
   if (root === null) return [];
   const nodes: NodeInfo[] = [];
-  const queue: { node: TreeNode; row: number; col: number }[] = [
-    { node: root, row: 0, col: 0 },
-  ];
+  const queue: { node: TreeNode; row: number; col: number }[] = [{ node: root, row: 0, col: 0 }];
 
   while (queue.length > 0) {
     const { node, row, col } = queue.shift()!;

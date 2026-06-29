@@ -91,10 +91,13 @@ const decoded = decode(encoded);
 console.log("解码后根值:", decoded?.val); // 期望 1
 console.log("解码后子节点数:", decoded?.children.length); // 期望 3
 console.log("解码后第一个子节点的子节点数:", decoded?.children[0].children.length); // 期望 2
-console.log("解码后子节点值:", decoded?.children.map((c) => c.val)); // 期望 [3, 2, 4]
+console.log(
+  "解码后子节点值:",
+  decoded?.children.map((c) => c.val),
+); // 期望 [3, 2, 4]
 console.log(
   "解码后第一个子节点的子节点值:",
-  decoded?.children[0].children.map((c) => c.val)
+  decoded?.children[0].children.map((c) => c.val),
 ); // 期望 [5, 6]
 
 // 空树测试

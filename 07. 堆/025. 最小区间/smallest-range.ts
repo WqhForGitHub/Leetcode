@@ -48,7 +48,10 @@ function smallestRange(nums: number[][]): number[] {
   let best = [-Infinity, Infinity];
   while (heap.length === nums.length) {
     const top = pop()!;
-    if (maxVal - top.val < best[1] - best[0] || (maxVal - top.val === best[1] - best[0] && top.val < best[0])) {
+    if (
+      maxVal - top.val < best[1] - best[0] ||
+      (maxVal - top.val === best[1] - best[0] && top.val < best[0])
+    ) {
       best = [top.val, maxVal];
     }
     if (top.c + 1 < nums[top.r].length) {
@@ -64,7 +67,14 @@ function smallestRange(nums: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 025. 最小区间 =====");
-console.log("最小区间:", smallestRange([[4, 10, 15, 24, 26], [0, 9, 12, 20], [5, 18, 22, 30]]));
+console.log(
+  "最小区间:",
+  smallestRange([
+    [4, 10, 15, 24, 26],
+    [0, 9, 12, 20],
+    [5, 18, 22, 30],
+  ]),
+);
 // 期望 [20,24]
 
 export {};

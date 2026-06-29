@@ -64,8 +64,16 @@ function preorder(node: TreeNode | null): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', preorder(constructMaximumBinaryTree([3, 2, 1, 6, 0, 5])), '期望: [6,3,2,1,5,0,5]');
-  console.log('测试2 - 递归:', preorder(constructMaximumBinaryTreeRecursive([3, 2, 1, 6, 0, 5])), '期望: [6,3,2,1,5,0,5]');
+  console.log(
+    "测试1 - 栈法:",
+    preorder(constructMaximumBinaryTree([3, 2, 1, 6, 0, 5])),
+    "期望: [6,3,2,1,5,0,5]",
+  );
+  console.log(
+    "测试2 - 递归:",
+    preorder(constructMaximumBinaryTreeRecursive([3, 2, 1, 6, 0, 5])),
+    "期望: [6,3,2,1,5,0,5]",
+  );
 }
 
 test();

@@ -49,12 +49,7 @@ class SnakeGame {
     const newHeadKey = `${newHead[0]},${newHead[1]}`;
 
     // 检查是否撞墙
-    if (
-      newHead[0] < 0 ||
-      newHead[0] >= this.height ||
-      newHead[1] < 0 ||
-      newHead[1] >= this.width
-    ) {
+    if (newHead[0] < 0 || newHead[0] >= this.height || newHead[1] < 0 || newHead[1] >= this.width) {
       return -1;
     }
 

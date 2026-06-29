@@ -6,7 +6,13 @@
 // 时间复杂度：O(E * (V + E) log V)，空间复杂度：O(V + E)
 
 // 方法1：Dijkstra + 贪心修改
-function modifiedGraphEdges(n: number, edges: number[][], source: number, destination: number, target: number): number[][] {
+function modifiedGraphEdges(
+  n: number,
+  edges: number[][],
+  source: number,
+  destination: number,
+  target: number,
+): number[][] {
   const adjList: Map<number, Array<[number, number]>> = new Map();
   for (let i = 0; i < n; i++) adjList.set(i, []);
   for (let i = 0; i < edges.length; i++) {
@@ -24,8 +30,10 @@ function modifiedGraphEdges(n: number, edges: number[][], source: number, destin
     const siftUp = (i: number): void => {
       while (i > 0) {
         const p = (i - 1) >> 1;
-        if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-        else break;
+        if (heap[i][0] < heap[p][0]) {
+          [heap[i], heap[p]] = [heap[p], heap[i]];
+          i = p;
+        } else break;
       }
     };
     const siftDown = (): void => {
@@ -33,11 +41,14 @@ function modifiedGraphEdges(n: number, edges: number[][], source: number, destin
       const len = heap.length;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < len && heap[l][0] < heap[s][0]) s = l;
         if (r < len && heap[r][0] < heap[s][0]) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-        else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     };
     while (heap.length > 0) {
@@ -59,10 +70,10 @@ function modifiedGraphEdges(n: number, edges: number[][], source: number, destin
     return d[destination];
   };
   // 先把所有 -1 设为 1，计算最短路径
-  let d = dijkstra(edges.map(e => e[2]));
+  let d = dijkstra(edges.map((e) => e[2]));
   if (d > target) return [];
   // 逐条边调整
-  const weights = edges.map(e => e[2]);
+  const weights = edges.map((e) => e[2]);
   let changed = true;
   while (changed && d < target) {
     changed = false;
@@ -91,8 +102,22 @@ function modifiedGraphEdges(n: number, edges: number[][], source: number, destin
 // 测试
 // ============================================================
 console.log("===== 156. 修改图中的边权 =====");
-console.log("Dijkstra:", JSON.stringify(modifiedGraphEdges(
-  5, [[4, 1, -1], [2, 0, -1], [0, 3, -1], [4, 3, -1]], 0, 1, 5
-))); // 期望 [[4,1,1],[2,0,1],[0,3,1],[4,3,3]] 或类似
+console.log(
+  "Dijkstra:",
+  JSON.stringify(
+    modifiedGraphEdges(
+      5,
+      [
+        [4, 1, -1],
+        [2, 0, -1],
+        [0, 3, -1],
+        [4, 3, -1],
+      ],
+      0,
+      1,
+      5,
+    ),
+  ),
+); // 期望 [[4,1,1],[2,0,1],[0,3,1],[4,3,3]] 或类似
 
 export {};

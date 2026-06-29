@@ -80,10 +80,10 @@ function buildList(arr: number[]): ListNode | null {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', isPalindrome(buildList([1, 2, 2, 1])), '期望: true');
-  console.log('测试2 - 栈法:', isPalindrome(buildList([1, 2])), '期望: false');
-  console.log('测试3 - O1法:', isPalindromeO1(buildList([1, 2, 2, 1])), '期望: true');
-  console.log('测试4 - O1法:', isPalindromeO1(buildList([1, 2, 3, 2, 1])), '期望: true');
+  console.log("测试1 - 栈法:", isPalindrome(buildList([1, 2, 2, 1])), "期望: true");
+  console.log("测试2 - 栈法:", isPalindrome(buildList([1, 2])), "期望: false");
+  console.log("测试3 - O1法:", isPalindromeO1(buildList([1, 2, 2, 1])), "期望: true");
+  console.log("测试4 - O1法:", isPalindromeO1(buildList([1, 2, 3, 2, 1])), "期望: true");
 }
 
 test();

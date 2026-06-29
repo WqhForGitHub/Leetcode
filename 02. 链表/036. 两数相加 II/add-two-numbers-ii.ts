@@ -128,31 +128,31 @@ function addTwoNumbersReverse(l1: ListNode | null, l2: ListNode | null): ListNod
 console.log("===== 036. 两数相加 II =====");
 console.log(
   "方法1 栈：[7,2,4,3] + [5,6,4] ->",
-  listToArray(addTwoNumbers(arrayToList([7, 2, 4, 3]), arrayToList([5, 6, 4])))
+  listToArray(addTwoNumbers(arrayToList([7, 2, 4, 3]), arrayToList([5, 6, 4]))),
 ); // [7,8,0,7]
 console.log(
   "方法1 栈：[2,4,3] + [5,6,4] ->",
-  listToArray(addTwoNumbers(arrayToList([2, 4, 3]), arrayToList([5, 6, 4])))
+  listToArray(addTwoNumbers(arrayToList([2, 4, 3]), arrayToList([5, 6, 4]))),
 ); // [8,0,7]
 console.log(
   "方法1 栈：[0] + [0] ->",
-  listToArray(addTwoNumbers(arrayToList([0]), arrayToList([0])))
+  listToArray(addTwoNumbers(arrayToList([0]), arrayToList([0]))),
 ); // [0]
 console.log(
   "方法1 栈：[9,9,9,9] + [1] ->",
-  listToArray(addTwoNumbers(arrayToList([9, 9, 9, 9]), arrayToList([1])))
+  listToArray(addTwoNumbers(arrayToList([9, 9, 9, 9]), arrayToList([1]))),
 ); // [1,0,0,0,0]
 console.log(
   "方法2 反转：[7,2,4,3] + [5,6,4] ->",
-  listToArray(addTwoNumbersReverse(arrayToList([7, 2, 4, 3]), arrayToList([5, 6, 4])))
+  listToArray(addTwoNumbersReverse(arrayToList([7, 2, 4, 3]), arrayToList([5, 6, 4]))),
 ); // [7,8,0,7]
 console.log(
   "方法2 反转：[0] + [0] ->",
-  listToArray(addTwoNumbersReverse(arrayToList([0]), arrayToList([0])))
+  listToArray(addTwoNumbersReverse(arrayToList([0]), arrayToList([0]))),
 ); // [0]
 console.log(
   "方法2 反转：[9,9,9,9] + [1] ->",
-  listToArray(addTwoNumbersReverse(arrayToList([9, 9, 9, 9]), arrayToList([1])))
+  listToArray(addTwoNumbersReverse(arrayToList([9, 9, 9, 9]), arrayToList([1]))),
 ); // [1,0,0,0,0]
 
 export {};

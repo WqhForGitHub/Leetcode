@@ -17,7 +17,7 @@ function maximalRectangle(matrix: string[][]): number {
   let maxArea = 0;
   for (const row of matrix) {
     for (let j = 0; j < cols; j++) {
-      heights[j] = row[j] === '1' ? heights[j] + 1 : 0;
+      heights[j] = row[j] === "1" ? heights[j] + 1 : 0;
     }
     maxArea = Math.max(maxArea, largestRectangleArea(heights));
   }
@@ -45,18 +45,18 @@ function largestRectangleArea(heights: number[]): number {
 // ------------------------------------------------------------
 function test(): void {
   console.log(
-    '测试1:',
+    "测试1:",
     maximalRectangle([
-      ['1', '0', '1', '0', '0'],
-      ['1', '0', '1', '1', '1'],
-      ['1', '1', '1', '1', '1'],
-      ['1', '0', '0', '1', '0'],
+      ["1", "0", "1", "0", "0"],
+      ["1", "0", "1", "1", "1"],
+      ["1", "1", "1", "1", "1"],
+      ["1", "0", "0", "1", "0"],
     ]),
-    '期望: 6',
+    "期望: 6",
   );
-  console.log('测试2:', maximalRectangle([]), '期望: 0');
-  console.log('测试3:', maximalRectangle([['0']]), '期望: 0');
-  console.log('测试4:', maximalRectangle([['1']]), '期望: 1');
+  console.log("测试2:", maximalRectangle([]), "期望: 0");
+  console.log("测试3:", maximalRectangle([["0"]]), "期望: 0");
+  console.log("测试4:", maximalRectangle([["1"]]), "期望: 1");
 }
 
 test();

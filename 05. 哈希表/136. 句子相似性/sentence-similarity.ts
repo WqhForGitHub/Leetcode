@@ -39,14 +39,14 @@ console.log(
   areSentencesSimilar(
     ["great", "acting", "skills"],
     ["fine", "drama", "talent"],
-    [["great", "fine"], ["acting", "drama"], ["skills", "talent"]],
+    [
+      ["great", "fine"],
+      ["acting", "drama"],
+      ["skills", "talent"],
+    ],
   ),
 ); // 期望: true
-console.log(
-  areSentencesSimilar(["great"], ["great"], []),
-); // 期望: true
-console.log(
-  areSentencesSimilar(["great"], ["doubleplus", "good"], [["great", "good"]]),
-); // 期望: false
+console.log(areSentencesSimilar(["great"], ["great"], [])); // 期望: true
+console.log(areSentencesSimilar(["great"], ["doubleplus", "good"], [["great", "good"]])); // 期望: false
 
 export {};

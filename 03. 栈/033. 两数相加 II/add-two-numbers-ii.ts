@@ -67,8 +67,12 @@ function listToArray(head: ListNode | null): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', listToArray(addTwoNumbers(buildList([7, 2, 4, 3]), buildList([5, 6, 4]))), '期望: [7,8,0,7]');
-  console.log('测试2:', listToArray(addTwoNumbers(buildList([0]), buildList([0]))), '期望: [0]');
+  console.log(
+    "测试1:",
+    listToArray(addTwoNumbers(buildList([7, 2, 4, 3]), buildList([5, 6, 4]))),
+    "期望: [7,8,0,7]",
+  );
+  console.log("测试2:", listToArray(addTwoNumbers(buildList([0]), buildList([0]))), "期望: [0]");
 }
 
 test();

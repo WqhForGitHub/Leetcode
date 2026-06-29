@@ -17,7 +17,10 @@ function minimumObstacles(grid: number[][]): number {
     let i = heap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i].d < heap[p].d) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; } else break;
+      if (heap[i].d < heap[p].d) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const pop = (): { d: number; r: number; c: number } => {
@@ -28,15 +31,24 @@ function minimumObstacles(grid: number[][]): number {
       let i = 0;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < heap.length && heap[l].d < heap[s].d) s = l;
         if (r < heap.length && heap[r].d < heap[s].d) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; } else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     }
     return top;
   };
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   while (heap.length > 0) {
     const cur = pop()!;
     if (cur.r === m - 1 && cur.c === n - 1) return cur.d;
@@ -62,7 +74,12 @@ function minimumObstaclesBFS(grid: number[][]): number {
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
   dist[0][0] = 0;
   const deque: Array<[number, number, number]> = [[0, 0, 0]];
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   let head = 0;
   while (head < deque.length) {
     const [d, r, c] = deque[head++];
@@ -87,7 +104,21 @@ function minimumObstaclesBFS(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 120. 到达角落需要移除障碍物的最小数目 =====");
-console.log("Dijkstra:", minimumObstacles([[0, 1, 1], [1, 1, 0], [1, 1, 0]])); // 期望 2
-console.log("BFS:", minimumObstaclesBFS([[0, 1, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 1, 0]])); // 期望 0
+console.log(
+  "Dijkstra:",
+  minimumObstacles([
+    [0, 1, 1],
+    [1, 1, 0],
+    [1, 1, 0],
+  ]),
+); // 期望 2
+console.log(
+  "BFS:",
+  minimumObstaclesBFS([
+    [0, 1, 0, 0, 0],
+    [0, 1, 0, 1, 0],
+    [0, 0, 0, 1, 0],
+  ]),
+); // 期望 0
 
 export {};

@@ -66,11 +66,7 @@ function serialize(root: Node | null): string {
 //    2  3  4
 //   / \
 //  5   6
-const t1 = new Node(1, [
-  new Node(2, [new Node(5), new Node(6)]),
-  new Node(3, []),
-  new Node(4, []),
-]);
+const t1 = new Node(1, [new Node(2, [new Node(5), new Node(6)]), new Node(3, []), new Node(4, [])]);
 console.log("测试1 DFS:", serialize(cloneTree(t1)));
 console.log("测试1 BFS:", serialize(cloneTreeBFS(t1)));
 

@@ -60,13 +60,7 @@ class WordDistance {
 // ============================================================
 console.log("===== 039. 最短单词距离 II =====");
 // 测试 1: 基本查询
-const wd1 = new WordDistance([
-  "practice",
-  "makes",
-  "perfect",
-  "coding",
-  "makes",
-]);
+const wd1 = new WordDistance(["practice", "makes", "perfect", "coding", "makes"]);
 console.log(wd1.shortest("coding", "practice")); // 期望输出: 3
 console.log(wd1.shortest("makes", "coding")); // 期望输出: 1
 

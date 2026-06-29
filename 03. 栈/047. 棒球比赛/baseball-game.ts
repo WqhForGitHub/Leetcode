@@ -12,12 +12,12 @@
 function calPoints(ops: string[]): number {
   const stack: number[] = [];
   for (const op of ops) {
-    if (op === '+') {
+    if (op === "+") {
       const n = stack.length;
       stack.push(stack[n - 1] + stack[n - 2]);
-    } else if (op === 'D') {
+    } else if (op === "D") {
       stack.push(stack[stack.length - 1] * 2);
-    } else if (op === 'C') {
+    } else if (op === "C") {
       stack.pop();
     } else {
       stack.push(parseInt(op, 10));
@@ -30,9 +30,9 @@ function calPoints(ops: string[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', calPoints(['5', '2', 'C', 'D', '+']), '期望: 30');
-  console.log('测试2:', calPoints(['5', '-2', '4', 'C', 'D', '9', '+', '+']), '期望: 27');
-  console.log('测试3:', calPoints(['1']), '期望: 1');
+  console.log("测试1:", calPoints(["5", "2", "C", "D", "+"]), "期望: 30");
+  console.log("测试2:", calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"]), "期望: 27");
+  console.log("测试3:", calPoints(["1"]), "期望: 1");
 }
 
 test();

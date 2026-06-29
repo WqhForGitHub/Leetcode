@@ -8,7 +8,9 @@
 // 方法1：求所有 numsDivide 的 GCD + 排序
 function minOperations(nums: number[], numsDivide: number[]): number {
   const gcd = (a: number, b: number): number => {
-    while (b !== 0) { [a, b] = [b, a % b]; }
+    while (b !== 0) {
+      [a, b] = [b, a % b];
+    }
     return a;
   };
   let g = numsDivide[0];
@@ -26,7 +28,9 @@ function minOperations(nums: number[], numsDivide: number[]): number {
 // 方法2：最小堆
 function minOperationsHeap(nums: number[], numsDivide: number[]): number {
   const gcd = (a: number, b: number): number => {
-    while (b !== 0) { [a, b] = [b, a % b]; }
+    while (b !== 0) {
+      [a, b] = [b, a % b];
+    }
     return a;
   };
   let g = numsDivide[0];
@@ -37,11 +41,14 @@ function minOperationsHeap(nums: number[], numsDivide: number[]): number {
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l] < heap[s]) s = l;
       if (r < len && heap[r] < heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);

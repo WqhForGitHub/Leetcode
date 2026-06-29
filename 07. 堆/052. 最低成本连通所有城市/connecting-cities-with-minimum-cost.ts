@@ -92,7 +92,20 @@ function minimumCostKruskal(n: number, connections: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 052. 最低成本连通所有城市 =====");
-console.log("Prim:", minimumCost(3, [[1, 2, 5], [1, 3, 6], [2, 3, 1]])); // 期望 6
-console.log("Kruskal:", minimumCostKruskal(4, [[1, 2, 3], [3, 4, 4]])); // 期望 -1
+console.log(
+  "Prim:",
+  minimumCost(3, [
+    [1, 2, 5],
+    [1, 3, 6],
+    [2, 3, 1],
+  ]),
+); // 期望 6
+console.log(
+  "Kruskal:",
+  minimumCostKruskal(4, [
+    [1, 2, 3],
+    [3, 4, 4],
+  ]),
+); // 期望 -1
 
 export {};

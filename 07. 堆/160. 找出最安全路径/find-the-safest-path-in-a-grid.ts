@@ -20,12 +20,18 @@ function maximumSafenessFactor(grid: number[][]): number {
       }
     }
   }
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   let head = 0;
   while (head < queue.length) {
     const [r, c] = queue[head++];
     for (const [dr, dc] of dirs) {
-      const nr = r + dr, nc = c + dc;
+      const nr = r + dr,
+        nc = c + dc;
       if (nr >= 0 && nr < n && nc >= 0 && nc < n && dist[nr][nc] === -1) {
         dist[nr][nc] = dist[r][c] + 1;
         queue.push([nr, nc]);
@@ -47,14 +53,16 @@ function maximumSafenessFactor(grid: number[][]): number {
     return x;
   };
   const union = (x: number, y: number): void => {
-    const px = find(x), py = find(y);
+    const px = find(x),
+      py = find(y);
     if (px !== py) parent[px] = py;
   };
   const visited: boolean[][] = Array.from({ length: n }, () => new Array(n).fill(false));
   for (const [d, r, c] of cells) {
     visited[r][c] = true;
     for (const [dr, dc] of dirs) {
-      const nr = r + dr, nc = c + dc;
+      const nr = r + dr,
+        nc = c + dc;
       if (nr >= 0 && nr < n && nc >= 0 && nc < n && visited[nr][nc]) {
         union(r * n + c, nr * n + nc);
       }
@@ -80,12 +88,18 @@ function maximumSafenessFactorDijkstra(grid: number[][]): number {
       }
     }
   }
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   let head = 0;
   while (head < queue.length) {
     const [r, c] = queue[head++];
     for (const [dr, dc] of dirs) {
-      const nr = r + dr, nc = c + dc;
+      const nr = r + dr,
+        nc = c + dc;
       if (nr >= 0 && nr < n && nc >= 0 && nc < n && dist[nr][nc] === -1) {
         dist[nr][nc] = dist[r][c] + 1;
         queue.push([nr, nc]);
@@ -99,8 +113,10 @@ function maximumSafenessFactorDijkstra(grid: number[][]): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] > heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] > heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -108,11 +124,14 @@ function maximumSafenessFactorDijkstra(grid: number[][]): number {
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] > heap[s][0]) s = l;
       if (r < len && heap[r][0] > heap[s][0]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   while (heap.length > 0) {
@@ -123,7 +142,8 @@ function maximumSafenessFactorDijkstra(grid: number[][]): number {
     if (r === n - 1 && c === n - 1) return d;
     if (d < maxDist[r][c]) continue;
     for (const [dr, dc] of dirs) {
-      const nr = r + dr, nc = c + dc;
+      const nr = r + dr,
+        nc = c + dc;
       if (nr >= 0 && nr < n && nc >= 0 && nc < n) {
         const nd = Math.min(d, dist[nr][nc]);
         if (nd > maxDist[nr][nc]) {
@@ -141,7 +161,21 @@ function maximumSafenessFactorDijkstra(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 160. 找出最安全路径 =====");
-console.log("并查集:", maximumSafenessFactor([[1, 0, 0], [0, 0, 0], [0, 0, 1]])); // 期望 0
-console.log("Dijkstra:", maximumSafenessFactorDijkstra([[0, 0, 1], [0, 0, 0], [0, 0, 0]])); // 期望 2
+console.log(
+  "并查集:",
+  maximumSafenessFactor([
+    [1, 0, 0],
+    [0, 0, 0],
+    [0, 0, 1],
+  ]),
+); // 期望 0
+console.log(
+  "Dijkstra:",
+  maximumSafenessFactorDijkstra([
+    [0, 0, 1],
+    [0, 0, 0],
+    [0, 0, 0],
+  ]),
+); // 期望 2
 
 export {};

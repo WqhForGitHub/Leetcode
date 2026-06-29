@@ -35,9 +35,7 @@ function subdomainVisits(cpdomains: string[]): string[] {
 // 测试
 // ============================================================
 console.log("===== 155. 子域名访问计数 =====");
-console.log(
-  subdomainVisits(["9001 discuss.leetcode.com"]),
-); // 期望: ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"] (顺序可变)
+console.log(subdomainVisits(["9001 discuss.leetcode.com"])); // 期望: ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"] (顺序可变)
 console.log(
   subdomainVisits(["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]),
 ); // 期望: 包含 ["901 mail.com","50 yahoo.com","900 google.mail.com",...]

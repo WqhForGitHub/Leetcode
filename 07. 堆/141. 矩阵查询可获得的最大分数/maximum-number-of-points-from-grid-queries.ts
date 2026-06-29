@@ -17,7 +17,12 @@ function maxPoints(grid: number[][], queries: number[]): number[] {
   // 最小堆 [value, r, c]
   const heap: Array<[number, number, number]> = [[grid[0][0], 0, 0]];
   visited[0][0] = true;
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   let count = 0;
   for (const [q, qi] of indexedQueries) {
     while (heap.length > 0 && heap[0][0] < q) {
@@ -27,7 +32,8 @@ function maxPoints(grid: number[][], queries: number[]): number[] {
       siftDown(heap, 0);
       count++;
       for (const [dr, dc] of dirs) {
-        const nr = r + dr, nc = c + dc;
+        const nr = r + dr,
+          nc = c + dc;
         if (nr >= 0 && nr < m && nc >= 0 && nc < n && !visited[nr][nc]) {
           visited[nr][nc] = true;
           heap.push([grid[nr][nc], nr, nc]);
@@ -42,19 +48,24 @@ function maxPoints(grid: number[][], queries: number[]): number[] {
   function siftUp(h: Array<[number, number, number]>, i: number): void {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (h[i][0] < h[p][0]) { [h[i], h[p]] = [h[p], h[i]]; i = p; }
-      else break;
+      if (h[i][0] < h[p][0]) {
+        [h[i], h[p]] = [h[p], h[i]];
+        i = p;
+      } else break;
     }
   }
   function siftDown(h: Array<[number, number, number]>, i: number): void {
     const len = h.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && h[l][0] < h[s][0]) s = l;
       if (r < len && h[r][0] < h[s][0]) s = r;
-      if (s !== i) { [h[i], h[s]] = [h[s], h[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [h[i], h[s]] = [h[s], h[i]];
+        i = s;
+      } else break;
     }
   }
 }
@@ -80,12 +91,23 @@ function maxPointsUF(grid: number[][], queries: number[]): number[] {
     return x;
   };
   const union = (x: number, y: number): void => {
-    const px = find(x), py = find(y);
+    const px = find(x),
+      py = find(y);
     if (px === py) return;
-    if (rank[px] < rank[py]) { parent[px] = py; rank[py] += rank[px]; }
-    else { parent[py] = px; rank[px] += rank[py]; }
+    if (rank[px] < rank[py]) {
+      parent[px] = py;
+      rank[py] += rank[px];
+    } else {
+      parent[py] = px;
+      rank[px] += rank[py];
+    }
   };
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   let idx = 0;
   rank[0] = 1;
   for (const [q, qi] of indexedQueries) {
@@ -94,7 +116,8 @@ function maxPointsUF(grid: number[][], queries: number[]): number[] {
       const flat = r * n + c;
       if (rank[flat] === 0) rank[flat] = 1;
       for (const [dr, dc] of dirs) {
-        const nr = r + dr, nc = c + dc;
+        const nr = r + dr,
+          nc = c + dc;
         if (nr >= 0 && nr < m && nc >= 0 && nc < n && grid[nr][nc] < q) {
           const nflat = nr * n + nc;
           if (rank[nflat] > 0) union(flat, nflat);
@@ -111,7 +134,26 @@ function maxPointsUF(grid: number[][], queries: number[]): number[] {
 // 测试
 // ============================================================
 console.log("===== 141. 矩阵查询可获得的最大分数 =====");
-console.log("堆:", maxPoints([[1, 2, 3], [2, 5, 7], [3, 5, 1]], [5, 6, 2])); // 期望 [5,8,1]
-console.log("堆:", maxPoints([[5, 2, 1], [1, 1, 2]], [3])); // 期望 [0]
+console.log(
+  "堆:",
+  maxPoints(
+    [
+      [1, 2, 3],
+      [2, 5, 7],
+      [3, 5, 1],
+    ],
+    [5, 6, 2],
+  ),
+); // 期望 [5,8,1]
+console.log(
+  "堆:",
+  maxPoints(
+    [
+      [5, 2, 1],
+      [1, 1, 2],
+    ],
+    [3],
+  ),
+); // 期望 [0]
 
 export {};

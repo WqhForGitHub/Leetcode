@@ -13,9 +13,7 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
   const n = mat2[0].length;
 
   // 结果矩阵 m x n
-  const result: number[][] = Array.from({ length: m }, () =>
-    new Array(n).fill(0),
-  );
+  const result: number[][] = Array.from({ length: m }, () => new Array(n).fill(0));
 
   // 用哈希表存储 mat2 每行的非零元素：rowMap[行号] = Map<列号, 值>
   // 这样遍历 mat1[i][p] 时，只需与 mat2 第 p 行的非零列相乘

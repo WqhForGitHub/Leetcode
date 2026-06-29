@@ -95,7 +95,17 @@ function minCostToSupplyWaterPrim(n: number, wells: number[], pipes: number[][])
 // 测试
 // ============================================================
 console.log("===== 054. 水资源分配优化 =====");
-console.log("Kruskal:", minCostToSupplyWater(3, [1, 2, 2], [[1, 2, 1], [2, 3, 1]])); // 期望 3
+console.log(
+  "Kruskal:",
+  minCostToSupplyWater(
+    3,
+    [1, 2, 2],
+    [
+      [1, 2, 1],
+      [2, 3, 1],
+    ],
+  ),
+); // 期望 3
 console.log("Prim:", minCostToSupplyWaterPrim(2, [1, 2], [[1, 2, 1]])); // 期望 2
 
 export {};

@@ -49,13 +49,9 @@ function postorderRecursive(root: Node | null): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  const root = new Node(1, [
-    new Node(3, [new Node(5), new Node(6)]),
-    new Node(2),
-    new Node(4),
-  ]);
-  console.log('测试1 - 迭代:', postorder(root), '期望: [5,6,3,2,4,1]');
-  console.log('测试2 - 递归:', postorderRecursive(root), '期望: [5,6,3,2,4,1]');
+  const root = new Node(1, [new Node(3, [new Node(5), new Node(6)]), new Node(2), new Node(4)]);
+  console.log("测试1 - 迭代:", postorder(root), "期望: [5,6,3,2,4,1]");
+  console.log("测试2 - 递归:", postorderRecursive(root), "期望: [5,6,3,2,4,1]");
 }
 
 test();

@@ -23,10 +23,7 @@ class TreeNode {
 // - 都为空返回 null
 // - 一个为空返回另一个的副本子树
 // - 都非空相加，递归合并左右子树
-function mergeTrees(
-  root1: TreeNode | null,
-  root2: TreeNode | null
-): TreeNode | null {
+function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
   if (root1 === null) return root2;
   if (root2 === null) return root1;
   // 两个节点都存在，值相加
@@ -38,16 +35,11 @@ function mergeTrees(
 
 // 方法2：迭代BFS
 // 使用队列同时遍历两棵树，逐节点合并
-function mergeTreesBFS(
-  root1: TreeNode | null,
-  root2: TreeNode | null
-): TreeNode | null {
+function mergeTreesBFS(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
   if (root1 === null) return root2;
   if (root2 === null) return root1;
   const root = new TreeNode(root1.val + root2.val);
-  const queue: [TreeNode, TreeNode, TreeNode][] = [
-    [root, root1, root2],
-  ];
+  const queue: [TreeNode, TreeNode, TreeNode][] = [[root, root1, root2]];
   while (queue.length > 0) {
     const [node, n1, n2] = queue.shift()!;
     // 处理左孩子

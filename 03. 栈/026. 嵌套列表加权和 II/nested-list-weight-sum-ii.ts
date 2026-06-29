@@ -64,25 +64,21 @@ function depthSumInverseDFS(nestedList: NestedInteger[]): number {
 class NI implements NestedInteger {
   constructor(private val: number | NestedInteger[]) {}
   isInteger(): boolean {
-    return typeof this.val === 'number';
+    return typeof this.val === "number";
   }
   getInteger(): number | null {
-    return typeof this.val === 'number' ? this.val : null;
+    return typeof this.val === "number" ? this.val : null;
   }
   getList(): NestedInteger[] {
-    return typeof this.val === 'number' ? [] : this.val;
+    return typeof this.val === "number" ? [] : this.val;
   }
 }
 
 function test(): void {
   // [[1,1],2,[1,1]] -> 1*2+1*2+2*2+1*2+1*2 = 8+? 实际期望 8
-  const list = [
-    new NI([new NI(1), new NI(1)]),
-    new NI(2),
-    new NI([new NI(1), new NI(1)]),
-  ];
-  console.log('测试1 - BFS:', depthSumInverse(list), '期望: 8');
-  console.log('测试2 - DFS:', depthSumInverseDFS(list), '期望: 8');
+  const list = [new NI([new NI(1), new NI(1)]), new NI(2), new NI([new NI(1), new NI(1)])];
+  console.log("测试1 - BFS:", depthSumInverse(list), "期望: 8");
+  console.log("测试2 - DFS:", depthSumInverseDFS(list), "期望: 8");
 }
 
 test();

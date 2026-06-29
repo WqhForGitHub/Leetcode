@@ -87,7 +87,7 @@ console.log("Morris:", preorderTraversalMorris(tree025)); // [1,2,3]
 const tree025b = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-  new TreeNode(3, null, new TreeNode(6))
+  new TreeNode(3, null, new TreeNode(6)),
 );
 console.log("递归 [1,2,3,4,5,null,6]:", preorderTraversal(tree025b)); // [1,2,4,5,3,6]
 console.log("迭代 [1,2,3,4,5,null,6]:", preorderTraversalIterative(tree025b)); // [1,2,4,5,3,6]

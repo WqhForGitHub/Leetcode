@@ -47,9 +47,9 @@ function test(): void {
   const q = new MyQueue();
   q.push(1);
   q.push(2);
-  console.log('测试1 peek:', q.peek(), '期望: 1');
-  console.log('测试2 pop:', q.pop(), '期望: 1');
-  console.log('测试3 empty:', q.empty(), '期望: false');
+  console.log("测试1 peek:", q.peek(), "期望: 1");
+  console.log("测试2 pop:", q.pop(), "期望: 1");
+  console.log("测试3 empty:", q.empty(), "期望: false");
 }
 
 test();

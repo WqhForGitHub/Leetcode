@@ -94,13 +94,13 @@ function inorderForSplit(root: TreeNode | null): number[] {
 const tree1 = buildTreeForSplit([4, 2, 6, 1, 3, 5, 7]);
 const [small1, large1] = splitBST(tree1, 2);
 console.log("测试1 - 小等于2的中序:", inorderForSplit(small1)); // 期望 [1,2]
-console.log("测试1 - 大于2的中序:", inorderForSplit(large1));   // 期望 [3,4,5,6,7]
+console.log("测试1 - 大于2的中序:", inorderForSplit(large1)); // 期望 [3,4,5,6,7]
 
 // 测试2: root = [4,2,6,1,3,5,7], V = 4
 const tree2 = buildTreeForSplit([4, 2, 6, 1, 3, 5, 7]);
 const [small2, large2] = splitBST(tree2, 4);
 console.log("测试2 - 小等于4的中序:", inorderForSplit(small2)); // 期望 [1,2,3,4]
-console.log("测试2 - 大于4的中序:", inorderForSplit(large2));   // 期望 [5,6,7]
+console.log("测试2 - 大于4的中序:", inorderForSplit(large2)); // 期望 [5,6,7]
 
 // 测试3: 空树
 const [small3, large3] = splitBST(null, 1);
@@ -110,6 +110,6 @@ console.log("测试3 - 空树拆分:", small3, large3); // 期望 null null
 const tree4 = buildTreeForSplit([4, 2, 6]);
 const [small4, large4] = splitBST(tree4, 0);
 console.log("测试4 - 小等于0的中序:", inorderForSplit(small4)); // 期望 []
-console.log("测试4 - 大于0的中序:", inorderForSplit(large4));   // 期望 [2,4,6]
+console.log("测试4 - 大于0的中序:", inorderForSplit(large4)); // 期望 [2,4,6]
 
 export {};

@@ -27,10 +27,7 @@ function findPoisonedDuration(timeSeries: number[], duration: number): number {
 }
 
 // 方法2：差分思想-合并重叠区间
-function findPoisonedDurationMerge(
-  timeSeries: number[],
-  duration: number,
-): number {
+function findPoisonedDurationMerge(timeSeries: number[], duration: number): number {
   if (timeSeries.length === 0) return 0;
 
   let total = 0;

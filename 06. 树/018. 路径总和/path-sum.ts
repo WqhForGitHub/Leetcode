@@ -62,7 +62,7 @@ console.log("===== 018. 路径总和 =====");
 const tree018 = new TreeNode(
   5,
   new TreeNode(4, new TreeNode(11, new TreeNode(7), new TreeNode(2))),
-  new TreeNode(8, new TreeNode(13), new TreeNode(4, null, new TreeNode(1)))
+  new TreeNode(8, new TreeNode(13), new TreeNode(4, null, new TreeNode(1))),
 );
 console.log("递归 targetSum=22:", hasPathSum(tree018, 22)); // true
 console.log("BFS   targetSum=22:", hasPathSumBFS(tree018, 22)); // true

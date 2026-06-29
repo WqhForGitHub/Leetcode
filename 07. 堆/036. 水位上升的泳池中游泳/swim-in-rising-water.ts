@@ -43,7 +43,12 @@ function swimInWater(grid: number[][]): number {
     return top;
   };
   push({ t: grid[0][0], r: 0, c: 0 });
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   while (heap.length > 0) {
     const cur = pop()!;
     if (cur.r === n - 1 && cur.c === n - 1) return cur.t;
@@ -63,7 +68,8 @@ function swimInWater(grid: number[][]): number {
 function swimInWaterUF(grid: number[][]): number {
   const n = grid.length;
   const pos: Array<{ h: number; idx: number }> = [];
-  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) pos.push({ h: grid[i][j], idx: i * n + j });
+  for (let i = 0; i < n; i++)
+    for (let j = 0; j < n; j++) pos.push({ h: grid[i][j], idx: i * n + j });
   pos.sort((a, b) => a.h - b.h);
   const parent: number[] = new Array(n * n).fill(0).map((_, i) => i);
   const find = (x: number): number => {
@@ -77,7 +83,12 @@ function swimInWaterUF(grid: number[][]): number {
     parent[find(a)] = find(b);
   };
   const seen: boolean[] = new Array(n * n).fill(false);
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   for (const { h, idx } of pos) {
     const r = Math.floor(idx / n);
     const c = idx % n;
@@ -97,7 +108,22 @@ function swimInWaterUF(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 036. 水位上升的泳池中游泳 =====");
-console.log("Dijkstra:", swimInWater([[0, 2], [1, 3]])); // 期望 3
-console.log("并查集:", swimInWaterUF([[0, 1, 2, 3, 4], [24, 23, 22, 21, 5], [12, 13, 14, 15, 16], [11, 17, 18, 19, 20], [10, 9, 8, 7, 6]])); // 期望 16
+console.log(
+  "Dijkstra:",
+  swimInWater([
+    [0, 2],
+    [1, 3],
+  ]),
+); // 期望 3
+console.log(
+  "并查集:",
+  swimInWaterUF([
+    [0, 1, 2, 3, 4],
+    [24, 23, 22, 21, 5],
+    [12, 13, 14, 15, 16],
+    [11, 17, 18, 19, 20],
+    [10, 9, 8, 7, 6],
+  ]),
+); // 期望 16
 
 export {};

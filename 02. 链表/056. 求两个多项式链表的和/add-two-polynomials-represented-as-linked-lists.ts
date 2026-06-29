@@ -91,9 +91,9 @@ function addPoly(poly1: PolyNode | null, poly2: PolyNode | null): PolyNode | nul
           [1, 1],
           [1, 0],
         ]),
-        arrayToPoly([[1, 2]])
-      )
-    )
+        arrayToPoly([[1, 2]]),
+      ),
+    ),
   ); // [[1,2],[1,1],[1,0]]
   // (2x^2 + 4x^1 + 3) + (3x^2 + -4x^1 + 1) = 5x^2 + 4
   console.log(
@@ -108,9 +108,9 @@ function addPoly(poly1: PolyNode | null, poly2: PolyNode | null): PolyNode | nul
           [3, 2],
           [-4, 1],
           [1, 0],
-        ])
-      )
-    )
+        ]),
+      ),
+    ),
   ); // [[5,2],[4,0]]
 })();
 

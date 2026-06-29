@@ -15,7 +15,7 @@ function findPermutation(s: string): number[] {
   let num = 1;
   for (const ch of s) {
     stack.push(num++);
-    if (ch === 'I') {
+    if (ch === "I") {
       while (stack.length > 0) result.push(stack.pop()!);
     }
   }
@@ -33,9 +33,9 @@ function findPermutationDirect(s: string): number[] {
   for (let i = 1; i <= n; i++) result.push(i);
   let i = 0;
   while (i < s.length) {
-    if (s[i] === 'D') {
+    if (s[i] === "D") {
       let start = i;
-      while (i < s.length && s[i] === 'D') i++;
+      while (i < s.length && s[i] === "D") i++;
       // 反转 [start, i] 这段
       let l = start,
         r = i;
@@ -55,9 +55,9 @@ function findPermutationDirect(s: string): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', findPermutation('I'), '期望: [1,2]');
-  console.log('测试2 - 栈法:', findPermutation('DI'), '期望: [2,1,3]');
-  console.log('测试3 - 直接:', findPermutationDirect('DDI'), '期望: [3,2,1,4]');
+  console.log("测试1 - 栈法:", findPermutation("I"), "期望: [1,2]");
+  console.log("测试2 - 栈法:", findPermutation("DI"), "期望: [2,1,3]");
+  console.log("测试3 - 直接:", findPermutationDirect("DDI"), "期望: [3,2,1,4]");
 }
 
 test();

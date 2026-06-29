@@ -17,11 +17,22 @@ function unmarkedSumArray(nums: number[], queries: number[][]): number[] {
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
-      if (l < len && (heap[l][0] < heap[s][0] || (heap[l][0] === heap[s][0] && heap[l][1] < heap[s][1]))) s = l;
-      if (r < len && (heap[r][0] < heap[s][0] || (heap[r][0] === heap[s][0] && heap[r][1] < heap[s][1]))) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
+      if (
+        l < len &&
+        (heap[l][0] < heap[s][0] || (heap[l][0] === heap[s][0] && heap[l][1] < heap[s][1]))
+      )
+        s = l;
+      if (
+        r < len &&
+        (heap[r][0] < heap[s][0] || (heap[r][0] === heap[s][0] && heap[r][1] < heap[s][1]))
+      )
+        s = r;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);
@@ -81,7 +92,25 @@ function unmarkedSumArraySort(nums: number[], queries: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 172. 执行操作标记数组中的元素 =====");
-console.log("堆:", unmarkedSumArray([1, 2, 4, 5, 6], [[0, 2], [2, 1]])); // 期望 [10, 5]
-console.log("排序:", unmarkedSumArraySort([1, 2, 3], [[0, 1], [1, 1]])); // 期望 [5, 3]
+console.log(
+  "堆:",
+  unmarkedSumArray(
+    [1, 2, 4, 5, 6],
+    [
+      [0, 2],
+      [2, 1],
+    ],
+  ),
+); // 期望 [10, 5]
+console.log(
+  "排序:",
+  unmarkedSumArraySort(
+    [1, 2, 3],
+    [
+      [0, 1],
+      [1, 1],
+    ],
+  ),
+); // 期望 [5, 3]
 
 export {};

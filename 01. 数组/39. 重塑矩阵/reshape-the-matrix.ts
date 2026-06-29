@@ -16,9 +16,7 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
   }
 
   // 初始化 r x c 的结果矩阵
-  const result: number[][] = Array.from({ length: r }, () =>
-    new Array(c).fill(0),
-  );
+  const result: number[][] = Array.from({ length: r }, () => new Array(c).fill(0));
 
   // 一维索引映射：原矩阵 (i,j) -> 索引 k = i*n + j
   //                结果矩阵 k -> (k/c, k%c)

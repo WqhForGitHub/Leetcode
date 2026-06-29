@@ -11,24 +11,17 @@
 // 用队列保存数据包，哈希集合去重，Map 统计目标地址计数。
 // 时间 O(1) enqueue/dequeue/forward（均摊），空间 O(n)。
 class Router1 {
-  private queue: { source: number; destination: number; timestamp: number }[] =
-    [];
+  private queue: { source: number; destination: number; timestamp: number }[] = [];
   private seen: Set<string> = new Set();
   private capacity: number;
-  private destMap: Map<
-    number,
-    { source: number; destination: number; timestamp: number }[]
-  > = new Map();
+  private destMap: Map<number, { source: number; destination: number; timestamp: number }[]> =
+    new Map();
 
   constructor(memoryLimit: number) {
     this.capacity = memoryLimit;
   }
 
-  private key(p: {
-    source: number;
-    destination: number;
-    timestamp: number;
-  }): string {
+  private key(p: { source: number; destination: number; timestamp: number }): string {
     return `${p.source},${p.destination},${p.timestamp}`;
   }
 

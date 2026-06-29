@@ -34,7 +34,10 @@ function findDiagonalOrderHeap(nums: number[][]): number[] {
     let idx = heap.length - 1;
     while (idx > 0) {
       const p = (idx - 1) >> 1;
-      if (heap[idx].sum < heap[p].sum || (heap[idx].sum === heap[p].sum && heap[idx].i > heap[p].i)) {
+      if (
+        heap[idx].sum < heap[p].sum ||
+        (heap[idx].sum === heap[p].sum && heap[idx].i > heap[p].i)
+      ) {
         [heap[idx], heap[p]] = [heap[p], heap[idx]];
         idx = p;
       } else break;
@@ -51,9 +54,17 @@ function findDiagonalOrderHeap(nums: number[][]): number[] {
         let s = i;
         const l = 2 * i + 1;
         const r = 2 * i + 2;
-        const cmpL = l < heap.length ? (heap[l].sum - heap[s].sum || (heap[l].i > heap[s].i ? -1 : 1)) : 1;
-        const cmpR = r < heap.length ? (heap[r].sum - heap[s].sum || (heap[r].i > heap[s].i ? -1 : 1)) : 1;
-        if (cmpL < 0 && (cmpR >= 0 || (heap[l].sum - heap[r].sum < 0 || (heap[l].sum === heap[r].sum && heap[l].i > heap[r].i)))) s = l;
+        const cmpL =
+          l < heap.length ? heap[l].sum - heap[s].sum || (heap[l].i > heap[s].i ? -1 : 1) : 1;
+        const cmpR =
+          r < heap.length ? heap[r].sum - heap[s].sum || (heap[r].i > heap[s].i ? -1 : 1) : 1;
+        if (
+          cmpL < 0 &&
+          (cmpR >= 0 ||
+            heap[l].sum - heap[r].sum < 0 ||
+            (heap[l].sum === heap[r].sum && heap[l].i > heap[r].i))
+        )
+          s = l;
         else if (cmpR < 0) s = r;
         if (s !== i) {
           [heap[i], heap[s]] = [heap[s], heap[i]];
@@ -80,6 +91,13 @@ function findDiagonalOrderHeap(nums: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 068. 对角线遍历 II =====");
-console.log("桶排:", findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // 期望 [1,4,2,7,5,3,8,6,9]
+console.log(
+  "桶排:",
+  findDiagonalOrder([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ]),
+); // 期望 [1,4,2,7,5,3,8,6,9]
 
 export {};

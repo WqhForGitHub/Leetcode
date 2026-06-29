@@ -45,11 +45,7 @@ console.log("===== 066. 二叉树的直径 =====");
 //     / \
 //    4   5
 // 直径为 3 (路径 4-2-1-3 或 5-2-1-3)
-const tree1 = new TreeNode(
-  1,
-  new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-  new TreeNode(3)
-);
+const tree1 = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
 console.log("[1,2,3,4,5]:", diameterOfBinaryTree(tree1)); // 3
 
 // 树:
@@ -74,7 +70,7 @@ console.log("[1,2,null,3]:", diameterOfBinaryTree(tree2)); // 2
 const tree3 = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4, new TreeNode(7), null), new TreeNode(5)),
-  new TreeNode(3, null, new TreeNode(6, new TreeNode(8), null))
+  new TreeNode(3, null, new TreeNode(6, new TreeNode(8), null)),
 );
 console.log("复杂树:", diameterOfBinaryTree(tree3)); // 6
 

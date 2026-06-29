@@ -34,8 +34,16 @@ function assignTasks(servers: number[], tasks: number[]): number[] {
         let s = i;
         const l = 2 * i + 1;
         const r = 2 * i + 2;
-        if (l < idle.length && (idle[l].w < idle[s].w || (idle[l].w === idle[s].w && idle[l].i < idle[s].i))) s = l;
-        if (r < idle.length && (idle[r].w < idle[s].w || (idle[r].w === idle[s].w && idle[r].i < idle[s].i))) s = r;
+        if (
+          l < idle.length &&
+          (idle[l].w < idle[s].w || (idle[l].w === idle[s].w && idle[l].i < idle[s].i))
+        )
+          s = l;
+        if (
+          r < idle.length &&
+          (idle[r].w < idle[s].w || (idle[r].w === idle[s].w && idle[r].i < idle[s].i))
+        )
+          s = r;
         if (s !== i) {
           [idle[i], idle[s]] = [idle[s], idle[i]];
           i = s;

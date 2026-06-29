@@ -33,8 +33,14 @@ function assignBikes(workers: number[][], bikes: number[][]): number[] {
         let s = i;
         const l = 2 * i + 1;
         const r = 2 * i + 2;
-        const cmpL = l < heap.length ? heap[l].d - heap[s].d || heap[l].w - heap[s].w || heap[l].b - heap[s].b : 1;
-        const cmpR = r < heap.length ? heap[r].d - heap[s].d || heap[r].w - heap[s].w || heap[r].b - heap[s].b : 1;
+        const cmpL =
+          l < heap.length
+            ? heap[l].d - heap[s].d || heap[l].w - heap[s].w || heap[l].b - heap[s].b
+            : 1;
+        const cmpR =
+          r < heap.length
+            ? heap[r].d - heap[s].d || heap[r].w - heap[s].w || heap[r].b - heap[s].b
+            : 1;
         if (cmpL < 0 && (cmpR >= 0 || heap[l].d - heap[r].d <= 0)) s = l;
         else if (cmpR < 0) s = r;
         if (s !== i) {
@@ -69,7 +75,33 @@ function assignBikes(workers: number[][], bikes: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 048. 校园自行车分配 =====");
-console.log("分配:", assignBikes([[0, 0], [2, 1]], [[1, 2], [3, 3]])); // 期望 [1,0]
-console.log("分配:", assignBikes([[0, 0], [1, 1], [2, 0]], [[1, 0], [2, 2], [2, 1]])); // 期望 [0,2,1]
+console.log(
+  "分配:",
+  assignBikes(
+    [
+      [0, 0],
+      [2, 1],
+    ],
+    [
+      [1, 2],
+      [3, 3],
+    ],
+  ),
+); // 期望 [1,0]
+console.log(
+  "分配:",
+  assignBikes(
+    [
+      [0, 0],
+      [1, 1],
+      [2, 0],
+    ],
+    [
+      [1, 0],
+      [2, 2],
+      [2, 1],
+    ],
+  ),
+); // 期望 [0,2,1]
 
 export {};

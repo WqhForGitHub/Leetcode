@@ -66,12 +66,7 @@ console.log(
   "哈希表:",
   findRestaurant(
     ["Shogun", "Tapioca Express", "Burger King", "KFC"],
-    [
-      "Piatti",
-      "The Grill at Torrey Pines",
-      "Hungry Hunter Steakhouse",
-      "Shogun",
-    ],
+    ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"],
   ),
 ); // 期望结果: ["Shogun"]
 console.log(
@@ -81,10 +76,7 @@ console.log(
     ["KFC", "Shogun", "Burger King"],
   ),
 ); // 期望结果: ["Shogun"]
-console.log(
-  "哈希表:",
-  findRestaurant(["happy", "sad", "good"], ["sad", "happy", "good"]),
-); // 期望结果: ["sad","happy"] 或 ["happy","sad"]
+console.log("哈希表:", findRestaurant(["happy", "sad", "good"], ["sad", "happy", "good"])); // 期望结果: ["sad","happy"] 或 ["happy","sad"]
 console.log(
   "暴力:",
   findRestaurantBruteForce(

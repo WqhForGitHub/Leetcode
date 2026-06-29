@@ -69,7 +69,7 @@ console.log("===== 062. 在每个树行中找最大值 =====");
 const tree1 = new TreeNode(
   1,
   new TreeNode(3, new TreeNode(5), new TreeNode(3)),
-  new TreeNode(2, null, new TreeNode(9))
+  new TreeNode(2, null, new TreeNode(9)),
 );
 console.log("BFS [1,3,2,5,3,null,9]:", largestValues(tree1)); // [1, 3, 9]
 console.log("DFS [1,3,2,5,3,null,9]:", largestValuesDFS(tree1)); // [1, 3, 9]
@@ -87,7 +87,7 @@ console.log("DFS 空树:", largestValuesDFS(null)); // []
 const tree2 = new TreeNode(
   -1,
   new TreeNode(-2, new TreeNode(-4), null),
-  new TreeNode(-3, null, new TreeNode(-5))
+  new TreeNode(-3, null, new TreeNode(-5)),
 );
 console.log("BFS 含负数:", largestValues(tree2)); // [-1, -2, -4]
 console.log("DFS 含负数:", largestValuesDFS(tree2)); // [-1, -2, -4]

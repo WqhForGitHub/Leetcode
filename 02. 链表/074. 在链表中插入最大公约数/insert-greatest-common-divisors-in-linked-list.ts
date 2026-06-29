@@ -100,7 +100,7 @@ console.log("方法1:", listToArray(insertGreatestCommonDivisors(arrayToList([7]
 // 方法2 测试
 console.log(
   "方法2:",
-  listToArray(insertGreatestCommonDivisorsRecursive(arrayToList([18, 6, 10, 3])))
+  listToArray(insertGreatestCommonDivisorsRecursive(arrayToList([18, 6, 10, 3]))),
 );
 console.log("方法2:", listToArray(insertGreatestCommonDivisorsRecursive(arrayToList([7]))));
 

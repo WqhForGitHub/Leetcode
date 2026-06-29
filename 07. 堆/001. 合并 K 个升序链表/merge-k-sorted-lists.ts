@@ -133,9 +133,17 @@ function listToArray(head: ListNode | null): number[] {
   return res;
 }
 console.log("===== 001. 合并 K 个升序链表 =====");
-console.log("最小堆:", listToArray(mergeKLists([buildList([1, 4, 5]), buildList([1, 3, 4]), buildList([2, 6])])));
+console.log(
+  "最小堆:",
+  listToArray(mergeKLists([buildList([1, 4, 5]), buildList([1, 3, 4]), buildList([2, 6])])),
+);
 // 期望 [1,1,2,3,4,4,5,6]
-console.log("分治:", listToArray(mergeKListsDivideAndConquer([buildList([1, 4, 5]), buildList([1, 3, 4]), buildList([2, 6])])));
+console.log(
+  "分治:",
+  listToArray(
+    mergeKListsDivideAndConquer([buildList([1, 4, 5]), buildList([1, 3, 4]), buildList([2, 6])]),
+  ),
+);
 // 期望 [1,1,2,3,4,4,5,6]
 
 export {};

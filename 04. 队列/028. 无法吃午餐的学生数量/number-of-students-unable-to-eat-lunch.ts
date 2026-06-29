@@ -57,17 +57,9 @@ function countStudents2(students: number[], sandwiches: number[]): number {
 // ------------------------------------------------------------
 function test(): void {
   console.log("测试1:", countStudents1([1, 1, 0, 0], [0, 1, 0, 1]), "期望: 0");
-  console.log(
-    "测试2:",
-    countStudents1([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1]),
-    "期望: 3",
-  );
+  console.log("测试2:", countStudents1([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1]), "期望: 3");
   console.log("测试3:", countStudents2([1, 1, 0, 0], [0, 1, 0, 1]), "期望: 0");
-  console.log(
-    "测试4:",
-    countStudents2([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1]),
-    "期望: 3",
-  );
+  console.log("测试4:", countStudents2([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1]), "期望: 3");
 }
 
 test();

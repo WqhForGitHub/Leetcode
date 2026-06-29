@@ -22,18 +22,11 @@ function isValidBST(root: TreeNode | null): boolean {
   return isValidBSTHelper(root, -Infinity, Infinity);
 }
 
-function isValidBSTHelper(
-  node: TreeNode | null,
-  min: number,
-  max: number
-): boolean {
+function isValidBSTHelper(node: TreeNode | null, min: number, max: number): boolean {
   if (node === null) return true;
   if (node.val <= min || node.val >= max) return false;
   // 左子树所有值必须 < node.val，右子树所有值必须 > node.val
-  return (
-    isValidBSTHelper(node.left, min, node.val) &&
-    isValidBSTHelper(node.right, node.val, max)
-  );
+  return isValidBSTHelper(node.left, min, node.val) && isValidBSTHelper(node.right, node.val, max);
 }
 
 // 方法2：中序遍历
@@ -92,11 +85,7 @@ console.log("[2,1,3] (中序):", isValidBSTInorder(tree1)); // true
 console.log("[2,1,3] (迭代):", isValidBSTIterative(tree1)); // true
 
 // 测试2: [5,1,4,null,null,3,6] -> false
-const tree2 = new TreeNode(
-  5,
-  new TreeNode(1),
-  new TreeNode(4, new TreeNode(3), new TreeNode(6))
-);
+const tree2 = new TreeNode(5, new TreeNode(1), new TreeNode(4, new TreeNode(3), new TreeNode(6)));
 console.log("[5,1,4,null,null,3,6] (递归范围):", isValidBST(tree2)); // false
 console.log("[5,1,4,null,null,3,6] (中序):", isValidBSTInorder(tree2)); // false
 console.log("[5,1,4,null,null,3,6] (迭代):", isValidBSTIterative(tree2)); // false

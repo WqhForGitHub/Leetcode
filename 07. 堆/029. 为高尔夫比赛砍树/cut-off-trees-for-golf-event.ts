@@ -21,14 +21,20 @@ function cutOffTree(forest: number[][]): number {
     const visited: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
     const queue: Array<[number, number, number]> = [[sr, sc, 0]];
     visited[sr][sc] = true;
-    const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    const dirs = [
+      [-1, 0],
+      [1, 0],
+      [0, -1],
+      [0, 1],
+    ];
     let head = 0;
     while (head < queue.length) {
       const [r, c, d] = queue[head++];
       for (const [dr, dc] of dirs) {
         const nr = r + dr;
         const nc = c + dc;
-        if (nr < 0 || nr >= m || nc < 0 || nc >= n || visited[nr][nc] || forest[nr][nc] === 0) continue;
+        if (nr < 0 || nr >= m || nc < 0 || nc >= n || visited[nr][nc] || forest[nr][nc] === 0)
+          continue;
         if (nr === tr && nc === tc) return d + 1;
         visited[nr][nc] = true;
         queue.push([nr, nc, d + 1]);
@@ -53,7 +59,21 @@ function cutOffTree(forest: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 029. 为高尔夫比赛砍树 =====");
-console.log("步数:", cutOffTree([[1, 2, 3], [0, 0, 4], [7, 6, 5]])); // 期望 6
-console.log("步数:", cutOffTree([[1, 2, 3], [0, 0, 0], [7, 6, 5]])); // 期望 -1
+console.log(
+  "步数:",
+  cutOffTree([
+    [1, 2, 3],
+    [0, 0, 4],
+    [7, 6, 5],
+  ]),
+); // 期望 6
+console.log(
+  "步数:",
+  cutOffTree([
+    [1, 2, 3],
+    [0, 0, 0],
+    [7, 6, 5],
+  ]),
+); // 期望 -1
 
 export {};

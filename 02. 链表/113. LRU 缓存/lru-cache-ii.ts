@@ -71,7 +71,7 @@ class DLinkedNode {
     key: number = 0,
     value: number = 0,
     prev: DLinkedNode | null = null,
-    next: DLinkedNode | null = null
+    next: DLinkedNode | null = null,
   ) {
     this.key = key;
     this.value = value;

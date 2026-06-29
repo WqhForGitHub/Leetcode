@@ -89,9 +89,7 @@ class MyCircularQueue2 {
   }
 
   Rear(): number {
-    return this.isEmpty()
-      ? -1
-      : this.data[(this.rear - 1 + this.cap) % this.cap];
+    return this.isEmpty() ? -1 : this.data[(this.rear - 1 + this.cap) % this.cap];
   }
 
   isEmpty(): boolean {

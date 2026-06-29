@@ -18,25 +18,21 @@ function removeDuplicateLetters(s: string): string {
   for (const ch of s) {
     count[ch]--;
     if (inStack[ch]) continue;
-    while (
-      stack.length > 0 &&
-      stack[stack.length - 1] > ch &&
-      count[stack[stack.length - 1]] > 0
-    ) {
+    while (stack.length > 0 && stack[stack.length - 1] > ch && count[stack[stack.length - 1]] > 0) {
       inStack[stack.pop()!] = false;
     }
     stack.push(ch);
     inStack[ch] = true;
   }
-  return stack.join('');
+  return stack.join("");
 }
 
 // ------------------------------------------------------------
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', removeDuplicateLetters('bcabc'), '期望: abc');
-  console.log('测试2:', removeDuplicateLetters('cbacdcbc'), '期望: acdb');
+  console.log("测试1:", removeDuplicateLetters("bcabc"), "期望: abc");
+  console.log("测试2:", removeDuplicateLetters("cbacdcbc"), "期望: acdb");
 }
 
 test();

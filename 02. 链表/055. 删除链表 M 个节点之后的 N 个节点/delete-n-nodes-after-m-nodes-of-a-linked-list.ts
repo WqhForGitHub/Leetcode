@@ -65,7 +65,7 @@ function deleteNodes(head: ListNode | null, m: number, n: number): ListNode | nu
 // 测试
 (function test() {
   console.log(
-    listToArray(deleteNodes(arrayToList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), 2, 3))
+    listToArray(deleteNodes(arrayToList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), 2, 3)),
   ); // [1,2,6,7,11,12]
   console.log(listToArray(deleteNodes(arrayToList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), 1, 3))); // [1,5,9]
 })();

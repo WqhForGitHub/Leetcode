@@ -32,10 +32,14 @@ function maximumImportanceHeap(n: number, roads: number[][]): number {
   const siftDown = (i: number, size: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < size && heap[l] > heap[s]) s = l;
       if (r < size && heap[r] > heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; } else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = (heap.length >> 1) - 1; i >= 0; i--) siftDown(i, heap.length);
@@ -56,7 +60,25 @@ function maximumImportanceHeap(n: number, roads: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 119. 道路的最大总重要性 =====");
-console.log("排序:", maximumImportance(5, [[0, 1], [1, 2], [2, 3], [0, 2], [1, 3], [2, 4], [3, 4]])); // 期望 43
-console.log("堆:", maximumImportanceHeap(5, [[0, 3], [2, 4], [1, 3]])); // 期望 20
+console.log(
+  "排序:",
+  maximumImportance(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [0, 2],
+    [1, 3],
+    [2, 4],
+    [3, 4],
+  ]),
+); // 期望 43
+console.log(
+  "堆:",
+  maximumImportanceHeap(5, [
+    [0, 3],
+    [2, 4],
+    [1, 3],
+  ]),
+); // 期望 20
 
 export {};

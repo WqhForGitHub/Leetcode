@@ -40,19 +40,24 @@ function kSum(nums: number[], k: number): number {
   function siftUp(h: Array<[number, number]>, i: number): void {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (h[i][0] < h[p][0]) { [h[i], h[p]] = [h[p], h[i]]; i = p; }
-      else break;
+      if (h[i][0] < h[p][0]) {
+        [h[i], h[p]] = [h[p], h[i]];
+        i = p;
+      } else break;
     }
   }
   function siftDown(h: Array<[number, number]>, i: number): void {
     const n = h.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < n && h[l][0] < h[s][0]) s = l;
       if (r < n && h[r][0] < h[s][0]) s = r;
-      if (s !== i) { [h[i], h[s]] = [h[s], h[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [h[i], h[s]] = [h[s], h[i]];
+        i = s;
+      } else break;
     }
   }
 }

@@ -29,8 +29,10 @@ class Graph {
     const siftUp = (i: number): void => {
       while (i > 0) {
         const p = (i - 1) >> 1;
-        if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-        else break;
+        if (heap[i][0] < heap[p][0]) {
+          [heap[i], heap[p]] = [heap[p], heap[i]];
+          i = p;
+        } else break;
       }
     };
     const siftDown = (): void => {
@@ -38,11 +40,14 @@ class Graph {
       const len = heap.length;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < len && heap[l][0] < heap[s][0]) s = l;
         if (r < len && heap[r][0] < heap[s][0]) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-        else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     };
     while (heap.length > 0) {
@@ -113,7 +118,12 @@ class GraphFloyd {
 // 测试
 // ============================================================
 console.log("===== 153. 设计可以求最短路径的图类 =====");
-const g = new Graph(4, [[0, 2, 5], [0, 1, 2], [1, 2, 1], [3, 0, 3]]);
+const g = new Graph(4, [
+  [0, 2, 5],
+  [0, 1, 2],
+  [1, 2, 1],
+  [3, 0, 3],
+]);
 console.log("shortestPath(3,2):", g.shortestPath(3, 2)); // 6
 g.addEdge([1, 3, 4]);
 console.log("shortestPath(0,3):", g.shortestPath(0, 3)); // 6

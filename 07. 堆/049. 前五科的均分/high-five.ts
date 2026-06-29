@@ -57,7 +57,10 @@ function highFiveSort(items: number[][]): number[][] {
   const result: number[][] = [];
   const ids = Array.from(map.keys()).sort((a, b) => a - b);
   for (const id of ids) {
-    const scores = map.get(id)!.sort((a, b) => b - a).slice(0, 5);
+    const scores = map
+      .get(id)!
+      .sort((a, b) => b - a)
+      .slice(0, 5);
     const avg = Math.floor(scores.reduce((a, b) => a + b, 0) / 5);
     result.push([id, avg]);
   }
@@ -68,7 +71,24 @@ function highFiveSort(items: number[][]): number[][] {
 // 测试
 // ============================================================
 console.log("===== 049. 前五科的均分 =====");
-console.log("堆:", JSON.stringify(highFive([[1, 91], [1, 92], [2, 93], [2, 97], [1, 60], [2, 77], [1, 65], [1, 87], [1, 100], [2, 100], [2, 76]])));
+console.log(
+  "堆:",
+  JSON.stringify(
+    highFive([
+      [1, 91],
+      [1, 92],
+      [2, 93],
+      [2, 97],
+      [1, 60],
+      [2, 77],
+      [1, 65],
+      [1, 87],
+      [1, 100],
+      [2, 100],
+      [2, 76],
+    ]),
+  ),
+);
 // 期望 [[1,87],[2,88]]
 
 export {};

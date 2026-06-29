@@ -19,10 +19,7 @@ class TreeNode {
 
 // 方法1：中序遍历+归并（推荐）
 // BST 中序遍历得到升序数组，再对两个升序数组归并
-function getAllElements(
-  root1: TreeNode | null,
-  root2: TreeNode | null
-): number[] {
+function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
   const list1: number[] = [];
   const list2: number[] = [];
   inorder(root1, list1);
@@ -53,10 +50,7 @@ function inorder(node: TreeNode | null, result: number[]): void {
 
 // 方法2：中序遍历+排序
 // 直接收集两棵树所有值，然后排序
-function getAllElementsSort(
-  root1: TreeNode | null,
-  root2: TreeNode | null
-): number[] {
+function getAllElementsSort(root1: TreeNode | null, root2: TreeNode | null): number[] {
   const result: number[] = [];
   collect(root1, result);
   collect(root2, result);

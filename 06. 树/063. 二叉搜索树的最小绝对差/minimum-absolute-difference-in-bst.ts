@@ -83,11 +83,7 @@ console.log("===== 063. 二叉搜索树的最小绝对差 =====");
 //     / \
 //    1   3
 // 中序: 1,2,3,4,6 最小差值 1
-const tree1 = new TreeNode(
-  4,
-  new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(6)
-);
+const tree1 = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(6));
 console.log("中序 [4,2,6,1,3]:", getMinimumDifference(tree1)); // 1
 console.log("Morris [4,2,6,1,3]:", getMinimumDifferenceMorris(tree1)); // 1
 
@@ -98,11 +94,7 @@ console.log("Morris [4,2,6,1,3]:", getMinimumDifferenceMorris(tree1)); // 1
 //         / \
 //        2   4
 // 中序: 1,2,3,4 最小差值 1
-const tree2 = new TreeNode(
-  1,
-  null,
-  new TreeNode(3, new TreeNode(2), new TreeNode(4))
-);
+const tree2 = new TreeNode(1, null, new TreeNode(3, new TreeNode(2), new TreeNode(4)));
 console.log("中序 [1,null,3,2,4]:", getMinimumDifference(tree2)); // 1
 console.log("Morris [1,null,3,2,4]:", getMinimumDifferenceMorris(tree2)); // 1
 
@@ -113,11 +105,7 @@ console.log("Morris [1,null,3,2,4]:", getMinimumDifferenceMorris(tree2)); // 1
 //         /  \
 //        1    7
 // 中序: 0,1,5,7,48 最小差值 1
-const tree3 = new TreeNode(
-  5,
-  new TreeNode(0),
-  new TreeNode(48, new TreeNode(1), new TreeNode(7))
-);
+const tree3 = new TreeNode(5, new TreeNode(0), new TreeNode(48, new TreeNode(1), new TreeNode(7)));
 console.log("中序 [5,0,48,null,null,1,7]:", getMinimumDifference(tree3)); // 1
 console.log("Morris [5,0,48,null,null,1,7]:", getMinimumDifferenceMorris(tree3)); // 1
 

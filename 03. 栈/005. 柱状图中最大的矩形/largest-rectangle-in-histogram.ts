@@ -30,9 +30,9 @@ function largestRectangleArea(heights: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', largestRectangleArea([2, 1, 5, 6, 2, 3]), '期望: 10');
-  console.log('测试2:', largestRectangleArea([2, 4]), '期望: 4');
-  console.log('测试3:', largestRectangleArea([1]), '期望: 1');
+  console.log("测试1:", largestRectangleArea([2, 1, 5, 6, 2, 3]), "期望: 10");
+  console.log("测试2:", largestRectangleArea([2, 4]), "期望: 4");
+  console.log("测试3:", largestRectangleArea([1]), "期望: 1");
 }
 
 test();

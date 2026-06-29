@@ -22,10 +22,7 @@ function groupAnagrams(strs: string[]): string[][] {
 // 测试
 // ============================================================
 console.log("===== 010. 字母异位词分组 =====");
-console.log(
-  "测试1:",
-  groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]),
-);
+console.log("测试1:", groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
 // 预期: [["eat","tea","ate"],["tan","nat"],["bat"]]
 console.log("测试2:", groupAnagrams([""])); // 预期: [[""]]
 console.log("测试3:", groupAnagrams(["a"])); // 预期: [["a"]]

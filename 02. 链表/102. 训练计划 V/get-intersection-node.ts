@@ -32,7 +32,7 @@ function arrayToList(arr: number[]): ListNode | null {
 function buildIntersection(
   listA: number[],
   listB: number[],
-  common: number[]
+  common: number[],
 ): { headA: ListNode | null; headB: ListNode | null } {
   if (common.length === 0) {
     return { headA: arrayToList(listA), headB: arrayToList(listB) };
@@ -88,7 +88,7 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 // 分别求出两链表长度，让较长的先走差值步，再同步前进比较。
 function getIntersectionNodeByLength(
   headA: ListNode | null,
-  headB: ListNode | null
+  headB: ListNode | null,
 ): ListNode | null {
   // 求长度
   let lenA = 0;

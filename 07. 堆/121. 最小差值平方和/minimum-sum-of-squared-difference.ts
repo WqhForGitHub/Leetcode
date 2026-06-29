@@ -20,11 +20,14 @@ function minSumSquareDiff(nums1: number[], nums2: number[], k1: number, k2: numb
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && maxHeap[l] > maxHeap[s]) s = l;
       if (r < len && maxHeap[r] > maxHeap[s]) s = r;
-      if (s !== i) { [maxHeap[i], maxHeap[s]] = [maxHeap[s], maxHeap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [maxHeap[i], maxHeap[s]] = [maxHeap[s], maxHeap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = Math.floor(maxHeap.length / 2) - 1; i >= 0; i--) siftDown(i, maxHeap.length);

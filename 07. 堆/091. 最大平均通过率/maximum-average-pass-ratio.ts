@@ -71,7 +71,28 @@ function maxAverageRatioSort(classes: number[][], extraStudents: number): number
 // 测试
 // ============================================================
 console.log("===== 091. 最大平均通过率 =====");
-console.log("堆:", maxAverageRatio([[1, 2], [3, 5], [2, 2]], 2)); // 期望 0.78333
-console.log("堆:", maxAverageRatio([[2, 4], [3, 9], [4, 5], [2, 10]], 4)); // 期望 0.53485
+console.log(
+  "堆:",
+  maxAverageRatio(
+    [
+      [1, 2],
+      [3, 5],
+      [2, 2],
+    ],
+    2,
+  ),
+); // 期望 0.78333
+console.log(
+  "堆:",
+  maxAverageRatio(
+    [
+      [2, 4],
+      [3, 9],
+      [4, 5],
+      [2, 10],
+    ],
+    4,
+  ),
+); // 期望 0.53485
 
 export {};

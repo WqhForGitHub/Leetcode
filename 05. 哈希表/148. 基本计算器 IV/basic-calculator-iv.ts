@@ -10,11 +10,7 @@
 // 项的字符串形式：变量按字典序拼接，如 "a*b*c"
 type Poly = Map<string, number>; // 项 -> 系数
 
-function basicCalculatorIV(
-  expression: string,
-  evalvars: string[],
-  evalints: number[],
-): string[] {
+function basicCalculatorIV(expression: string, evalvars: string[], evalints: number[]): string[] {
   // 变量赋值
   const evalMap = new Map<string, number>();
   for (let i = 0; i < evalvars.length; i++) {

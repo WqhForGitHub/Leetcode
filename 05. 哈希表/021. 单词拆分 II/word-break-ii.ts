@@ -50,15 +50,7 @@ function wordBreak(s: string, wordDict: string[]): string[] {
 console.log("===== 021. 单词拆分 II =====");
 console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
 // ["cats and dog","cat sand dog"]
-console.log(
-  wordBreak("pineapplepenapple", [
-    "apple",
-    "pen",
-    "applepen",
-    "pine",
-    "pineapple",
-  ]),
-);
+console.log(wordBreak("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"]));
 // ["pine apple pen apple","pineapple pen apple","pine applepen apple"]
 console.log(wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"]));
 // []

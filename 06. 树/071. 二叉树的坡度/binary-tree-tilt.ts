@@ -62,7 +62,7 @@ console.log("[1,2,3]:", findTilt(tree1)); // 1
 const tree2 = new TreeNode(
   4,
   new TreeNode(2, new TreeNode(3), new TreeNode(5)),
-  new TreeNode(9, null, new TreeNode(7))
+  new TreeNode(9, null, new TreeNode(7)),
 );
 console.log("[4,2,9,3,5,null,7]:", findTilt(tree2)); // 15
 
@@ -77,7 +77,7 @@ console.log("[4,2,9,3,5,null,7]:", findTilt(tree2)); // 15
 const tree3 = new TreeNode(
   21,
   new TreeNode(7, new TreeNode(1, new TreeNode(3), new TreeNode(3)), new TreeNode(1)),
-  new TreeNode(14, new TreeNode(2), new TreeNode(2))
+  new TreeNode(14, new TreeNode(2), new TreeNode(2)),
 );
 console.log("[21,7,14,1,1,2,2,3,3]:", findTilt(tree3)); // 9
 

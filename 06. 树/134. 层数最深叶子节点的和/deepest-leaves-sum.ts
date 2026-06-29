@@ -103,22 +103,18 @@ function buildTree(arr: (number | null)[]): TreeNode | null {
 // 最深叶节点为 7 和 8，和 = 15
 console.log(
   "测试1 BFS:",
-  deepestLeavesSum(buildTree([1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8]))
+  deepestLeavesSum(buildTree([1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8])),
 ); // 期望 15
 console.log(
   "测试1 DFS:",
-  deepestLeavesSumDFS(
-    buildTree([1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8])
-  )
+  deepestLeavesSumDFS(buildTree([1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8])),
 ); // 期望 15
 
 // 测试2: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
 // 最深层为第4层，叶节点 9,1,4,5，和 = 19
 console.log(
   "测试2 BFS:",
-  deepestLeavesSum(
-    buildTree([6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5])
-  )
+  deepestLeavesSum(buildTree([6, 7, 8, 2, 7, 1, 3, 9, null, 1, 4, null, null, null, 5])),
 ); // 期望 19
 
 // 测试3: 单节点 [1]

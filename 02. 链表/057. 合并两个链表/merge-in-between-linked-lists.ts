@@ -42,7 +42,7 @@ function mergeInBetween(
   list1: ListNode | null,
   a: number,
   b: number,
-  list2: ListNode | null
+  list2: ListNode | null,
 ): ListNode | null {
   const dummy = new ListNode(0, list1);
   // 找到下标 a-1 的节点 preA
@@ -74,9 +74,9 @@ function mergeInBetween(
         arrayToList([0, 1, 2, 3, 4, 5]),
         3,
         4,
-        arrayToList([1000000, 1000001, 1000002])
-      )
-    )
+        arrayToList([1000000, 1000001, 1000002]),
+      ),
+    ),
   ); // [0,1,2,1000000,1000001,1000002,5]
   console.log(
     listToArray(
@@ -84,9 +84,9 @@ function mergeInBetween(
         arrayToList([0, 1, 2, 3, 4, 5, 6]),
         2,
         5,
-        arrayToList([1000000, 1000001, 1000002, 1000003, 1000004])
-      )
-    )
+        arrayToList([1000000, 1000001, 1000002, 1000003, 1000004]),
+      ),
+    ),
   ); // [0,1,1000000,1000001,1000002,1000003,1000004,6]
 })();
 

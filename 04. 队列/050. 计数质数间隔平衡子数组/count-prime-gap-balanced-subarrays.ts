@@ -35,10 +35,7 @@ function countPrimeGapSubarrays1(nums: number[]): number {
   // 对每对相邻质数，计算包含且仅包含这两个质数的子数组数
   for (let i = 0; i < primes.length - 1; i++) {
     const left = i === 0 ? primes[i] + 1 : primes[i] - primes[i - 1];
-    const right =
-      i === primes.length - 2
-        ? n - primes[i + 1]
-        : primes[i + 2] - primes[i + 1];
+    const right = i === primes.length - 2 ? n - primes[i + 1] : primes[i + 2] - primes[i + 1];
     result += left * right;
   }
   // 加上只有一个质数的子数组和不包含质数的子数组
@@ -87,21 +84,9 @@ function countPrimeGapSubarrays2(nums: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    countPrimeGapSubarrays1([1, 2, 3, 4, 5]),
-    "期望: 含质数子数组",
-  );
-  console.log(
-    "测试2:",
-    countPrimeGapSubarrays2([2, 3, 5, 7]),
-    "期望: 含质数子数组",
-  );
-  console.log(
-    "测试3:",
-    countPrimeGapSubarrays1([4, 6, 8, 10]),
-    "期望: 无质数子数组",
-  );
+  console.log("测试1:", countPrimeGapSubarrays1([1, 2, 3, 4, 5]), "期望: 含质数子数组");
+  console.log("测试2:", countPrimeGapSubarrays2([2, 3, 5, 7]), "期望: 含质数子数组");
+  console.log("测试3:", countPrimeGapSubarrays1([4, 6, 8, 10]), "期望: 无质数子数组");
 }
 
 test();

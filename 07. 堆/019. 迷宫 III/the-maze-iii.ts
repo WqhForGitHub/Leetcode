@@ -40,8 +40,16 @@ function findShortestWay(maze: number[][], ball: number[], hole: number[]): stri
         let s = i;
         const l = 2 * i + 1;
         const r = 2 * i + 2;
-        if (l < heap.length && (heap[l].d < heap[s].d || (heap[l].d === heap[s].d && heap[l].p < heap[s].p))) s = l;
-        if (r < heap.length && (heap[r].d < heap[s].d || (heap[r].d === heap[s].d && heap[r].p < heap[s].p))) s = r;
+        if (
+          l < heap.length &&
+          (heap[l].d < heap[s].d || (heap[l].d === heap[s].d && heap[l].p < heap[s].p))
+        )
+          s = l;
+        if (
+          r < heap.length &&
+          (heap[r].d < heap[s].d || (heap[r].d === heap[s].d && heap[r].p < heap[s].p))
+        )
+          s = r;
         if (s !== i) {
           [heap[i], heap[s]] = [heap[s], heap[i]];
           i = s;
@@ -60,14 +68,23 @@ function findShortestWay(maze: number[][], ball: number[], hole: number[]): stri
       let nr = cur.r;
       let nc = cur.c;
       let steps = 0;
-      while (nr + dr >= 0 && nr + dr < m && nc + dc >= 0 && nc + dc < n && maze[nr + dr][nc + dc] === 0) {
+      while (
+        nr + dr >= 0 &&
+        nr + dr < m &&
+        nc + dc >= 0 &&
+        nc + dc < n &&
+        maze[nr + dr][nc + dc] === 0
+      ) {
         nr += dr;
         nc += dc;
         steps++;
         if (nr === hole[0] && nc === hole[1]) break;
       }
       const nd = cur.d + steps;
-      if (nd < dist[nr][nc] || (nd === dist[nr][nc] && (path[nr][nc] === "" || cur.p + ch < path[nr][nc]))) {
+      if (
+        nd < dist[nr][nc] ||
+        (nd === dist[nr][nc] && (path[nr][nc] === "" || cur.p + ch < path[nr][nc]))
+      ) {
         dist[nr][nc] = nd;
         path[nr][nc] = cur.p + ch;
         push({ d: nd, r: nr, c: nc, p: cur.p + ch });
@@ -81,7 +98,20 @@ function findShortestWay(maze: number[][], ball: number[], hole: number[]): stri
 // 测试
 // ============================================================
 console.log("===== 019. 迷宫 III =====");
-console.log("路径:", findShortestWay([[0, 0, 0, 0, 0], [1, 1, 0, 0, 1], [0, 0, 0, 0, 0], [0, 1, 0, 0, 1], [0, 1, 0, 0, 0]], [4, 3], [0, 1]));
+console.log(
+  "路径:",
+  findShortestWay(
+    [
+      [0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 1],
+      [0, 0, 0, 0, 0],
+      [0, 1, 0, 0, 1],
+      [0, 1, 0, 0, 0],
+    ],
+    [4, 3],
+    [0, 1],
+  ),
+);
 // 期望 "lul"
 
 export {};

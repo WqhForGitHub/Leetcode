@@ -53,11 +53,7 @@ console.log(
 // 期望: [["root/a/2.txt","root/c/d/4.txt","root/4.txt"],["root/a/1.txt","root/c/3.txt"]]
 // 测试 2
 console.log(
-  findDuplicate([
-    "root/a 1.txt(abcd) 2.txt(efgh)",
-    "root/c 3.txt(abcd)",
-    "root/c/d 4.txt(efgh)",
-  ]),
+  findDuplicate(["root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)"]),
 );
 // 期望: [["root/a/2.txt","root/c/d/4.txt"],["root/a/1.txt","root/c/3.txt"]]
 

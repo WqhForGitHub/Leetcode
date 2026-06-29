@@ -86,7 +86,20 @@ function minMeetingRoomsSweep(intervals: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 005. 会议室 II =====");
-console.log("最小堆:", minMeetingRooms([[0, 30], [5, 10], [15, 20]])); // 期望 2
-console.log("扫描线:", minMeetingRoomsSweep([[7, 10], [2, 4]])); // 期望 1
+console.log(
+  "最小堆:",
+  minMeetingRooms([
+    [0, 30],
+    [5, 10],
+    [15, 20],
+  ]),
+); // 期望 2
+console.log(
+  "扫描线:",
+  minMeetingRoomsSweep([
+    [7, 10],
+    [2, 4],
+  ]),
+); // 期望 1
 
 export {};

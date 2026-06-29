@@ -10,9 +10,7 @@ function imageSmoother(img: number[][]): number[][] {
   const m = img.length;
   const n = img[0].length;
   // 结果矩阵，避免原地修改影响后续计算
-  const result: number[][] = Array.from({ length: m }, () =>
-    new Array<number>(n).fill(0),
-  );
+  const result: number[][] = Array.from({ length: m }, () => new Array<number>(n).fill(0));
 
   // 8 个方向偏移量（含自身共 9 个）
   const directions = [

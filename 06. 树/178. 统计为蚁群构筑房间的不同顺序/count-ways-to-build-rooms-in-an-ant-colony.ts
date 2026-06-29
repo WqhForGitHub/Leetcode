@@ -38,7 +38,7 @@ function waysToBuildRooms(prevRoom: number[]): number {
   // C(n, r) = n! / (r! * (n-r)!)
   function comb(n: number, r: number): bigint {
     if (r < 0 || r > n) return 0n;
-    return (fact[n] * invFact[r] % MOD) * invFact[n - r] % MOD;
+    return (((fact[n] * invFact[r]) % MOD) * invFact[n - r]) % MOD;
   }
 
   // DFS 返回 [方案数, 子树大小]
@@ -53,7 +53,7 @@ function waysToBuildRooms(prevRoom: number[]): number {
       // 合并子树 v：从 size + childSize 个位置中选 childSize 个给 v
       // ways = ways * childWays * C(size + childSize, childSize)
       const total = size + childSize;
-      ways = (ways * childWays % MOD) * comb(Number(total), Number(childSize)) % MOD;
+      ways = (((ways * childWays) % MOD) * comb(Number(total), Number(childSize))) % MOD;
       size = total;
     }
     // 加上当前节点

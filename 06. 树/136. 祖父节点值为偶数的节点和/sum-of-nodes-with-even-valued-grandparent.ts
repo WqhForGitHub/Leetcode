@@ -41,9 +41,7 @@ function sumEvenGrandparentBFS(root: TreeNode | null): number {
   if (root === null) return 0;
   let sum = 0;
   // 队列元素: [节点, 父节点, 祖父节点]
-  const queue: [TreeNode, TreeNode | null, TreeNode | null][] = [
-    [root, null, null],
-  ];
+  const queue: [TreeNode, TreeNode | null, TreeNode | null][] = [[root, null, null]];
 
   while (queue.length > 0) {
     const [node, parent, grandparent] = queue.shift()!;

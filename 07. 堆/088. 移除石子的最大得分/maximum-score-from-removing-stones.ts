@@ -10,7 +10,7 @@ function maximumScore(a: number, b: number, c: number): number {
   const heap: number[] = [a, b, c];
   // 建最大堆
   const buildHeap = (): void => {
-    for (let i = heap.length >> 1 - 1; i >= 0; i--) siftDown(i, heap.length);
+    for (let i = heap.length >> (1 - 1); i >= 0; i--) siftDown(i, heap.length);
   };
   const siftDown = (i: number, n: number): void => {
     while (true) {

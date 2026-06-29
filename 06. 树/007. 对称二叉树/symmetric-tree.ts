@@ -30,9 +30,7 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
   if (left === null || right === null) return false;
   // 值相同，且 left.left 与 right.right 镜像，left.right 与 right.left 镜像
   return (
-    left.val === right.val &&
-    isMirror(left.left, right.right) &&
-    isMirror(left.right, right.left)
+    left.val === right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left)
   );
 }
 
@@ -66,7 +64,7 @@ console.log("===== 007. 对称二叉树 =====");
 const tree1 = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(3), new TreeNode(4)),
-  new TreeNode(2, new TreeNode(4), new TreeNode(3))
+  new TreeNode(2, new TreeNode(4), new TreeNode(3)),
 );
 console.log("[1,2,2,3,4,4,3] (递归):", isSymmetric(tree1)); // true
 console.log("[1,2,2,3,4,4,3] (迭代):", isSymmetricIterative(tree1)); // true
@@ -75,7 +73,7 @@ console.log("[1,2,2,3,4,4,3] (迭代):", isSymmetricIterative(tree1)); // true
 const tree2 = new TreeNode(
   1,
   new TreeNode(2, null, new TreeNode(3)),
-  new TreeNode(2, null, new TreeNode(3))
+  new TreeNode(2, null, new TreeNode(3)),
 );
 console.log("[1,2,2,null,3,null,3] (递归):", isSymmetric(tree2)); // false
 console.log("[1,2,2,null,3,null,3] (迭代):", isSymmetricIterative(tree2)); // false

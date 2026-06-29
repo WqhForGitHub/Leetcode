@@ -6,7 +6,13 @@
 // 时间复杂度：O(V^2 * K)，空间复杂度：O(V * K)
 
 // 方法1：Dijkstra 变体（堆中状态含跳数）
-function shortestPathWithKHops(n: number, edges: number[][], s: number, d: number, k: number): number {
+function shortestPathWithKHops(
+  n: number,
+  edges: number[][],
+  s: number,
+  d: number,
+  k: number,
+): number {
   const adjList: Map<number, number[]> = new Map();
   for (let i = 0; i < n; i++) adjList.set(i, []);
   for (const [u, v] of edges) {
@@ -20,8 +26,10 @@ function shortestPathWithKHops(n: number, edges: number[][], s: number, d: numbe
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] < heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -29,11 +37,14 @@ function shortestPathWithKHops(n: number, edges: number[][], s: number, d: numbe
     const len = heap.length;
     while (true) {
       let s2 = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] < heap[s2][0]) s2 = l;
       if (r < len && heap[r][0] < heap[s2][0]) s2 = r;
-      if (s2 !== i) { [heap[i], heap[s2]] = [heap[s2], heap[i]]; i = s2; }
-      else break;
+      if (s2 !== i) {
+        [heap[i], heap[s2]] = [heap[s2], heap[i]];
+        i = s2;
+      } else break;
     }
   };
   while (heap.length > 0) {
@@ -65,6 +76,21 @@ function shortestPathWithKHops(n: number, edges: number[][], s: number, d: numbe
 // 测试
 // ============================================================
 console.log("===== 157. 找到 K 次跨越的最短路径 =====");
-console.log("Dijkstra:", shortestPathWithKHops(5, [[0, 2], [0, 3], [1, 4], [2, 4], [3, 4]], 0, 4, 1)); // 期望 1
+console.log(
+  "Dijkstra:",
+  shortestPathWithKHops(
+    5,
+    [
+      [0, 2],
+      [0, 3],
+      [1, 4],
+      [2, 4],
+      [3, 4],
+    ],
+    0,
+    4,
+    1,
+  ),
+); // 期望 1
 
 export {};

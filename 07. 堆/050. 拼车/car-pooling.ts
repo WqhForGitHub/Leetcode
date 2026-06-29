@@ -42,7 +42,25 @@ function carPoolingSweep(trips: number[][], capacity: number): boolean {
 // 测试
 // ============================================================
 console.log("===== 050. 拼车 =====");
-console.log("差分:", carPooling([[2, 1, 5], [3, 3, 7]], 4)); // 期望 false
-console.log("扫描线:", carPoolingSweep([[2, 1, 5], [3, 3, 7]], 5)); // 期望 true
+console.log(
+  "差分:",
+  carPooling(
+    [
+      [2, 1, 5],
+      [3, 3, 7],
+    ],
+    4,
+  ),
+); // 期望 false
+console.log(
+  "扫描线:",
+  carPoolingSweep(
+    [
+      [2, 1, 5],
+      [3, 3, 7],
+    ],
+    5,
+  ),
+); // 期望 true
 
 export {};

@@ -7,9 +7,13 @@
 
 // 方法1：DFS 探索 + Dijkstra
 class GridMaster {
-  canMove(direction: string): boolean { return false; }
+  canMove(direction: string): boolean {
+    return false;
+  }
   move(direction: string): void {}
-  isTarget(): boolean { return false; }
+  isTarget(): boolean {
+    return false;
+  }
 }
 
 function findShortestPath(master: GridMaster): number {
@@ -85,7 +89,12 @@ function findShortestPath(master: GridMaster): number {
   push({ d: 0, r: 0, c: 0 });
   const dist: Map<string, number> = new Map();
   dist.set("0,0", 0);
-  const dpos = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dpos = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   while (heap.length > 0) {
     const cur = pop()!;
     const key = `${cur.r},${cur.c}`;

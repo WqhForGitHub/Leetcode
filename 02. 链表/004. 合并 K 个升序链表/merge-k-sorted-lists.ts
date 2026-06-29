@@ -137,7 +137,7 @@ console.log("===== 004. 合并 K 个升序链表 =====");
 // [[1,4,5],[1,3,4],[2,6]] => [1,1,2,3,4,4,5,6]
 console.log(
   "结果:",
-  listToArray(mergeKLists([arrayToList([1, 4, 5]), arrayToList([1, 3, 4]), arrayToList([2, 6])]))
+  listToArray(mergeKLists([arrayToList([1, 4, 5]), arrayToList([1, 3, 4]), arrayToList([2, 6])])),
 );
 // [] => []
 console.log("结果:", listToArray(mergeKLists([])));

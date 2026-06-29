@@ -27,7 +27,8 @@ function maxProfit(inventory: number[], orders: number): number {
     if (inv > T) {
       const n = inv - T;
       // 卖 T+1 到 inv
-      result = (result + ((BigInt(inv) + BigInt(T + 1)) * BigInt(n) / 2n) % BigInt(MOD)) % BigInt(MOD);
+      result =
+        (result + ((((BigInt(inv) + BigInt(T + 1)) * BigInt(n)) / 2n) % BigInt(MOD))) % BigInt(MOD);
       count += n;
     }
   }

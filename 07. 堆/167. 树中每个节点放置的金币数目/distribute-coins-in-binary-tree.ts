@@ -34,7 +34,12 @@ function distributeCoins(root: TreeNode | null): number {
 function distributeCoinsBFS(root: TreeNode | null): number {
   if (!root) return 0;
   let moves = 0;
-  const stack: Array<{ node: TreeNode | null; done: boolean; leftResult?: number; rightResult?: number }> = [];
+  const stack: Array<{
+    node: TreeNode | null;
+    done: boolean;
+    leftResult?: number;
+    rightResult?: number;
+  }> = [];
   const results: Map<TreeNode, number> = new Map();
   stack.push({ node: root, done: false });
   while (stack.length > 0) {

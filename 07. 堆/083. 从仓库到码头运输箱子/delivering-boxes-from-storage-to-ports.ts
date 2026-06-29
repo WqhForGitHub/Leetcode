@@ -6,7 +6,12 @@
 // 时间复杂度：O(N)，空间复杂度：O(N)
 
 // 方法1：动态规划 + 单调队列优化
-function boxDelivering(boxes: number[][], portsCount: number, maxBoxes: number, maxWeight: number): number {
+function boxDelivering(
+  boxes: number[][],
+  portsCount: number,
+  maxBoxes: number,
+  maxWeight: number,
+): number {
   const n = boxes.length;
   // dp[i] = 运送前 i 个箱子的最小趟数
   const dp: number[] = new Array(n + 1).fill(0);
@@ -27,10 +32,23 @@ function boxDelivering(boxes: number[][], portsCount: number, maxBoxes: number, 
       else break;
     }
     const j = deque[0];
-    const trips = (i > 0 && boxes[i - 1][0] !== (j > 0 ? boxes[j - 1][0] : -1) ? 1 : 0) + 1 + tripsPrefix[i] - tripsPrefix[j + 1];
-    dp[i] = dp[j] + 2 + (tripsPrefix[i] - tripsPrefix[j + 1]) + (j < i - 1 && boxes[j][0] !== boxes[j + 1][0] ? 0 : 0);
+    const trips =
+      (i > 0 && boxes[i - 1][0] !== (j > 0 ? boxes[j - 1][0] : -1) ? 1 : 0) +
+      1 +
+      tripsPrefix[i] -
+      tripsPrefix[j + 1];
+    dp[i] =
+      dp[j] +
+      2 +
+      (tripsPrefix[i] - tripsPrefix[j + 1]) +
+      (j < i - 1 && boxes[j][0] !== boxes[j + 1][0] ? 0 : 0);
     // 简化：dp[i] = dp[j] + 2 + (tripsPrefix[i] - tripsPrefix[j+1])
-    dp[i] = dp[j] + 2 + (tripsPrefix[i] - tripsPrefix[j + 1] + (j + 1 < i && boxes[j][0] === boxes[j + 1][0] ? 0 : 0));
+    dp[i] =
+      dp[j] +
+      2 +
+      (tripsPrefix[i] -
+        tripsPrefix[j + 1] +
+        (j + 1 < i && boxes[j][0] === boxes[j + 1][0] ? 0 : 0));
     // 重新计算
     let extra = 0;
     for (let k = j + 1; k < i; k++) if (boxes[k][0] !== boxes[k - 1][0]) extra++;
@@ -53,7 +71,12 @@ function boxDelivering(boxes: number[][], portsCount: number, maxBoxes: number, 
 }
 
 // 方法2：朴素 DP
-function boxDeliveringNaive(boxes: number[][], portsCount: number, maxBoxes: number, maxWeight: number): number {
+function boxDeliveringNaive(
+  boxes: number[][],
+  portsCount: number,
+  maxBoxes: number,
+  maxWeight: number,
+): number {
   const n = boxes.length;
   const dp: number[] = new Array(n + 1).fill(Infinity);
   dp[0] = 0;
@@ -74,7 +97,33 @@ function boxDeliveringNaive(boxes: number[][], portsCount: number, maxBoxes: num
 // 测试
 // ============================================================
 console.log("===== 083. 从仓库到码头运输箱子 =====");
-console.log("朴素:", boxDeliveringNaive([[1, 1], [2, 1], [1, 1]], 2, 3, 3)); // 期望 4
-console.log("朴素:", boxDeliveringNaive([[1, 2], [3, 3], [3, 1], [3, 1], [2, 4]], 3, 3, 6)); // 期望 6
+console.log(
+  "朴素:",
+  boxDeliveringNaive(
+    [
+      [1, 1],
+      [2, 1],
+      [1, 1],
+    ],
+    2,
+    3,
+    3,
+  ),
+); // 期望 4
+console.log(
+  "朴素:",
+  boxDeliveringNaive(
+    [
+      [1, 2],
+      [3, 3],
+      [3, 1],
+      [3, 1],
+      [2, 4],
+    ],
+    3,
+    3,
+    6,
+  ),
+); // 期望 6
 
 export {};

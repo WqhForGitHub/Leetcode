@@ -10,11 +10,7 @@
 // 1) 用哈希表建立 每个区域 -> 其直接父区域 的映射
 // 2) 从 region1 向上走到根，把路径上所有区域放入集合
 // 3) 从 region2 向上走，第一个出现在集合中的就是最近公共祖先
-function findSmallestRegion(
-  regions: string[][],
-  region1: string,
-  region2: string
-): string {
+function findSmallestRegion(regions: string[][], region1: string, region2: string): string {
   // 建立 父指针 映射
   const parent = new Map<string, string>();
   for (const list of regions) {
@@ -67,8 +63,8 @@ console.log(
       ["South America", "Brazil"],
     ],
     "Quebec",
-    "New York"
-  )
+    "New York",
+  ),
 ); // 期望 "North America"
 
 // 测试2: region1 和 region2 同层，LCA 为父
@@ -83,8 +79,8 @@ console.log(
       ["South America", "Brazil"],
     ],
     "Ontario",
-    "Quebec"
-  )
+    "Quebec",
+  ),
 ); // 期望 "Canada"
 
 // 测试3: 一个区域是另一个区域的祖先
@@ -99,8 +95,8 @@ console.log(
       ["South America", "Brazil"],
     ],
     "Canada",
-    "Quebec"
-  )
+    "Quebec",
+  ),
 ); // 期望 "Canada"
 
 export {};

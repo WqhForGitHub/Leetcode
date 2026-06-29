@@ -28,9 +28,7 @@ class StackToQueue1 {
         this.outStack.push(this.inStack.pop()!);
       }
     }
-    return this.outStack.length > 0
-      ? this.outStack[this.outStack.length - 1]
-      : -1;
+    return this.outStack.length > 0 ? this.outStack[this.outStack.length - 1] : -1;
   }
 
   empty(): boolean {

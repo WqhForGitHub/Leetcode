@@ -24,11 +24,7 @@ class TreeNode {
 // 第二个玩家选其中最大的，剩下两个连通块给第一个玩家
 // 由于第二个玩家先手选最大块，他能染的节点数 >= 那一块的大小
 // 若该块 > n/2，则第二个玩家染的节点数严格大于第一个玩家
-function btreeGameWinningMove(
-  root: TreeNode | null,
-  n: number,
-  x: number
-): boolean {
+function btreeGameWinningMove(root: TreeNode | null, n: number, x: number): boolean {
   // 先找到值为 x 的节点
   const xNode = findNode(root, x);
   if (xNode === null) return false;
@@ -85,14 +81,7 @@ function buildTree(arr: (number | null)[]): TreeNode | null {
 
 // 测试1: root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
 // x=3 的左子树 [6,12,13] 不存在；这里只测试结构
-console.log(
-  "测试1:",
-  btreeGameWinningMove(
-    buildTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
-    11,
-    3
-  )
-); // 期望 true
+console.log("测试1:", btreeGameWinningMove(buildTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), 11, 3)); // 期望 true
 
 // 测试2: root = [1,2,3], n = 3, x = 1
 // x=1 为根，左子树大小1，右子树大小1，父方向大小0

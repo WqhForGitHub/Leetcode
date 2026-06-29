@@ -44,11 +44,7 @@ function shortestCompletingWord(licensePlate: string, words: string[]): string {
 // 测试
 // ============================================================
 console.log("===== 141. 最短补全词 =====");
-console.log(
-  shortestCompletingWord("1s3 PSt", ["step", "steps", "stripe", "stepple"]),
-); // 期望: "steps"
-console.log(
-  shortestCompletingWord("1s3 456", ["looks", "pest", "stew", "show"]),
-); // 期望: "pest"
+console.log(shortestCompletingWord("1s3 PSt", ["step", "steps", "stripe", "stepple"])); // 期望: "steps"
+console.log(shortestCompletingWord("1s3 456", ["looks", "pest", "stew", "show"])); // 期望: "pest"
 
 export {};

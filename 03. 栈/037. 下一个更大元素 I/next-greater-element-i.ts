@@ -29,8 +29,8 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', nextGreaterElement([4, 1, 2], [1, 3, 4, 2]), '期望: [-1,3,-1]');
-  console.log('测试2:', nextGreaterElement([2, 4], [1, 2, 3, 4]), '期望: [3,-1]');
+  console.log("测试1:", nextGreaterElement([4, 1, 2], [1, 3, 4, 2]), "期望: [-1,3,-1]");
+  console.log("测试2:", nextGreaterElement([2, 4], [1, 2, 3, 4]), "期望: [3,-1]");
 }
 
 test();

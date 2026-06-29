@@ -46,17 +46,11 @@ function countSubarrays2(nums: number[], minK: number, maxK: number): number {
   let maxPos = -1;
 
   for (let right = 0; right < n; right++) {
-    while (
-      minDeque.length > 0 &&
-      nums[minDeque[minDeque.length - 1]] >= nums[right]
-    ) {
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right]) {
       minDeque.pop();
     }
     minDeque.push(right);
-    while (
-      maxDeque.length > 0 &&
-      nums[maxDeque[maxDeque.length - 1]] <= nums[right]
-    ) {
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right]) {
       maxDeque.pop();
     }
     maxDeque.push(right);

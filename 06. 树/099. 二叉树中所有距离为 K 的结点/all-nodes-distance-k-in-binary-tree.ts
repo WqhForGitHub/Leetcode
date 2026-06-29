@@ -117,7 +117,10 @@ function distanceKDFS(root: TreeNode | null, target: TreeNode | null, k: number)
 console.log("===== 099. 二叉树中所有距离为 K 的结点 =====");
 
 // 辅助函数：通过层序数组构建二叉树，并返回根和按值查找节点的映射
-function buildTreeWithMap(arr: (number | null)[]): { root: TreeNode | null; map: Map<number, TreeNode> } {
+function buildTreeWithMap(arr: (number | null)[]): {
+  root: TreeNode | null;
+  map: Map<number, TreeNode>;
+} {
   const map = new Map<number, TreeNode>();
   if (arr.length === 0 || arr[0] === null) return { root: null, map };
   const root = new TreeNode(arr[0]);

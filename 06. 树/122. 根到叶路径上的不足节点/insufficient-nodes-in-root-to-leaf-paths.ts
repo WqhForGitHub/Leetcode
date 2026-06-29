@@ -22,21 +22,14 @@ class TreeNode {
 // 若 < limit，则该叶节点是不足节点，返回 null（被删除）
 // 对于内部节点，递归处理左右子树，如果处理后左右子树都为 null，
 // 说明该节点也变成了叶节点，需要再次判断它是否为不足节点
-function sufficientSubset(
-  root: TreeNode | null,
-  limit: number
-): TreeNode | null {
+function sufficientSubset(root: TreeNode | null, limit: number): TreeNode | null {
   // 返回该节点经过剪枝后是否仍然存在（即从根到该节点的路径上存在某个叶节点路径和 >= limit）
   // 用一个辅助函数返回处理后的节点
   const result = dfs(root, 0, limit);
   return result;
 }
 
-function dfs(
-  node: TreeNode | null,
-  parentSum: number,
-  limit: number
-): TreeNode | null {
+function dfs(node: TreeNode | null, parentSum: number, limit: number): TreeNode | null {
   if (node === null) return null;
 
   const currSum = parentSum + node.val;
@@ -115,13 +108,8 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 console.log(
   "测试1:",
   treeToArray(
-    sufficientSubset(
-      buildTree([
-        1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14,
-      ]),
-      1
-    )
-  )
+    sufficientSubset(buildTree([1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14]), 1),
+  ),
 );
 // 期望 [1,2,3,4,null,null,7,8,null,null,12,null,13,null,14]
 
@@ -129,21 +117,13 @@ console.log(
 console.log(
   "测试2:",
   treeToArray(
-    sufficientSubset(
-      buildTree([5, 4, 8, 11, null, 17, 4, 7, 1, null, null, null, 2]),
-      22
-    )
-  )
+    sufficientSubset(buildTree([5, 4, 8, 11, null, 17, 4, 7, 1, null, null, null, 2]), 22),
+  ),
 );
 // 期望 [5,4,8,11,null,17,4,7,null,null,null,2]
 
 // 测试3: root = [1,2,-3,-5,null,4,null], limit = -1
-console.log(
-  "测试3:",
-  treeToArray(
-    sufficientSubset(buildTree([1, 2, -3, -5, null, 4, null]), -1)
-  )
-);
+console.log("测试3:", treeToArray(sufficientSubset(buildTree([1, 2, -3, -5, null, 4, null]), -1)));
 // 期望 [1,null,-3,4]
 
 export {};

@@ -69,7 +69,7 @@ function buildTree029(): TreeNode {
   return new TreeNode(
     1,
     new TreeNode(2, null, new TreeNode(5)),
-    new TreeNode(3, null, new TreeNode(4))
+    new TreeNode(3, null, new TreeNode(4)),
   );
 }
 console.log("BFS [1,2,3,null,5,null,4]:", rightSideView(buildTree029())); // [1,3,4]

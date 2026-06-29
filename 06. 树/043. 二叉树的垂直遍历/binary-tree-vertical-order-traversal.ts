@@ -77,7 +77,7 @@ console.log("===== 043. 二叉树的垂直遍历 =====");
 const tree43 = new TreeNode(
   3,
   new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
+  new TreeNode(20, new TreeNode(15), new TreeNode(7)),
 );
 console.log("BFS:", verticalOrder(tree43)); // 期望 [[9],[3,15],[20],[7]]
 console.log("DFS:", verticalOrderDFS(tree43)); // 期望 [[9],[3,15],[20],[7]]
@@ -86,7 +86,7 @@ console.log("DFS:", verticalOrderDFS(tree43)); // 期望 [[9],[3,15],[20],[7]]
 const tree43b = new TreeNode(
   3,
   new TreeNode(9, new TreeNode(4), new TreeNode(0)),
-  new TreeNode(8, new TreeNode(1), new TreeNode(7))
+  new TreeNode(8, new TreeNode(1), new TreeNode(7)),
 );
 console.log("BFS:", verticalOrder(tree43b)); // 期望 [[4],[9],[3,0,1],[8],[7]]
 console.log("DFS:", verticalOrderDFS(tree43b)); // 期望 [[4],[9],[3,0,1],[8],[7]]

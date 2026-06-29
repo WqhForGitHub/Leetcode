@@ -61,9 +61,9 @@ function test(): void {
   //      /
   //     3
   const root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
-  console.log('测试1 - 迭代:', inorderTraversal(root), '期望: [1,3,2]');
-  console.log('测试2 - 递归:', inorderTraversalRecursive(root), '期望: [1,3,2]');
-  console.log('测试3:', inorderTraversal(null), '期望: []');
+  console.log("测试1 - 迭代:", inorderTraversal(root), "期望: [1,3,2]");
+  console.log("测试2 - 递归:", inorderTraversalRecursive(root), "期望: [1,3,2]");
+  console.log("测试3:", inorderTraversal(null), "期望: []");
 }
 
 test();

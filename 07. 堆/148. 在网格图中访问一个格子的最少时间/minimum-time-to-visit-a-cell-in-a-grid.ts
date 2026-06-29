@@ -13,13 +13,20 @@ function minimumTime(grid: number[][]): number {
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
   dist[0][0] = 0;
   const heap: Array<[number, number, number]> = [[0, 0, 0]]; // [time, r, c]
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const visited: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] < heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -27,11 +34,14 @@ function minimumTime(grid: number[][]): number {
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] < heap[s][0]) s = l;
       if (r < len && heap[r][0] < heap[s][0]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   while (heap.length > 0) {
@@ -43,7 +53,8 @@ function minimumTime(grid: number[][]): number {
     if (visited[r][c]) continue;
     visited[r][c] = true;
     for (const [dr, dc] of dirs) {
-      const nr = r + dr, nc = c + dc;
+      const nr = r + dr,
+        nc = c + dc;
       if (nr < 0 || nr >= m || nc < 0 || nc >= n || visited[nr][nc]) continue;
       const diff = grid[nr][nc] - time;
       let newTime: number;
@@ -63,7 +74,21 @@ function minimumTime(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 148. 在网格图中访问一个格子的最少时间 =====");
-console.log("Dijkstra:", minimumTime([[0, 1, 3, 2], [5, 1, 2, 5], [4, 3, 8, 6]])); // 期望 7
-console.log("Dijkstra:", minimumTime([[0, 2, 4], [3, 2, 1], [1, 0, 4]])); // 期望 -1
+console.log(
+  "Dijkstra:",
+  minimumTime([
+    [0, 1, 3, 2],
+    [5, 1, 2, 5],
+    [4, 3, 8, 6],
+  ]),
+); // 期望 7
+console.log(
+  "Dijkstra:",
+  minimumTime([
+    [0, 2, 4],
+    [3, 2, 1],
+    [1, 0, 4],
+  ]),
+); // 期望 -1
 
 export {};

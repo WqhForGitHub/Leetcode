@@ -14,10 +14,11 @@ class Excel {
   // 反向依赖：单元格 -> 依赖它的父单元格列表
   private parents: Map<string, Set<string>>;
 
-  constructor(private height: number, private width: number) {
-    this.grid = Array.from({ length: height + 1 }, () =>
-      new Array(width + 1).fill(0),
-    );
+  constructor(
+    private height: number,
+    private width: number,
+  ) {
+    this.grid = Array.from({ length: height + 1 }, () => new Array(width + 1).fill(0));
     this.children = new Map();
     this.parents = new Map();
   }

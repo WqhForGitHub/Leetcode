@@ -34,7 +34,7 @@ function buildIntersection(
   arrA: number[],
   arrB: number[],
   skipA: number,
-  skipB: number
+  skipB: number,
 ): { headA: ListNode | null; headB: ListNode | null } {
   if (skipA >= arrA.length || skipB >= arrB.length) {
     // 不相交

@@ -16,17 +16,11 @@ function longestSubarray1(nums: number[], limit: number): number {
   let left = 0;
   let result = 0;
   for (let right = 0; right < nums.length; right++) {
-    while (
-      maxDeque.length > 0 &&
-      nums[maxDeque[maxDeque.length - 1]] <= nums[right]
-    ) {
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right]) {
       maxDeque.pop();
     }
     maxDeque.push(right);
-    while (
-      minDeque.length > 0 &&
-      nums[minDeque[minDeque.length - 1]] >= nums[right]
-    ) {
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right]) {
       minDeque.pop();
     }
     minDeque.push(right);
@@ -83,11 +77,7 @@ function longestSubarray2(nums: number[], limit: number): number {
 function test(): void {
   console.log("测试1:", longestSubarray1([8, 2, 4, 7], 4), "期望: 2");
   console.log("测试2:", longestSubarray1([10, 1, 2, 4, 7, 2], 5), "期望: 4");
-  console.log(
-    "测试3:",
-    longestSubarray1([4, 2, 2, 2, 4, 4, 2, 2], 0),
-    "期望: 3",
-  );
+  console.log("测试3:", longestSubarray1([4, 2, 2, 2, 4, 4, 2, 2], 0), "期望: 3");
   console.log("测试4:", longestSubarray2([8, 2, 4, 7], 4), "期望: 2");
   console.log("测试5:", longestSubarray2([10, 1, 2, 4, 7, 2], 5), "期望: 4");
 }

@@ -56,11 +56,14 @@ class FoodRatings {
     const n = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < n && this.compare(heap[l], heap[s]) > 0) s = l;
       if (r < n && this.compare(heap[r], heap[s]) > 0) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   }
 
@@ -112,7 +115,7 @@ console.log("===== 128. 设计食物评分系统 =====");
 const fr = new FoodRatings(
   ["kimchi", "miso", "sushi", "moussaka", "ramen", "bulgogi"],
   ["korean", "japanese", "japanese", "greek", "japanese", "korean"],
-  [9, 12, 8, 15, 14, 7]
+  [9, 12, 8, 15, 14, 7],
 );
 console.log("highestRated(japanese):", fr.highestRated("japanese")); // ramen
 console.log("highestRated(korean):", fr.highestRated("korean")); // kimchi

@@ -78,18 +78,18 @@ function test(): void {
   ms.push(-2);
   ms.push(0);
   ms.push(-3);
-  console.log('测试1 getMin:', ms.getMin(), '期望: -3');
+  console.log("测试1 getMin:", ms.getMin(), "期望: -3");
   ms.pop();
-  console.log('测试2 top:', ms.top(), '期望: 0');
-  console.log('测试3 getMin:', ms.getMin(), '期望: -2');
+  console.log("测试2 top:", ms.top(), "期望: 0");
+  console.log("测试3 getMin:", ms.getMin(), "期望: -2");
 
   const ms2 = new MinStackDiff();
   ms2.push(-2);
   ms2.push(0);
   ms2.push(-3);
-  console.log('测试4 差值法 getMin:', ms2.getMin(), '期望: -3');
+  console.log("测试4 差值法 getMin:", ms2.getMin(), "期望: -3");
   ms2.pop();
-  console.log('测试5 差值法 top:', ms2.top(), '期望: 0');
+  console.log("测试5 差值法 top:", ms2.top(), "期望: 0");
 }
 
 test();

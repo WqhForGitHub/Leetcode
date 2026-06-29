@@ -59,11 +59,7 @@ function levelOrderDFS(root: TreeNode | null): number[][] {
 // ============================================================
 console.log("===== 008. 二叉树的层序遍历 =====");
 // 测试1: [3,9,20,null,null,15,7] -> [[3],[9,20],[15,7]]
-const tree1 = new TreeNode(
-  3,
-  new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
-);
+const tree1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 console.log("[3,9,20,null,null,15,7] (BFS):", JSON.stringify(levelOrder(tree1)));
 // [[3],[9,20],[15,7]]
 console.log("[3,9,20,null,null,15,7] (DFS):", JSON.stringify(levelOrderDFS(tree1)));

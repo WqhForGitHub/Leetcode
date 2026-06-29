@@ -40,9 +40,7 @@ function binaryTreePathsBFS(root: TreeNode | null): string[] {
   const result: string[] = [];
   if (root === null) return result;
   // 队列同时保存节点和到该节点的路径
-  const queue: { node: TreeNode; path: string }[] = [
-    { node: root, path: String(root.val) },
-  ];
+  const queue: { node: TreeNode; path: string }[] = [{ node: root, path: String(root.val) }];
   while (queue.length > 0) {
     const { node, path } = queue.shift()!;
     if (node.left === null && node.right === null) {
@@ -64,11 +62,7 @@ function binaryTreePathsBFS(root: TreeNode | null): string[] {
 // ============================================================
 console.log("===== 037. 二叉树的所有路径 =====");
 // 构造树: [1,2,3,null,5]
-const tree37 = new TreeNode(
-  1,
-  new TreeNode(2, null, new TreeNode(5)),
-  new TreeNode(3)
-);
+const tree37 = new TreeNode(1, new TreeNode(2, null, new TreeNode(5)), new TreeNode(3));
 console.log("DFS:", binaryTreePaths(tree37)); // 期望 ["1->2->5","1->3"]
 console.log("BFS:", binaryTreePathsBFS(tree37)); // 期望 ["1->2->5","1->3"]
 

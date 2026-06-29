@@ -12,28 +12,28 @@
 // 时间 O(n)，空间 O(n)。
 function simplifyPath(path: string): string {
   const stack: string[] = [];
-  const parts = path.split('/');
+  const parts = path.split("/");
   for (const part of parts) {
-    if (part === '' || part === '.') {
+    if (part === "" || part === ".") {
       continue;
-    } else if (part === '..') {
+    } else if (part === "..") {
       stack.pop();
     } else {
       stack.push(part);
     }
   }
-  return '/' + stack.join('/');
+  return "/" + stack.join("/");
 }
 
 // ------------------------------------------------------------
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', simplifyPath('/home/'), '期望: /home');
-  console.log('测试2:', simplifyPath('/../'), '期望: /');
-  console.log('测试3:', simplifyPath('/home//foo/'), '期望: /home/foo');
-  console.log('测试4:', simplifyPath('/a/./b/../../c/'), '期望: /c');
-  console.log('测试5:', simplifyPath('/a/../../b/../c//.//'), '期望: /c');
+  console.log("测试1:", simplifyPath("/home/"), "期望: /home");
+  console.log("测试2:", simplifyPath("/../"), "期望: /");
+  console.log("测试3:", simplifyPath("/home//foo/"), "期望: /home/foo");
+  console.log("测试4:", simplifyPath("/a/./b/../../c/"), "期望: /c");
+  console.log("测试5:", simplifyPath("/a/../../b/../c//.//"), "期望: /c");
 }
 
 test();

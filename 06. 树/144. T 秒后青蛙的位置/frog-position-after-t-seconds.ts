@@ -9,12 +9,7 @@
 
 // 方法1：DFS递归（推荐）
 // 建图后DFS，记录当前节点、父节点、已用时间、当前概率
-function frogPosition(
-  n: number,
-  edges: number[][],
-  t: number,
-  target: number
-): number {
+function frogPosition(n: number, edges: number[][], t: number, target: number): number {
   // 建邻接表
   const graph: number[][] = new Array(n + 1).fill(0).map(() => []);
   for (const [u, v] of edges) {
@@ -79,19 +74,75 @@ console.log("===== 144. T 秒后青蛙的位置 =====");
 //     /| |
 //    4 6 5
 // 青蛙1->2(概率1/3)->4(概率1/3 * 1/2 = 1/6)
-console.log("测试1:", frogPosition(7, [[1, 2], [1, 3], [1, 7], [2, 4], [2, 6], [3, 5]], 2, 4)); // 期望 0.166666...
+console.log(
+  "测试1:",
+  frogPosition(
+    7,
+    [
+      [1, 2],
+      [1, 3],
+      [1, 7],
+      [2, 4],
+      [2, 6],
+      [3, 5],
+    ],
+    2,
+    4,
+  ),
+); // 期望 0.166666...
 console.log("测试1 分数约 1/6 =", 1 / 6);
 
 // 测试2: n=7, 同上, t=1, target=7
 // 青蛙1->7(概率1/3)
-console.log("测试2:", frogPosition(7, [[1, 2], [1, 3], [1, 7], [2, 4], [2, 6], [3, 5]], 1, 7)); // 期望 0.333333...
+console.log(
+  "测试2:",
+  frogPosition(
+    7,
+    [
+      [1, 2],
+      [1, 3],
+      [1, 7],
+      [2, 4],
+      [2, 6],
+      [3, 5],
+    ],
+    1,
+    7,
+  ),
+); // 期望 0.333333...
 
 // 测试3: n=7, 同上, t=20, target=6
 // 青蛙1->2(1/3)->6(1/3*1/2=1/6), 到6后无邻居停留到20秒
-console.log("测试3:", frogPosition(7, [[1, 2], [1, 3], [1, 7], [2, 4], [2, 6], [3, 5]], 20, 6)); // 期望 0.166666...
+console.log(
+  "测试3:",
+  frogPosition(
+    7,
+    [
+      [1, 2],
+      [1, 3],
+      [1, 7],
+      [2, 4],
+      [2, 6],
+      [3, 5],
+    ],
+    20,
+    6,
+  ),
+); // 期望 0.166666...
 
 // 测试4: n=3, edges=[[2,1],[3,2]], t=1, target=2
 // 1-2-3, 青蛙1->2(概率1)
-console.log("测试4:", frogPosition(3, [[2, 1], [3, 2]], 1, 2)); // 期望 1
+console.log(
+  "测试4:",
+  frogPosition(
+    3,
+    [
+      [2, 1],
+      [3, 2],
+    ],
+    1,
+    2,
+  ),
+); // 期望 1
 
 export {};

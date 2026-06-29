@@ -42,17 +42,10 @@ function getImportance(employees: Employee[], id: number): number {
 // ============================================================
 console.log("===== 124. 员工的重要性 =====");
 // 测试 1
-const emps1 = [
-  new Employee(1, 5, [2, 3]),
-  new Employee(2, 3, []),
-  new Employee(3, 3, []),
-];
+const emps1 = [new Employee(1, 5, [2, 3]), new Employee(2, 3, []), new Employee(3, 3, [])];
 console.log(getImportance(emps1, 1)); // 期望: 11
 // 测试 2
-const emps2 = [
-  new Employee(1, 2, [5]),
-  new Employee(5, -3, []),
-];
+const emps2 = [new Employee(1, 2, [5]), new Employee(5, -3, [])];
 console.log(getImportance(emps2, 5)); // 期望: -3
 
 export {};

@@ -74,15 +74,9 @@ function serialize(root: TreeNode | null): (number | null)[] {
 // 测试
 // ============================================================
 console.log("===== 08. 将有序数组转换为二叉搜索树 =====");
-console.log(
-  "取中间元素 [-10,-3,0,5,9]:",
-  serialize(sortedArrayToBST([-10, -3, 0, 5, 9])),
-); // 期望结果 [0,-10,5,null,-3,null,9]（左中点，形态之一）
+console.log("取中间元素 [-10,-3,0,5,9]:", serialize(sortedArrayToBST([-10, -3, 0, 5, 9]))); // 期望结果 [0,-10,5,null,-3,null,9]（左中点，形态之一）
 console.log("取中间元素 [1,3]:", serialize(sortedArrayToBST([1, 3]))); // 期望结果 [1,null,3]
-console.log(
-  "取中间偏右 [-10,-3,0,5,9]:",
-  serialize(sortedArrayToBSTRightMid([-10, -3, 0, 5, 9])),
-); // 期望结果 [0,-3,9,-10,null,5]（右中点，形态之一）
+console.log("取中间偏右 [-10,-3,0,5,9]:", serialize(sortedArrayToBSTRightMid([-10, -3, 0, 5, 9]))); // 期望结果 [0,-3,9,-10,null,5]（右中点，形态之一）
 console.log("取中间偏右 [1,3]:", serialize(sortedArrayToBSTRightMid([1, 3]))); // 期望结果 [3,1]
 console.log("空数组 []:", serialize(sortedArrayToBST([]))); // 期望结果 []
 

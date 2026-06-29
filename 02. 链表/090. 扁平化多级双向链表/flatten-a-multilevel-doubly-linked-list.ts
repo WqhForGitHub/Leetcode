@@ -16,7 +16,7 @@ class Node {
     val: number = 0,
     prev: Node | null = null,
     next: Node | null = null,
-    child: Node | null = null
+    child: Node | null = null,
   ) {
     this.val = val;
     this.prev = prev;

@@ -12,12 +12,18 @@ class SORTracker {
   // 大根堆存其余
   private rest: Array<{ score: number; name: string }> = [];
   private k = 0;
-  private cmpLess = (a: { score: number; name: string }, b: { score: number; name: string }): boolean => {
+  private cmpLess = (
+    a: { score: number; name: string },
+    b: { score: number; name: string },
+  ): boolean => {
     // top 堆顶是第 k 名（评分最小、名字最大）
     if (a.score !== b.score) return a.score < b.score;
     return a.name > b.name;
   };
-  private cmpGreater = (a: { score: number; name: string }, b: { score: number; name: string }): boolean => {
+  private cmpGreater = (
+    a: { score: number; name: string },
+    b: { score: number; name: string },
+  ): boolean => {
     if (a.score !== b.score) return a.score > b.score;
     return a.name < b.name;
   };

@@ -88,7 +88,7 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 const tree1 = new TreeNode(
   4,
   new TreeNode(1, new TreeNode(0), new TreeNode(2, null, new TreeNode(3))),
-  new TreeNode(6, new TreeNode(5), new TreeNode(7, null, new TreeNode(8)))
+  new TreeNode(6, new TreeNode(5), new TreeNode(7, null, new TreeNode(8))),
 );
 console.log("递归 累加树:", treeToArray(convertBST(tree1)));
 // [36,36,24,36,26,30,21,null,null,null,27,null,null,null,22]
@@ -96,7 +96,7 @@ console.log("递归 累加树:", treeToArray(convertBST(tree1)));
 const tree2 = new TreeNode(
   4,
   new TreeNode(1, new TreeNode(0), new TreeNode(2, null, new TreeNode(3))),
-  new TreeNode(6, new TreeNode(5), new TreeNode(7, null, new TreeNode(8)))
+  new TreeNode(6, new TreeNode(5), new TreeNode(7, null, new TreeNode(8))),
 );
 console.log("迭代 累加树:", treeToArray(convertBSTIterative(tree2)));
 // [36,36,24,36,26,30,21,null,null,null,27,null,null,null,22]

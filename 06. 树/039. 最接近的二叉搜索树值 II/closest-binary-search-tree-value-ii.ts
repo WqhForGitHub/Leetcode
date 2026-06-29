@@ -43,11 +43,7 @@ function closestKValues(root: TreeNode | null, target: number, k: number): numbe
 // 方法2：两个栈迭代中序（ predecessors 和 successors）
 // 维护两个栈分别按中序给出小于等于 target 的前驱和大于 target 的后继，
 // 每次比较两边哪个更接近 target，取较小者加入结果，共取 k 个。
-function closestKValuesTwoStacks(
-  root: TreeNode | null,
-  target: number,
-  k: number
-): number[] {
+function closestKValuesTwoStacks(root: TreeNode | null, target: number, k: number): number[] {
   const predecessors: TreeNode[] = [];
   const successors: TreeNode[] = [];
   // 初始化两个栈
@@ -68,8 +64,7 @@ function closestKValuesTwoStacks(
     const sTop = successors[successors.length - 1]?.val;
     if (
       successors.length === 0 ||
-      (predecessors.length > 0 &&
-        Math.abs(pTop - target) <= Math.abs(sTop - target))
+      (predecessors.length > 0 && Math.abs(pTop - target) <= Math.abs(sTop - target))
     ) {
       result.push(getNextPredecessor(predecessors));
     } else {
@@ -106,11 +101,7 @@ function getNextSuccessor(stack: TreeNode[]): number {
 // ============================================================
 console.log("===== 039. 最接近的二叉搜索树值 II =====");
 // 构造 BST: [4,2,5,1,3]
-const tree39 = new TreeNode(
-  4,
-  new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(5)
-);
+const tree39 = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(5));
 console.log("双指针 target=3.714 k=2:", closestKValues(tree39, 3.714, 2)); // 期望 [4,5] 或 [3,4]
 console.log("双栈 target=3.714 k=2:", closestKValuesTwoStacks(tree39, 3.714, 2)); // 期望 [4,5] 或 [3,4]
 console.log("双指针 target=2.0 k=2:", closestKValues(tree39, 2.0, 2)); // 期望 [2,1] 或 [2,3]

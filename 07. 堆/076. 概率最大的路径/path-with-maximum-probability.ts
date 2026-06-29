@@ -6,7 +6,13 @@
 // 时间复杂度：O(E log V)，空间复杂度：O(V+E)
 
 // 方法1：Dijkstra 变形 + 最大堆
-function maxProbability(n: number, edges: number[][], succProb: number[], start: number, end: number): number {
+function maxProbability(
+  n: number,
+  edges: number[][],
+  succProb: number[],
+  start: number,
+  end: number,
+): number {
   const graph: Array<Array<{ to: number; p: number }>> = Array.from({ length: n }, () => []);
   for (let i = 0; i < edges.length; i++) {
     const [u, v] = edges[i];
@@ -65,7 +71,13 @@ function maxProbability(n: number, edges: number[][], succProb: number[], start:
 }
 
 // 方法2：SPFA
-function maxProbabilitySPFA(n: number, edges: number[][], succProb: number[], start: number, end: number): number {
+function maxProbabilitySPFA(
+  n: number,
+  edges: number[][],
+  succProb: number[],
+  start: number,
+  end: number,
+): number {
   const graph: Array<Array<{ to: number; p: number }>> = Array.from({ length: n }, () => []);
   for (let i = 0; i < edges.length; i++) {
     const [u, v] = edges[i];
@@ -98,7 +110,33 @@ function maxProbabilitySPFA(n: number, edges: number[][], succProb: number[], st
 // 测试
 // ============================================================
 console.log("===== 076. 概率最大的路径 =====");
-console.log("Dijkstra:", maxProbability(3, [[0, 1], [1, 2], [0, 2]], [0.5, 0.5, 0.2], 0, 2)); // 期望 0.25
-console.log("SPFA:", maxProbabilitySPFA(3, [[0, 1], [1, 2], [0, 2]], [0.5, 0.5, 0.3], 0, 2)); // 期望 0.3
+console.log(
+  "Dijkstra:",
+  maxProbability(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+      [0, 2],
+    ],
+    [0.5, 0.5, 0.2],
+    0,
+    2,
+  ),
+); // 期望 0.25
+console.log(
+  "SPFA:",
+  maxProbabilitySPFA(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+      [0, 2],
+    ],
+    [0.5, 0.5, 0.3],
+    0,
+    2,
+  ),
+); // 期望 0.3
 
 export {};

@@ -24,7 +24,12 @@ class NodeCopy {
   left: NodeCopy | null;
   right: NodeCopy | null;
   random: NodeCopy | null;
-  constructor(val?: number, left?: NodeCopy | null, right?: NodeCopy | null, random?: NodeCopy | null) {
+  constructor(
+    val?: number,
+    left?: NodeCopy | null,
+    right?: NodeCopy | null,
+    random?: NodeCopy | null,
+  ) {
     this.val = val ?? 0;
     this.left = left ?? null;
     this.right = right ?? null;

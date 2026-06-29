@@ -9,7 +9,10 @@
 function maximumSum(nums: number[]): number {
   const digitSum = (n: number): number => {
     let s = 0;
-    while (n > 0) { s += n % 10; n = Math.floor(n / 10); }
+    while (n > 0) {
+      s += n % 10;
+      n = Math.floor(n / 10);
+    }
     return s;
   };
   const map: Map<number, number> = new Map(); // digitSum -> max value
@@ -30,7 +33,10 @@ function maximumSum(nums: number[]): number {
 function maximumSumHeap(nums: number[]): number {
   const digitSum = (n: number): number => {
     let s = 0;
-    while (n > 0) { s += n % 10; n = Math.floor(n / 10); }
+    while (n > 0) {
+      s += n % 10;
+      n = Math.floor(n / 10);
+    }
     return s;
   };
   const groups: Map<number, number[]> = new Map();

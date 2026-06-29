@@ -92,41 +92,17 @@ function test(): void {
   s1.enqueue([0, 0]); // 猫 0
   s1.enqueue([1, 1]); // 狗 1
   s1.enqueue([0, 2]); // 猫 2
-  console.log(
-    "测试1 dequeueAny:",
-    JSON.stringify(s1.dequeueAny()),
-    "期望: [0,0]",
-  );
-  console.log(
-    "测试2 dequeueDog:",
-    JSON.stringify(s1.dequeueDog()),
-    "期望: [1,1]",
-  );
-  console.log(
-    "测试3 dequeueCat:",
-    JSON.stringify(s1.dequeueCat()),
-    "期望: [0,2]",
-  );
-  console.log(
-    "测试4 dequeueAny:",
-    JSON.stringify(s1.dequeueAny()),
-    "期望: [-1,-1]",
-  );
+  console.log("测试1 dequeueAny:", JSON.stringify(s1.dequeueAny()), "期望: [0,0]");
+  console.log("测试2 dequeueDog:", JSON.stringify(s1.dequeueDog()), "期望: [1,1]");
+  console.log("测试3 dequeueCat:", JSON.stringify(s1.dequeueCat()), "期望: [0,2]");
+  console.log("测试4 dequeueAny:", JSON.stringify(s1.dequeueAny()), "期望: [-1,-1]");
 
   const s2 = new AnimalShelf2();
   s2.enqueue([1, 10]);
   s2.enqueue([0, 20]);
   s2.enqueue([1, 30]);
-  console.log(
-    "测试5 dequeueCat:",
-    JSON.stringify(s2.dequeueCat()),
-    "期望: [0,20]",
-  );
-  console.log(
-    "测试6 dequeueAny:",
-    JSON.stringify(s2.dequeueAny()),
-    "期望: [1,10]",
-  );
+  console.log("测试5 dequeueCat:", JSON.stringify(s2.dequeueCat()), "期望: [0,20]");
+  console.log("测试6 dequeueAny:", JSON.stringify(s2.dequeueAny()), "期望: [1,10]");
 }
 
 test();

@@ -8,12 +8,7 @@
 
 function nextClosestTime(time: string): string {
   // 提取四个数字
-  const digits = [
-    parseInt(time[0]),
-    parseInt(time[1]),
-    parseInt(time[3]),
-    parseInt(time[4]),
-  ];
+  const digits = [parseInt(time[0]), parseInt(time[1]), parseInt(time[3]), parseInt(time[4])];
   const digitSet = new Set(digits);
   // 当前分钟数
   const curMin = digits[0] * 10 * 60 + digits[1] * 60 + digits[3] * 10 + digits[4];

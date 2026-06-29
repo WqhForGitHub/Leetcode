@@ -17,11 +17,7 @@ class TreeNode {
 }
 
 // 方法1：递归利用 BST 性质（推荐）
-function lowestCommonAncestor(
-  root: TreeNode | null,
-  p: TreeNode,
-  q: TreeNode
-): TreeNode | null {
+function lowestCommonAncestor(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null) return null;
   // 若 p、q 都在左子树
   if (p.val < root.val && q.val < root.val) {
@@ -39,7 +35,7 @@ function lowestCommonAncestor(
 function lowestCommonAncestorIterative(
   root: TreeNode | null,
   p: TreeNode,
-  q: TreeNode
+  q: TreeNode,
 ): TreeNode | null {
   let curr: TreeNode | null = root;
   while (curr !== null) {
@@ -61,12 +57,8 @@ console.log("===== 033. 二叉搜索树的最近公共祖先 =====");
 // 构造 BST: [6,2,8,0,4,7,9,null,null,3,5]
 const tree33 = new TreeNode(
   6,
-  new TreeNode(
-    2,
-    new TreeNode(0),
-    new TreeNode(4, new TreeNode(3), new TreeNode(5))
-  ),
-  new TreeNode(8, new TreeNode(7), new TreeNode(9))
+  new TreeNode(2, new TreeNode(0), new TreeNode(4, new TreeNode(3), new TreeNode(5))),
+  new TreeNode(8, new TreeNode(7), new TreeNode(9)),
 );
 const p33 = tree33.left!; // 2
 const q33 = tree33.right!; // 8

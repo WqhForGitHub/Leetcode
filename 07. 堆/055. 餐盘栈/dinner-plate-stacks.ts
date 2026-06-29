@@ -133,9 +133,14 @@ class DinnerPlates {
 // ============================================================
 console.log("===== 055. 餐盘栈 =====");
 const dp = new DinnerPlates(2);
-dp.push(1); dp.push(2); dp.push(3); dp.push(4); dp.push(5);
+dp.push(1);
+dp.push(2);
+dp.push(3);
+dp.push(4);
+dp.push(5);
 console.log("popAt 0:", dp.popAtStack(0)); // 期望 2
-dp.push(20); dp.push(21);
+dp.push(20);
+dp.push(21);
 console.log("popAt 0:", dp.popAtStack(0)); // 期望 20
 console.log("popAt 2:", dp.popAtStack(2)); // 期望 21
 console.log("pop:", dp.pop()); // 期望 5

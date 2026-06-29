@@ -40,12 +40,7 @@ function isRectangleCover(rectangles: number[][]): boolean {
   if (areaSum !== boundingArea) return false;
 
   // 最终应只剩外接矩形的四个角
-  const expected = [
-    `${minX},${minY}`,
-    `${minX},${maxY}`,
-    `${maxX},${minY}`,
-    `${maxX},${maxY}`,
-  ];
+  const expected = [`${minX},${minY}`, `${minX},${maxY}`, `${maxX},${minY}`, `${maxX},${maxY}`];
   if (corners.size !== 4) return false;
   for (const p of expected) {
     if (!corners.has(p)) return false;

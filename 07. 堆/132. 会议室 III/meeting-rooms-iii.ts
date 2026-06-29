@@ -18,11 +18,14 @@ function mostBooked(n: number, meetings: number[][]): number {
     const len = freeRooms.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && freeRooms[l] < freeRooms[s]) s = l;
       if (r < len && freeRooms[r] < freeRooms[s]) s = r;
-      if (s !== i) { [freeRooms[i], freeRooms[s]] = [freeRooms[s], freeRooms[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [freeRooms[i], freeRooms[s]] = [freeRooms[s], freeRooms[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = Math.floor(freeRooms.length / 2) - 1; i >= 0; i--) freeSiftDown(i);
@@ -30,8 +33,10 @@ function mostBooked(n: number, meetings: number[][]): number {
   const busySiftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (busyRooms[i][0] < busyRooms[p][0] ||
-        (busyRooms[i][0] === busyRooms[p][0] && busyRooms[i][1] < busyRooms[p][1])) {
+      if (
+        busyRooms[i][0] < busyRooms[p][0] ||
+        (busyRooms[i][0] === busyRooms[p][0] && busyRooms[i][1] < busyRooms[p][1])
+      ) {
         [busyRooms[i], busyRooms[p]] = [busyRooms[p], busyRooms[i]];
         i = p;
       } else break;
@@ -41,13 +46,24 @@ function mostBooked(n: number, meetings: number[][]): number {
     const len = busyRooms.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
-      if (l < len && (busyRooms[l][0] < busyRooms[s][0] ||
-        (busyRooms[l][0] === busyRooms[s][0] && busyRooms[l][1] < busyRooms[s][1]))) s = l;
-      if (r < len && (busyRooms[r][0] < busyRooms[s][0] ||
-        (busyRooms[r][0] === busyRooms[s][0] && busyRooms[r][1] < busyRooms[s][1]))) s = r;
-      if (s !== i) { [busyRooms[i], busyRooms[s]] = [busyRooms[s], busyRooms[i]]; i = s; }
-      else break;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
+      if (
+        l < len &&
+        (busyRooms[l][0] < busyRooms[s][0] ||
+          (busyRooms[l][0] === busyRooms[s][0] && busyRooms[l][1] < busyRooms[s][1]))
+      )
+        s = l;
+      if (
+        r < len &&
+        (busyRooms[r][0] < busyRooms[s][0] ||
+          (busyRooms[r][0] === busyRooms[s][0] && busyRooms[r][1] < busyRooms[s][1]))
+      )
+        s = r;
+      if (s !== i) {
+        [busyRooms[i], busyRooms[s]] = [busyRooms[s], busyRooms[i]];
+        i = s;
+      } else break;
     }
   };
 
@@ -64,8 +80,10 @@ function mostBooked(n: number, meetings: number[][]): number {
       let idx = freeRooms.length - 1;
       while (idx > 0) {
         const p = (idx - 1) >> 1;
-        if (freeRooms[idx] < freeRooms[p]) { [freeRooms[idx], freeRooms[p]] = [freeRooms[p], freeRooms[idx]]; idx = p; }
-        else break;
+        if (freeRooms[idx] < freeRooms[p]) {
+          [freeRooms[idx], freeRooms[p]] = [freeRooms[p], freeRooms[idx]];
+          idx = p;
+        } else break;
       }
     }
     if (freeRooms.length > 0) {
@@ -103,7 +121,24 @@ function mostBooked(n: number, meetings: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 132. 会议室 III =====");
-console.log("双堆:", mostBooked(2, [[0, 10], [1, 5], [2, 7], [3, 4]])); // 期望 0
-console.log("双堆:", mostBooked(3, [[1, 20], [2, 10], [3, 5], [4, 9], [6, 8]])); // 期望 1
+console.log(
+  "双堆:",
+  mostBooked(2, [
+    [0, 10],
+    [1, 5],
+    [2, 7],
+    [3, 4],
+  ]),
+); // 期望 0
+console.log(
+  "双堆:",
+  mostBooked(3, [
+    [1, 20],
+    [2, 10],
+    [3, 5],
+    [4, 9],
+    [6, 8],
+  ]),
+); // 期望 1
 
 export {};

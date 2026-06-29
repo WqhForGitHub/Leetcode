@@ -23,11 +23,7 @@ function rangeSumBST(root: TreeNode | null, low: number, high: number): number {
 
   // 当前值在范围内，累加当前值并递归左右子树
   if (root.val >= low && root.val <= high) {
-    return (
-      root.val +
-      rangeSumBST(root.left, low, high) +
-      rangeSumBST(root.right, low, high)
-    );
+    return root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
   }
 
   // 当前值小于 low，只递归右子树（左子树都更小，不可能在范围内）

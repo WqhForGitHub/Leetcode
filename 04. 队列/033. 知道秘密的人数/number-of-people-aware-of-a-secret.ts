@@ -10,11 +10,7 @@
 // ------------------------------------------------------------
 // 用 diff[i] 记录第 i 天新增知道秘密人数的变化，累积求和。
 // 时间 O(n * (forget - delay))，空间 O(n)。
-function peopleAwareOfSecret1(
-  n: number,
-  delay: number,
-  forget: number,
-): number {
+function peopleAwareOfSecret1(n: number, delay: number, forget: number): number {
   const MOD = 1e9 + 7;
   const diff: number[] = new Array(n + 2).fill(0);
   diff[1] = 1;
@@ -44,11 +40,7 @@ function peopleAwareOfSecret1(
 // ------------------------------------------------------------
 // dp[i] 表示第 i 天新知道秘密的人数，用前缀和优化。
 // 时间 O(n)，空间 O(n)。
-function peopleAwareOfSecret2(
-  n: number,
-  delay: number,
-  forget: number,
-): number {
+function peopleAwareOfSecret2(n: number, delay: number, forget: number): number {
   const MOD = 1e9 + 7;
   const dp: number[] = new Array(n + 1).fill(0);
   dp[1] = 1;

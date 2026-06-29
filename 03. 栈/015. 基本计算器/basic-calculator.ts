@@ -15,22 +15,22 @@ function calculate(s: string): number {
   let sign = 1;
   const stack: number[] = [];
   for (const ch of s) {
-    if (ch >= '0' && ch <= '9') {
-      num = num * 10 + (ch.charCodeAt(0) - '0'.charCodeAt(0));
-    } else if (ch === '+') {
+    if (ch >= "0" && ch <= "9") {
+      num = num * 10 + (ch.charCodeAt(0) - "0".charCodeAt(0));
+    } else if (ch === "+") {
       result += sign * num;
       num = 0;
       sign = 1;
-    } else if (ch === '-') {
+    } else if (ch === "-") {
       result += sign * num;
       num = 0;
       sign = -1;
-    } else if (ch === '(') {
+    } else if (ch === "(") {
       stack.push(result);
       stack.push(sign);
       result = 0;
       sign = 1;
-    } else if (ch === ')') {
+    } else if (ch === ")") {
       result += sign * num;
       num = 0;
       result *= stack.pop()!; // sign
@@ -45,10 +45,10 @@ function calculate(s: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', calculate('1 + 1'), '期望: 2');
-  console.log('测试2:', calculate(' 2-1 + 2 '), '期望: 3');
-  console.log('测试3:', calculate('(1+(4+5+2)-3)+(6+8)'), '期望: 23');
-  console.log('测试4:', calculate('1-(     -2)'), '期望: 3');
+  console.log("测试1:", calculate("1 + 1"), "期望: 2");
+  console.log("测试2:", calculate(" 2-1 + 2 "), "期望: 3");
+  console.log("测试3:", calculate("(1+(4+5+2)-3)+(6+8)"), "期望: 23");
+  console.log("测试4:", calculate("1-(     -2)"), "期望: 3");
 }
 
 test();

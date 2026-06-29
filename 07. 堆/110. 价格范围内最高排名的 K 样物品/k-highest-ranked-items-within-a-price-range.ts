@@ -6,14 +6,24 @@
 // 时间复杂度：O(mn log k)，空间复杂度：O(mn)
 
 // 方法1：BFS + 最小堆维护 k 个
-function highestRankedKItems(grid: number[][], pricing: number[], start: number[], k: number): number[][] {
+function highestRankedKItems(
+  grid: number[][],
+  pricing: number[],
+  start: number[],
+  k: number,
+): number[][] {
   const m = grid.length;
   const n = grid[0].length;
   const [low, high] = pricing;
   const visited: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
   const queue: Array<[number, number, number]> = [[start[0], start[1], 0]];
   visited[start[0]][start[1]] = true;
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const items: Array<{ dist: number; price: number; r: number; c: number }> = [];
   let head = 0;
   while (head < queue.length) {
@@ -35,21 +45,34 @@ function highestRankedKItems(grid: number[][], pricing: number[], start: number[
 }
 
 // 方法2：BFS + 堆
-function highestRankedKItemsHeap(grid: number[][], pricing: number[], start: number[], k: number): number[][] {
+function highestRankedKItemsHeap(
+  grid: number[][],
+  pricing: number[],
+  start: number[],
+  k: number,
+): number[][] {
   const m = grid.length;
   const n = grid[0].length;
   const [low, high] = pricing;
   const visited: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
   const queue: Array<[number, number, number]> = [[start[0], start[1], 0]];
   visited[start[0]][start[1]] = true;
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const heap: Array<{ dist: number; price: number; r: number; c: number }> = [];
   const less = (a: number, b: number): boolean => {
     const ha = heap[a];
     const hb = heap[b];
-    return ha.dist > hb.dist || (ha.dist === hb.dist && ha.price > hb.price) ||
+    return (
+      ha.dist > hb.dist ||
+      (ha.dist === hb.dist && ha.price > hb.price) ||
       (ha.dist === hb.dist && ha.price === hb.price && ha.r > hb.r) ||
-      (ha.dist === hb.dist && ha.price === hb.price && ha.r === hb.r && ha.c > hb.c);
+      (ha.dist === hb.dist && ha.price === hb.price && ha.r === hb.r && ha.c > hb.c)
+    );
   };
   const siftUp = (i: number): void => {
     while (i > 0) {
@@ -105,7 +128,21 @@ function highestRankedKItemsHeap(grid: number[][], pricing: number[], start: num
 // 测试
 // ============================================================
 console.log("===== 110. 价格范围内最高排名的 K 样物品 =====");
-console.log("BFS:", JSON.stringify(highestRankedKItems([[1, 2, 0, 1], [1, 3, 0, 1], [0, 2, 5, 1]], [2, 5], [0, 0], 3)));
+console.log(
+  "BFS:",
+  JSON.stringify(
+    highestRankedKItems(
+      [
+        [1, 2, 0, 1],
+        [1, 3, 0, 1],
+        [0, 2, 5, 1],
+      ],
+      [2, 5],
+      [0, 0],
+      3,
+    ),
+  ),
+);
 // 期望 [[0,1],[1,1],[2,1]]
 
 export {};

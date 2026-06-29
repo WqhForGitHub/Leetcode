@@ -22,8 +22,10 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
     let i = waitLeft.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (waitLeft[i][0] > waitLeft[p][0] ||
-        (waitLeft[i][0] === waitLeft[p][0] && waitLeft[i][1] > waitLeft[p][1])) {
+      if (
+        waitLeft[i][0] > waitLeft[p][0] ||
+        (waitLeft[i][0] === waitLeft[p][0] && waitLeft[i][1] > waitLeft[p][1])
+      ) {
         [waitLeft[i], waitLeft[p]] = [waitLeft[p], waitLeft[i]];
         i = p;
       } else break;
@@ -37,13 +39,25 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
     const n = waitLeft.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
-      if (l < n && (waitLeft[l][0] > waitLeft[s][0] ||
-        (waitLeft[l][0] === waitLeft[s][0] && waitLeft[l][1] > waitLeft[s][1]))) s = l;
-      if (r < n && (waitRight[r] && (waitLeft[r][0] > waitLeft[s][0] ||
-        (waitLeft[r][0] === waitLeft[s][0] && waitLeft[r][1] > waitLeft[s][1])))) s = r;
-      if (s !== i) { [waitLeft[i], waitLeft[s]] = [waitLeft[s], waitLeft[i]]; i = s; }
-      else break;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
+      if (
+        l < n &&
+        (waitLeft[l][0] > waitLeft[s][0] ||
+          (waitLeft[l][0] === waitLeft[s][0] && waitLeft[l][1] > waitLeft[s][1]))
+      )
+        s = l;
+      if (
+        r < n &&
+        waitRight[r] &&
+        (waitLeft[r][0] > waitLeft[s][0] ||
+          (waitLeft[r][0] === waitLeft[s][0] && waitLeft[r][1] > waitLeft[s][1]))
+      )
+        s = r;
+      if (s !== i) {
+        [waitLeft[i], waitLeft[s]] = [waitLeft[s], waitLeft[i]];
+        i = s;
+      } else break;
     }
     return top;
   };
@@ -52,8 +66,10 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
     let i = waitRight.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (waitRight[i][0] > waitRight[p][0] ||
-        (waitRight[i][0] === waitRight[p][0] && waitRight[i][1] > waitRight[p][1])) {
+      if (
+        waitRight[i][0] > waitRight[p][0] ||
+        (waitRight[i][0] === waitRight[p][0] && waitRight[i][1] > waitRight[p][1])
+      ) {
         [waitRight[i], waitRight[p]] = [waitRight[p], waitRight[i]];
         i = p;
       } else break;
@@ -67,13 +83,24 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
     const n = waitRight.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
-      if (l < n && (waitRight[l][0] > waitRight[s][0] ||
-        (waitRight[l][0] === waitRight[s][0] && waitRight[l][1] > waitRight[s][1]))) s = l;
-      if (r < n && (waitRight[r][0] > waitRight[s][0] ||
-        (waitRight[r][0] === waitRight[s][0] && waitRight[r][1] > waitRight[s][1]))) s = r;
-      if (s !== i) { [waitRight[i], waitRight[s]] = [waitRight[s], waitRight[i]]; i = s; }
-      else break;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
+      if (
+        l < n &&
+        (waitRight[l][0] > waitRight[s][0] ||
+          (waitRight[l][0] === waitRight[s][0] && waitRight[l][1] > waitRight[s][1]))
+      )
+        s = l;
+      if (
+        r < n &&
+        (waitRight[r][0] > waitRight[s][0] ||
+          (waitRight[r][0] === waitRight[s][0] && waitRight[r][1] > waitRight[s][1]))
+      )
+        s = r;
+      if (s !== i) {
+        [waitRight[i], waitRight[s]] = [waitRight[s], waitRight[i]];
+        i = s;
+      } else break;
     }
     return top;
   };
@@ -82,8 +109,10 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
     let i = heap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] < heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const popWork = (heap: Array<[number, number]>): [number, number] => {
@@ -95,11 +124,14 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
       const n = heap.length;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < n && heap[l][0] < heap[s][0]) s = l;
         if (r < n && heap[r][0] < heap[s][0]) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-        else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     }
     return top;
@@ -145,6 +177,12 @@ function findCrossingTime(n: number, k: number, time: number[][]): number {
 // ============================================================
 console.log("===== 144. 过桥的时间 =====");
 console.log("模拟:", findCrossingTime(1, 1, [[1, 1, 2, 1]])); // 期望 4
-console.log("模拟:", findCrossingTime(3, 2, [[1, 9, 1, 8], [2, 10, 4, 6]])); // 期望 33
+console.log(
+  "模拟:",
+  findCrossingTime(3, 2, [
+    [1, 9, 1, 8],
+    [2, 10, 4, 6],
+  ]),
+); // 期望 33
 
 export {};

@@ -64,10 +64,8 @@ function constrainedSubsetSum2(nums: number[], k: number): number {
       const left = 2 * i + 1;
       const right = 2 * i + 2;
       let largest = i;
-      if (left < heap.length && heap[left].val > heap[largest].val)
-        largest = left;
-      if (right < heap.length && heap[right].val > heap[largest].val)
-        largest = right;
+      if (left < heap.length && heap[left].val > heap[largest].val) largest = left;
+      if (right < heap.length && heap[right].val > heap[largest].val) largest = right;
       if (largest === i) break;
       [heap[largest], heap[i]] = [heap[i], heap[largest]];
       i = largest;
@@ -92,22 +90,10 @@ function constrainedSubsetSum2(nums: number[], k: number): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    constrainedSubsetSum1([10, 2, -10, 5, 20], 2),
-    "期望: 37",
-  );
+  console.log("测试1:", constrainedSubsetSum1([10, 2, -10, 5, 20], 2), "期望: 37");
   console.log("测试2:", constrainedSubsetSum1([-1, -2, -3], 1), "期望: -1");
-  console.log(
-    "测试3:",
-    constrainedSubsetSum1([10, -2, -10, -5, 20], 2),
-    "期望: 23",
-  );
-  console.log(
-    "测试4:",
-    constrainedSubsetSum2([10, 2, -10, 5, 20], 2),
-    "期望: 37",
-  );
+  console.log("测试3:", constrainedSubsetSum1([10, -2, -10, -5, 20], 2), "期望: 23");
+  console.log("测试4:", constrainedSubsetSum2([10, 2, -10, 5, 20], 2), "期望: 37");
   console.log("测试5:", constrainedSubsetSum2([-1, -2, -3], 1), "期望: -1");
 }
 

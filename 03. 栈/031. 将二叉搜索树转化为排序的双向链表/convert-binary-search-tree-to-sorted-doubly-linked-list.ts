@@ -90,7 +90,7 @@ function test(): void {
     result.push(cur!.val);
     cur = cur!.right;
   } while (cur !== head);
-  console.log('测试1 - 栈法:', result, '期望: [1,2,3,4,5]');
+  console.log("测试1 - 栈法:", result, "期望: [1,2,3,4,5]");
 }
 
 test();

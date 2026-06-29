@@ -72,6 +72,9 @@ function leastIntervalHeap(tasks: string[], n: number): number {
 // ============================================================
 console.log("===== 023. 任务调度器 =====");
 console.log("贪心:", leastInterval(["A", "A", "A", "B", "B", "B"], 2)); // 期望 8
-console.log("堆:", leastIntervalHeap(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)); // 期望 16
+console.log(
+  "堆:",
+  leastIntervalHeap(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2),
+); // 期望 16
 
 export {};

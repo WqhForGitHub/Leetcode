@@ -56,24 +56,20 @@ function kthSmallestIterative(root: TreeNode | null, k: number): number {
 // ============================================================
 console.log("===== 032. 二叉搜索树中第 K 小的元素 =====");
 // 构造 BST: [3,1,4,null,2]
-const tree32 = new TreeNode(
-  3,
-  new TreeNode(1, null, new TreeNode(2)),
-  new TreeNode(4)
-);
+const tree32 = new TreeNode(3, new TreeNode(1, null, new TreeNode(2)), new TreeNode(4));
 console.log("递归 k=1:", kthSmallest(tree32, 1)); // 期望 1
 console.log("迭代 k=1:", kthSmallestIterative(tree32, 1)); // 期望 1
 // 注意：递归会修改状态，重新构造树测试
 const tree32b = new TreeNode(
   5,
   new TreeNode(3, new TreeNode(2, new TreeNode(1)), new TreeNode(4)),
-  new TreeNode(6)
+  new TreeNode(6),
 );
 console.log("递归 k=3:", kthSmallest(tree32b, 3)); // 期望 3
 const tree32c = new TreeNode(
   5,
   new TreeNode(3, new TreeNode(2, new TreeNode(1)), new TreeNode(4)),
-  new TreeNode(6)
+  new TreeNode(6),
 );
 console.log("迭代 k=3:", kthSmallestIterative(tree32c, 3)); // 期望 3
 

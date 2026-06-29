@@ -82,7 +82,7 @@ console.log("===== 019. 路径总和 II =====");
 const tree019 = new TreeNode(
   5,
   new TreeNode(4, new TreeNode(11, new TreeNode(7), new TreeNode(2))),
-  new TreeNode(8, new TreeNode(13), new TreeNode(4, new TreeNode(5), new TreeNode(1)))
+  new TreeNode(8, new TreeNode(13), new TreeNode(4, new TreeNode(5), new TreeNode(1))),
 );
 console.log("DFS targetSum=22:", JSON.stringify(pathSum(tree019, 22))); // [[5,4,11,2],[5,8,4,5]]
 console.log("BFS targetSum=22:", JSON.stringify(pathSumBFS(tree019, 22))); // [[5,4,11,2],[5,8,4,5]]

@@ -14,9 +14,9 @@ function checkValidString(s: string): boolean {
   const leftStack: number[] = [];
   const starStack: number[] = [];
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') {
+    if (s[i] === "(") {
       leftStack.push(i);
-    } else if (s[i] === '*') {
+    } else if (s[i] === "*") {
       starStack.push(i);
     } else {
       // ')'
@@ -41,10 +41,10 @@ function checkValidStringGreedy(s: string): boolean {
   let lo = 0,
     hi = 0;
   for (const ch of s) {
-    if (ch === '(') {
+    if (ch === "(") {
       lo++;
       hi++;
-    } else if (ch === ')') {
+    } else if (ch === ")") {
       lo = Math.max(lo - 1, 0);
       hi--;
       if (hi < 0) return false;
@@ -61,11 +61,11 @@ function checkValidStringGreedy(s: string): boolean {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 双栈:', checkValidString('()'), '期望: true');
-  console.log('测试2 - 双栈:', checkValidString('(*)'), '期望: true');
-  console.log('测试3 - 双栈:', checkValidString('(*))'), '期望: true');
-  console.log('测试4 - 贪心:', checkValidStringGreedy('(*))'), '期望: true');
-  console.log('测试5 - 贪心:', checkValidStringGreedy('(((******))'), '期望: true');
+  console.log("测试1 - 双栈:", checkValidString("()"), "期望: true");
+  console.log("测试2 - 双栈:", checkValidString("(*)"), "期望: true");
+  console.log("测试3 - 双栈:", checkValidString("(*))"), "期望: true");
+  console.log("测试4 - 贪心:", checkValidStringGreedy("(*))"), "期望: true");
+  console.log("测试5 - 贪心:", checkValidStringGreedy("(((******))"), "期望: true");
 }
 
 test();

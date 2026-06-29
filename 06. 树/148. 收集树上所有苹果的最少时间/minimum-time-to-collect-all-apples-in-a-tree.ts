@@ -48,7 +48,21 @@ console.log("===== 148. 收集树上所有苹果的最少时间 =====");
 // 苹果在: 2,4,5
 // 路径: 0->2(2有苹果)=2, 0->1->4(4有苹果)=4, 0->1->5(5有苹果)=4
 // 总=2+4+4=10
-console.log("测试1:", minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [false, false, true, false, true, true, false])); // 期望 8
+console.log(
+  "测试1:",
+  minTime(
+    7,
+    [
+      [0, 1],
+      [0, 2],
+      [1, 4],
+      [1, 5],
+      [2, 3],
+      [2, 6],
+    ],
+    [false, false, true, false, true, true, false],
+  ),
+); // 期望 8
 // 实际: 0->1->4 (2边) + 0->1->5 (2边) + 0->2 (1边)
 // 但1经过两次,合并: 0->1->4(往返4) + 0->1->5(往返4) = 但0->1边只走一次往返=2
 // 实际: 子树1: 收集4和5, 1->4往返2 + 1->5往返2 = 4, 加上0->1往返2 = 6
@@ -61,15 +75,54 @@ console.log("测试1 期望 8");
 // 子树1: 只5有苹果, 1->5往返2, 加0->1往返2 = 4
 // 子树2: 2有苹果, 0->2往返2 = 2
 // 总=6
-console.log("测试2:", minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [false, false, true, false, false, true, false])); // 期望 6
+console.log(
+  "测试2:",
+  minTime(
+    7,
+    [
+      [0, 1],
+      [0, 2],
+      [1, 4],
+      [1, 5],
+      [2, 3],
+      [2, 6],
+    ],
+    [false, false, true, false, false, true, false],
+  ),
+); // 期望 6
 
 // 测试3: n=7, edges同上, hasApple=[false,false,false,false,false,false,false]
 // 无苹果
-console.log("测试3:", minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [false, false, false, false, false, false, false])); // 期望 0
+console.log(
+  "测试3:",
+  minTime(
+    7,
+    [
+      [0, 1],
+      [0, 2],
+      [1, 4],
+      [1, 5],
+      [2, 3],
+      [2, 6],
+    ],
+    [false, false, false, false, false, false, false],
+  ),
+); // 期望 0
 
 // 测试4: n=4, edges=[[0,2],[0,3],[1,2]], hasApple=[false,true,false,false]
 // 0-2-1, 0-3
 // 苹果在1: 0->2->1 往返4
-console.log("测试4:", minTime(4, [[0, 2], [0, 3], [1, 2]], [false, true, false, false])); // 期望 4
+console.log(
+  "测试4:",
+  minTime(
+    4,
+    [
+      [0, 2],
+      [0, 3],
+      [1, 2],
+    ],
+    [false, true, false, false],
+  ),
+); // 期望 4
 
 export {};

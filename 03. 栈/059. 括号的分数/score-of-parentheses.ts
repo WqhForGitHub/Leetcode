@@ -13,7 +13,7 @@
 function scoreOfParentheses(s: string): number {
   const stack: number[] = [0]; // 栈底累加结果
   for (const ch of s) {
-    if (ch === '(') {
+    if (ch === "(") {
       stack.push(0);
     } else {
       const v = stack.pop()!;
@@ -32,10 +32,10 @@ function scoreOfParenthesesCount(s: string): number {
   let depth = 0;
   let result = 0;
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') depth++;
+    if (s[i] === "(") depth++;
     else {
       depth--;
-      if (s[i - 1] === '(') result += 1 << depth; // 2^depth
+      if (s[i - 1] === "(") result += 1 << depth; // 2^depth
     }
   }
   return result;
@@ -45,10 +45,10 @@ function scoreOfParenthesesCount(s: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', scoreOfParentheses('()'), '期望: 1');
-  console.log('测试2 - 栈法:', scoreOfParentheses('(())'), '期望: 2');
-  console.log('测试3 - 栈法:', scoreOfParentheses('()()'), '期望: 2');
-  console.log('测试4 - 计数:', scoreOfParenthesesCount('(()(()))'), '期望: 6');
+  console.log("测试1 - 栈法:", scoreOfParentheses("()"), "期望: 1");
+  console.log("测试2 - 栈法:", scoreOfParentheses("(())"), "期望: 2");
+  console.log("测试3 - 栈法:", scoreOfParentheses("()()"), "期望: 2");
+  console.log("测试4 - 计数:", scoreOfParenthesesCount("(()(()))"), "期望: 6");
 }
 
 test();

@@ -47,10 +47,7 @@ function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode |
 
 // 方法2：中序遍历
 // 中序遍历 BST，记录前一个访问的节点，若前一个等于 p，则当前即为后继。
-function inorderSuccessorInorder(
-  root: TreeNode | null,
-  p: TreeNode | null
-): TreeNode | null {
+function inorderSuccessorInorder(root: TreeNode | null, p: TreeNode | null): TreeNode | null {
   if (root === null || p === null) return null;
   const stack: TreeNode[] = [];
   let curr: TreeNode | null = root;
@@ -90,7 +87,7 @@ console.log("中序 后继(3):", inorderSuccessorInorder(tree40, p40c)); // 期�
 const tree40b = new TreeNode(
   5,
   new TreeNode(3, new TreeNode(2, new TreeNode(1)), new TreeNode(4)),
-  new TreeNode(6)
+  new TreeNode(6),
 );
 const p40d = tree40b.left!.right!; // 4
 console.log("迭代 后继(4):", inorderSuccessor(tree40b, p40d)?.val); // 期望 5

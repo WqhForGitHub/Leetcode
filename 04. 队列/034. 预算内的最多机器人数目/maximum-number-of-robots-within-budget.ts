@@ -11,11 +11,7 @@
 // ------------------------------------------------------------
 // 二分 k，用单调队列检查长度为 k 的窗口的最大 chargeTime + k*runningCostSum。
 // 时间 O(n log n)，空间 O(n)。
-function maximumRobots1(
-  chargeTimes: number[],
-  runningCosts: number[],
-  budget: number,
-): number {
+function maximumRobots1(chargeTimes: number[], runningCosts: number[], budget: number): number {
   const n = chargeTimes.length;
   let lo = 0;
   let hi = n;
@@ -26,10 +22,7 @@ function maximumRobots1(
     const deque: number[] = [];
     for (let i = 0; i < n; i++) {
       runningSum += runningCosts[i];
-      while (
-        deque.length > 0 &&
-        chargeTimes[deque[deque.length - 1]] <= chargeTimes[i]
-      ) {
+      while (deque.length > 0 && chargeTimes[deque[deque.length - 1]] <= chargeTimes[i]) {
         deque.pop();
       }
       deque.push(i);
@@ -56,11 +49,7 @@ function maximumRobots1(
 // ------------------------------------------------------------
 // 用双指针维护窗口，当成本超预算时收缩左端。
 // 时间 O(n)，空间 O(n)。
-function maximumRobots2(
-  chargeTimes: number[],
-  runningCosts: number[],
-  budget: number,
-): number {
+function maximumRobots2(chargeTimes: number[], runningCosts: number[], budget: number): number {
   const n = chargeTimes.length;
   const deque: number[] = [];
   let runningSum = 0;
@@ -68,10 +57,7 @@ function maximumRobots2(
   let result = 0;
   for (let right = 0; right < n; right++) {
     runningSum += runningCosts[right];
-    while (
-      deque.length > 0 &&
-      chargeTimes[deque[deque.length - 1]] <= chargeTimes[right]
-    ) {
+    while (deque.length > 0 && chargeTimes[deque[deque.length - 1]] <= chargeTimes[right]) {
       deque.pop();
     }
     deque.push(right);
@@ -91,26 +77,10 @@ function maximumRobots2(
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    maximumRobots1([3, 6, 1, 3, 4], [2, 1, 3, 4, 5], 25),
-    "期望: 3",
-  );
-  console.log(
-    "测试2:",
-    maximumRobots1([11, 12, 19], [10, 8, 7], 19),
-    "期望: 0",
-  );
-  console.log(
-    "测试3:",
-    maximumRobots2([3, 6, 1, 3, 4], [2, 1, 3, 4, 5], 25),
-    "期望: 3",
-  );
-  console.log(
-    "测试4:",
-    maximumRobots2([11, 12, 19], [10, 8, 7], 19),
-    "期望: 0",
-  );
+  console.log("测试1:", maximumRobots1([3, 6, 1, 3, 4], [2, 1, 3, 4, 5], 25), "期望: 3");
+  console.log("测试2:", maximumRobots1([11, 12, 19], [10, 8, 7], 19), "期望: 0");
+  console.log("测试3:", maximumRobots2([3, 6, 1, 3, 4], [2, 1, 3, 4, 5], 25), "期望: 3");
+  console.log("测试4:", maximumRobots2([11, 12, 19], [10, 8, 7], 19), "期望: 0");
 }
 
 test();

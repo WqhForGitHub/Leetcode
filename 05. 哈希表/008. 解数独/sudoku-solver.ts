@@ -33,8 +33,7 @@ function solveSudoku(board: string[][]): void {
     const boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
     for (let num = 1; num <= 9; num++) {
       const ch = String(num);
-      if (rows[r].has(ch) || cols[c].has(ch) || boxes[boxIndex].has(ch))
-        continue;
+      if (rows[r].has(ch) || cols[c].has(ch) || boxes[boxIndex].has(ch)) continue;
       board[r][c] = ch;
       rows[r].add(ch);
       cols[c].add(ch);

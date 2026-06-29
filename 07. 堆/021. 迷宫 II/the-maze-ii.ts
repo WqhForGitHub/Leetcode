@@ -10,7 +10,12 @@ function shortestDistance(maze: number[][], start: number[], destination: number
   const m = maze.length;
   const n = maze[0].length;
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const heap: Array<{ d: number; r: number; c: number }> = [];
   const push = (v: { d: number; r: number; c: number }): void => {
     heap.push(v);
@@ -54,7 +59,13 @@ function shortestDistance(maze: number[][], start: number[], destination: number
       let nr = cur.r;
       let nc = cur.c;
       let steps = 0;
-      while (nr + dr >= 0 && nr + dr < m && nc + dc >= 0 && nc + dc < n && maze[nr + dr][nc + dc] === 0) {
+      while (
+        nr + dr >= 0 &&
+        nr + dr < m &&
+        nc + dc >= 0 &&
+        nc + dc < n &&
+        maze[nr + dr][nc + dc] === 0
+      ) {
         nr += dr;
         nc += dc;
         steps++;
@@ -73,7 +84,20 @@ function shortestDistance(maze: number[][], start: number[], destination: number
 // 测试
 // ============================================================
 console.log("===== 021. 迷宫 II =====");
-console.log("最短距离:", shortestDistance([[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [1, 1, 0, 1, 1], [0, 0, 0, 0, 0]], [0, 4], [4, 4]));
+console.log(
+  "最短距离:",
+  shortestDistance(
+    [
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 0],
+      [1, 1, 0, 1, 1],
+      [0, 0, 0, 0, 0],
+    ],
+    [0, 4],
+    [4, 4],
+  ),
+);
 // 期望 12
 
 export {};

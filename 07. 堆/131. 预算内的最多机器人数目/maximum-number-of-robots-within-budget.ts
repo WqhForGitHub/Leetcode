@@ -13,7 +13,10 @@ function maximumRobots(chargeTimes: number[], runningCosts: number[], budget: nu
   let sum = 0;
   let result = 0;
   for (let right = 0; right < n; right++) {
-    while (maxDeque.length > 0 && chargeTimes[maxDeque[maxDeque.length - 1]] <= chargeTimes[right]) {
+    while (
+      maxDeque.length > 0 &&
+      chargeTimes[maxDeque[maxDeque.length - 1]] <= chargeTimes[right]
+    ) {
       maxDeque.pop();
     }
     maxDeque.push(right);
@@ -42,8 +45,10 @@ function maximumRobotsHeap(chargeTimes: number[], runningCosts: number[], budget
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i].val > heap[p].val) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i].val > heap[p].val) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -51,11 +56,14 @@ function maximumRobotsHeap(chargeTimes: number[], runningCosts: number[], budget
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l].val > heap[s].val) s = l;
       if (r < len && heap[r].val > heap[s].val) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let right = 0; right < n; right++) {

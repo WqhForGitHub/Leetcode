@@ -43,12 +43,7 @@ function maxSumBST(root: TreeNode | null): number {
     const right = dfs(node.right);
 
     // 判断当前子树是否为BST
-    if (
-      left.isBST &&
-      right.isBST &&
-      node.val > left.max &&
-      node.val < right.min
-    ) {
+    if (left.isBST && right.isBST && node.val > left.max && node.val < right.min) {
       const sum = node.val + left.sum + right.sum;
       if (sum > maxSum) maxSum = sum;
       const minVal = node.left === null ? node.val : left.min;

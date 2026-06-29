@@ -39,9 +39,7 @@ class StatisticsTracker1 {
   }
 
   getMean(): number {
-    return this.sorted.length === 0
-      ? 0
-      : Math.floor(this.sum / this.sorted.length);
+    return this.sorted.length === 0 ? 0 : Math.floor(this.sum / this.sorted.length);
   }
 
   getMedian(): number {
@@ -89,10 +87,8 @@ class StatisticsTracker2 {
       const l = 2 * i + 1;
       const r = 2 * i + 2;
       let best = i;
-      if (l < n && (isMax ? heap[l] > heap[best] : heap[l] < heap[best]))
-        best = l;
-      if (r < n && (isMax ? heap[r] > heap[best] : heap[r] < heap[best]))
-        best = r;
+      if (l < n && (isMax ? heap[l] > heap[best] : heap[l] < heap[best])) best = l;
+      if (r < n && (isMax ? heap[r] > heap[best] : heap[r] < heap[best])) best = r;
       if (best === i) break;
       [heap[best], heap[i]] = [heap[i], heap[best]];
       i = best;

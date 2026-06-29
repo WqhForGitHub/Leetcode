@@ -13,7 +13,7 @@ function smallestTrimmedNumbers(nums: string[], queries: number[][]): number[] {
       val: s.slice(s.length - trim),
       idx: i,
     }));
-    trimmed.sort((a, b) => a.val < b.val ? -1 : a.val > b.val ? 1 : a.idx - b.idx);
+    trimmed.sort((a, b) => (a.val < b.val ? -1 : a.val > b.val ? 1 : a.idx - b.idx));
     result.push(trimmed[k - 1].idx);
   }
   return result;
@@ -29,18 +29,21 @@ function smallestTrimmedNumbersHeap(nums: string[], queries: number[][]): number
     }));
     // 使用最大堆维护 k 个最小
     const heap: Array<{ val: string; idx: number }> = [];
-    const less = (a: typeof arr[0], b: typeof arr[0]): boolean => {
+    const less = (a: (typeof arr)[0], b: (typeof arr)[0]): boolean => {
       return a.val > b.val || (a.val === b.val && a.idx > b.idx);
     };
     const siftDown = (i: number): void => {
       const n = heap.length;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < n && less(heap[l], heap[s])) s = l;
         if (r < n && less(heap[r], heap[s])) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-        else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     };
     for (const item of arr) {
@@ -48,8 +51,10 @@ function smallestTrimmedNumbersHeap(nums: string[], queries: number[][]): number
       let i = heap.length - 1;
       while (i > 0) {
         const p = (i - 1) >> 1;
-        if (less(heap[i], heap[p])) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-        else break;
+        if (less(heap[i], heap[p])) {
+          [heap[i], heap[p]] = [heap[p], heap[i]];
+          i = p;
+        } else break;
       }
       if (heap.length > k) {
         heap[0] = heap[heap.length - 1];
@@ -66,7 +71,18 @@ function smallestTrimmedNumbersHeap(nums: string[], queries: number[][]): number
 // 测试
 // ============================================================
 console.log("===== 125. 裁剪数字后查询第 K 小的数字 =====");
-console.log("排序:", smallestTrimmedNumbers(["102", "473", "251", "814"], [[1, 1], [2, 3], [4, 2], [1, 2]]));
+console.log(
+  "排序:",
+  smallestTrimmedNumbers(
+    ["102", "473", "251", "814"],
+    [
+      [1, 1],
+      [2, 3],
+      [4, 2],
+      [1, 2],
+    ],
+  ),
+);
 // 期望 [2, 2, 1, 0]
 console.log("堆:", smallestTrimmedNumbersHeap(["643", "841", "5"], [[1, 3]])); // 期望 [2]
 

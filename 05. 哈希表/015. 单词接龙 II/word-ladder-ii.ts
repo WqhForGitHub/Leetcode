@@ -7,11 +7,7 @@
 // 使用 BFS 建立路径图，再 DFS 回溯输出所有最短路径。
 // 时间复杂度：O(N * L^2)，空间复杂度：O(N * L)，N 为单词数，L 为单词长度
 
-function findLadders(
-  beginWord: string,
-  endWord: string,
-  wordList: string[],
-): string[][] {
+function findLadders(beginWord: string, endWord: string, wordList: string[]): string[][] {
   const wordSet = new Set(wordList);
   const result: string[][] = [];
   if (!wordSet.has(endWord)) return result;
@@ -82,9 +78,7 @@ function findLadders(
 // 测试
 // ============================================================
 console.log("===== 015. 单词接龙 II =====");
-console.log(
-  findLadders("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]),
-);
+console.log(findLadders("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]));
 // [["hit","hot","dot","dog","cog"],["hit","hot","lot","log","cog"]]
 
 console.log(findLadders("hit", "cog", ["hot", "dot", "dog", "lot", "log"]));

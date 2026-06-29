@@ -22,7 +22,7 @@ function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {
   const ans: number[] = new Array(n).fill(0);
 
   // 枚举所有非空子集（用位掩码表示，1..n 城市对应 bit0..bit(n-1)）
-  for (let mask = 1; mask < (1 << n); mask++) {
+  for (let mask = 1; mask < 1 << n; mask++) {
     // 统计子集大小
     const cities: number[] = [];
     for (let i = 0; i < n; i++) {
@@ -56,7 +56,7 @@ function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {
   function bfs(
     start: number,
     citySet: Set<number>,
-    adj: number[][]
+    adj: number[][],
   ): { farthest: number; dist: number } {
     const visited = new Set<number>([start]);
     const queue: number[] = [start];
@@ -97,7 +97,14 @@ console.log("===== 167. 统计子树中城市之间最大距离 =====");
 // 直径为 1 的子树: {1,2},{2,3},{2,4} 共3个
 // 直径为 2 的子树: {1,2,3},{1,2,4},{3,2,4} 共3个
 // 直径为 3 的子树: {1,2,3,4} 共1个
-console.log("测试1:", countSubgraphsForEachDiameter(4, [[1, 2], [2, 3], [2, 4]]));
+console.log(
+  "测试1:",
+  countSubgraphsForEachDiameter(4, [
+    [1, 2],
+    [2, 3],
+    [2, 4],
+  ]),
+);
 // 期望 [3,3,1]
 
 // 测试2: n = 2, edges = [[1,2]]
@@ -107,7 +114,13 @@ console.log("测试2:", countSubgraphsForEachDiameter(2, [[1, 2]]));
 // 测试3: n = 3, edges = [[1,2],[2,3]]
 // 直径为 1: {1,2},{2,3} 共2个
 // 直径为 2: {1,2,3} 共1个
-console.log("测试3:", countSubgraphsForEachDiameter(3, [[1, 2], [2, 3]]));
+console.log(
+  "测试3:",
+  countSubgraphsForEachDiameter(3, [
+    [1, 2],
+    [2, 3],
+  ]),
+);
 // 期望 [2,1]
 
 export {};

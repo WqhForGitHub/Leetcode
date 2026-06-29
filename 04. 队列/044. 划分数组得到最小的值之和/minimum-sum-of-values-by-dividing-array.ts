@@ -88,22 +88,10 @@ function minimumValueSum2(nums: number[], andValues: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    minimumValueSum1([1, 4, 3, 3, 2], [0, 3, 3, 2]),
-    "期望: 12",
-  );
-  console.log(
-    "测试2:",
-    minimumValueSum1([2, 3, 5, 7, 7, 7, 5], [4, 7, 5]),
-    "期望: 17",
-  );
+  console.log("测试1:", minimumValueSum1([1, 4, 3, 3, 2], [0, 3, 3, 2]), "期望: 12");
+  console.log("测试2:", minimumValueSum1([2, 3, 5, 7, 7, 7, 5], [4, 7, 5]), "期望: 17");
   console.log("测试3:", minimumValueSum1([1, 2, 3, 4], [2, 4]), "期望: -1");
-  console.log(
-    "测试4:",
-    minimumValueSum2([1, 4, 3, 3, 2], [0, 3, 3, 2]),
-    "期望: 12",
-  );
+  console.log("测试4:", minimumValueSum2([1, 4, 3, 3, 2], [0, 3, 3, 2]), "期望: 12");
 }
 
 test();

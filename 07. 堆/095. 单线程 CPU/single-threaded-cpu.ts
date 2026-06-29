@@ -16,7 +16,10 @@ function getOrder(tasks: number[][]): number[] {
     let i = heap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i].proc < heap[p].proc || (heap[i].proc === heap[p].proc && heap[i].idx < heap[p].idx)) {
+      if (
+        heap[i].proc < heap[p].proc ||
+        (heap[i].proc === heap[p].proc && heap[i].idx < heap[p].idx)
+      ) {
         [heap[i], heap[p]] = [heap[p], heap[i]];
         i = p;
       } else break;
@@ -32,8 +35,18 @@ function getOrder(tasks: number[][]): number[] {
         let s = i;
         const l = 2 * i + 1;
         const r = 2 * i + 2;
-        if (l < heap.length && (heap[l].proc < heap[s].proc || (heap[l].proc === heap[s].proc && heap[l].idx < heap[s].idx))) s = l;
-        if (r < heap.length && (heap[r].proc < heap[s].proc || (heap[r].proc === heap[s].proc && heap[r].idx < heap[s].idx))) s = r;
+        if (
+          l < heap.length &&
+          (heap[l].proc < heap[s].proc ||
+            (heap[l].proc === heap[s].proc && heap[l].idx < heap[s].idx))
+        )
+          s = l;
+        if (
+          r < heap.length &&
+          (heap[r].proc < heap[s].proc ||
+            (heap[r].proc === heap[s].proc && heap[r].idx < heap[s].idx))
+        )
+          s = r;
         if (s !== i) {
           [heap[i], heap[s]] = [heap[s], heap[i]];
           i = s;
@@ -65,7 +78,24 @@ function getOrder(tasks: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 095. 单线程 CPU =====");
-console.log("顺序:", getOrder([[1, 2], [2, 4], [3, 2], [4, 1]])); // 期望 [0,2,3,1]
-console.log("顺序:", getOrder([[7, 10], [7, 12], [7, 5], [7, 4], [7, 2]])); // 期望 [4,3,2,0,1]
+console.log(
+  "顺序:",
+  getOrder([
+    [1, 2],
+    [2, 4],
+    [3, 2],
+    [4, 1],
+  ]),
+); // 期望 [0,2,3,1]
+console.log(
+  "顺序:",
+  getOrder([
+    [7, 10],
+    [7, 12],
+    [7, 5],
+    [7, 4],
+    [7, 2],
+  ]),
+); // 期望 [4,3,2,0,1]
 
 export {};

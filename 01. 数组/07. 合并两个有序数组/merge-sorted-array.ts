@@ -32,12 +32,7 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 
 // 方法2：双指针从前往后（需额外空间）
 // 先复制 nums1 的有效元素到临时数组，再从前往后合并
-function mergeForward(
-  nums1: number[],
-  m: number,
-  nums2: number[],
-  n: number,
-): void {
+function mergeForward(nums1: number[], m: number, nums2: number[], n: number): void {
   const nums1Copy = nums1.slice(0, m); // 额外 O(m) 空间
   let p1 = 0;
   let p2 = 0;

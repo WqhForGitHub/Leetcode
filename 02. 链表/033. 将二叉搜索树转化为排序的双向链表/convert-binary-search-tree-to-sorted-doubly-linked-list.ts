@@ -164,7 +164,7 @@ console.log("===== 033. 将二叉搜索树转化为排序的双向链表 =====")
     "单节点自环验证：head.left === head =",
     head!.left === head,
     ", head.right === head =",
-    head!.right === head
+    head!.right === head,
   ); // true, true
 }
 

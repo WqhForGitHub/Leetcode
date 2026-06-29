@@ -120,21 +120,9 @@ function movesToStamp2(stamp: string, target: string): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    JSON.stringify(movesToStamp1("abc", "ababc")),
-    "期望: [0,2] 或类似",
-  );
-  console.log(
-    "测试2:",
-    JSON.stringify(movesToStamp1("abca", "aabcaca")),
-    "期望: [3,0,1] 或类似",
-  );
-  console.log(
-    "测试3:",
-    JSON.stringify(movesToStamp2("abc", "ababc")),
-    "期望: [0,2] 或类似",
-  );
+  console.log("测试1:", JSON.stringify(movesToStamp1("abc", "ababc")), "期望: [0,2] 或类似");
+  console.log("测试2:", JSON.stringify(movesToStamp1("abca", "aabcaca")), "期望: [3,0,1] 或类似");
+  console.log("测试3:", JSON.stringify(movesToStamp2("abc", "ababc")), "期望: [0,2] 或类似");
 }
 
 test();

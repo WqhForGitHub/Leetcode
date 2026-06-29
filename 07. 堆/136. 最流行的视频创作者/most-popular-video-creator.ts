@@ -54,8 +54,10 @@ function mostPopularCreatorHeap(creators: string[], ids: string[], views: number
     let i = heap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i].total > heap[p].total) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i].total > heap[p].total) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   }
   const result: string[][] = [];
@@ -70,10 +72,15 @@ function mostPopularCreatorHeap(creators: string[], ids: string[], views: number
 // 测试
 // ============================================================
 console.log("===== 136. 最流行的视频创作者 =====");
-console.log("哈希表:", JSON.stringify(mostPopularCreator(
-  ["alice", "bob", "alice", "chris"],
-  ["one", "two", "three", "four"],
-  [5, 10, 5, 4]
-))); // 期望 [["alice","one"],["bob","two"]]
+console.log(
+  "哈希表:",
+  JSON.stringify(
+    mostPopularCreator(
+      ["alice", "bob", "alice", "chris"],
+      ["one", "two", "three", "four"],
+      [5, 10, 5, 4],
+    ),
+  ),
+); // 期望 [["alice","one"],["bob","two"]]
 
 export {};

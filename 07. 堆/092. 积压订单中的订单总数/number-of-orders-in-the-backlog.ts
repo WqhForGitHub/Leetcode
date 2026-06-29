@@ -115,7 +115,23 @@ function getNumberOfBacklogOrders(orders: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 092. 积压订单中的订单总数 =====");
-console.log("总数:", getNumberOfBacklogOrders([[10, 5, 0], [15, 2, 1], [25, 1, 1], [30, 4, 0]])); // 期望 6
-console.log("总数:", getNumberOfBacklogOrders([[7, 1000000000, 1], [15, 3, 0], [5, 999999995, 0], [5, 1, 1]])); // 期望 999999984
+console.log(
+  "总数:",
+  getNumberOfBacklogOrders([
+    [10, 5, 0],
+    [15, 2, 1],
+    [25, 1, 1],
+    [30, 4, 0],
+  ]),
+); // 期望 6
+console.log(
+  "总数:",
+  getNumberOfBacklogOrders([
+    [7, 1000000000, 1],
+    [15, 3, 0],
+    [5, 999999995, 0],
+    [5, 1, 1],
+  ]),
+); // 期望 999999984
 
 export {};

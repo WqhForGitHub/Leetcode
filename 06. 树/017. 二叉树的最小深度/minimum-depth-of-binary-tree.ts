@@ -58,7 +58,7 @@ console.log("===== 017. 二叉树的最小深度 =====");
 const tree017 = new TreeNode(
   3,
   new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
+  new TreeNode(20, new TreeNode(15), new TreeNode(7)),
 );
 console.log("递归 [3,9,20,null,null,15,7]:", minDepth(tree017)); // 2
 console.log("BFS   [3,9,20,null,null,15,7]:", minDepthBFS(tree017)); // 2
@@ -67,7 +67,7 @@ console.log("BFS   [3,9,20,null,null,15,7]:", minDepthBFS(tree017)); // 2
 const tree017b = new TreeNode(
   2,
   null,
-  new TreeNode(3, null, new TreeNode(4, null, new TreeNode(5, null, new TreeNode(6))))
+  new TreeNode(3, null, new TreeNode(4, null, new TreeNode(5, null, new TreeNode(6)))),
 );
 console.log("递归 [2,null,3,null,4,null,5,null,6]:", minDepth(tree017b)); // 5
 console.log("BFS   [2,null,3,null,4,null,5,null,6]:", minDepthBFS(tree017b)); // 5

@@ -16,7 +16,10 @@ class VideoSharingPlatform {
     let i = this.available.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (this.available[i] < this.available[p]) { [this.available[i], this.available[p]] = [this.available[p], this.available[i]]; i = p; } else break;
+      if (this.available[i] < this.available[p]) {
+        [this.available[i], this.available[p]] = [this.available[p], this.available[i]];
+        i = p;
+      } else break;
     }
   }
   private popAvail(): number {
@@ -27,10 +30,14 @@ class VideoSharingPlatform {
       let i = 0;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < this.available.length && this.available[l] < this.available[s]) s = l;
         if (r < this.available.length && this.available[r] < this.available[s]) s = r;
-        if (s !== i) { [this.available[i], this.available[s]] = [this.available[s], this.available[i]]; i = s; } else break;
+        if (s !== i) {
+          [this.available[i], this.available[s]] = [this.available[s], this.available[i]];
+          i = s;
+        } else break;
       }
     }
     return top;

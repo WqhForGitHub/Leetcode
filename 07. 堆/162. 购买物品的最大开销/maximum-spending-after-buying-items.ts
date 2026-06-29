@@ -14,8 +14,10 @@ function maxSpending(values: number[][]): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] > heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] > heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -23,11 +25,14 @@ function maxSpending(values: number[][]): number {
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] > heap[s][0]) s = l;
       if (r < len && heap[r][0] > heap[s][0]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   // 每个商店最后一个元素入堆
@@ -72,7 +77,20 @@ function maxSpendingMin(values: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 162. 购买物品的最大开销 =====");
-console.log("最大堆:", maxSpending([[8, 5, 2], [6, 4, 1], [9, 7, 3]])); // 期望 285
-console.log("排序:", maxSpendingMin([[10, 8, 6], [4, 2, 0]])); // 期望 96? 验证
+console.log(
+  "最大堆:",
+  maxSpending([
+    [8, 5, 2],
+    [6, 4, 1],
+    [9, 7, 3],
+  ]),
+); // 期望 285
+console.log(
+  "排序:",
+  maxSpendingMin([
+    [10, 8, 6],
+    [4, 2, 0],
+  ]),
+); // 期望 96? 验证
 
 export {};

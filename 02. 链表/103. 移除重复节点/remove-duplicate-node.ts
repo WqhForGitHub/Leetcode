@@ -93,18 +93,18 @@ function test(): void {
   // 测试用例 1: [1,2,3,3,2,1] -> [1,2,3]
   console.log(
     "测试1（哈希表）:",
-    listToArray(removeDuplicateNodes(arrayToList([1, 2, 3, 3, 2, 1])))
+    listToArray(removeDuplicateNodes(arrayToList([1, 2, 3, 3, 2, 1]))),
   ); // [1,2,3]
   console.log(
     "测试1（无缓冲）:",
-    listToArray(removeDuplicateNodesNoBuffer(arrayToList([1, 2, 3, 3, 2, 1])))
+    listToArray(removeDuplicateNodesNoBuffer(arrayToList([1, 2, 3, 3, 2, 1]))),
   ); // [1,2,3]
 
   // 测试用例 2: [1,1,1,1,2] -> [1,2]
   console.log("测试2:", listToArray(removeDuplicateNodes(arrayToList([1, 1, 1, 1, 2])))); // [1,2]
   console.log(
     "测试2（无缓冲）:",
-    listToArray(removeDuplicateNodesNoBuffer(arrayToList([1, 1, 1, 1, 2])))
+    listToArray(removeDuplicateNodesNoBuffer(arrayToList([1, 1, 1, 1, 2]))),
   ); // [1,2]
 
   // 测试用例 3: 空链表

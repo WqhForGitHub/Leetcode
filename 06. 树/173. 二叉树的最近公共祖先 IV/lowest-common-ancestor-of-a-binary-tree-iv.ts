@@ -19,10 +19,7 @@ class TreeNode {
 // 方法1：DFS递归+集合（推荐）
 // 将 nodes 放入集合，后序遍历找最近公共祖先
 // 返回找到的节点，当左右子树都找到时当前节点为 LCA
-function lowestCommonAncestor(
-  root: TreeNode | null,
-  nodes: TreeNode[]
-): TreeNode | null {
+function lowestCommonAncestor(root: TreeNode | null, nodes: TreeNode[]): TreeNode | null {
   const nodeSet = new Set<TreeNode>(nodes);
 
   function dfs(node: TreeNode | null): TreeNode | null {
@@ -43,10 +40,7 @@ function lowestCommonAncestor(
 }
 
 // 方法2：迭代后序遍历
-function lowestCommonAncestorIterative(
-  root: TreeNode | null,
-  nodes: TreeNode[]
-): TreeNode | null {
+function lowestCommonAncestorIterative(root: TreeNode | null, nodes: TreeNode[]): TreeNode | null {
   if (root === null) return null;
   const nodeSet = new Set<TreeNode>(nodes);
   const stack: TreeNode[] = [];

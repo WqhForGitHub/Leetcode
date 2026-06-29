@@ -12,7 +12,14 @@ class QuadNode {
   topRight: QuadNode | null;
   bottomLeft: QuadNode | null;
   bottomRight: QuadNode | null;
-  constructor(val: boolean, isLeaf: boolean, topLeft?: QuadNode | null, topRight?: QuadNode | null, bottomLeft?: QuadNode | null, bottomRight?: QuadNode | null) {
+  constructor(
+    val: boolean,
+    isLeaf: boolean,
+    topLeft?: QuadNode | null,
+    topRight?: QuadNode | null,
+    bottomLeft?: QuadNode | null,
+    bottomRight?: QuadNode | null,
+  ) {
     this.val = val;
     this.isLeaf = isLeaf;
     this.topLeft = topLeft ?? null;
@@ -33,18 +40,28 @@ function intersect(quadTree1: QuadNode | null, quadTree2: QuadNode | null): Quad
       return new QuadNode(true, true);
     }
     // 叶子为 false，结果为 q2
-    return new QuadNode(quadTree2!.val, quadTree2!.isLeaf,
-      quadTree2!.topLeft, quadTree2!.topRight,
-      quadTree2!.bottomLeft, quadTree2!.bottomRight);
+    return new QuadNode(
+      quadTree2!.val,
+      quadTree2!.isLeaf,
+      quadTree2!.topLeft,
+      quadTree2!.topRight,
+      quadTree2!.bottomLeft,
+      quadTree2!.bottomRight,
+    );
   }
   // 情况2: q2 是叶子
   if (quadTree2!.isLeaf) {
     if (quadTree2!.val) {
       return new QuadNode(true, true);
     }
-    return new QuadNode(quadTree1!.val, quadTree1!.isLeaf,
-      quadTree1!.topLeft, quadTree1!.topRight,
-      quadTree1!.bottomLeft, quadTree1!.bottomRight);
+    return new QuadNode(
+      quadTree1!.val,
+      quadTree1!.isLeaf,
+      quadTree1!.topLeft,
+      quadTree1!.topRight,
+      quadTree1!.bottomLeft,
+      quadTree1!.bottomRight,
+    );
   }
   // 情况3: 两个都是非叶子，递归求四个子区域
   const topLeft = intersect(quadTree1!.topLeft, quadTree2!.topLeft)!;
@@ -52,10 +69,15 @@ function intersect(quadTree1: QuadNode | null, quadTree2: QuadNode | null): Quad
   const bottomLeft = intersect(quadTree1!.bottomLeft, quadTree2!.bottomLeft)!;
   const bottomRight = intersect(quadTree1!.bottomRight, quadTree2!.bottomRight)!;
   // 若四个子节点都是叶子且值相同，合并为一个叶子节点
-  if (topLeft.isLeaf && topRight.isLeaf && bottomLeft.isLeaf && bottomRight.isLeaf
-    && topLeft.val === topRight.val
-    && topRight.val === bottomLeft.val
-    && bottomLeft.val === bottomRight.val) {
+  if (
+    topLeft.isLeaf &&
+    topRight.isLeaf &&
+    bottomLeft.isLeaf &&
+    bottomRight.isLeaf &&
+    topLeft.val === topRight.val &&
+    topRight.val === bottomLeft.val &&
+    bottomLeft.val === bottomRight.val
+  ) {
     return new QuadNode(topLeft.val, true);
   }
   return new QuadNode(false, false, topLeft, topRight, bottomLeft, bottomRight);

@@ -94,7 +94,12 @@ function getCollisionTimesHeap(cars: number[][]): number[] {
       if (!collided[k] && next[k] === i) {
         next[k] = next[i];
         if (next[k] !== -1 && cars[k][1] > cars[next[k]][1]) {
-          push({ t: (cars[next[k]][0] - cars[k][0] + (result[next[k]] > 0 ? 0 : 0)) / (cars[k][1] - cars[next[k]][1]), i: k });
+          push({
+            t:
+              (cars[next[k]][0] - cars[k][0] + (result[next[k]] > 0 ? 0 : 0)) /
+              (cars[k][1] - cars[next[k]][1]),
+            i: k,
+          });
         }
         break;
       }
@@ -107,6 +112,14 @@ function getCollisionTimesHeap(cars: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 089. 车队 II =====");
-console.log("单调栈:", getCollisionTimes([[3, 4], [5, 4], [6, 3], [9, 1]])); // 期望 [2,1,1.5,-1]
+console.log(
+  "单调栈:",
+  getCollisionTimes([
+    [3, 4],
+    [5, 4],
+    [6, 3],
+    [9, 1],
+  ]),
+); // 期望 [2,1,1.5,-1]
 
 export {};

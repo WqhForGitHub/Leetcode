@@ -34,8 +34,10 @@ class NumberContainers {
   private siftUp(heap: number[], i: number): void {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i] < heap[p]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i] < heap[p]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   }
 
@@ -43,11 +45,14 @@ class NumberContainers {
     const n = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < n && heap[l] < heap[s]) s = l;
       if (r < n && heap[r] < heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   }
 }
@@ -62,7 +67,8 @@ class NumberContainers2 {
     if (!this.numToIndices.has(number)) this.numToIndices.set(number, []);
     const arr = this.numToIndices.get(number)!;
     // 有序插入
-    let lo = 0, hi = arr.length;
+    let lo = 0,
+      hi = arr.length;
     while (lo < hi) {
       const mid = (lo + hi) >> 1;
       if (arr[mid] < index) lo = mid + 1;

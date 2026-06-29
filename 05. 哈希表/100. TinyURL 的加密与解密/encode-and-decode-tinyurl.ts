@@ -12,8 +12,7 @@ class TinyURL {
   // 哈希表：长URL -> 短码（避免重复编码）
   private urlToCode = new Map<string, string>();
   private prefix = "http://tinyurl.com/";
-  private chars =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  private chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   private codeLen = 6;
 
   // 生成随机短码

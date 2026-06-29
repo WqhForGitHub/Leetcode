@@ -24,18 +24,18 @@ function removeKdigits(num: string, k: number): string {
     k--;
   }
   // 去除前导零
-  let result = stack.join('').replace(/^0+/, '');
-  return result === '' ? '0' : result;
+  let result = stack.join("").replace(/^0+/, "");
+  return result === "" ? "0" : result;
 }
 
 // ------------------------------------------------------------
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', removeKdigits('1432219', 3), '期望: 1219');
-  console.log('测试2:', removeKdigits('10200', 1), '期望: 200');
-  console.log('测试3:', removeKdigits('10', 2), '期望: 0');
-  console.log('测试4:', removeKdigits('9', 1), '期望: 0');
+  console.log("测试1:", removeKdigits("1432219", 3), "期望: 1219");
+  console.log("测试2:", removeKdigits("10200", 1), "期望: 200");
+  console.log("测试3:", removeKdigits("10", 2), "期望: 0");
+  console.log("测试4:", removeKdigits("9", 1), "期望: 0");
 }
 
 test();

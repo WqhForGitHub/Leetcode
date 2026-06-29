@@ -62,7 +62,10 @@ console.log("===== 059. 出现次数最多的子树元素和 =====");
 const tree1 = new TreeNode(5);
 tree1.left = new TreeNode(2);
 tree1.right = new TreeNode(-3);
-console.log("测试1:", findFrequentTreeSum(tree1).sort((a, b) => a - b)); // 期望结果 [2,-3,4] 的某种顺序
+console.log(
+  "测试1:",
+  findFrequentTreeSum(tree1).sort((a, b) => a - b),
+); // 期望结果 [2,-3,4] 的某种顺序
 
 // 构造树: [5,2,-5]
 //       5
@@ -85,6 +88,9 @@ console.log("测试3:", findFrequentTreeSum(tree3)); // 期望结果 [1]
 const tree4 = new TreeNode(1);
 tree4.left = new TreeNode(1);
 tree4.right = new TreeNode(1);
-console.log("测试4:", findFrequentTreeSum(tree4).sort((a, b) => a - b)); // 期望结果 [1]
+console.log(
+  "测试4:",
+  findFrequentTreeSum(tree4).sort((a, b) => a - b),
+); // 期望结果 [1]
 
 export {};

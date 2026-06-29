@@ -105,13 +105,13 @@ console.log("===== 028. 奇偶链表 =====");
 console.log("方法1：[1,2,3,4,5] ->", listToArray(oddEvenList(arrayToList([1, 2, 3, 4, 5])))); // [1,3,5,2,4]
 console.log(
   "方法1：[2,1,3,5,6,4,7] ->",
-  listToArray(oddEvenList(arrayToList([2, 1, 3, 5, 6, 4, 7])))
+  listToArray(oddEvenList(arrayToList([2, 1, 3, 5, 6, 4, 7]))),
 ); // [2,3,6,7,1,5,4]
 console.log("方法1：[1] ->", listToArray(oddEvenList(arrayToList([1])))); // [1]
 console.log("方法2：[1,2,3,4,5] ->", listToArray(oddEvenList2(arrayToList([1, 2, 3, 4, 5])))); // [1,3,5,2,4]
 console.log(
   "方法2：[2,1,3,5,6,4,7] ->",
-  listToArray(oddEvenList2(arrayToList([2, 1, 3, 5, 6, 4, 7])))
+  listToArray(oddEvenList2(arrayToList([2, 1, 3, 5, 6, 4, 7]))),
 ); // [2,3,6,7,1,5,4]
 
 export {};

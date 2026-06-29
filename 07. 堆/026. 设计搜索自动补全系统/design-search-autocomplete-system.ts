@@ -94,7 +94,10 @@ class AutocompleteSystem {
 // 测试
 // ============================================================
 console.log("===== 026. 设计搜索自动补全系统 =====");
-const acs = new AutocompleteSystem(["i love you", "island", "iroman", "i love leetcode"], [5, 3, 2, 2]);
+const acs = new AutocompleteSystem(
+  ["i love you", "island", "iroman", "i love leetcode"],
+  [5, 3, 2, 2],
+);
 console.log("输入 i:", acs.input("i")); // 期望 ["i love you","island","i love leetcode"]
 console.log("输入 ' ':", acs.input(" "));
 console.log("输入 a:", acs.input("a"));

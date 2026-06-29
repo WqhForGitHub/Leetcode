@@ -33,9 +33,7 @@ function checkWays(pairs: number[][]): number {
   }
 
   // 按度数（邻居数）降序排序，度数最大的节点应该是根
-  const sortedNodes = [...adj.keys()].sort(
-    (a, b) => adj.get(b)!.size - adj.get(a)!.size
-  );
+  const sortedNodes = [...adj.keys()].sort((a, b) => adj.get(b)!.size - adj.get(a)!.size);
 
   let result = 1; // 默认唯一
   // parent 映射：已放置节点的父节点
@@ -46,10 +44,7 @@ function checkWays(pairs: number[][]): number {
     let p: number | null = null;
     for (const neighbor of adj.get(node)!) {
       if (parent.has(neighbor)) {
-        if (
-          p === null ||
-          adj.get(neighbor)!.size < adj.get(p)!.size
-        ) {
+        if (p === null || adj.get(neighbor)!.size < adj.get(p)!.size) {
           p = neighbor;
         }
       }
@@ -95,11 +90,24 @@ console.log("===== 174. 重构一棵树的方案数 =====");
 //     2
 //    / \
 //   1   3
-console.log("测试1:", checkWays([[1, 2], [2, 3]])); // 期望 1
+console.log(
+  "测试1:",
+  checkWays([
+    [1, 2],
+    [2, 3],
+  ]),
+); // 期望 1
 
 // 测试2: pairs = [[1,2],[2,3],[1,3]]
 // 1,2,3 互相相邻，有 3 种树结构（1、2、3 任一为根）
-console.log("测试2:", checkWays([[1, 2], [2, 3], [1, 3]])); // 期望 2
+console.log(
+  "测试2:",
+  checkWays([
+    [1, 2],
+    [2, 3],
+    [1, 3],
+  ]),
+); // 期望 2
 
 // 测试3: pairs = [[1,2],[2,3],[2,4],[1,5]]
 // 不可能构成合法树（1 的邻居有 2,5，但 5 只和 1 相邻，2 的邻居有 1,3,4）
@@ -109,14 +117,38 @@ console.log("测试2:", checkWays([[1, 2], [2, 3], [1, 3]])); // 期望 2
 //     1 3 4
 //     |
 //     5  这是合法的，方案唯一
-console.log("测试3:", checkWays([[1, 2], [2, 3], [2, 4], [1, 5]])); // 期望 1
+console.log(
+  "测试3:",
+  checkWays([
+    [1, 2],
+    [2, 3],
+    [2, 4],
+    [1, 5],
+  ]),
+); // 期望 1
 
 // 测试4: pairs = [[1,2],[2,3],[3,1]]
 // 三角形，方案 2
-console.log("测试4:", checkWays([[1, 2], [2, 3], [3, 1]])); // 期望 2
+console.log(
+  "测试4:",
+  checkWays([
+    [1, 2],
+    [2, 3],
+    [3, 1],
+  ]),
+); // 期望 2
 
 // 测试5: pairs = [[1,2],[2,3],[3,4],[4,5],[5,6]]
 // 链状，唯一
-console.log("测试5:", checkWays([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])); // 期望 1
+console.log(
+  "测试5:",
+  checkWays([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [5, 6],
+  ]),
+); // 期望 1
 
 export {};

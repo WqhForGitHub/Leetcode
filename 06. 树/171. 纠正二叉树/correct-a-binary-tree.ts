@@ -25,9 +25,7 @@ function correctBinaryTree(root: TreeNode | null): TreeNode | null {
   if (root === null) return null;
 
   // BFS 队列，存储 [节点, 父节点, 是左孩子还是右孩子]
-  const queue: [TreeNode, TreeNode | null, "left" | "right"][] = [
-    [root, null, "left"],
-  ];
+  const queue: [TreeNode, TreeNode | null, "left" | "right"][] = [[root, null, "left"]];
   const visited = new Set<TreeNode>();
 
   while (queue.length > 0) {
@@ -63,11 +61,7 @@ function correctBinaryTreeDFS(root: TreeNode | null): TreeNode | null {
   const visited = new Set<TreeNode>();
   return dfs(root, null, false);
 
-  function dfs(
-    node: TreeNode | null,
-    parent: TreeNode | null,
-    isLeft: boolean
-  ): TreeNode | null {
+  function dfs(node: TreeNode | null, parent: TreeNode | null, isLeft: boolean): TreeNode | null {
     if (node === null) return null;
     // 检查右孩子是否指向已访问节点
     if (node.right !== null && visited.has(node.right)) {

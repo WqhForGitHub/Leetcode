@@ -75,6 +75,17 @@ function reachableNodes(edges: number[][], maxMoves: number, n: number): number 
 // 测试
 // ============================================================
 console.log("===== 043. 细分图中的可到达节点 =====");
-console.log("可达节点:", reachableNodes([[0, 1, 10], [0, 2, 1], [1, 2, 2]], 6, 3)); // 期望 13
+console.log(
+  "可达节点:",
+  reachableNodes(
+    [
+      [0, 1, 10],
+      [0, 2, 1],
+      [1, 2, 2],
+    ],
+    6,
+    3,
+  ),
+); // 期望 13
 
 export {};

@@ -23,17 +23,13 @@ class TreeNode {
 function lowestCommonAncestor(
   root: TreeNode | null,
   p: TreeNode | null,
-  q: TreeNode | null
+  q: TreeNode | null,
 ): TreeNode | null {
   let count = 0;
   const lca = dfs(root, p!, q!);
   return count === 2 ? lca : null;
 
-  function dfs(
-    node: TreeNode | null,
-    p: TreeNode,
-    q: TreeNode
-  ): TreeNode | null {
+  function dfs(node: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
     if (node === null) return null;
     // 先递归左右子树（不能提前返回，否则可能漏掉另一个节点）
     const left = dfs(node.left, p, q);
@@ -56,7 +52,7 @@ function lowestCommonAncestor(
 function lowestCommonAncestorPath(
   root: TreeNode | null,
   p: TreeNode | null,
-  q: TreeNode | null
+  q: TreeNode | null,
 ): TreeNode | null {
   const pathP: TreeNode[] = [];
   const pathQ: TreeNode[] = [];
@@ -75,11 +71,7 @@ function lowestCommonAncestorPath(
   }
   return lca;
 
-  function findPath(
-    node: TreeNode | null,
-    target: TreeNode,
-    path: TreeNode[]
-  ): boolean {
+  function findPath(node: TreeNode | null, target: TreeNode, path: TreeNode[]): boolean {
     if (node === null) return false;
     path.push(node);
     if (node === target) return true;

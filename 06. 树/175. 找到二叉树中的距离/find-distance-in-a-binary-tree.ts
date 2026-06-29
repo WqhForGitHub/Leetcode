@@ -19,11 +19,7 @@ class TreeNode {
 // 方法1：LCA + DFS求深度（推荐）
 // 先找到 p 和 q 的最近公共祖先 lca
 // 距离 = depth(p, lca) + depth(q, lca)
-function findDistance(
-  root: TreeNode | null,
-  p: number,
-  q: number
-): number {
+function findDistance(root: TreeNode | null, p: number, q: number): number {
   if (p === q) return 0;
 
   // 找 LCA
@@ -33,11 +29,7 @@ function findDistance(
   const distQ = getDepth(lca, q);
   return distP + distQ;
 
-  function findLCA(
-    node: TreeNode | null,
-    p: number,
-    q: number
-  ): TreeNode | null {
+  function findLCA(node: TreeNode | null, p: number, q: number): TreeNode | null {
     if (node === null) return null;
     if (node.val === p || node.val === q) return node;
     const left = findLCA(node.left, p, q);
@@ -59,20 +51,12 @@ function findDistance(
 
 // 方法2：一次DFS同时找LCA和深度
 // DFS 返回 [找到的目标数量, 距离]
-function findDistanceDFS(
-  root: TreeNode | null,
-  p: number,
-  q: number
-): number {
+function findDistanceDFS(root: TreeNode | null, p: number, q: number): number {
   let result = 0;
   dfs(root, p, q);
   return result;
 
-  function dfs(
-    node: TreeNode | null,
-    p: number,
-    q: number
-  ): number {
+  function dfs(node: TreeNode | null, p: number, q: number): number {
     if (node === null) return 0;
     // 返回值表示当前子树中找到的目标节点数
     let found = 0;
@@ -110,11 +94,7 @@ function findDistanceDFS(
 }
 
 // 方法3：建图后BFS
-function findDistanceBFS(
-  root: TreeNode | null,
-  p: number,
-  q: number
-): number {
+function findDistanceBFS(root: TreeNode | null, p: number, q: number): number {
   if (p === q) return 0;
   // 建无向图
   const graph = new Map<number, number[]>();

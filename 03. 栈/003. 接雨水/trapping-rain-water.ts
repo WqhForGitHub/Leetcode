@@ -56,9 +56,9 @@ function trapTwoPointer(height: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), '期望: 6');
-  console.log('测试2 - 栈法:', trap([4, 2, 0, 3, 2, 5]), '期望: 9');
-  console.log('测试3 - 双指针:', trapTwoPointer([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), '期望: 6');
+  console.log("测试1 - 栈法:", trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), "期望: 6");
+  console.log("测试2 - 栈法:", trap([4, 2, 0, 3, 2, 5]), "期望: 9");
+  console.log("测试3 - 双指针:", trapTwoPointer([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), "期望: 6");
 }
 
 test();

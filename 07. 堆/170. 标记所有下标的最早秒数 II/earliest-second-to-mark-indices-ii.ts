@@ -19,7 +19,9 @@ function earliestSecondToMarkIndicesII(nums: number[], changeIndices: number[]):
     }
     if (lastSeen.size < n) return false;
     // 按最后出现时间排序
-    const sorted: Array<[number, number]> = Array.from(lastSeen.entries()).sort((a, b) => a[1] - b[1]);
+    const sorted: Array<[number, number]> = Array.from(lastSeen.entries()).sort(
+      (a, b) => a[1] - b[1],
+    );
     let available = 0;
     let prevSec = -1;
     for (const [idx, sec] of sorted) {
@@ -30,7 +32,8 @@ function earliestSecondToMarkIndicesII(nums: number[], changeIndices: number[]):
     }
     return true;
   };
-  let lo = n, hi = m;
+  let lo = n,
+    hi = m;
   let result = -1;
   while (lo <= hi) {
     const mid = (lo + hi) >> 1;
@@ -63,8 +66,10 @@ function earliestSecondToMarkIndicesIIHeap(nums: number[], changeIndices: number
       let i = heap.length - 1;
       while (i > 0) {
         const p = (i - 1) >> 1;
-        if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-        else break;
+        if (heap[i][0] < heap[p][0]) {
+          [heap[i], heap[p]] = [heap[p], heap[i]];
+          i = p;
+        } else break;
       }
     }
     let time = 0;
@@ -76,18 +81,22 @@ function earliestSecondToMarkIndicesIIHeap(nums: number[], changeIndices: number
       const len = heap.length;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < len && heap[l][0] < heap[s][0]) s = l;
         if (r < len && heap[r][0] < heap[s][0]) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-        else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
       if (time + cost > sec) return false;
       time += cost + 1;
     }
     return true;
   };
-  let lo = n, hi = m;
+  let lo = n,
+    hi = m;
   let result = -1;
   while (lo <= hi) {
     const mid = (lo + hi) >> 1;

@@ -10,13 +10,9 @@
 // 用优先队列按位置排序维护可用车辆，哈希表维护乘客信息。
 // 时间 O(log n) addCar/pickup/dropoff，空间 O(n)。
 class SharedRideSystem1 {
-  private cars: Map<
-    number,
-    { id: number; position: number; available: boolean }
-  > = new Map();
+  private cars: Map<number, { id: number; position: number; available: boolean }> = new Map();
   private availableCars: number[] = []; // 最小堆按位置排序
-  private passengers: Map<number, { carId: number; position: number }> =
-    new Map();
+  private passengers: Map<number, { carId: number; position: number }> = new Map();
 
   addCar(carId: number, position: number): void {
     this.cars.set(carId, { id: carId, position, available: true });
@@ -44,8 +40,7 @@ class SharedRideSystem1 {
       const carId = this.availableCars[0];
       const car = this.cars.get(carId)!;
       if (!car.available) {
-        this.availableCars[0] =
-          this.availableCars[this.availableCars.length - 1];
+        this.availableCars[0] = this.availableCars[this.availableCars.length - 1];
         this.availableCars.pop();
         this.heapDown();
         continue;
@@ -121,10 +116,7 @@ class SharedRideSystem1 {
 // 用排序数组维护可用车辆，pickup 时线性扫描找最近车辆。
 // 时间 O(n) pickup，O(log n) addCar；空间 O(n)。
 class SharedRideSystem2 {
-  private cars: Map<
-    number,
-    { id: number; position: number; available: boolean }
-  > = new Map();
+  private cars: Map<number, { id: number; position: number; available: boolean }> = new Map();
   private passengers: Map<number, number> = new Map();
 
   addCar(carId: number, position: number): void {

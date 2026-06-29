@@ -13,12 +13,12 @@ function parseTernary(expression: string): string {
   const stack: string[] = [];
   for (let i = expression.length - 1; i >= 0; i--) {
     const ch = expression[i];
-    if (ch === ':') continue;
-    if (ch === '?') {
+    if (ch === ":") continue;
+    if (ch === "?") {
       const condition = expression[i - 1];
       const a = stack.pop()!;
       const b = stack.pop()!;
-      stack.push(condition === 'T' ? a : b);
+      stack.push(condition === "T" ? a : b);
       i--; // 跳过条件字符
     } else {
       stack.push(ch);
@@ -31,9 +31,9 @@ function parseTernary(expression: string): string {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', parseTernary('T?2:3'), '期望: 2');
-  console.log('测试2:', parseTernary('F?1:T?4:5'), '期望: 4');
-  console.log('测试3:', parseTernary('T?T?F:7:T?1:5'), '期望: F');
+  console.log("测试1:", parseTernary("T?2:3"), "期望: 2");
+  console.log("测试2:", parseTernary("F?1:T?4:5"), "期望: 4");
+  console.log("测试3:", parseTernary("T?T?F:7:T?1:5"), "期望: F");
 }
 
 test();

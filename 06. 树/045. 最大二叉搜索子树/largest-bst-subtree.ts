@@ -37,12 +37,7 @@ function largestBSTSubtree(root: TreeNode | null): number {
     const left = dfs(node.left);
     const right = dfs(node.right);
     // 判断当前子树是否是 BST
-    if (
-      left.isBST &&
-      right.isBST &&
-      node.val > left.max &&
-      node.val < right.min
-    ) {
+    if (left.isBST && right.isBST && node.val > left.max && node.val < right.min) {
       const size = left.size + right.size + 1;
       maxSize = Math.max(maxSize, size);
       return {
@@ -68,12 +63,7 @@ function largestBSTSubtreeV2(root: TreeNode | null): number {
     const left = helper(node.left);
     const right = helper(node.right);
     // size < 0 表示不是 BST（用负数标记）
-    if (
-      left.size >= 0 &&
-      right.size >= 0 &&
-      node.val > left.max &&
-      node.val < right.min
-    ) {
+    if (left.size >= 0 && right.size >= 0 && node.val > left.max && node.val < right.min) {
       const size = left.size + right.size + 1;
       maxSize = Math.max(maxSize, size);
       return {
@@ -102,17 +92,13 @@ console.log("===== 045. 最大二叉搜索子树 =====");
 const tree45 = new TreeNode(
   10,
   new TreeNode(5, new TreeNode(1), new TreeNode(8)),
-  new TreeNode(15, null, new TreeNode(7))
+  new TreeNode(15, null, new TreeNode(7)),
 );
 console.log("最大 BST 子树:", largestBSTSubtree(tree45)); // 期望 3
 console.log("V2:", largestBSTSubtreeV2(tree45)); // 期望 3
 
 // 构造树: [4,2,7,1,3]  整棵树是 BST
-const tree45b = new TreeNode(
-  4,
-  new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(7)
-);
+const tree45b = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(7));
 console.log("整棵 BST:", largestBSTSubtree(tree45b)); // 期望 5
 console.log("V2 整棵 BST:", largestBSTSubtreeV2(tree45b)); // 期望 5
 

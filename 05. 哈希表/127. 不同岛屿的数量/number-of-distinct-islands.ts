@@ -9,9 +9,7 @@
 function numDistinctIslands(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  const visited = new Array(m)
-    .fill(0)
-    .map(() => new Array(n).fill(false));
+  const visited = new Array(m).fill(0).map(() => new Array(n).fill(false));
   const shapes = new Set<string>();
 
   // DFS 探索岛屿，记录相对路径（用方向字符）

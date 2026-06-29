@@ -49,11 +49,7 @@ function pyramidTransition(bottom: string, allowed: string[]): boolean {
 // 测试
 // ============================================================
 console.log("===== 143. 金字塔转换矩阵 =====");
-console.log(
-  pyramidTransition("BCD", ["BCG", "CDE", "GEA", "FFA"]),
-); // 期望: true
-console.log(
-  pyramidTransition("AAAA", ["AAB", "AAC", "BCD", "BBE", "DEF"]),
-); // 期望: false
+console.log(pyramidTransition("BCD", ["BCG", "CDE", "GEA", "FFA"])); // 期望: true
+console.log(pyramidTransition("AAAA", ["AAB", "AAC", "BCD", "BBE", "DEF"])); // 期望: false
 
 export {};

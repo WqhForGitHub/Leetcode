@@ -10,12 +10,7 @@
 // 方法1：DFS递归（推荐）
 // 对每个员工递归计算从该员工到根的总时间，答案取最大值
 // 也可反向建树从根DFS
-function numOfMinutes(
-  n: number,
-  headID: number,
-  manager: number[],
-  informTime: number[]
-): number {
+function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
   // 反向建图：每个领导 -> 直接下属列表
   const subordinates: number[][] = new Array(n).fill(0).map(() => []);
   for (let i = 0; i < n; i++) {
@@ -41,7 +36,7 @@ function numOfMinutesBFS(
   n: number,
   headID: number,
   manager: number[],
-  informTime: number[]
+  informTime: number[],
 ): number {
   const subordinates: number[][] = new Array(n).fill(0).map(() => []);
   for (let i = 0; i < n; i++) {
@@ -94,7 +89,23 @@ console.log("测试3 BFS:", numOfMinutesBFS(7, 6, [1, 2, 3, 4, 5, 6, -1], [0, 1,
 // 路径0->1->3: 1+2+4=7
 // 路径0->2->6: 1+3+7=11
 // 最大11
-console.log("测试4 DFS:", numOfMinutes(15, 0, [-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6], [1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0])); // 11
-console.log("测试4 BFS:", numOfMinutesBFS(15, 0, [-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6], [1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0])); // 11
+console.log(
+  "测试4 DFS:",
+  numOfMinutes(
+    15,
+    0,
+    [-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+    [1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0],
+  ),
+); // 11
+console.log(
+  "测试4 BFS:",
+  numOfMinutesBFS(
+    15,
+    0,
+    [-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+    [1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0],
+  ),
+); // 11
 
 export {};

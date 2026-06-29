@@ -32,7 +32,7 @@ function arrayToList(arr: number[]): ListNode | null {
 function buildIntersectLists(
   listA: number[],
   listB: number[],
-  common: number[]
+  common: number[],
 ): { headA: ListNode | null; headB: ListNode | null } {
   const commonHead = arrayToList(common);
   const headA = arrayToList(listA);

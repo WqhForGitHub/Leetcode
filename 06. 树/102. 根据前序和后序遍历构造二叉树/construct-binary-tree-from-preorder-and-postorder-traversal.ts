@@ -31,7 +31,12 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
     postIndex.set(postorder[i], i);
   }
 
-  function build(preStart: number, preEnd: number, postStart: number, postEnd: number): TreeNode | null {
+  function build(
+    preStart: number,
+    preEnd: number,
+    postStart: number,
+    postEnd: number,
+  ): TreeNode | null {
     if (preStart > preEnd) return null;
     // 仅剩一个节点
     if (preStart === preEnd) return new TreeNode(preorder[preStart]);
@@ -44,18 +49,8 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
     const leftSize = leftRootIdx - postStart + 1;
 
     const root = new TreeNode(rootVal);
-    root.left = build(
-      preStart + 1,
-      preStart + leftSize,
-      postStart,
-      leftRootIdx
-    );
-    root.right = build(
-      preStart + leftSize + 1,
-      preEnd,
-      leftRootIdx + 1,
-      postEnd - 1
-    );
+    root.left = build(preStart + 1, preStart + leftSize, postStart, leftRootIdx);
+    root.right = build(preStart + leftSize + 1, preEnd, leftRootIdx + 1, postEnd - 1);
     return root;
   }
 

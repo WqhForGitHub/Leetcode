@@ -14,24 +14,24 @@ function isValid(code: string): boolean {
   let i = 0;
   const n = code.length;
   while (i < n) {
-    if (code[i] !== '<') {
+    if (code[i] !== "<") {
       // 根节点之外不能有普通文本
       if (stack.length === 0) return false;
       i++;
       continue;
     }
     if (i + 1 >= n) return false;
-    if (code[i + 1] === '!') {
+    if (code[i + 1] === "!") {
       // CDATA
       if (stack.length === 0) return false;
-      const start = code.indexOf('[CDATA[', i + 2);
+      const start = code.indexOf("[CDATA[", i + 2);
       if (start !== i + 2) return false;
-      const end = code.indexOf(']]>', start);
+      const end = code.indexOf("]]>", start);
       if (end === -1) return false;
       i = end + 3;
-    } else if (code[i + 1] === '/') {
+    } else if (code[i + 1] === "/") {
       // 结束标签
-      const end = code.indexOf('>', i + 2);
+      const end = code.indexOf(">", i + 2);
       if (end === -1) return false;
       const tag = code.slice(i + 2, end);
       if (stack.length === 0 || stack[stack.length - 1] !== tag) return false;
@@ -41,12 +41,12 @@ function isValid(code: string): boolean {
       if (stack.length === 0 && i !== n) return false;
     } else {
       // 开始标签
-      const end = code.indexOf('>', i + 1);
+      const end = code.indexOf(">", i + 1);
       if (end === -1) return false;
       const tag = code.slice(i + 1, end);
       if (tag.length < 1 || tag.length > 9) return false;
       for (const ch of tag) {
-        if (ch < 'A' || ch > 'Z') return false;
+        if (ch < "A" || ch > "Z") return false;
       }
       stack.push(tag);
       i = end + 1;
@@ -59,11 +59,11 @@ function isValid(code: string): boolean {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', isValid('<DIV>This is my title</DIV>'), '期望: true');
-  console.log('测试2:', isValid('<A>  <B> </B> </A>'), '期望: true');
-  console.log('测试3:', isValid('<A>  <B> </A>   </B>'), '期望: false');
-  console.log('测试4:', isValid('<DIV>  div  </DIV>'), '期望: true');
-  console.log('测试5:', isValid('<A></A><B></B>'), '期望: false');
+  console.log("测试1:", isValid("<DIV>This is my title</DIV>"), "期望: true");
+  console.log("测试2:", isValid("<A>  <B> </B> </A>"), "期望: true");
+  console.log("测试3:", isValid("<A>  <B> </A>   </B>"), "期望: false");
+  console.log("测试4:", isValid("<DIV>  div  </DIV>"), "期望: true");
+  console.log("测试5:", isValid("<A></A><B></B>"), "期望: false");
 }
 
 test();

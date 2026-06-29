@@ -28,9 +28,7 @@ function printTree(root: TreeNode | null): string[][] {
   const height = getHeight(root);
   const rows = height + 1;
   const cols = Math.pow(2, height + 1) - 1;
-  const result: string[][] = Array.from({ length: rows }, () =>
-    new Array(cols).fill("")
-  );
+  const result: string[][] = Array.from({ length: rows }, () => new Array(cols).fill(""));
 
   function fill(node: TreeNode | null, row: number, left: number, right: number): void {
     if (node === null) return;
@@ -54,13 +52,9 @@ function printTreeBFS(root: TreeNode | null): string[][] {
   const height = getHeight(root);
   const rows = height + 1;
   const cols = Math.pow(2, height + 1) - 1;
-  const result: string[][] = Array.from({ length: rows }, () =>
-    new Array(cols).fill("")
-  );
+  const result: string[][] = Array.from({ length: rows }, () => new Array(cols).fill(""));
   // 队列存储 [节点, 行, 左边界, 右边界]
-  const queue: [TreeNode, number, number, number][] = [
-    [root, 0, 0, cols - 1],
-  ];
+  const queue: [TreeNode, number, number, number][] = [[root, 0, 0, cols - 1]];
   while (queue.length > 0) {
     const [node, row, left, right] = queue.shift()!;
     const mid = Math.floor((left + right) / 2);

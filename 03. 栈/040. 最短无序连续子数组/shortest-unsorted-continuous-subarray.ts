@@ -57,9 +57,9 @@ function findUnsortedSubarrayO1(nums: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', findUnsortedSubarray([2, 6, 4, 8, 10, 9, 15]), '期望: 5');
-  console.log('测试2 - 栈法:', findUnsortedSubarray([1, 2, 3, 4]), '期望: 0');
-  console.log('测试3 - O1法:', findUnsortedSubarrayO1([1, 3, 2, 2, 2]), '期望: 4');
+  console.log("测试1 - 栈法:", findUnsortedSubarray([2, 6, 4, 8, 10, 9, 15]), "期望: 5");
+  console.log("测试2 - 栈法:", findUnsortedSubarray([1, 2, 3, 4]), "期望: 0");
+  console.log("测试3 - O1法:", findUnsortedSubarrayO1([1, 3, 2, 2, 2]), "期望: 4");
 }
 
 test();

@@ -100,11 +100,11 @@ function listToArray(head: ListNode | null): number[] {
 function test(): void {
   const head1 = buildList([1, 2, 3, 4]);
   reorderList(head1);
-  console.log('测试1 - 栈法:', listToArray(head1), '期望: [1,4,2,3]');
+  console.log("测试1 - 栈法:", listToArray(head1), "期望: [1,4,2,3]");
 
   const head2 = buildList([1, 2, 3, 4, 5]);
   reorderListO1(head2);
-  console.log('测试2 - O1法:', listToArray(head2), '期望: [1,5,2,4,3]');
+  console.log("测试2 - O1法:", listToArray(head2), "期望: [1,5,2,4,3]");
 }
 
 test();

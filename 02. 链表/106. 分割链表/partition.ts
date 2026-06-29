@@ -109,7 +109,7 @@ function test(): void {
   console.log("测试1（拼接）:", listToArray(partition(arrayToList([1, 4, 3, 2, 5, 2]), 3)));
   console.log(
     "测试1（双指针）:",
-    listToArray(partitionTwoPointers(arrayToList([1, 4, 3, 2, 5, 2]), 3))
+    listToArray(partitionTwoPointers(arrayToList([1, 4, 3, 2, 5, 2]), 3)),
   );
 
   // 测试用例 2: [2,1], x=2 -> [1,2]

@@ -62,7 +62,7 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 function addTwoNumbers2(
   l1: ListNode | null,
   l2: ListNode | null,
-  carry: number = 0
+  carry: number = 0,
 ): ListNode | null {
   // 递归终止条件：两个链表都遍历完且无进位
   if (l1 === null && l2 === null && carry === 0) {
@@ -86,7 +86,7 @@ console.log("结果:", listToArray(addTwoNumbers(arrayToList([0]), arrayToList([
 // 9999999 + 9999 = 10009998 => [8,9,9,9,0,0,0,1]
 console.log(
   "结果:",
-  listToArray(addTwoNumbers(arrayToList([9, 9, 9, 9, 9, 9, 9]), arrayToList([9, 9, 9, 9])))
+  listToArray(addTwoNumbers(arrayToList([9, 9, 9, 9, 9, 9, 9]), arrayToList([9, 9, 9, 9]))),
 );
 
 export {};

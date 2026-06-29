@@ -41,11 +41,7 @@ function mergeBSTs(roots: (TreeNode | null)[]): TreeNode | null {
     inorder(node.right, result);
   }
 
-  function buildBalancedBST(
-    arr: number[],
-    left: number,
-    right: number
-  ): TreeNode | null {
+  function buildBalancedBST(arr: number[], left: number, right: number): TreeNode | null {
     if (left > right) return null;
     const mid = (left + right) >> 1;
     const node = new TreeNode(arr[mid]);
@@ -79,11 +75,7 @@ function mergeTwoBSTs(t1: TreeNode | null, t2: TreeNode | null): TreeNode | null
     inorder(node.right, result);
   }
 
-  function buildBalancedBST(
-    arr: number[],
-    left: number,
-    right: number
-  ): TreeNode | null {
+  function buildBalancedBST(arr: number[], left: number, right: number): TreeNode | null {
     if (left > right) return null;
     const mid = (left + right) >> 1;
     const node = new TreeNode(arr[mid]);
@@ -124,10 +116,7 @@ function isValidBST(root: TreeNode | null): boolean {
   function validate(node: TreeNode | null, min: number, max: number): boolean {
     if (node === null) return true;
     if (node.val <= min || node.val >= max) return false;
-    return (
-      validate(node.left, min, node.val) &&
-      validate(node.right, node.val, max)
-    );
+    return validate(node.left, min, node.val) && validate(node.right, node.val, max);
   }
   return validate(root, -Infinity, Infinity);
 }

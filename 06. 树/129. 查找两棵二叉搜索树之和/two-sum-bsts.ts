@@ -21,11 +21,7 @@ class TreeNode {
 // BST 中序遍历得到升序数组
 // 将两棵树分别中序遍历得到 list1（升序）和 list2（升序）
 // 用双指针：一个指向 list1 头，一个指向 list2 尾，根据和的大小移动指针
-function twoSumBSTs(
-  root1: TreeNode | null,
-  root2: TreeNode | null,
-  target: number
-): boolean {
+function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: number): boolean {
   const list1: number[] = [];
   const list2: number[] = [];
   inorder(root1, list1);
@@ -52,11 +48,7 @@ function inorder(node: TreeNode | null, result: number[]): void {
 
 // 方法2：哈希集合
 // 将一棵树的所有值放入集合，遍历另一棵树，检查 target - val 是否在集合中
-function twoSumBSTsHash(
-  root1: TreeNode | null,
-  root2: TreeNode | null,
-  target: number
-): boolean {
+function twoSumBSTsHash(root1: TreeNode | null, root2: TreeNode | null, target: number): boolean {
   const set = new Set<number>();
   // 中序遍历 root1 收集所有值
   function collect(node: TreeNode | null): void {
@@ -107,26 +99,14 @@ function buildTree(arr: (number | null)[]): TreeNode | null {
 
 // 测试1: root1 = [2,1,4], root2 = [1,0,3], target = 5
 // 2 + 3 = 5
-console.log(
-  "测试1 双指针:",
-  twoSumBSTs(buildTree([2, 1, 4]), buildTree([1, 0, 3]), 5)
-); // 期望 true
-console.log(
-  "测试1 哈希:",
-  twoSumBSTsHash(buildTree([2, 1, 4]), buildTree([1, 0, 3]), 5)
-); // 期望 true
+console.log("测试1 双指针:", twoSumBSTs(buildTree([2, 1, 4]), buildTree([1, 0, 3]), 5)); // 期望 true
+console.log("测试1 哈希:", twoSumBSTsHash(buildTree([2, 1, 4]), buildTree([1, 0, 3]), 5)); // 期望 true
 
 // 测试2: root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 18
-console.log(
-  "测试2 双指针:",
-  twoSumBSTs(buildTree([0, -10, 10]), buildTree([5, 1, 7, 0, 2]), 18)
-); // 期望 false
+console.log("测试2 双指针:", twoSumBSTs(buildTree([0, -10, 10]), buildTree([5, 1, 7, 0, 2]), 18)); // 期望 false
 
 // 测试3: root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 17
 // 10 + 7 = 17
-console.log(
-  "测试3 双指针:",
-  twoSumBSTs(buildTree([0, -10, 10]), buildTree([5, 1, 7, 0, 2]), 17)
-); // 期望 true
+console.log("测试3 双指针:", twoSumBSTs(buildTree([0, -10, 10]), buildTree([5, 1, 7, 0, 2]), 17)); // 期望 true
 
 export {};

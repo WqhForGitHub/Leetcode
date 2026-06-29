@@ -110,8 +110,14 @@ console.log("测试1 BFS:", getLonelyNodesBFS(buildTree([1, 2, null, 3])));
 //  6   5   3
 //         /
 //        2
-console.log("测试2 DFS:", getLonelyNodes(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, 2]))); // 期望 [6,2]
-console.log("测试2 BFS:", getLonelyNodesBFS(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, 2])));
+console.log(
+  "测试2 DFS:",
+  getLonelyNodes(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, 2])),
+); // 期望 [6,2]
+console.log(
+  "测试2 BFS:",
+  getLonelyNodesBFS(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, 2])),
+);
 
 // 测试3: 单节点
 console.log("测试3 DFS:", getLonelyNodes(buildTree([11]))); // 期望 []

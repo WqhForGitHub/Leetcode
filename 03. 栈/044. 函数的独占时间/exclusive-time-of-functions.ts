@@ -15,11 +15,11 @@ function exclusiveTime(n: number, logs: string[]): number[] {
   const stack: number[] = []; // 函数 id
   let prevTime = 0;
   for (const log of logs) {
-    const parts = log.split(':');
+    const parts = log.split(":");
     const id = parseInt(parts[0], 10);
     const type = parts[1];
     const time = parseInt(parts[2], 10);
-    if (type === 'start') {
+    if (type === "start") {
       if (stack.length > 0) {
         result[stack[stack.length - 1]] += time - prevTime;
       }
@@ -39,14 +39,14 @@ function exclusiveTime(n: number, logs: string[]): number[] {
 // ------------------------------------------------------------
 function test(): void {
   console.log(
-    '测试1:',
-    exclusiveTime(2, ['0:start:0', '1:start:2', '1:end:5', '0:end:6']),
-    '期望: [3,4]',
+    "测试1:",
+    exclusiveTime(2, ["0:start:0", "1:start:2", "1:end:5", "0:end:6"]),
+    "期望: [3,4]",
   );
   console.log(
-    '测试2:',
-    exclusiveTime(1, ['0:start:0', '0:start:2', '0:end:5', '0:start:6', '0:end:6', '0:end:7']),
-    '期望: [8]',
+    "测试2:",
+    exclusiveTime(1, ["0:start:0", "0:start:2", "0:end:5", "0:start:6", "0:end:6", "0:end:7"]),
+    "期望: [8]",
   );
 }
 

@@ -77,7 +77,7 @@ class StackOfPlates {
   printState(): void {
     console.log(
       "  栈状态:",
-      this.stacks.map((s) => [...s])
+      this.stacks.map((s) => [...s]),
     );
   }
 }

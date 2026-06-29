@@ -40,9 +40,9 @@ function maxChunksToSortedStack(arr: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 前缀:', maxChunksToSorted([4, 3, 2, 1, 0]), '期望: 1');
-  console.log('测试2 - 前缀:', maxChunksToSorted([1, 0, 2, 3, 4]), '期望: 4');
-  console.log('测试3 - 栈法:', maxChunksToSortedStack([1, 2, 0, 3, 4]), '期望: 3');
+  console.log("测试1 - 前缀:", maxChunksToSorted([4, 3, 2, 1, 0]), "期望: 1");
+  console.log("测试2 - 前缀:", maxChunksToSorted([1, 0, 2, 3, 4]), "期望: 4");
+  console.log("测试3 - 栈法:", maxChunksToSortedStack([1, 2, 0, 3, 4]), "期望: 3");
 }
 
 test();

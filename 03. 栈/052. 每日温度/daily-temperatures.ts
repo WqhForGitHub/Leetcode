@@ -27,9 +27,13 @@ function dailyTemperatures(temperatures: number[]): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]), '期望: [1,1,4,2,1,1,0,0]');
-  console.log('测试2:', dailyTemperatures([30, 40, 50, 60]), '期望: [1,1,1,0]');
-  console.log('测试3:', dailyTemperatures([30, 60, 90]), '期望: [1,1,0]');
+  console.log(
+    "测试1:",
+    dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]),
+    "期望: [1,1,4,2,1,1,0,0]",
+  );
+  console.log("测试2:", dailyTemperatures([30, 40, 50, 60]), "期望: [1,1,1,0]");
+  console.log("测试3:", dailyTemperatures([30, 60, 90]), "期望: [1,1,0]");
 }
 
 test();

@@ -63,14 +63,14 @@ console.log("===== 035. 统计同值子树 =====");
 const tree35 = new TreeNode(
   5,
   new TreeNode(1, new TreeNode(5), new TreeNode(5)),
-  new TreeNode(5, null, new TreeNode(5))
+  new TreeNode(5, null, new TreeNode(5)),
 );
 console.log("同值子树数:", countUnivalSubtrees(tree35)); // 期望 4
 
 const tree35b = new TreeNode(
   5,
   new TreeNode(1, new TreeNode(5), new TreeNode(5)),
-  new TreeNode(5, null, new TreeNode(5))
+  new TreeNode(5, null, new TreeNode(5)),
 );
 console.log("同值子树数 V2:", countUnivalSubtreesV2(tree35b)); // 期望 4
 

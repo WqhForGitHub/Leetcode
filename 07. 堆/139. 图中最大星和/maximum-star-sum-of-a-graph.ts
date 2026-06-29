@@ -23,8 +23,10 @@ function maxStarSum(vals: number[], edges: number[][], k: number): number {
         let idx = heap.length - 1;
         while (idx > 0) {
           const p = (idx - 1) >> 1;
-          if (heap[idx] > heap[p]) { [heap[idx], heap[p]] = [heap[p], heap[idx]]; idx = p; }
-          else break;
+          if (heap[idx] > heap[p]) {
+            [heap[idx], heap[p]] = [heap[p], heap[idx]];
+            idx = p;
+          } else break;
         }
       }
     }
@@ -40,11 +42,14 @@ function maxStarSum(vals: number[], edges: number[][], k: number): number {
         const len = heap.length;
         while (true) {
           let s = idx;
-          const l = 2 * idx + 1, r = 2 * idx + 2;
+          const l = 2 * idx + 1,
+            r = 2 * idx + 2;
           if (l < len && heap[l] > heap[s]) s = l;
           if (r < len && heap[r] > heap[s]) s = r;
-          if (s !== idx) { [heap[idx], heap[s]] = [heap[s], heap[idx]]; idx = s; }
-          else break;
+          if (s !== idx) {
+            [heap[idx], heap[s]] = [heap[s], heap[idx]];
+            idx = s;
+          } else break;
         }
       }
     }
@@ -63,7 +68,10 @@ function maxStarSumSort(vals: number[], edges: number[][], k: number): number {
   }
   let result = -Infinity;
   for (let i = 0; i < n; i++) {
-    const neighbors = graph[i].map(j => vals[j]).filter(v => v > 0).sort((a, b) => b - a);
+    const neighbors = graph[i]
+      .map((j) => vals[j])
+      .filter((v) => v > 0)
+      .sort((a, b) => b - a);
     let sum = vals[i];
     for (let j = 0; j < Math.min(k, neighbors.length); j++) {
       sum += neighbors[j];
@@ -77,7 +85,21 @@ function maxStarSumSort(vals: number[], edges: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 139. 图中最大星和 =====");
-console.log("堆:", maxStarSum([1, 2, 3, 4, 10, -10, -20], [[0, 1], [1, 2], [1, 3], [3, 4], [3, 5], [3, 6]], 2)); // 期望 16
+console.log(
+  "堆:",
+  maxStarSum(
+    [1, 2, 3, 4, 10, -10, -20],
+    [
+      [0, 1],
+      [1, 2],
+      [1, 3],
+      [3, 4],
+      [3, 5],
+      [3, 6],
+    ],
+    2,
+  ),
+); // 期望 16
 console.log("排序:", maxStarSumSort([-5], [], 1)); // 期望 -5
 
 export {};

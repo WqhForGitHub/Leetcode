@@ -34,8 +34,10 @@ function putMarblesHeap(weights: number[], k: number): number {
     let i = minHeap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (minHeap[i] < minHeap[p]) { [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]]; i = p; }
-      else break;
+      if (minHeap[i] < minHeap[p]) {
+        [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]];
+        i = p;
+      } else break;
     }
   };
   const pushMax = (v: number): void => {
@@ -43,8 +45,10 @@ function putMarblesHeap(weights: number[], k: number): number {
     let i = maxHeap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (maxHeap[i] > maxHeap[p]) { [maxHeap[i], maxHeap[p]] = [maxHeap[p], maxHeap[i]]; i = p; }
-      else break;
+      if (maxHeap[i] > maxHeap[p]) {
+        [maxHeap[i], maxHeap[p]] = [maxHeap[p], maxHeap[i]];
+        i = p;
+      } else break;
     }
   };
   for (let i = 0; i < n - 1; i++) {
@@ -61,11 +65,14 @@ function putMarblesHeap(weights: number[], k: number): number {
     let j = 0;
     while (true) {
       let s = j;
-      const l = 2 * j + 1, r = 2 * j + 2;
+      const l = 2 * j + 1,
+        r = 2 * j + 2;
       if (l < minHeap.length && minHeap[l] < minHeap[s]) s = l;
       if (r < minHeap.length && minHeap[r] < minHeap[s]) s = r;
-      if (s !== j) { [minHeap[j], minHeap[s]] = [minHeap[s], minHeap[j]]; j = s; }
-      else break;
+      if (s !== j) {
+        [minHeap[j], minHeap[s]] = [minHeap[s], minHeap[j]];
+        j = s;
+      } else break;
     }
     // pop max
     maxHeap[0] = maxHeap[maxHeap.length - 1];
@@ -73,11 +80,14 @@ function putMarblesHeap(weights: number[], k: number): number {
     j = 0;
     while (true) {
       let s = j;
-      const l = 2 * j + 1, r = 2 * j + 2;
+      const l = 2 * j + 1,
+        r = 2 * j + 2;
       if (l < maxHeap.length && maxHeap[l] > maxHeap[s]) s = l;
       if (r < maxHeap.length && maxHeap[r] > maxHeap[s]) s = r;
-      if (s !== j) { [maxHeap[j], maxHeap[s]] = [maxHeap[s], maxHeap[j]]; j = s; }
-      else break;
+      if (s !== j) {
+        [maxHeap[j], maxHeap[s]] = [maxHeap[s], maxHeap[j]];
+        j = s;
+      } else break;
     }
   }
   return result;

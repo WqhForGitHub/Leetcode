@@ -17,7 +17,10 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
       const [xi, yi] = points[deque[0]];
       result = Math.max(result, yj - xj + yi + xi);
     }
-    while (deque.length > 0 && points[deque[deque.length - 1]][1] + points[deque[deque.length - 1]][0] <= yi + xi) {
+    while (
+      deque.length > 0 &&
+      points[deque[deque.length - 1]][1] + points[deque[deque.length - 1]][0] <= yi + xi
+    ) {
       deque.pop();
     }
     deque.push(j);
@@ -74,7 +77,28 @@ function findMaxValueOfEquationHeap(points: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 074. 满足不等式的最大值 =====");
-console.log("单调队列:", findMaxValueOfEquation([[1, 3], [2, 0], [5, 10], [6, -10]], 1)); // 期望 4
-console.log("堆:", findMaxValueOfEquationHeap([[0, 0], [3, 0], [9, 2]], 3)); // 期望 3
+console.log(
+  "单调队列:",
+  findMaxValueOfEquation(
+    [
+      [1, 3],
+      [2, 0],
+      [5, 10],
+      [6, -10],
+    ],
+    1,
+  ),
+); // 期望 4
+console.log(
+  "堆:",
+  findMaxValueOfEquationHeap(
+    [
+      [0, 0],
+      [3, 0],
+      [9, 2],
+    ],
+    3,
+  ),
+); // 期望 3
 
 export {};

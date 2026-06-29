@@ -6,7 +6,12 @@
 // 时间复杂度：O(sideLength^2 log(sideLength^2))，空间复杂度：O(sideLength^2)
 
 // 方法1：最大堆，按格子被覆盖次数排序
-function maximumNumberOfOnes(width: number, height: number, sideLength: number, maxOnes: number): number {
+function maximumNumberOfOnes(
+  width: number,
+  height: number,
+  sideLength: number,
+  maxOnes: number,
+): number {
   const counts: number[] = [];
   for (let i = 0; i < sideLength; i++) {
     for (let j = 0; j < sideLength; j++) {
@@ -22,7 +27,12 @@ function maximumNumberOfOnes(width: number, height: number, sideLength: number, 
 }
 
 // 方法2：最大堆（显式堆）
-function maximumNumberOfOnesHeap(width: number, height: number, sideLength: number, maxOnes: number): number {
+function maximumNumberOfOnesHeap(
+  width: number,
+  height: number,
+  sideLength: number,
+  maxOnes: number,
+): number {
   const heap: number[] = [];
   const pushMax = (v: number): void => {
     heap.push(v);

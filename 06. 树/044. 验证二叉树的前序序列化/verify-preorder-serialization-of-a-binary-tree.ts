@@ -48,7 +48,10 @@ function isValidSerializationStack(preorder: string): boolean {
 // ============================================================
 console.log("===== 044. 验证二叉树的前序序列化 =====");
 console.log("槽位 '9,3,4,#,#,1,#,#,2,#,6,#,#':", isValidSerialization("9,3,4,#,#,1,#,#,2,#,6,#,#")); // 期望 true
-console.log("栈 '9,3,4,#,#,1,#,#,2,#,6,#,#':", isValidSerializationStack("9,3,4,#,#,1,#,#,2,#,6,#,#")); // 期望 true
+console.log(
+  "栈 '9,3,4,#,#,1,#,#,2,#,6,#,#':",
+  isValidSerializationStack("9,3,4,#,#,1,#,#,2,#,6,#,#"),
+); // 期望 true
 console.log("槽位 '1,#':", isValidSerialization("1,#")); // 期望 false
 console.log("栈 '1,#':", isValidSerializationStack("1,#")); // 期望 false
 console.log("槽位 '9,#,#,1':", isValidSerialization("9,#,#,1")); // 期望 false

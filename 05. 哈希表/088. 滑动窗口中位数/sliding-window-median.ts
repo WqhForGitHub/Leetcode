@@ -61,10 +61,8 @@ class Heap {
       let best = i;
       const left = 2 * i + 1;
       const right = 2 * i + 2;
-      if (left < n && this.compare(this.data[left], this.data[best]))
-        best = left;
-      if (right < n && this.compare(this.data[right], this.data[best]))
-        best = right;
+      if (left < n && this.compare(this.data[left], this.data[best])) best = left;
+      if (right < n && this.compare(this.data[right], this.data[best])) best = right;
       if (best !== i) {
         [this.data[i], this.data[best]] = [this.data[best], this.data[i]];
         i = best;

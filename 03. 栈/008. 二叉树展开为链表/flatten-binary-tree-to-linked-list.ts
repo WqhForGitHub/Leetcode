@@ -76,7 +76,7 @@ function test(): void {
     result.push(cur.val);
     cur = cur.right;
   }
-  console.log('测试1 - 栈法:', result, '期望: [1,2,3,4,5,6]');
+  console.log("测试1 - 栈法:", result, "期望: [1,2,3,4,5,6]");
 
   const root2 = new TreeNode(
     1,
@@ -90,7 +90,7 @@ function test(): void {
     result2.push(cur2.val);
     cur2 = cur2.right;
   }
-  console.log('测试2 - 原地:', result2, '期望: [1,2,3,4,5,6]');
+  console.log("测试2 - 原地:", result2, "期望: [1,2,3,4,5,6]");
 }
 
 test();

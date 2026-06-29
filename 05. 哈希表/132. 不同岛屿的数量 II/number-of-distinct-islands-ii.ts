@@ -8,9 +8,7 @@
 function numDistinctIslands2(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  const visited = new Array(m)
-    .fill(0)
-    .map(() => new Array(n).fill(false));
+  const visited = new Array(m).fill(0).map(() => new Array(n).fill(false));
   const shapes = new Set<string>();
 
   // DFS 收集岛屿所有单元格坐标

@@ -82,7 +82,27 @@ function kthSmallestBinary(matrix: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 014. 有序矩阵中第 K 小的元素 =====");
-console.log("最小堆:", kthSmallest([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 8)); // 期望 13
-console.log("二分:", kthSmallestBinary([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 8)); // 期望 13
+console.log(
+  "最小堆:",
+  kthSmallest(
+    [
+      [1, 5, 9],
+      [10, 11, 13],
+      [12, 13, 15],
+    ],
+    8,
+  ),
+); // 期望 13
+console.log(
+  "二分:",
+  kthSmallestBinary(
+    [
+      [1, 5, 9],
+      [10, 11, 13],
+      [12, 13, 15],
+    ],
+    8,
+  ),
+); // 期望 13
 
 export {};

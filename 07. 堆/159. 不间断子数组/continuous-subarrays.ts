@@ -12,9 +12,11 @@ function continuousSubarrays(nums: number[]): number {
   let left = 0;
   let result = 0;
   for (let right = 0; right < nums.length; right++) {
-    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right]) maxDeque.pop();
+    while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[right])
+      maxDeque.pop();
     maxDeque.push(right);
-    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right]) minDeque.pop();
+    while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right])
+      minDeque.pop();
     minDeque.push(right);
     while (nums[maxDeque[0]] - nums[minDeque[0]] > 2) {
       left++;
@@ -36,19 +38,24 @@ function continuousSubarraysHeap(nums: number[]): number {
     while (i > 0) {
       const p = (i - 1) >> 1;
       const cmp = isMax ? heap[i][0] > heap[p][0] : heap[i][0] < heap[p][0];
-      if (cmp) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (cmp) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (heap: Array<[number, number]>, i: number, isMax: boolean): void => {
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && (isMax ? heap[l][0] > heap[s][0] : heap[l][0] < heap[s][0])) s = l;
       if (r < len && (isMax ? heap[r][0] > heap[s][0] : heap[r][0] < heap[s][0])) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let right = 0; right < nums.length; right++) {

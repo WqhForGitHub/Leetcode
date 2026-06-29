@@ -33,10 +33,7 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
 }
 
 // 方法2：暴力双循环
-function nextGreaterElementBruteForce(
-  nums1: number[],
-  nums2: number[],
-): number[] {
+function nextGreaterElementBruteForce(nums1: number[], nums2: number[]): number[] {
   const result: number[] = [];
 
   for (const num of nums1) {

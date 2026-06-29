@@ -102,15 +102,9 @@ class NestedIterator2 {
 console.log("===== 047. 扁平化嵌套列表迭代器 =====");
 // 构造嵌套列表 [[1,1],2,[1,1]]
 const nestedList1: NestedInteger[] = [
-  new NestedInteger([
-    new NestedInteger(1),
-    new NestedInteger(1),
-  ]),
+  new NestedInteger([new NestedInteger(1), new NestedInteger(1)]),
   new NestedInteger(2),
-  new NestedInteger([
-    new NestedInteger(1),
-    new NestedInteger(1),
-  ]),
+  new NestedInteger([new NestedInteger(1), new NestedInteger(1)]),
 ];
 const iter1 = new NestedIterator1(nestedList1);
 const result1: number[] = [];
@@ -122,10 +116,7 @@ console.log("栈模拟 [[1,1],2,[1,1]]:", result1); // 期望结果 [1,1,2,1,1]
 // 构造嵌套列表 [1,[4,[6]]]
 const nestedList2: NestedInteger[] = [
   new NestedInteger(1),
-  new NestedInteger([
-    new NestedInteger(4),
-    new NestedInteger([new NestedInteger(6)]),
-  ]),
+  new NestedInteger([new NestedInteger(4), new NestedInteger([new NestedInteger(6)])]),
 ];
 const iter2 = new NestedIterator2(nestedList2);
 const result2: number[] = [];

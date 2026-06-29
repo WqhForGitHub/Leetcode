@@ -82,7 +82,7 @@ function buildTree020(): TreeNode {
   return new TreeNode(
     1,
     new TreeNode(2, new TreeNode(3), new TreeNode(4)),
-    new TreeNode(5, null, new TreeNode(6))
+    new TreeNode(5, null, new TreeNode(6)),
   );
 }
 function printFlattened(root: TreeNode | null): number[] {

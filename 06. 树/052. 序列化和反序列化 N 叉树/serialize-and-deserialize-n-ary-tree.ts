@@ -40,9 +40,7 @@ function deserialize(data: string): Node | null {
   const root = new Node(parseInt(parts[index++]));
   const childCount = parseInt(parts[index++]);
   root.children = [];
-  const queue: { node: Node; count: number }[] = [
-    { node: root, count: childCount },
-  ];
+  const queue: { node: Node; count: number }[] = [{ node: root, count: childCount }];
   while (queue.length > 0) {
     const { node, count } = queue.shift()!;
     for (let i = 0; i < count; i++) {

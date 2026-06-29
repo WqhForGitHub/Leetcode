@@ -55,9 +55,9 @@ function postorderTraversalRecursive(root: TreeNode | null): number[] {
 // ------------------------------------------------------------
 function test(): void {
   const root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)));
-  console.log('测试1 - 迭代:', postorderTraversal(root), '期望: [3,2,1]');
-  console.log('测试2 - 递归:', postorderTraversalRecursive(root), '期望: [3,2,1]');
-  console.log('测试3:', postorderTraversal(null), '期望: []');
+  console.log("测试1 - 迭代:", postorderTraversal(root), "期望: [3,2,1]");
+  console.log("测试2 - 递归:", postorderTraversalRecursive(root), "期望: [3,2,1]");
+  console.log("测试3:", postorderTraversal(null), "期望: []");
 }
 
 test();

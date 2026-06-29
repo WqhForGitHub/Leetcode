@@ -37,8 +37,7 @@ function numOfWays(nums: number[]): number {
     const l = left.length;
     const r = right.length;
     // C(l+r, l) * dfs(left) * dfs(right)
-    const ways =
-      (((C[l + r][l] * dfs(left)) % MOD) * dfs(right)) % MOD;
+    const ways = (((C[l + r][l] * dfs(left)) % MOD) * dfs(right)) % MOD;
     return ways;
   }
 

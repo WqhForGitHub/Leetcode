@@ -88,8 +88,8 @@ function test(): void {
   //  / \
   // 1   3
   const root = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(5));
-  console.log('测试1:', closestKValues(root, 3.714286, 2), '期望: [4,5]');
-  console.log('测试2:', closestKValues(root, 2.0, 2), '期望: [2,1] 或 [2,3]');
+  console.log("测试1:", closestKValues(root, 3.714286, 2), "期望: [4,5]");
+  console.log("测试2:", closestKValues(root, 2.0, 2), "期望: [2,1] 或 [2,3]");
 }
 
 test();

@@ -58,9 +58,9 @@ function test(): void {
   //  / \
   // 4   5
   const root = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
-  console.log('测试1 - 迭代:', preorderTraversal(root), '期望: [1,2,4,5,3]');
-  console.log('测试2 - 递归:', preorderTraversalRecursive(root), '期望: [1,2,4,5,3]');
-  console.log('测试3:', preorderTraversal(null), '期望: []');
+  console.log("测试1 - 迭代:", preorderTraversal(root), "期望: [1,2,4,5,3]");
+  console.log("测试2 - 递归:", preorderTraversalRecursive(root), "期望: [1,2,4,5,3]");
+  console.log("测试3:", preorderTraversal(null), "期望: []");
 }
 
 test();

@@ -34,11 +34,7 @@ function isSubsequence(word: string, s: string): boolean {
 // 测试
 // ============================================================
 console.log("===== 152. 匹配子序列的单词数 =====");
-console.log(
-  numMatchingSubseq("abcde", ["a", "bb", "acd", "ace"]),
-); // 期望: 3 (a, acd, ace)
-console.log(
-  numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"]),
-); // 期望: 2
+console.log(numMatchingSubseq("abcde", ["a", "bb", "acd", "ace"])); // 期望: 3 (a, acd, ace)
+console.log(numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"])); // 期望: 2
 
 export {};

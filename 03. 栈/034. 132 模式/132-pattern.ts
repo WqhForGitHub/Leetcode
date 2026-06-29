@@ -27,9 +27,9 @@ function find132pattern(nums: number[]): boolean {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', find132pattern([1, 2, 3, 4]), '期望: false');
-  console.log('测试2:', find132pattern([3, 1, 4, 2]), '期望: true');
-  console.log('测试3:', find132pattern([-1, 3, 2, 0]), '期望: true');
+  console.log("测试1:", find132pattern([1, 2, 3, 4]), "期望: false");
+  console.log("测试2:", find132pattern([3, 1, 4, 2]), "期望: true");
+  console.log("测试3:", find132pattern([-1, 3, 2, 0]), "期望: true");
 }
 
 test();

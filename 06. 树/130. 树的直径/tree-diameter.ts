@@ -74,11 +74,7 @@ function treeDiameterDFS(edges: number[][]): number {
 }
 
 // 返回从当前节点出发到子树中最远叶节点的距离（边数）
-function dfs(
-  node: number,
-  adj: Map<number, number[]>,
-  visited: Set<number>
-): number {
+function dfs(node: number, adj: Map<number, number[]>, visited: Set<number>): number {
   // 收集所有子节点的最长路径
   let max1 = 0; // 最长
   let max2 = 0; // 次长
@@ -109,8 +105,20 @@ console.log("===== 130. 树的直径 =====");
 //  / \
 // 1   2
 // 直径 = 2
-console.log("测试1 BFS:", treeDiameter([[0, 1], [0, 2]])); // 期望 2
-console.log("测试1 DFS:", treeDiameterDFS([[0, 1], [0, 2]])); // 期望 2
+console.log(
+  "测试1 BFS:",
+  treeDiameter([
+    [0, 1],
+    [0, 2],
+  ]),
+); // 期望 2
+console.log(
+  "测试1 DFS:",
+  treeDiameterDFS([
+    [0, 1],
+    [0, 2],
+  ]),
+); // 期望 2
 
 // 测试2: edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]
 //     0
@@ -123,11 +131,23 @@ console.log("测试1 DFS:", treeDiameterDFS([[0, 1], [0, 2]])); // 期望 2
 // 直径路径：3-2-1-4-5，长度 4
 console.log(
   "测试2 BFS:",
-  treeDiameter([[0, 1], [1, 2], [2, 3], [1, 4], [4, 5]])
+  treeDiameter([
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [1, 4],
+    [4, 5],
+  ]),
 ); // 期望 4
 console.log(
   "测试2 DFS:",
-  treeDiameterDFS([[0, 1], [1, 2], [2, 3], [1, 4], [4, 5]])
+  treeDiameterDFS([
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [1, 4],
+    [4, 5],
+  ]),
 ); // 期望 4
 
 // 测试3: 单边 [[0,1]]

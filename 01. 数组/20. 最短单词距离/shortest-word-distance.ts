@@ -7,11 +7,7 @@
 
 // 方法1：一次遍历记录索引（推荐）
 // 遍历时分别记录两个单词最近出现的位置，每次更新后计算距离取最小值
-function shortestDistance(
-  wordsDict: string[],
-  word1: string,
-  word2: string,
-): number {
+function shortestDistance(wordsDict: string[], word1: string, word2: string): number {
   let index1 = -1; // word1 最近出现的索引
   let index2 = -1; // word2 最近出现的索引
   let minDist = Infinity;
@@ -39,23 +35,12 @@ function shortestDistance(
 console.log("===== 20. 最短单词距离 =====");
 console.log(
   "描述:",
-  shortestDistance(
-    ["practice", "makes", "perfect", "coding", "makes"],
-    "coding",
-    "practice",
-  ),
+  shortestDistance(["practice", "makes", "perfect", "coding", "makes"], "coding", "practice"),
 ); // 期望结果: 3
 console.log(
   "描述:",
-  shortestDistance(
-    ["practice", "makes", "perfect", "coding", "makes"],
-    "makes",
-    "coding",
-  ),
+  shortestDistance(["practice", "makes", "perfect", "coding", "makes"], "makes", "coding"),
 ); // 期望结果: 1
-console.log(
-  "描述:",
-  shortestDistance(["a", "b", "c", "a", "b", "c"], "a", "c"),
-); // 期望结果: 1
+console.log("描述:", shortestDistance(["a", "b", "c", "a", "b", "c"], "a", "c")); // 期望结果: 1
 
 export {};

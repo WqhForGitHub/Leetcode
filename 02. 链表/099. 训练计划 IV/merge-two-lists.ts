@@ -87,11 +87,11 @@ function test(): void {
   // 测试用例 1: [1,2,4] + [1,3,4] -> [1,1,2,3,4,4]
   console.log(
     "测试1（迭代）:",
-    listToArray(mergeTwoLists(arrayToList([1, 2, 4]), arrayToList([1, 3, 4])))
+    listToArray(mergeTwoLists(arrayToList([1, 2, 4]), arrayToList([1, 3, 4]))),
   ); // [1,1,2,3,4,4]
   console.log(
     "测试1（递归）:",
-    listToArray(mergeTwoListsRecursive(arrayToList([1, 2, 4]), arrayToList([1, 3, 4])))
+    listToArray(mergeTwoListsRecursive(arrayToList([1, 2, 4]), arrayToList([1, 3, 4]))),
   ); // [1,1,2,3,4,4]
 
   // 测试用例 2: 空链表

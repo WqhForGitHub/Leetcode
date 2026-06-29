@@ -42,10 +42,7 @@ function lowestCommonAncestor(p: Node | null, q: Node | null): Node | null {
 // 两者走过的路径长度相同，会在 LCA 相遇
 // 原理：a 走完 p->根 后再从 q 走，b 走完 q->根 后再从 p 走，
 // 两者走过的总长度 = (p到根) + (q到根) 相同，必然在 LCA 相遇
-function lowestCommonAncestorTwoPointer(
-  p: Node | null,
-  q: Node | null
-): Node | null {
+function lowestCommonAncestorTwoPointer(p: Node | null, q: Node | null): Node | null {
   let a: Node | null = p;
   let b: Node | null = q;
   while (a !== b) {

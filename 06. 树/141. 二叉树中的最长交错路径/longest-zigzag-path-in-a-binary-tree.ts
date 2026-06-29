@@ -85,9 +85,7 @@ function buildTree(arr: (number | null)[]): TreeNode | null {
 // 路径: 节点(2,即右1) -> (3,即左) -> (5,即右) -> (6,即左)? 实际题意
 // LeetCode示例1: right=null表示
 // 实际测试用例: [1,null,1,1,1,null,null,1,null,1,null,null,null,1]
-const tree1 = buildTree([
-  1, null, 1, 1, 1, null, null, 1, null, 1, null, null, null, 1,
-]);
+const tree1 = buildTree([1, null, 1, 1, 1, null, null, 1, null, 1, null, null, null, 1]);
 console.log("测试1:", longestZigZag(tree1)); // 期望 3
 
 // 测试2:

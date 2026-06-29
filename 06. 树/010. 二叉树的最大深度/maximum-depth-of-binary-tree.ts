@@ -61,11 +61,7 @@ function maxDepthDFS(root: TreeNode | null): number {
 // ============================================================
 console.log("===== 010. 二叉树的最大深度 =====");
 // 测试1: [3,9,20,null,null,15,7] -> 3
-const tree1 = new TreeNode(
-  3,
-  new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
-);
+const tree1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 console.log("[3,9,20,null,null,15,7] (递归):", maxDepth(tree1)); // 3
 console.log("[3,9,20,null,null,15,7] (BFS):", maxDepthBFS(tree1)); // 3
 console.log("[3,9,20,null,null,15,7] (DFS迭代):", maxDepthDFS(tree1)); // 3

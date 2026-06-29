@@ -33,11 +33,7 @@ function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
   if (root === null) return false;
 
   // 当前节点作为起点匹配，或继续在左右子树中找起点
-  return (
-    dfsMatch(head, root) ||
-    isSubPath(head, root.left) ||
-    isSubPath(head, root.right)
-  );
+  return dfsMatch(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
 }
 
 // 从链表节点 head 和树节点 node 开始尝试逐个匹配

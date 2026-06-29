@@ -34,7 +34,7 @@ function makeIntersection(
   listA: ListNode | null,
   listB: ListNode | null,
   skipA: number,
-  skipB: number
+  skipB: number,
 ): { headA: ListNode | null; headB: ListNode | null } {
   // 找到 listA 的第 skipA 个节点（即相交节点前一个）
   let curA = listA;
@@ -98,7 +98,7 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 // 时间复杂度：O(m + n)，空间复杂度：O(1)
 function getIntersectionNodeByLength(
   headA: ListNode | null,
-  headB: ListNode | null
+  headB: ListNode | null,
 ): ListNode | null {
   if (headA === null || headB === null) return null;
 

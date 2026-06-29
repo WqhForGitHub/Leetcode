@@ -13,16 +13,16 @@
 function lengthLongestPath(input: string): number {
   const stack: number[] = [0]; // 栈顶为当前层路径总长度（含 /）
   let maxLen = 0;
-  const parts = input.split('\n');
+  const parts = input.split("\n");
   for (const part of parts) {
     // 计算深度（\t 个数）
     let depth = 0;
-    while (part[depth] === '\t') depth++;
+    while (part[depth] === "\t") depth++;
     // 弹栈到当前深度对应的前驱
     while (stack.length > depth + 1) stack.pop();
     // 当前名字长度 = part.length - depth
     const curLen = stack[stack.length - 1] + (part.length - depth);
-    if (part.includes('.')) {
+    if (part.includes(".")) {
       // 是文件
       maxLen = Math.max(maxLen, curLen);
     } else {
@@ -37,18 +37,16 @@ function lengthLongestPath(input: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
+  console.log("测试1:", lengthLongestPath("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"), "期望: 20");
   console.log(
-    '测试1:',
-    lengthLongestPath('dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext'),
-    '期望: 20',
+    "测试2:",
+    lengthLongestPath(
+      "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext",
+    ),
+    "期望: 32",
   );
-  console.log(
-    '测试2:',
-    lengthLongestPath('dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext'),
-    '期望: 32',
-  );
-  console.log('测试3:', lengthLongestPath('a'), '期望: 0');
-  console.log('测试4:', lengthLongestPath('file1.txt\nfile2.txt\nlongfile.txt'), '期望: 12');
+  console.log("测试3:", lengthLongestPath("a"), "期望: 0");
+  console.log("测试4:", lengthLongestPath("file1.txt\nfile2.txt\nlongfile.txt"), "期望: 12");
 }
 
 test();

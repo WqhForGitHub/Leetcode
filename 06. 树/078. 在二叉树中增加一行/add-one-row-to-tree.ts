@@ -20,11 +20,7 @@ class TreeNode {
 
 // 方法1：BFS（推荐）
 // 层序遍历到 depth-1 层，对该层每个节点插入新行
-function addOneRow(
-  root: TreeNode | null,
-  val: number,
-  depth: number
-): TreeNode | null {
+function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode | null {
   // 特殊情况：在根层插入
   if (depth === 1) {
     const newRoot = new TreeNode(val);
@@ -57,11 +53,7 @@ function addOneRow(
 
 // 方法2：DFS递归
 // 当到达目标层 depth-1 时插入新节点
-function addOneRowDFS(
-  root: TreeNode | null,
-  val: number,
-  depth: number
-): TreeNode | null {
+function addOneRowDFS(root: TreeNode | null, val: number, depth: number): TreeNode | null {
   if (depth === 1) {
     const newRoot = new TreeNode(val);
     newRoot.left = root;

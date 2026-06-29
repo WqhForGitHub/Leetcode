@@ -76,7 +76,7 @@ console.log("DFS [2,1,3]:", findBottomLeftValueDFS(tree1)); // 1
 const tree2 = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), null),
-  new TreeNode(3, new TreeNode(5, new TreeNode(7), null), new TreeNode(6))
+  new TreeNode(3, new TreeNode(5, new TreeNode(7), null), new TreeNode(6)),
 );
 console.log("BFS 复杂树:", findBottomLeftValue(tree2)); // 7
 console.log("DFS 复杂树:", findBottomLeftValueDFS(tree2)); // 7

@@ -91,10 +91,10 @@ class KthLargest {
 
 class BSTNode {
   val: number;
-  count: number;     // 相同值计数
+  count: number; // 相同值计数
   left: BSTNode | null;
   right: BSTNode | null;
-  size: number;      // 子树（含重复）总节点数
+  size: number; // 子树（含重复）总节点数
   constructor(val: number) {
     this.val = val;
     this.count = 1;
@@ -159,19 +159,19 @@ console.log("===== 093. 数据流中的第 K 大元素 =====");
 // 测试1: KthLargest(3, [4,5,8,2])
 // add 操作序列：3 -> 4 -> 5 -> 10 -> 9 -> 4
 const kth1 = new KthLargest(3, [4, 5, 8, 2]);
-console.log("最小堆 - add(3):", kth1.add(3));   // 期望 4
-console.log("最小堆 - add(5):", kth1.add(5));   // 期望 5
+console.log("最小堆 - add(3):", kth1.add(3)); // 期望 4
+console.log("最小堆 - add(5):", kth1.add(5)); // 期望 5
 console.log("最小堆 - add(10):", kth1.add(10)); // 期望 5
-console.log("最小堆 - add(9):", kth1.add(9));   // 期望 8
-console.log("最小堆 - add(4):", kth1.add(4));   // 期望 8
+console.log("最小堆 - add(9):", kth1.add(9)); // 期望 8
+console.log("最小堆 - add(4):", kth1.add(4)); // 期望 8
 
 // 测试2: BST 实现
 const kth2 = new KthLargestBST(3, [4, 5, 8, 2]);
-console.log("BST - add(3):", kth2.add(3));   // 期望 4
-console.log("BST - add(5):", kth2.add(5));   // 期望 5
+console.log("BST - add(3):", kth2.add(3)); // 期望 4
+console.log("BST - add(5):", kth2.add(5)); // 期望 5
 console.log("BST - add(10):", kth2.add(10)); // 期望 5
-console.log("BST - add(9):", kth2.add(9));   // 期望 8
-console.log("BST - add(4):", kth2.add(4));   // 期望 8
+console.log("BST - add(9):", kth2.add(9)); // 期望 8
+console.log("BST - add(4):", kth2.add(4)); // 期望 8
 
 // 测试3: k=1 单元素
 const kth3 = new KthLargest(1, []);

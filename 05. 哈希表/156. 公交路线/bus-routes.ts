@@ -6,11 +6,7 @@
 // 求从起点到终点最少乘坐的公交车数量。若不可达返回 -1。
 // 时间复杂度：O(sum(routes[i].length))；空间复杂度：O(sum(routes[i].length))
 
-function numBusesToDestination(
-  routes: number[][],
-  source: number,
-  target: number,
-): number {
+function numBusesToDestination(routes: number[][], source: number, target: number): number {
   if (source === target) return 0;
 
   // 哈希表：站点 -> 经过该站点的公交路线索引列表
@@ -53,10 +49,15 @@ function numBusesToDestination(
 // ============================================================
 console.log("===== 156. 公交路线 =====");
 console.log(
-  numBusesToDestination([[1, 2, 7], [3, 6, 7]], 1, 6),
+  numBusesToDestination(
+    [
+      [1, 2, 7],
+      [3, 6, 7],
+    ],
+    1,
+    6,
+  ),
 ); // 期望: 2 (1->7 换乘 7->6)
-console.log(
-  numBusesToDestination([[7, 12], [4, 5, 15], [6], [15, 19], [9, 12, 13]], 15, 12),
-); // 期望: -1? 实际期望 2
+console.log(numBusesToDestination([[7, 12], [4, 5, 15], [6], [15, 19], [9, 12, 13]], 15, 12)); // 期望: -1? 实际期望 2
 
 export {};

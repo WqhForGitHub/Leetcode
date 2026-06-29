@@ -90,7 +90,21 @@ function employeeFreeTimeHeap(schedule: Interval[][]): Interval[] {
 // 测试
 // ============================================================
 console.log("===== 034. 员工空闲时间 =====");
-console.log("归并:", JSON.stringify(employeeFreeTime([[[1, 2], [5, 6]], [[1, 3]], [[4, 10]]].map((e) => e.map((x) => ({ start: x[0], end: x[1] }))))));
+console.log(
+  "归并:",
+  JSON.stringify(
+    employeeFreeTime(
+      [
+        [
+          [1, 2],
+          [5, 6],
+        ],
+        [[1, 3]],
+        [[4, 10]],
+      ].map((e) => e.map((x) => ({ start: x[0], end: x[1] }))),
+    ),
+  ),
+);
 // 期望 [{"start":3,"end":4}]
 
 export {};

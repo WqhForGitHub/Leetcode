@@ -8,7 +8,9 @@
 // 方法1：最小堆（可用椅子）+ 最小堆（忙碌椅子）
 function smallestChair(times: number[][], targetFriend: number): number {
   const n = times.length;
-  const indexed = times.map((t, i) => ({ arr: t[0], leave: t[1], i })).sort((a, b) => a.arr - b.arr);
+  const indexed = times
+    .map((t, i) => ({ arr: t[0], leave: t[1], i }))
+    .sort((a, b) => a.arr - b.arr);
   // 可用椅子最小堆
   const available: number[] = [];
   for (let i = 0; i < n; i++) {
@@ -101,7 +103,27 @@ function smallestChair(times: number[][], targetFriend: number): number {
 // 测试
 // ============================================================
 console.log("===== 101. 最小未被占据椅子的编号 =====");
-console.log("椅子:", smallestChair([[1, 4], [2, 3], [4, 6]], 1)); // 期望 1
-console.log("椅子:", smallestChair([[3, 10], [1, 5], [2, 6]], 0)); // 期望 2
+console.log(
+  "椅子:",
+  smallestChair(
+    [
+      [1, 4],
+      [2, 3],
+      [4, 6],
+    ],
+    1,
+  ),
+); // 期望 1
+console.log(
+  "椅子:",
+  smallestChair(
+    [
+      [3, 10],
+      [1, 5],
+      [2, 6],
+    ],
+    0,
+  ),
+); // 期望 2
 
 export {};

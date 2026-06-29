@@ -9,12 +9,12 @@
 function numberOfSets(n: number, maxDistance: number, roads: number[][]): number {
   let result = 0;
   // 枚举所有子集
-  for (let mask = 0; mask < (1 << n); mask++) {
+  for (let mask = 0; mask < 1 << n; mask++) {
     // 建图
     const dist: number[][] = Array.from({ length: n }, () => new Array(n).fill(Infinity));
     for (let i = 0; i < n; i++) dist[i][i] = 0;
     for (const [u, v, w] of roads) {
-      if ((mask & (1 << u)) && (mask & (1 << v))) {
+      if (mask & (1 << u) && mask & (1 << v)) {
         dist[u][v] = Math.min(dist[u][v], w);
         dist[v][u] = Math.min(dist[v][u], w);
       }
@@ -38,7 +38,10 @@ function numberOfSets(n: number, maxDistance: number, roads: number[][]): number
       if (!(mask & (1 << i))) continue;
       for (let j = 0; j < n; j++) {
         if (!(mask & (1 << j))) continue;
-        if (dist[i][j] > maxDistance) { valid = false; break; }
+        if (dist[i][j] > maxDistance) {
+          valid = false;
+          break;
+        }
       }
     }
     if (valid) result++;
@@ -55,7 +58,7 @@ function numberOfSetsDijkstra(n: number, maxDistance: number, roads: number[][])
     adjList.get(v)!.push([u, w]);
   }
   let result = 0;
-  for (let mask = 0; mask < (1 << n); mask++) {
+  for (let mask = 0; mask < 1 << n; mask++) {
     let valid = true;
     for (let i = 0; i < n && valid; i++) {
       if (!(mask & (1 << i))) continue;
@@ -80,7 +83,10 @@ function numberOfSetsDijkstra(n: number, maxDistance: number, roads: number[][])
       }
       for (let j = 0; j < n; j++) {
         if (!(mask & (1 << j))) continue;
-        if (dist[j] > maxDistance) { valid = false; break; }
+        if (dist[j] > maxDistance) {
+          valid = false;
+          break;
+        }
       }
     }
     if (valid) result++;
@@ -92,7 +98,22 @@ function numberOfSetsDijkstra(n: number, maxDistance: number, roads: number[][])
 // 测试
 // ============================================================
 console.log("===== 165. 关闭分部的可行集合数目 =====");
-console.log("Floyd:", numberOfSets(3, 5, [[0, 1, 2], [1, 2, 10], [0, 2, 10]])); // 期望 5
-console.log("Floyd:", numberOfSets(3, 5, [[0, 1, 20], [0, 1, 10], [1, 2, 2], [0, 2, 2]])); // 期望 7
+console.log(
+  "Floyd:",
+  numberOfSets(3, 5, [
+    [0, 1, 2],
+    [1, 2, 10],
+    [0, 2, 10],
+  ]),
+); // 期望 5
+console.log(
+  "Floyd:",
+  numberOfSets(3, 5, [
+    [0, 1, 20],
+    [0, 1, 10],
+    [1, 2, 2],
+    [0, 2, 2],
+  ]),
+); // 期望 7
 
 export {};

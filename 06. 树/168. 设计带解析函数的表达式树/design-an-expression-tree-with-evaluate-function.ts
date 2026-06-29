@@ -27,7 +27,7 @@ class OpNode extends Node {
   constructor(
     private operator: string,
     left: Node | null,
-    right: Node | null
+    right: Node | null,
   ) {
     super();
     this.left = left;
@@ -57,8 +57,7 @@ class OpNode extends Node {
 // - 遇到运算符，弹出两个操作数构造节点后压回栈
 function buildTree(postfix: string[]): Node | null {
   const stack: Node[] = [];
-  const isOperator = (s: string) =>
-    s === "+" || s === "-" || s === "*" || s === "/";
+  const isOperator = (s: string) => s === "+" || s === "-" || s === "*" || s === "/";
   for (const token of postfix) {
     if (isOperator(token)) {
       const right = stack.pop()!;
@@ -77,8 +76,7 @@ function buildTreeRecursive(postfix: string[]): Node | null {
   function build(): Node {
     const token = postfix[idx];
     idx--;
-    const isOperator = (s: string) =>
-      s === "+" || s === "-" || s === "*" || s === "/";
+    const isOperator = (s: string) => s === "+" || s === "-" || s === "*" || s === "/";
     if (isOperator(token)) {
       const right = build();
       const left = build();
@@ -120,21 +118,7 @@ console.log("测试4 单数字:", tree4?.evaluate()); // 期望 100
 
 // 测试5: ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 // 复杂表达式
-const tree5 = buildTree([
-  "10",
-  "6",
-  "9",
-  "3",
-  "+",
-  "-11",
-  "*",
-  "/",
-  "*",
-  "17",
-  "+",
-  "5",
-  "+",
-]);
+const tree5 = buildTree(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]);
 console.log("测试5 栈构造:", tree5?.evaluate()); // 期望 22
 
 export {};

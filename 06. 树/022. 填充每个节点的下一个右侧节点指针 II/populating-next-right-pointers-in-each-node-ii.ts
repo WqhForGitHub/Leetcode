@@ -10,7 +10,12 @@ class NodeNext {
   left: NodeNext | null;
   right: NodeNext | null;
   next: NodeNext | null;
-  constructor(val?: number, left?: NodeNext | null, right?: NodeNext | null, next?: NodeNext | null) {
+  constructor(
+    val?: number,
+    left?: NodeNext | null,
+    right?: NodeNext | null,
+    next?: NodeNext | null,
+  ) {
     this.val = val ?? 0;
     this.left = left ?? null;
     this.right = right ?? null;

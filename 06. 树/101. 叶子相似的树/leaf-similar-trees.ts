@@ -130,8 +130,8 @@ function buildTreeForLeaf(arr: (number | null)[]): TreeNode | null {
 // root2 = [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]
 const tree1a = buildTreeForLeaf([3, 5, 1, 6, 2, 9, 8, null, null, 7, 4]);
 const tree1b = buildTreeForLeaf([3, 5, 1, 6, 7, 4, 2, null, null, null, null, null, null, 9, 8]);
-console.log("测试1 - 递归:", leafSimilar(tree1a, tree1b));       // 期望 true
-console.log("测试1 - 迭代:", leafSimilarIter(tree1a, tree1b));   // 期望 true
+console.log("测试1 - 递归:", leafSimilar(tree1a, tree1b)); // 期望 true
+console.log("测试1 - 迭代:", leafSimilarIter(tree1a, tree1b)); // 期望 true
 console.log("测试1 - 生成器:", leafSimilarGenerator(tree1a, tree1b)); // 期望 true
 
 // 测试2: 不同的叶序列

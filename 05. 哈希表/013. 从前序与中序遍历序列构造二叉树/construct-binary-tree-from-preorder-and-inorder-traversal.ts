@@ -25,11 +25,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   }
 
   // 递归构造子树，返回在 preorder[preStart..] 中根节点对应的子树
-  const build = (
-    preStart: number,
-    inStart: number,
-    inEnd: number,
-  ): TreeNode | null => {
+  const build = (preStart: number, inStart: number, inEnd: number): TreeNode | null => {
     if (inStart > inEnd) return null;
 
     // 前序第一个就是当前子树根节点

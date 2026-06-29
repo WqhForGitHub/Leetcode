@@ -60,13 +60,7 @@ function findSubstring(s: string, words: string[]): number[] {
 // ============================================================
 console.log("===== 006. 串联所有单词的子串 =====");
 console.log("测试1:", findSubstring("barfoothefoobarman", ["foo", "bar"])); // 预期: [0, 9]
-console.log(
-  "测试2:",
-  findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "word"]),
-); // 预期: []
-console.log(
-  "测试3:",
-  findSubstring("barfoofoobarthefoobarman", ["bar", "foo", "the"]),
-); // 预期: [6, 9, 12]
+console.log("测试2:", findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "word"])); // 预期: []
+console.log("测试3:", findSubstring("barfoofoobarthefoobarman", ["bar", "foo", "the"])); // 预期: [6, 9, 12]
 
 export {};

@@ -36,11 +36,7 @@ function palindromePairs(words: string[]): number[][] {
     const word = words[i];
 
     // 情况 1: 空字符串与任何回文单词可组成回文对
-    if (
-      word !== "" &&
-      emptyIdx !== undefined &&
-      isPalindrome(word, 0, word.length - 1)
-    ) {
+    if (word !== "" && emptyIdx !== undefined && isPalindrome(word, 0, word.length - 1)) {
       result.push([emptyIdx, i]);
       result.push([i, emptyIdx]);
     }

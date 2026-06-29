@@ -68,10 +68,7 @@ console.log(
   "纵向扫描 ['flower','flow','flight']:",
   longestCommonPrefix(["flower", "flow", "flight"]),
 ); // 期望结果 "fl"
-console.log(
-  "纵向扫描 ['dog','racecar','car']:",
-  longestCommonPrefix(["dog", "racecar", "car"]),
-); // 期望结果 ""
+console.log("纵向扫描 ['dog','racecar','car']:", longestCommonPrefix(["dog", "racecar", "car"])); // 期望结果 ""
 console.log("纵向扫描 []:", longestCommonPrefix([])); // 期望结果 ""
 console.log(
   "横向扫描 ['flower','flow','flight']:",
@@ -87,11 +84,7 @@ console.log(
 ); // 期望结果 "fl"
 console.log(
   "分治法 ['interspecies','interstellar','interstate']:",
-  longestCommonPrefixDivideConquer([
-    "interspecies",
-    "interstellar",
-    "interstate",
-  ]),
+  longestCommonPrefixDivideConquer(["interspecies", "interstellar", "interstate"]),
 ); // 期望结果 "inters"
 
 export {};

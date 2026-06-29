@@ -34,10 +34,10 @@ function asteroidCollision(asteroids: number[]): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', asteroidCollision([5, 10, -5]), '期望: [5,10]');
-  console.log('测试2:', asteroidCollision([8, -8]), '期望: []');
-  console.log('测试3:', asteroidCollision([10, 2, -5]), '期望: [10]');
-  console.log('测试4:', asteroidCollision([-2, -1, 1, 2]), '期望: [-2,-1,1,2]');
+  console.log("测试1:", asteroidCollision([5, 10, -5]), "期望: [5,10]");
+  console.log("测试2:", asteroidCollision([8, -8]), "期望: []");
+  console.log("测试3:", asteroidCollision([10, 2, -5]), "期望: [10]");
+  console.log("测试4:", asteroidCollision([-2, -1, 1, 2]), "期望: [-2,-1,1,2]");
 }
 
 test();

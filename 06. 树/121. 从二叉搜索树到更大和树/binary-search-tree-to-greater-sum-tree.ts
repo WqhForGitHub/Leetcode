@@ -114,16 +114,14 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 //        3   8             33     8
 console.log(
   "测试1 递归:",
-  treeToArray(bstToGst(buildTree([4, 1, 6, 0, 2, 5, 7, null, null, null, 3, null, null, null, 8])))
+  treeToArray(bstToGst(buildTree([4, 1, 6, 0, 2, 5, 7, null, null, null, 3, null, null, null, 8]))),
 );
 // 期望 [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
 console.log(
   "测试1 迭代:",
   treeToArray(
-    bstToGstIterative(
-      buildTree([4, 1, 6, 0, 2, 5, 7, null, null, null, 3, null, null, null, 8])
-    )
-  )
+    bstToGstIterative(buildTree([4, 1, 6, 0, 2, 5, 7, null, null, null, 3, null, null, null, 8])),
+  ),
 );
 
 // 测试2: 单节点 [5] -> [5]

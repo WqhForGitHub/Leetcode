@@ -22,10 +22,7 @@ class TreeNode {
 // 后序遍历：先处理子节点，再处理当前节点
 // 若当前节点被删除，其子节点（若存在）成为新树的根，加入结果
 // 使用 isRoot 标记当前节点是否为某棵树的根（即父节点已被删除或是整棵树的根）
-function delNodes(
-  root: TreeNode | null,
-  to_delete: number[]
-): TreeNode[] {
+function delNodes(root: TreeNode | null, to_delete: number[]): TreeNode[] {
   const toDelete = new Set<number>(to_delete);
   const result: TreeNode[] = [];
 
@@ -105,17 +102,11 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 }
 
 // 测试1: root = [1,2,3,4,5,6,7], to_delete = [3,5]
-console.log(
-  "测试1:",
-  delNodes(buildTree([1, 2, 3, 4, 5, 6, 7]), [3, 5]).map(treeToArray)
-);
+console.log("测试1:", delNodes(buildTree([1, 2, 3, 4, 5, 6, 7]), [3, 5]).map(treeToArray));
 // 期望 [[1,2,null,4],[6],[7]]
 
 // 测试2: root = [1,2,4,null,3], to_delete = [3]
-console.log(
-  "测试2:",
-  delNodes(buildTree([1, 2, 4, null, 3]), [3]).map(treeToArray)
-);
+console.log("测试2:", delNodes(buildTree([1, 2, 4, null, 3]), [3]).map(treeToArray));
 // 期望 [[1,2,4]]
 
 export {};

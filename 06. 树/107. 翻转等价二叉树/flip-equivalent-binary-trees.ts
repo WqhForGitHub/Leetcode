@@ -32,11 +32,9 @@ function flipEquiv(root1: TreeNode | null, root2: TreeNode | null): boolean {
   if (root1.val !== root2.val) return false;
 
   // 不翻转：左右子树分别对应
-  const noFlip =
-    flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
+  const noFlip = flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
   // 翻转：左对右，右对左
-  const flip =
-    flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+  const flip = flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
 
   return noFlip || flip;
 }

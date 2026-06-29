@@ -54,13 +54,17 @@ function test(): void {
   //   3   15
   //  /   / \
   // 9   6  20(示意，简化)
-  const root = new TreeNode(7, new TreeNode(3), new TreeNode(15, new TreeNode(9), new TreeNode(20)));
+  const root = new TreeNode(
+    7,
+    new TreeNode(3),
+    new TreeNode(15, new TreeNode(9), new TreeNode(20)),
+  );
   const it = new BSTIterator(root);
   const result: number[] = [];
   while (it.hasNext()) {
     result.push(it.next());
   }
-  console.log('测试1:', result, '期望: [3,7,9,15,20]');
+  console.log("测试1:", result, "期望: [3,7,9,15,20]");
 }
 
 test();

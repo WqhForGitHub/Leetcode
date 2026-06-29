@@ -7,11 +7,7 @@
 // 使用 BFS + 哈希集合。
 // 时间复杂度：O(N * L^2)，空间复杂度：O(N)，N 为单词数，L 为单词长度
 
-function ladderLength(
-  beginWord: string,
-  endWord: string,
-  wordList: string[],
-): number {
+function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {
   const wordSet = new Set(wordList);
   if (!wordSet.has(endWord)) return 0;
 
@@ -46,9 +42,7 @@ function ladderLength(
 // 测试
 // ============================================================
 console.log("===== 016. 单词接龙 =====");
-console.log(
-  ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]),
-); // 5
+console.log(ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"])); // 5
 console.log(ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log"])); // 0
 console.log(ladderLength("a", "c", ["a", "b", "c"])); // 2
 console.log(ladderLength("hot", "dog", ["hot", "dog"])); // 0

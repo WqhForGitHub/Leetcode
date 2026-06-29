@@ -91,11 +91,7 @@ function test(): void {
   console.log("测试2:", minCoins1([1, 10, 1, 1]), "期望: 2");
   console.log("测试3:", minCoins2([3, 1, 2]), "期望: 4");
   console.log("测试4:", minCoins2([1, 10, 1, 1]), "期望: 2");
-  console.log(
-    "测试5:",
-    minCoins1([1, 37, 19, 38, 11, 42, 18, 33, 37, 15]),
-    "期望: 4",
-  );
+  console.log("测试5:", minCoins1([1, 37, 19, 38, 11, 42, 18, 33, 37, 15]), "期望: 4");
 }
 
 test();

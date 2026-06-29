@@ -98,7 +98,7 @@ console.log("Morris:", postorderTraversalMorris(tree026)); // [3,2,1]
 const tree026b = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-  new TreeNode(3, null, new TreeNode(6))
+  new TreeNode(3, null, new TreeNode(6)),
 );
 console.log("递归 [1,2,3,4,5,null,6]:", postorderTraversal(tree026b)); // [4,5,2,6,3,1]
 console.log("迭代 [1,2,3,4,5,null,6]:", postorderTraversalIterative(tree026b)); // [4,5,2,6,3,1]

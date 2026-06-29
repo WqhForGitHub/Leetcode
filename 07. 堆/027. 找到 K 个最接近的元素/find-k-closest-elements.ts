@@ -21,7 +21,9 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
 function findClosestElementsHeap(arr: number[], k: number, x: number): number[] {
   const heap: Array<{ val: number; diff: number }> = [];
   const less = (a: number, b: number): boolean => {
-    return heap[a].diff > heap[b].diff || (heap[a].diff === heap[b].diff && heap[a].val > heap[b].val);
+    return (
+      heap[a].diff > heap[b].diff || (heap[a].diff === heap[b].diff && heap[a].val > heap[b].val)
+    );
   };
   const siftUp = (i: number): void => {
     while (i > 0) {

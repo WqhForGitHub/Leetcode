@@ -44,9 +44,9 @@ function verifyPreorderO1(preorder: number[]): boolean {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', verifyPreorder([5, 2, 1, 3, 6]), '期望: true');
-  console.log('测试2 - 栈法:', verifyPreorder([5, 2, 6, 1, 3]), '期望: false');
-  console.log('测试3 - O1法:', verifyPreorderO1([5, 2, 1, 3, 6]), '期望: true');
+  console.log("测试1 - 栈法:", verifyPreorder([5, 2, 1, 3, 6]), "期望: true");
+  console.log("测试2 - 栈法:", verifyPreorder([5, 2, 6, 1, 3]), "期望: false");
+  console.log("测试3 - O1法:", verifyPreorderO1([5, 2, 1, 3, 6]), "期望: true");
 }
 
 test();

@@ -60,9 +60,7 @@ function dfs(node: TreeNode | null, parent: TreeNode | null, depth: number): voi
 // 层序遍历，同一层中检查 x 和 y 是否有相同父节点
 function isCousinsBFS(root: TreeNode | null, x: number, y: number): boolean {
   if (root === null) return false;
-  const queue: { node: TreeNode; parent: TreeNode | null }[] = [
-    { node: root, parent: null },
-  ];
+  const queue: { node: TreeNode; parent: TreeNode | null }[] = [{ node: root, parent: null }];
 
   while (queue.length > 0) {
     const size = queue.length;

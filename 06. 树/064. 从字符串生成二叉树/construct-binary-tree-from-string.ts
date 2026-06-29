@@ -25,24 +25,24 @@ function str2tree(s: string): TreeNode | null {
     if (index >= s.length) return null;
     // 解析数字（可能带负号）
     let sign = 1;
-    if (s[index] === '-') {
+    if (s[index] === "-") {
       sign = -1;
       index++;
     }
     let num = 0;
-    while (index < s.length && s[index] >= '0' && s[index] <= '9') {
-      num = num * 10 + (s.charCodeAt(index) - '0'.charCodeAt(0));
+    while (index < s.length && s[index] >= "0" && s[index] <= "9") {
+      num = num * 10 + (s.charCodeAt(index) - "0".charCodeAt(0));
       index++;
     }
     const node = new TreeNode(sign * num);
     // 解析左子树
-    if (index < s.length && s[index] === '(') {
+    if (index < s.length && s[index] === "(") {
       index++; // 跳过 '('
       node.left = parse();
       index++; // 跳过 ')'
     }
     // 解析右子树
-    if (index < s.length && s[index] === '(') {
+    if (index < s.length && s[index] === "(") {
       index++; // 跳过 '('
       node.right = parse();
       index++; // 跳过 ')'
@@ -59,21 +59,21 @@ function str2treeStack(s: string): TreeNode | null {
   const stack: TreeNode[] = [];
   let index = 0;
   while (index < s.length) {
-    if (s[index] === ')') {
+    if (s[index] === ")") {
       stack.pop();
       index++;
-    } else if (s[index] === '(') {
+    } else if (s[index] === "(") {
       index++;
     } else {
       // 解析数字
       let sign = 1;
-      if (s[index] === '-') {
+      if (s[index] === "-") {
         sign = -1;
         index++;
       }
       let num = 0;
-      while (index < s.length && s[index] >= '0' && s[index] <= '9') {
-        num = num * 10 + (s.charCodeAt(index) - '0'.charCodeAt(0));
+      while (index < s.length && s[index] >= "0" && s[index] <= "9") {
+        num = num * 10 + (s.charCodeAt(index) - "0".charCodeAt(0));
         index++;
       }
       const node = new TreeNode(sign * num);
@@ -116,19 +116,19 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
   return result;
 }
 
-console.log("递归 '4(2(3)(1))(6(5))':", treeToArray(str2tree('4(2(3)(1))(6(5))'))); // [4,2,6,3,1,5]
-console.log("栈  '4(2(3)(1))(6(5))':", treeToArray(str2treeStack('4(2(3)(1))(6(5))'))); // [4,2,6,3,1,5]
+console.log("递归 '4(2(3)(1))(6(5))':", treeToArray(str2tree("4(2(3)(1))(6(5))"))); // [4,2,6,3,1,5]
+console.log("栈  '4(2(3)(1))(6(5))':", treeToArray(str2treeStack("4(2(3)(1))(6(5))"))); // [4,2,6,3,1,5]
 
-console.log("递归 '4(2(3)(1))(6(5)(7))':", treeToArray(str2tree('4(2(3)(1))(6(5)(7))'))); // [4,2,6,3,1,5,7]
-console.log("栈  '4(2(3)(1))(6(5)(7))':", treeToArray(str2treeStack('4(2(3)(1))(6(5)(7))'))); // [4,2,6,3,1,5,7]
+console.log("递归 '4(2(3)(1))(6(5)(7))':", treeToArray(str2tree("4(2(3)(1))(6(5)(7))"))); // [4,2,6,3,1,5,7]
+console.log("栈  '4(2(3)(1))(6(5)(7))':", treeToArray(str2treeStack("4(2(3)(1))(6(5)(7))"))); // [4,2,6,3,1,5,7]
 
-console.log("递归 '-4(2(3)(1))(6(5))':", treeToArray(str2tree('-4(2(3)(1))(6(5))'))); // [-4,2,6,3,1,5]
-console.log("栈  '-4(2(3)(1))(6(5))':", treeToArray(str2treeStack('-4(2(3)(1))(6(5))'))); // [-4,2,6,3,1,5]
+console.log("递归 '-4(2(3)(1))(6(5))':", treeToArray(str2tree("-4(2(3)(1))(6(5))"))); // [-4,2,6,3,1,5]
+console.log("栈  '-4(2(3)(1))(6(5))':", treeToArray(str2treeStack("-4(2(3)(1))(6(5))"))); // [-4,2,6,3,1,5]
 
-console.log("递归 '51':", treeToArray(str2tree('51'))); // [51]
-console.log("栈  '51':", treeToArray(str2treeStack('51'))); // [51]
+console.log("递归 '51':", treeToArray(str2tree("51"))); // [51]
+console.log("栈  '51':", treeToArray(str2treeStack("51"))); // [51]
 
-console.log("递归 '':", treeToArray(str2tree(''))); // []
-console.log("栈  '':", treeToArray(str2treeStack(''))); // []
+console.log("递归 '':", treeToArray(str2tree(""))); // []
+console.log("栈  '':", treeToArray(str2treeStack(""))); // []
 
 export {};

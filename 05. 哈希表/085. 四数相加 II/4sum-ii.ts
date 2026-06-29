@@ -6,12 +6,7 @@
 // 思路：哈希表存 A[i]+B[j] 的和及其出现次数，再遍历 C[k]+D[l] 查找相反数
 // 时间复杂度：O(n^2)，空间复杂度：O(n^2)
 
-function fourSumCount(
-  nums1: number[],
-  nums2: number[],
-  nums3: number[],
-  nums4: number[],
-): number {
+function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: number[]): number {
   // 哈希表：A[i]+B[j] 的和 -> 出现次数
   const sumMap = new Map<number, number>();
 

@@ -92,7 +92,25 @@ function kthSmallestBinary(mat: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 071. 有序矩阵中的第 k 个最小数组和 =====");
-console.log("最小堆:", kthSmallest([[1, 3, 11], [2, 4, 6]], 5)); // 期望 7
-console.log("二分:", kthSmallestBinary([[1, 3, 11], [2, 4, 6]], 9)); // 期望 17
+console.log(
+  "最小堆:",
+  kthSmallest(
+    [
+      [1, 3, 11],
+      [2, 4, 6],
+    ],
+    5,
+  ),
+); // 期望 7
+console.log(
+  "二分:",
+  kthSmallestBinary(
+    [
+      [1, 3, 11],
+      [2, 4, 6],
+    ],
+    9,
+  ),
+); // 期望 17
 
 export {};

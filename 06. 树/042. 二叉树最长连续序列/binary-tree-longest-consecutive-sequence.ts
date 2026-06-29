@@ -73,7 +73,7 @@ console.log("===== 042. 二叉树最长连续序列 =====");
 const tree42 = new TreeNode(
   1,
   null,
-  new TreeNode(3, new TreeNode(2), new TreeNode(4, null, new TreeNode(5)))
+  new TreeNode(3, new TreeNode(2), new TreeNode(4, null, new TreeNode(5))),
 );
 console.log("DFS:", longestConsecutive(tree42)); // 期望 3 (1->3 不连续; 3->4->5 长度3)
 console.log("V2:", longestConsecutiveV2(tree42)); // 期望 3
@@ -86,11 +86,7 @@ console.log("V2:", longestConsecutiveV2(tree42)); // 期望 3
 //     2
 //    /
 //   1
-const tree42b = new TreeNode(
-  2,
-  null,
-  new TreeNode(3, new TreeNode(2, new TreeNode(1)))
-);
+const tree42b = new TreeNode(2, null, new TreeNode(3, new TreeNode(2, new TreeNode(1))));
 console.log("DFS:", longestConsecutive(tree42b)); // 期望 2 (2->3)
 
 console.log("单节点:", longestConsecutive(new TreeNode(1))); // 期望 1

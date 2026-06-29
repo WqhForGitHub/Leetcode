@@ -69,7 +69,10 @@ function repeatLimitedStringGreedy(s: string, repeatLimit: number): string {
   const result: string[] = [];
   let i = 25;
   while (i >= 0) {
-    if (freq[i] === 0) { i--; continue; }
+    if (freq[i] === 0) {
+      i--;
+      continue;
+    }
     const use = Math.min(freq[i], repeatLimit);
     result.push(String.fromCharCode(97 + i).repeat(use));
     freq[i] -= use;

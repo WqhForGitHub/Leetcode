@@ -42,10 +42,15 @@ function minReverseOperationsUF(n: number, p: number, banned: number[], k: numbe
   // 两个并查集，分别管理奇偶位置
   const parent: number[] = Array.from({ length: n + 2 }, (_, i) => i);
   const find = (x: number): number => {
-    while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; }
+    while (parent[x] !== x) {
+      parent[x] = parent[parent[x]];
+      x = parent[x];
+    }
     return x;
   };
-  const ban = (x: number): void => { parent[x] = find(x + 1); };
+  const ban = (x: number): void => {
+    parent[x] = find(x + 1);
+  };
   ban(p);
   for (const b of banned) ban(b);
   const queue: number[] = [p];

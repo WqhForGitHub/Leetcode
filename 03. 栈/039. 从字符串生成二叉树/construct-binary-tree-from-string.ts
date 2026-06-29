@@ -22,16 +22,16 @@ class TreeNode {
 // 遇到 ')' 弹栈回溯。
 // 时间 O(n)，空间 O(n)。
 function str2tree(s: string): TreeNode | null {
-  if (s === '') return null;
+  if (s === "") return null;
   const stack: TreeNode[] = [];
   let i = 0;
   while (i < s.length) {
     const ch = s[i];
-    if (ch === '-' || (ch >= '0' && ch <= '9')) {
+    if (ch === "-" || (ch >= "0" && ch <= "9")) {
       // 解析数字（含负号）
       let j = i;
-      if (s[j] === '-') j++;
-      while (j < s.length && s[j] >= '0' && s[j] <= '9') j++;
+      if (s[j] === "-") j++;
+      while (j < s.length && s[j] >= "0" && s[j] <= "9") j++;
       const val = parseInt(s.slice(i, j), 10);
       const node = new TreeNode(val);
       if (stack.length > 0) {
@@ -41,7 +41,7 @@ function str2tree(s: string): TreeNode | null {
       }
       stack.push(node);
       i = j;
-    } else if (ch === '(') {
+    } else if (ch === "(") {
       i++;
     } else {
       // ')'
@@ -61,9 +61,9 @@ function preorder(node: TreeNode | null): number[] {
 }
 
 function test(): void {
-  console.log('测试1:', preorder(str2tree('4(2(3)(1))(6(5))')), '期望: [4,2,3,1,6,5]');
-  console.log('测试2:', preorder(str2tree('4(2(3))')), '期望: [4,2,3]');
-  console.log('测试3:', preorder(str2tree('-4(2(6)(3))')), '期望: [-4,2,6,3]');
+  console.log("测试1:", preorder(str2tree("4(2(3)(1))(6(5))")), "期望: [4,2,3,1,6,5]");
+  console.log("测试2:", preorder(str2tree("4(2(3))")), "期望: [4,2,3]");
+  console.log("测试3:", preorder(str2tree("-4(2(6)(3))")), "期望: [-4,2,6,3]");
 }
 
 test();

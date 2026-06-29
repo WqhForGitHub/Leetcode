@@ -50,13 +50,13 @@ class NestedIterator {
 class NestedIntegerImpl implements NestedInteger {
   constructor(private val: number | NestedInteger[]) {}
   isInteger(): boolean {
-    return typeof this.val === 'number';
+    return typeof this.val === "number";
   }
   getInteger(): number | null {
-    return typeof this.val === 'number' ? this.val : null;
+    return typeof this.val === "number" ? this.val : null;
   }
   getList(): NestedInteger[] {
-    return typeof this.val === 'number' ? [] : this.val;
+    return typeof this.val === "number" ? [] : this.val;
   }
 }
 
@@ -70,7 +70,7 @@ function test(): void {
   const it = new NestedIterator(list);
   const result: number[] = [];
   while (it.hasNext()) result.push(it.next());
-  console.log('测试1:', result, '期望: [1,1,2,1,1]');
+  console.log("测试1:", result, "期望: [1,1,2,1,1]");
 }
 
 test();

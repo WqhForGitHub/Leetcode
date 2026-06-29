@@ -40,8 +40,6 @@ console.log(leastInterval(["A", "A", "A", "B", "B", "B"], 2)); // 期望: 8
 // 测试 2
 console.log(leastInterval(["A", "A", "A", "B", "B", "B"], 0)); // 期望: 6
 // 测试 3
-console.log(
-  leastInterval(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2),
-); // 期望: 16
+console.log(leastInterval(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)); // 期望: 16
 
 export {};

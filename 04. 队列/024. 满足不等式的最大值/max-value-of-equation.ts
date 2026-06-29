@@ -69,10 +69,8 @@ function findMaxValueOfEquation2(points: number[][], k: number): number {
       const left = 2 * i + 1;
       const right = 2 * i + 2;
       let largest = i;
-      if (left < heap.length && heap[left].val > heap[largest].val)
-        largest = left;
-      if (right < heap.length && heap[right].val > heap[largest].val)
-        largest = right;
+      if (left < heap.length && heap[left].val > heap[largest].val) largest = left;
+      if (right < heap.length && heap[right].val > heap[largest].val) largest = right;
       if (largest === i) break;
       [heap[largest], heap[i]] = [heap[i], heap[largest]];
       i = largest;

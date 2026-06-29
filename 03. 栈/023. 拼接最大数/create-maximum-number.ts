@@ -61,16 +61,16 @@ function compare(a: number[], i: number, b: number[], j: number): number {
     i++;
     j++;
   }
-  return (a.length - i) - (b.length - j);
+  return a.length - i - (b.length - j);
 }
 
 // ------------------------------------------------------------
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', maxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5), '期望: [9,8,6,5,3]');
-  console.log('测试2:', maxNumber([6, 7], [6, 0, 4], 5), '期望: [6,7,6,0,4]');
-  console.log('测试3:', maxNumber([3, 9], [8, 9], 3), '期望: [9,8,9]');
+  console.log("测试1:", maxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5), "期望: [9,8,6,5,3]");
+  console.log("测试2:", maxNumber([6, 7], [6, 0, 4], 5), "期望: [6,7,6,0,4]");
+  console.log("测试3:", maxNumber([3, 9], [8, 9], 3), "期望: [9,8,9]");
 }
 
 test();

@@ -8,7 +8,9 @@
 // 方法1：分类讨论
 function strongPasswordChecker(password: string): number {
   const n = password.length;
-  let lower = 0, upper = 0, digit = 0;
+  let lower = 0,
+    upper = 0,
+    digit = 0;
   for (const ch of password) {
     if (ch >= "a" && ch <= "z") lower = 1;
     else if (ch >= "A" && ch <= "Z") upper = 1;
@@ -37,7 +39,7 @@ function strongPasswordChecker(password: string): number {
     for (let pass = 0; pass < 2; pass++) {
       for (let k = 0; k < repeats.length; k++) {
         if (toDelete <= 0) break;
-        const need = (pass === 0) ? 1 : 2;
+        const need = pass === 0 ? 1 : 2;
         if (repeats[k] >= 3 && repeats[k] % 3 === pass) {
           const d = Math.min(toDelete, need);
           repeats[k] -= d;
@@ -46,7 +48,7 @@ function strongPasswordChecker(password: string): number {
       }
     }
     for (const len of repeats) replace += Math.floor(len / 3);
-    return (n - 20) + Math.max(replace, missing);
+    return n - 20 + Math.max(replace, missing);
   }
 }
 

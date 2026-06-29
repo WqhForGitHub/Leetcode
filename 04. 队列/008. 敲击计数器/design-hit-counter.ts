@@ -34,10 +34,7 @@ class HitCounter2 {
   private counts: number[] = [];
 
   hit(timestamp: number): void {
-    if (
-      this.times.length > 0 &&
-      this.times[this.times.length - 1] === timestamp
-    ) {
+    if (this.times.length > 0 && this.times[this.times.length - 1] === timestamp) {
       this.counts[this.counts.length - 1]++;
     } else {
       this.times.push(timestamp);

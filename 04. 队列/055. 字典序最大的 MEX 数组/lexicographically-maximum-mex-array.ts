@@ -97,21 +97,13 @@ function lexicographicallyMaximumMex2(nums: number[]): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    JSON.stringify(lexicographicallyMaximumMex1([0, 1, 2])),
-    "期望: [2,1,0]",
-  );
+  console.log("测试1:", JSON.stringify(lexicographicallyMaximumMex1([0, 1, 2])), "期望: [2,1,0]");
   console.log(
     "测试2:",
     JSON.stringify(lexicographicallyMaximumMex1([0, 0, 1, 3])),
     "期望: [3,1,0,0]",
   );
-  console.log(
-    "测试3:",
-    JSON.stringify(lexicographicallyMaximumMex2([0, 1, 2])),
-    "期望: [2,1,0]",
-  );
+  console.log("测试3:", JSON.stringify(lexicographicallyMaximumMex2([0, 1, 2])), "期望: [2,1,0]");
 }
 
 test();

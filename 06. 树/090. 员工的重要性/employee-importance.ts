@@ -64,11 +64,7 @@ console.log("===== 090. 员工的重要性 =====");
 // 测试1: employees = [[1,5,[2,3]],[2,3,[]],[3,3,[]]], id = 1
 // 员工1重要性5，下属2、3；员工2重要性3无下属；员工3重要性3无下属
 // 总和 = 5 + 3 + 3 = 11
-const emps1 = [
-  new Employee(1, 5, [2, 3]),
-  new Employee(2, 3, []),
-  new Employee(3, 3, []),
-];
+const emps1 = [new Employee(1, 5, [2, 3]), new Employee(2, 3, []), new Employee(3, 3, [])];
 console.log("DFS id=1:", getImportance(emps1, 1)); // 期望 11
 console.log("BFS id=1:", getImportanceBFS(emps1, 1)); // 期望 11
 
@@ -80,11 +76,7 @@ console.log("BFS id=5:", getImportanceBFS(emps2, 5)); // 期望 -3
 
 // 测试3: 多层嵌套
 // 员工1重要性1，下属[2]；员工2重要性2，下属[3]；员工3重要性3，下属[]
-const emps3 = [
-  new Employee(1, 1, [2]),
-  new Employee(2, 2, [3]),
-  new Employee(3, 3, []),
-];
+const emps3 = [new Employee(1, 1, [2]), new Employee(2, 2, [3]), new Employee(3, 3, [])];
 console.log("DFS id=1:", getImportance(emps3, 1)); // 期望 6
 console.log("BFS id=1:", getImportanceBFS(emps3, 1)); // 期望 6
 

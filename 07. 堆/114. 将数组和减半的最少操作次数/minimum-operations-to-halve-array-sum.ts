@@ -13,7 +13,10 @@ function halveArray(nums: number[]): number {
     let i = heap.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i] > heap[p]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; } else break;
+      if (heap[i] > heap[p]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const popMax = (): number => {
@@ -24,24 +27,35 @@ function halveArray(nums: number[]): number {
       let i = 0;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < heap.length && heap[l] > heap[s]) s = l;
         if (r < heap.length && heap[r] > heap[s]) s = r;
-        if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; } else break;
+        if (s !== i) {
+          [heap[i], heap[s]] = [heap[s], heap[i]];
+          i = s;
+        } else break;
       }
     }
     return top;
   };
   let total = 0;
-  for (const n of nums) { heap.push(n); total += n; }
+  for (const n of nums) {
+    heap.push(n);
+    total += n;
+  }
   for (let i = (heap.length >> 1) - 1; i >= 0; i--) {
     let idx = i;
     while (true) {
       let s = idx;
-      const l = 2 * idx + 1, r = 2 * idx + 2;
+      const l = 2 * idx + 1,
+        r = 2 * idx + 2;
       if (l < heap.length && heap[l] > heap[s]) s = l;
       if (r < heap.length && heap[r] > heap[s]) s = r;
-      if (s !== idx) { [heap[idx], heap[s]] = [heap[s], heap[idx]]; idx = s; } else break;
+      if (s !== idx) {
+        [heap[idx], heap[s]] = [heap[s], heap[idx]];
+        idx = s;
+      } else break;
     }
   }
   const target = total / 2;

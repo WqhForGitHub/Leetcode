@@ -68,19 +68,9 @@ function zigzagLevelOrderDFS(root: TreeNode | null): number[][] {
 // ============================================================
 console.log("===== 009. 二叉树的锯齿形层序遍历 =====");
 // 测试1: [3,9,20,null,null,15,7] -> [[3],[20,9],[15,7]]
-const tree1 = new TreeNode(
-  3,
-  new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
-);
-console.log(
-  "[3,9,20,null,null,15,7] (BFS):",
-  JSON.stringify(zigzagLevelOrder(tree1))
-); // [[3],[20,9],[15,7]]
-console.log(
-  "[3,9,20,null,null,15,7] (DFS):",
-  JSON.stringify(zigzagLevelOrderDFS(tree1))
-); // [[3],[20,9],[15,7]]
+const tree1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+console.log("[3,9,20,null,null,15,7] (BFS):", JSON.stringify(zigzagLevelOrder(tree1))); // [[3],[20,9],[15,7]]
+console.log("[3,9,20,null,null,15,7] (DFS):", JSON.stringify(zigzagLevelOrderDFS(tree1))); // [[3],[20,9],[15,7]]
 
 // 测试2: [1] -> [[1]]
 const tree2 = new TreeNode(1);

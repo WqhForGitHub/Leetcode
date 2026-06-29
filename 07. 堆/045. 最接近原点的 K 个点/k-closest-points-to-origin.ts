@@ -75,7 +75,30 @@ function kClosestQuickSelect(points: number[][], k: number): number[][] {
 // 测试
 // ============================================================
 console.log("===== 045. 最接近原点的 K 个点 =====");
-console.log("堆:", JSON.stringify(kClosest([[1, 3], [-2, 2]], 1))); // 期望 [[-2,2]]
-console.log("快选:", JSON.stringify(kClosestQuickSelect([[3, 3], [5, -1], [-2, 4]], 2))); // 期望 [[3,3],[-2,4]]
+console.log(
+  "堆:",
+  JSON.stringify(
+    kClosest(
+      [
+        [1, 3],
+        [-2, 2],
+      ],
+      1,
+    ),
+  ),
+); // 期望 [[-2,2]]
+console.log(
+  "快选:",
+  JSON.stringify(
+    kClosestQuickSelect(
+      [
+        [3, 3],
+        [5, -1],
+        [-2, 4],
+      ],
+      2,
+    ),
+  ),
+); // 期望 [[3,3],[-2,4]]
 
 export {};

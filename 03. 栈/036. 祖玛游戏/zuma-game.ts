@@ -18,7 +18,7 @@ function findMinStep(board: string, hand: string): number {
 
   function dfs(b: string, h: Record<string, number>): number {
     if (b.length === 0) return 0;
-    const key = b + '#' + JSON.stringify(h);
+    const key = b + "#" + JSON.stringify(h);
     if (memo.has(key)) return memo.get(key)!;
 
     let res = Infinity;
@@ -50,7 +50,7 @@ function findMinStep(board: string, hand: string): number {
     while (changed) {
       changed = false;
       let i = 0;
-      let result = '';
+      let result = "";
       while (i < s.length) {
         let j = i;
         while (j < s.length && s[j] === s[i]) j++;
@@ -73,10 +73,10 @@ function findMinStep(board: string, hand: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', findMinStep('WRRBBW', 'RB'), '期望: -1');
-  console.log('测试2:', findMinStep('WWRRBBWW', 'WRBRW'), '期望: 2');
-  console.log('测试3:', findMinStep('G', 'GGGGG'), '期望: 2');
-  console.log('测试4:', findMinStep('RBYYBBRRB', 'YRBGB'), '期望: 3');
+  console.log("测试1:", findMinStep("WRRBBW", "RB"), "期望: -1");
+  console.log("测试2:", findMinStep("WWRRBBWW", "WRBRW"), "期望: 2");
+  console.log("测试3:", findMinStep("G", "GGGGG"), "期望: 2");
+  console.log("测试4:", findMinStep("RBYYBBRRB", "YRBGB"), "期望: 3");
 }
 
 test();

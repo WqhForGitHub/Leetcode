@@ -60,11 +60,7 @@ console.log("===== 158. N 叉树的直径 =====");
 //   / \
 //  5   6
 // 直径 = 5-2-1-3 或 5-2-1-4 或 6-2-1-3 等，长度 3
-const t1 = new Node(1, [
-  new Node(2, [new Node(5), new Node(6)]),
-  new Node(3, []),
-  new Node(4, []),
-]);
+const t1 = new Node(1, [new Node(2, [new Node(5), new Node(6)]), new Node(3, []), new Node(4, [])]);
 console.log("测试1:", diameter(t1)); // 期望 3
 
 // 测试2:
@@ -76,13 +72,7 @@ console.log("测试1:", diameter(t1)); // 期望 3
 //  /
 // 4
 // 直径 = 4-3-2-1，长度 3
-const t2 = new Node(1, [
-  new Node(2, [
-    new Node(3, [
-      new Node(4, []),
-    ]),
-  ]),
-]);
+const t2 = new Node(1, [new Node(2, [new Node(3, [new Node(4, [])])])]);
 console.log("测试2:", diameter(t2)); // 期望 3
 
 // 测试3: 单节点
@@ -98,13 +88,9 @@ console.log("测试3:", diameter(new Node(1))); // 期望 0
 // 7   8
 // 直径 = 7-5-2-1-4-6 或 8-5-2-1-4-6，长度 5
 const t4 = new Node(1, [
-  new Node(2, [
-    new Node(5, [new Node(7), new Node(8)]),
-  ]),
+  new Node(2, [new Node(5, [new Node(7), new Node(8)])]),
   new Node(3, []),
-  new Node(4, [
-    new Node(6),
-  ]),
+  new Node(4, [new Node(6)]),
 ]);
 console.log("测试4:", diameter(t4)); // 期望 5
 

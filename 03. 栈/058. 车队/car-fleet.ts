@@ -32,9 +32,9 @@ function carFleet(target: number, position: number[], speed: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', carFleet(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]), '期望: 3');
-  console.log('测试2:', carFleet(10, [3], [3]), '期望: 1');
-  console.log('测试3:', carFleet(100, [0, 2, 4], [4, 2, 1]), '期望: 1');
+  console.log("测试1:", carFleet(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]), "期望: 3");
+  console.log("测试2:", carFleet(10, [3], [3]), "期望: 1");
+  console.log("测试3:", carFleet(100, [0, 2, 4], [4, 2, 1]), "期望: 1");
 }
 
 test();

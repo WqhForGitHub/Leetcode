@@ -22,10 +22,7 @@ function circularArrayLoop(nums: number[]): boolean {
     let fast = getNext(i);
 
     // 确保方向一致（同正或同负）
-    while (
-      nums[slow] * nums[fast] > 0 &&
-      nums[slow] * nums[getNext(fast)] > 0
-    ) {
+    while (nums[slow] * nums[fast] > 0 && nums[slow] * nums[getNext(fast)] > 0) {
       if (slow === fast) {
         // 检查环长度是否大于 1（不是自环）
         if (slow === getNext(slow)) {

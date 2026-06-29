@@ -82,7 +82,7 @@ console.log("===== 067. 二叉树的边界 =====");
 const tree1 = new TreeNode(
   1,
   null,
-  new TreeNode(2, new TreeNode(3, new TreeNode(5), null), new TreeNode(4))
+  new TreeNode(2, new TreeNode(3, new TreeNode(5), null), new TreeNode(4)),
 );
 console.log("树1:", boundaryOfBinaryTree(tree1)); // [1, 3, 5, 4]
 
@@ -98,7 +98,7 @@ console.log("树1:", boundaryOfBinaryTree(tree1)); // [1, 3, 5, 4]
 const tree2 = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), new TreeNode(5, new TreeNode(7), new TreeNode(8))),
-  new TreeNode(3, null, new TreeNode(6))
+  new TreeNode(3, null, new TreeNode(6)),
 );
 console.log("树2:", boundaryOfBinaryTree(tree2)); // [1,2,4,7,8,6,3]
 

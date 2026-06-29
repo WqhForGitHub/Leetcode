@@ -80,6 +80,14 @@ function minRefuelStopsDP(target: number, startFuel: number, stations: number[][
 console.log("===== 042. 最低加油次数 =====");
 console.log("最大堆:", minRefuelStops(1, 1, [])); // 期望 0
 console.log("最大堆:", minRefuelStops(100, 1, [[10, 100]])); // 期望 -1
-console.log("DP:", minRefuelStopsDP(100, 10, [[10, 60], [20, 30], [30, 30], [60, 40]])); // 期望 2
+console.log(
+  "DP:",
+  minRefuelStopsDP(100, 10, [
+    [10, 60],
+    [20, 30],
+    [30, 30],
+    [60, 40],
+  ]),
+); // 期望 2
 
 export {};

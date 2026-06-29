@@ -122,18 +122,18 @@ function test(): void {
   // 测试用例 1: (6->1->7) + (2->9->5) = 617 + 295 = 912 -> (9->1->2)
   console.log(
     "测试1（栈）:",
-    listToArray(addTwoNumbers(arrayToList([6, 1, 7]), arrayToList([2, 9, 5])))
+    listToArray(addTwoNumbers(arrayToList([6, 1, 7]), arrayToList([2, 9, 5]))),
   ); // [9,1,2]
   console.log(
     "测试1（反转）:",
-    listToArray(addTwoNumbersByReverse(arrayToList([6, 1, 7]), arrayToList([2, 9, 5])))
+    listToArray(addTwoNumbersByReverse(arrayToList([6, 1, 7]), arrayToList([2, 9, 5]))),
   ); // [9,1,2]
 
   // 测试用例 2: (7->1->6) + (5->9->2) = 716 + 592 = 1308 -> (1->3->0->8)
   console.log("测试2:", listToArray(addTwoNumbers(arrayToList([7, 1, 6]), arrayToList([5, 9, 2])))); // [1,3,0,8]
   console.log(
     "测试2（反转）:",
-    listToArray(addTwoNumbersByReverse(arrayToList([7, 1, 6]), arrayToList([5, 9, 2])))
+    listToArray(addTwoNumbersByReverse(arrayToList([7, 1, 6]), arrayToList([5, 9, 2]))),
   ); // [1,3,0,8]
 
   // 测试用例 3: 长度不等 (9->9) + (1) = 99 + 1 = 100 -> (1->0->0)

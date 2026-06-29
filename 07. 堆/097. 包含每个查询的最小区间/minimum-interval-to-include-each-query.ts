@@ -46,7 +46,10 @@ function minInterval(intervals: number[][], queries: number[]): number[] {
   let idx = 0;
   for (const { q, i } of indexedQueries) {
     while (idx < sortedIntervals.length && sortedIntervals[idx][0] <= q) {
-      push({ len: sortedIntervals[idx][1] - sortedIntervals[idx][0] + 1, right: sortedIntervals[idx][1] });
+      push({
+        len: sortedIntervals[idx][1] - sortedIntervals[idx][0] + 1,
+        right: sortedIntervals[idx][1],
+      });
       idx++;
     }
     while (heap.length > 0 && heap[0].right < q) pop();
@@ -59,7 +62,29 @@ function minInterval(intervals: number[][], queries: number[]): number[] {
 // 测试
 // ============================================================
 console.log("===== 097. 包含每个查询的最小区间 =====");
-console.log("结果:", minInterval([[1, 4], [2, 4], [3, 6], [4, 4]], [2, 3, 4, 5])); // 期望 [3,3,1,4]
-console.log("结果:", minInterval([[2, 3], [2, 5], [1, 8], [20, 25]], [2, 19, 5, 22])); // 期望 [2,-1,4,6]
+console.log(
+  "结果:",
+  minInterval(
+    [
+      [1, 4],
+      [2, 4],
+      [3, 6],
+      [4, 4],
+    ],
+    [2, 3, 4, 5],
+  ),
+); // 期望 [3,3,1,4]
+console.log(
+  "结果:",
+  minInterval(
+    [
+      [2, 3],
+      [2, 5],
+      [1, 8],
+      [20, 25],
+    ],
+    [2, 19, 5, 22],
+  ),
+); // 期望 [2,-1,4,6]
 
 export {};

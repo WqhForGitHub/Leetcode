@@ -81,7 +81,21 @@ function maxTwoEventsHeap(events: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 106. 两个最好的不重叠活动 =====");
-console.log("扫描线:", maxTwoEvents([[1, 3, 2], [4, 5, 2], [2, 4, 3]])); // 期望 4
-console.log("堆:", maxTwoEventsHeap([[1, 3, 2], [4, 5, 2], [1, 5, 5]])); // 期望 5
+console.log(
+  "扫描线:",
+  maxTwoEvents([
+    [1, 3, 2],
+    [4, 5, 2],
+    [2, 4, 3],
+  ]),
+); // 期望 4
+console.log(
+  "堆:",
+  maxTwoEventsHeap([
+    [1, 3, 2],
+    [4, 5, 2],
+    [1, 5, 5],
+  ]),
+); // 期望 5
 
 export {};

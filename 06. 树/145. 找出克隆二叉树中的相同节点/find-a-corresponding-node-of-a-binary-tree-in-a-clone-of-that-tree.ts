@@ -22,7 +22,7 @@ class TreeNode {
 function getTargetCopy(
   original: TreeNode | null,
   cloned: TreeNode | null,
-  target: TreeNode | null
+  target: TreeNode | null,
 ): TreeNode | null {
   if (original === null || cloned === null) return null;
   if (original === target) return cloned;
@@ -39,7 +39,7 @@ function getTargetCopy(
 function getTargetCopyBFS(
   original: TreeNode | null,
   cloned: TreeNode | null,
-  target: TreeNode | null
+  target: TreeNode | null,
 ): TreeNode | null {
   if (original === null || cloned === null) return null;
 

@@ -31,9 +31,7 @@ function topKFrequent(words: string[], k: number): string[] {
 // ============================================================
 console.log("===== 126. 前K个高频单词 =====");
 // 测试 1
-console.log(
-  topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2),
-); // 期望: ["i", "love"]
+console.log(topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望: ["i", "love"]
 // 测试 2
 console.log(
   topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4),

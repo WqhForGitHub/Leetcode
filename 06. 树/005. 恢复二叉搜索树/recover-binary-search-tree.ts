@@ -122,11 +122,7 @@ recoverTree(tree1);
 console.log("恢复后中序:", inorderArray(tree1)); // [1,2,3]
 
 // 测试2: [3,1,4,null,null,2] -> 恢复为 [2,1,4,null,null,3]
-const tree2 = new TreeNode(
-  3,
-  new TreeNode(1),
-  new TreeNode(4, new TreeNode(2))
-);
+const tree2 = new TreeNode(3, new TreeNode(1), new TreeNode(4, new TreeNode(2)));
 console.log("恢复前中序:", inorderArray(tree2)); // [1,3,2,4]
 recoverTreeMorris(tree2);
 console.log("恢复后中序 (Morris):", inorderArray(tree2)); // [1,2,3,4]

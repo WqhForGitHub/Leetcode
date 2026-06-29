@@ -46,9 +46,9 @@ function maxChunksToSortedPrefix(arr: number[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1 - 栈法:', maxChunksToSorted([5, 4, 3, 2, 1]), '期望: 1');
-  console.log('测试2 - 栈法:', maxChunksToSorted([2, 1, 3, 4, 4]), '期望: 4');
-  console.log('测试3 - 前缀:', maxChunksToSortedPrefix([1, 1, 0, 0, 1]), '期望: 2');
+  console.log("测试1 - 栈法:", maxChunksToSorted([5, 4, 3, 2, 1]), "期望: 1");
+  console.log("测试2 - 栈法:", maxChunksToSorted([2, 1, 3, 4, 4]), "期望: 4");
+  console.log("测试3 - 前缀:", maxChunksToSortedPrefix([1, 1, 0, 0, 1]), "期望: 2");
 }
 
 test();

@@ -9,7 +9,7 @@
 function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
   const n = aliceValues.length;
   const indices: number[] = Array.from({ length: n }, (_, i) => i);
-  indices.sort((a, b) => (aliceValues[b] + bobValues[b]) - (aliceValues[a] + bobValues[a]));
+  indices.sort((a, b) => aliceValues[b] + bobValues[b] - (aliceValues[a] + bobValues[a]));
   let aliceScore = 0;
   let bobScore = 0;
   for (let i = 0; i < n; i++) {

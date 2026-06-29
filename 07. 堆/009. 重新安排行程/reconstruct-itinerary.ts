@@ -87,9 +87,26 @@ function findItineraryHeap(tickets: string[][]): string[] {
 // 测试
 // ============================================================
 console.log("===== 009. 重新安排行程 =====");
-console.log("DFS:", findItinerary([["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]));
+console.log(
+  "DFS:",
+  findItinerary([
+    ["MUC", "LHR"],
+    ["JFK", "MUC"],
+    ["SFO", "SJC"],
+    ["LHR", "SFO"],
+  ]),
+);
 // 期望 ["JFK","MUC","LHR","SFO","SJC"]
-console.log("堆:", findItineraryHeap([["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]));
+console.log(
+  "堆:",
+  findItineraryHeap([
+    ["JFK", "SFO"],
+    ["JFK", "ATL"],
+    ["SFO", "ATL"],
+    ["ATL", "JFK"],
+    ["ATL", "SFO"],
+  ]),
+);
 // 期望 ["JFK","ATL","JFK","SFO","ATL","SFO"]
 
 export {};

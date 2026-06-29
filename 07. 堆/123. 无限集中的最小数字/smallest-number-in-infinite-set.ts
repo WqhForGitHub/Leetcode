@@ -48,11 +48,14 @@ class SmallestInfiniteSet {
     const n = this.heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < n && this.heap[l] < this.heap[s]) s = l;
       if (r < n && this.heap[r] < this.heap[s]) s = r;
-      if (s !== i) { [this.heap[i], this.heap[s]] = [this.heap[s], this.heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [this.heap[i], this.heap[s]] = [this.heap[s], this.heap[i]];
+        i = s;
+      } else break;
     }
   }
 }
@@ -71,7 +74,7 @@ class SmallestInfiniteSet2 {
 
   addBack(num: number): void {
     if (num >= this.next) return;
-    const idx = this.added.findIndex(x => x >= num);
+    const idx = this.added.findIndex((x) => x >= num);
     if (idx !== -1 && this.added[idx] === num) return;
     this.added.splice(idx === -1 ? this.added.length : idx, 0, num);
   }

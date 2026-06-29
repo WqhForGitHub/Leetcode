@@ -33,7 +33,11 @@ function averageHeightOfBuildings(buildings: number[][]): number[][] {
   // 合并相邻相同高度段
   const merged: number[][] = [];
   for (const seg of result) {
-    if (merged.length > 0 && merged[merged.length - 1][1] === seg[0] && merged[merged.length - 1][2] === seg[2]) {
+    if (
+      merged.length > 0 &&
+      merged[merged.length - 1][1] === seg[0] &&
+      merged[merged.length - 1][2] === seg[2]
+    ) {
       merged[merged.length - 1][1] = seg[1];
     } else {
       merged.push(seg);
@@ -46,8 +50,25 @@ function averageHeightOfBuildings(buildings: number[][]): number[][] {
 // 测试
 // ============================================================
 console.log("===== 104. 每段建筑物的平均高度 =====");
-console.log("结果:", JSON.stringify(averageHeightOfBuildings([[1, 4, 2], [3, 9, 4]])));
+console.log(
+  "结果:",
+  JSON.stringify(
+    averageHeightOfBuildings([
+      [1, 4, 2],
+      [3, 9, 4],
+    ]),
+  ),
+);
 // 期望 [[1,3,2],[3,4,3],[4,9,4]]
-console.log("结果:", JSON.stringify(averageHeightOfBuildings([[1, 3, 2], [2, 5, 3], [2, 8, 3]])));
+console.log(
+  "结果:",
+  JSON.stringify(
+    averageHeightOfBuildings([
+      [1, 3, 2],
+      [2, 5, 3],
+      [2, 8, 3],
+    ]),
+  ),
+);
 
 export {};

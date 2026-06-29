@@ -67,11 +67,7 @@ console.log("===== 051. 二叉树的垂直遍历 =====");
 //   9  20
 //      / \
 //     15  7
-const tree1 = new TreeNode(
-  3,
-  new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7)),
-);
+const tree1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 console.log(verticalOrder(tree1)); // 期望: [[9],[3,15],[20],[7]]
 
 // 测试 2: [1,2,3,4,5,6,7]

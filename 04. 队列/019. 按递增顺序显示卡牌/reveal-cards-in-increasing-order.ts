@@ -54,21 +54,13 @@ function test(): void {
     JSON.stringify(deckRevealedIncreasing1([17, 13, 11, 2, 3, 5, 7])),
     "期望: [2,13,3,11,5,17,7]",
   );
-  console.log(
-    "测试2:",
-    JSON.stringify(deckRevealedIncreasing1([1, 1000])),
-    "期望: [1,1000]",
-  );
+  console.log("测试2:", JSON.stringify(deckRevealedIncreasing1([1, 1000])), "期望: [1,1000]");
   console.log(
     "测试3:",
     JSON.stringify(deckRevealedIncreasing2([17, 13, 11, 2, 3, 5, 7])),
     "期望: [2,13,3,11,5,17,7]",
   );
-  console.log(
-    "测试4:",
-    JSON.stringify(deckRevealedIncreasing2([1, 1000])),
-    "期望: [1,1000]",
-  );
+  console.log("测试4:", JSON.stringify(deckRevealedIncreasing2([1, 1000])), "期望: [1,1000]");
 }
 
 test();

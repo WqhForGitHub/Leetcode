@@ -68,6 +68,17 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 // 测试
 // ============================================================
 console.log("===== 033. 网络延迟时间 =====");
-console.log("延迟:", networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2)); // 期望 2
+console.log(
+  "延迟:",
+  networkDelayTime(
+    [
+      [2, 1, 1],
+      [2, 3, 1],
+      [3, 4, 1],
+    ],
+    4,
+    2,
+  ),
+); // 期望 2
 
 export {};

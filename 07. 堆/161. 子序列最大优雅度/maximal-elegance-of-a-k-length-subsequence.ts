@@ -15,8 +15,10 @@ function findMaximumElegance(items: number[][], k: number): number {
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (minHeap[i] < minHeap[p]) { [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]]; i = p; }
-      else break;
+      if (minHeap[i] < minHeap[p]) {
+        [minHeap[i], minHeap[p]] = [minHeap[p], minHeap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -24,11 +26,14 @@ function findMaximumElegance(items: number[][], k: number): number {
     const len = minHeap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && minHeap[l] < minHeap[s]) s = l;
       if (r < len && minHeap[r] < minHeap[s]) s = r;
-      if (s !== i) { [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [minHeap[i], minHeap[s]] = [minHeap[s], minHeap[i]];
+        i = s;
+      } else break;
     }
   };
   const duplicates: number[] = [];
@@ -85,7 +90,28 @@ function findMaximumEleganceStack(items: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 161. 子序列最大优雅度 =====");
-console.log("堆:", findMaximumElegance([[3, 2], [5, 1], [10, 1]], 2)); // 期望 17
-console.log("栈:", findMaximumEleganceStack([[3, 1], [3, 1], [2, 2], [5, 3]], 3)); // 期望 19
+console.log(
+  "堆:",
+  findMaximumElegance(
+    [
+      [3, 2],
+      [5, 1],
+      [10, 1],
+    ],
+    2,
+  ),
+); // 期望 17
+console.log(
+  "栈:",
+  findMaximumEleganceStack(
+    [
+      [3, 1],
+      [3, 1],
+      [2, 2],
+      [5, 3],
+    ],
+    3,
+  ),
+); // 期望 19
 
 export {};

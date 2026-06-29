@@ -18,9 +18,7 @@ function maxSumOfMSubarrays1(nums: number[], m: number, k: number): number[] {
   const windowSum = (i: number): number => prefix[i + k] - prefix[i];
 
   // dp[j][i] = 前 i 个位置选 j 个子数组的最大和
-  const dp: number[][] = new Array(m + 1)
-    .fill(0)
-    .map(() => new Array(n + 1).fill(0));
+  const dp: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
   const path: number[][][] = new Array(m + 1)
     .fill(0)
     .map(() => new Array(n + 1).fill(0).map(() => []));

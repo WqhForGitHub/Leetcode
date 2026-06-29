@@ -72,21 +72,9 @@ function magicalPermutation2(nums: number[]): number[] {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    JSON.stringify(magicalPermutation1([0, 1, 2, 3])),
-    "期望: 合法排列",
-  );
-  console.log(
-    "测试2:",
-    JSON.stringify(magicalPermutation1([1, 2, 3])),
-    "期望: 合法排列或空",
-  );
-  console.log(
-    "测试3:",
-    JSON.stringify(magicalPermutation2([0, 1, 2, 3])),
-    "期望: 合法排列",
-  );
+  console.log("测试1:", JSON.stringify(magicalPermutation1([0, 1, 2, 3])), "期望: 合法排列");
+  console.log("测试2:", JSON.stringify(magicalPermutation1([1, 2, 3])), "期望: 合法排列或空");
+  console.log("测试3:", JSON.stringify(magicalPermutation2([0, 1, 2, 3])), "期望: 合法排列");
 }
 
 test();

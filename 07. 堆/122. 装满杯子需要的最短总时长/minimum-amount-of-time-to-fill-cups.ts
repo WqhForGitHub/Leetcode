@@ -16,15 +16,18 @@ function fillCups(amount: number[]): number {
 
 // 方法2：最大堆模拟
 function fillCupsHeap(amount: number[]): number {
-  const heap: number[] = amount.filter(x => x > 0);
+  const heap: number[] = amount.filter((x) => x > 0);
   const siftDown = (i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l] > heap[s]) s = l;
       if (r < len && heap[r] > heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);
@@ -38,8 +41,12 @@ function fillCupsHeap(amount: number[]): number {
     heap[0] = heap[heap.length - 1];
     heap.pop();
     if (heap.length > 0) siftDown(0, heap.length);
-    if (first > 1) { heap.push(first - 1); }
-    if (second > 1) { heap.push(second - 1); }
+    if (first > 1) {
+      heap.push(first - 1);
+    }
+    if (second > 1) {
+      heap.push(second - 1);
+    }
     for (let i = Math.floor(heap.length / 2) - 1; i >= 0; i--) siftDown(i, heap.length);
     time++;
   }

@@ -69,7 +69,7 @@ function buildTree030(): TreeNode {
   return new TreeNode(
     1,
     new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-    new TreeNode(3, new TreeNode(6), null)
+    new TreeNode(3, new TreeNode(6), null),
   );
 }
 console.log("递归 [1,2,3,4,5,6]:", countNodes(buildTree030())); // 6
@@ -80,7 +80,7 @@ function buildFullTree(): TreeNode {
   return new TreeNode(
     1,
     new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-    new TreeNode(3, new TreeNode(6), new TreeNode(7))
+    new TreeNode(3, new TreeNode(6), new TreeNode(7)),
   );
 }
 console.log("递归 满二叉树:", countNodes(buildFullTree())); // 7

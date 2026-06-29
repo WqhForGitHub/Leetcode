@@ -6,8 +6,15 @@
 // 时间复杂度：O(E log V)，空间复杂度：O(V+E)
 
 // 方法1：三次 Dijkstra
-function minimumWeightSubgraph(n: number, edges: number[][], src1: number, src2: number, dest: number): number {
-  const buildGraph = (): Array<Array<{ to: number; w: number }>> => Array.from({ length: n }, () => []);
+function minimumWeightSubgraph(
+  n: number,
+  edges: number[][],
+  src1: number,
+  src2: number,
+  dest: number,
+): number {
+  const buildGraph = (): Array<Array<{ to: number; w: number }>> =>
+    Array.from({ length: n }, () => []);
   const graph = buildGraph();
   const revGraph = buildGraph();
   for (const [u, v, w] of edges) {
@@ -23,7 +30,10 @@ function minimumWeightSubgraph(n: number, edges: number[][], src1: number, src2:
       let i = heap.length - 1;
       while (i > 0) {
         const p = (i - 1) >> 1;
-        if (heap[i].d < heap[p].d) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; } else break;
+        if (heap[i].d < heap[p].d) {
+          [heap[i], heap[p]] = [heap[p], heap[i]];
+          i = p;
+        } else break;
       }
     };
     const pop = (): { d: number; node: number } => {
@@ -34,10 +44,14 @@ function minimumWeightSubgraph(n: number, edges: number[][], src1: number, src2:
         let i = 0;
         while (true) {
           let s = i;
-          const l = 2 * i + 1, r = 2 * i + 2;
+          const l = 2 * i + 1,
+            r = 2 * i + 2;
           if (l < heap.length && heap[l].d < heap[s].d) s = l;
           if (r < heap.length && heap[r].d < heap[s].d) s = r;
-          if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; } else break;
+          if (s !== i) {
+            [heap[i], heap[s]] = [heap[s], heap[i]];
+            i = s;
+          } else break;
         }
       }
       return top;
@@ -47,7 +61,10 @@ function minimumWeightSubgraph(n: number, edges: number[][], src1: number, src2:
       if (cur.d > dist[cur.node]) continue;
       for (const { to, w } of g[cur.node]) {
         const nd = cur.d + w;
-        if (nd < dist[to]) { dist[to] = nd; push({ d: nd, node: to }); }
+        if (nd < dist[to]) {
+          dist[to] = nd;
+          push({ d: nd, node: to });
+        }
       }
     }
     return dist;
@@ -68,6 +85,25 @@ function minimumWeightSubgraph(n: number, edges: number[][], src1: number, src2:
 // 测试
 // ============================================================
 console.log("===== 113. 包含要求路径的最小带权子图 =====");
-console.log("最小权:", minimumWeightSubgraph(6, [[0, 2, 2], [0, 5, 6], [1, 0, 3], [1, 4, 5], [2, 1, 1], [2, 3, 3], [2, 3, 4], [3, 4, 2], [4, 5, 1]], 0, 1, 5)); // 期望 9
+console.log(
+  "最小权:",
+  minimumWeightSubgraph(
+    6,
+    [
+      [0, 2, 2],
+      [0, 5, 6],
+      [1, 0, 3],
+      [1, 4, 5],
+      [2, 1, 1],
+      [2, 3, 3],
+      [2, 3, 4],
+      [3, 4, 2],
+      [4, 5, 1],
+    ],
+    0,
+    1,
+    5,
+  ),
+); // 期望 9
 
 export {};

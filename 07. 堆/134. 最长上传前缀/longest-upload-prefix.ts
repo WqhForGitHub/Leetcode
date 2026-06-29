@@ -60,11 +60,14 @@ class LUPrefixHeap {
         const n = this.heap.length;
         while (true) {
           let s = idx;
-          const l = 2 * idx + 1, r = 2 * idx + 2;
+          const l = 2 * idx + 1,
+            r = 2 * idx + 2;
           if (l < n && this.heap[l] < this.heap[s]) s = l;
           if (r < n && this.heap[r] < this.heap[s]) s = r;
-          if (s !== idx) { [this.heap[idx], this.heap[s]] = [this.heap[s], this.heap[idx]]; idx = s; }
-          else break;
+          if (s !== idx) {
+            [this.heap[idx], this.heap[s]] = [this.heap[s], this.heap[idx]];
+            idx = s;
+          } else break;
         }
       }
       if (min > this.prefix) this.prefix = min;

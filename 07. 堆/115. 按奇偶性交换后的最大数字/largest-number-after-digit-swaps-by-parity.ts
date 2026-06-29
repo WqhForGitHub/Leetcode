@@ -41,7 +41,10 @@ function largestIntegerHeap(num: number): number {
     let i = arr.length - 1;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (arr[i] > arr[p]) { [arr[i], arr[p]] = [arr[p], arr[i]]; i = p; } else break;
+      if (arr[i] > arr[p]) {
+        [arr[i], arr[p]] = [arr[p], arr[i]];
+        i = p;
+      } else break;
     }
   };
   const popMax = (arr: number[]): number => {
@@ -52,10 +55,14 @@ function largestIntegerHeap(num: number): number {
       let i = 0;
       while (true) {
         let s = i;
-        const l = 2 * i + 1, r = 2 * i + 2;
+        const l = 2 * i + 1,
+          r = 2 * i + 2;
         if (l < arr.length && arr[l] > arr[s]) s = l;
         if (r < arr.length && arr[r] > arr[s]) s = r;
-        if (s !== i) { [arr[i], arr[s]] = [arr[s], arr[i]]; i = s; } else break;
+        if (s !== i) {
+          [arr[i], arr[s]] = [arr[s], arr[i]];
+          i = s;
+        } else break;
       }
     }
     return top;

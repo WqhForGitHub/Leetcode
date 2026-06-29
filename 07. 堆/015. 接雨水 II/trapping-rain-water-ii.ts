@@ -57,7 +57,12 @@ function trapRainWater(heightMap: number[][]): number {
     visited[i][n - 1] = true;
     push({ h: heightMap[i][n - 1], r: i, c: n - 1 });
   }
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   let water = 0;
   while (heap.length > 0) {
     const cur = pop()!;
@@ -77,6 +82,13 @@ function trapRainWater(heightMap: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 015. 接雨水 II =====");
-console.log("接雨水:", trapRainWater([[1, 4, 3, 1, 3, 2], [3, 2, 1, 3, 2, 4], [2, 3, 3, 2, 3, 1]])); // 期望 4
+console.log(
+  "接雨水:",
+  trapRainWater([
+    [1, 4, 3, 1, 3, 2],
+    [3, 2, 1, 3, 2, 4],
+    [2, 3, 3, 2, 3, 1],
+  ]),
+); // 期望 4
 
 export {};

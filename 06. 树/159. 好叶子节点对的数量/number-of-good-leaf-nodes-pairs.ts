@@ -110,6 +110,9 @@ console.log("测试1:", countPairs(buildTree([1, 2, 3, null, 4]), 3)); // 期望
 console.log("测试2:", countPairs(buildTree([1, 2, 3, 4, 5, 6, 7]), 3)); // 期望 2
 
 // 测试3: root=[7,1,4,6,null,5,3,null,null,null,null,null,2], distance=3
-console.log("测试3:", countPairs(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, null, 2]), 3)); // 期望 1
+console.log(
+  "测试3:",
+  countPairs(buildTree([7, 1, 4, 6, null, 5, 3, null, null, null, null, null, 2]), 3),
+); // 期望 1
 
 export {};

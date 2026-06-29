@@ -20,8 +20,10 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] < heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -29,11 +31,14 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
     const len = heap.length;
     while (true) {
       let s2 = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] < heap[s2][0]) s2 = l;
       if (r < len && heap[r][0] < heap[s2][0]) s2 = r;
-      if (s2 !== i) { [heap[i], heap[s2]] = [heap[s2], heap[i]]; i = s2; }
-      else break;
+      if (s2 !== i) {
+        [heap[i], heap[s2]] = [heap[s2], heap[i]];
+        i = s2;
+      } else break;
     }
   };
   while (heap.length > 0) {
@@ -84,7 +89,33 @@ function minimumDistanceBFS(n: number, edges: number[][], s: number, marked: num
 // 测试
 // ============================================================
 console.log("===== 158. 找到最近的标记节点 =====");
-console.log("Dijkstra:", minimumDistance(4, [[0, 1, 1], [1, 2, 3], [2, 3, 2]], 0, [2, 3])); // 期望 4
-console.log("Dijkstra:", minimumDistance(5, [[0, 1, 2], [0, 2, 4], [1, 3, 1], [2, 3, 3], [3, 4, 2]], 0, [3, 4])); // 期望 3
+console.log(
+  "Dijkstra:",
+  minimumDistance(
+    4,
+    [
+      [0, 1, 1],
+      [1, 2, 3],
+      [2, 3, 2],
+    ],
+    0,
+    [2, 3],
+  ),
+); // 期望 4
+console.log(
+  "Dijkstra:",
+  minimumDistance(
+    5,
+    [
+      [0, 1, 2],
+      [0, 2, 4],
+      [1, 3, 1],
+      [2, 3, 3],
+      [3, 4, 2],
+    ],
+    0,
+    [3, 4],
+  ),
+); // 期望 3
 
 export {};

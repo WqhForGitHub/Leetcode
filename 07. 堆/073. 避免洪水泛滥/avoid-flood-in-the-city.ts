@@ -55,7 +55,10 @@ function avoidFloodSet(rains: number[]): number[] {
       const prev = full.get(lake)!;
       let idx = -1;
       for (let j = 0; j < dry.length; j++) {
-        if (dry[j] > prev) { idx = j; break; }
+        if (dry[j] > prev) {
+          idx = j;
+          break;
+        }
       }
       if (idx === -1) return [];
       result[dry[idx]] = lake;

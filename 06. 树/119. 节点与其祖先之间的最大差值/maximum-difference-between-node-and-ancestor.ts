@@ -31,11 +31,7 @@ function dfs(node: TreeNode | null, minVal: number, maxVal: number): void {
   if (node === null) return;
 
   // 用当前节点值与路径上的最大最小值比较，更新答案
-  maxDiff = Math.max(
-    maxDiff,
-    Math.abs(node.val - minVal),
-    Math.abs(node.val - maxVal)
-  );
+  maxDiff = Math.max(maxDiff, Math.abs(node.val - minVal), Math.abs(node.val - maxVal));
 
   // 更新路径上的最大最小值，继续递归
   const newMin = Math.min(minVal, node.val);

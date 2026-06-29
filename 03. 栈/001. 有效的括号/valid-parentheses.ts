@@ -13,12 +13,12 @@
 function isValid(s: string): boolean {
   const stack: string[] = [];
   const map: Record<string, string> = {
-    ')': '(',
-    '}': '{',
-    ']': '[',
+    ")": "(",
+    "}": "{",
+    "]": "[",
   };
   for (const ch of s) {
-    if (ch === '(' || ch === '{' || ch === '[') {
+    if (ch === "(" || ch === "{" || ch === "[") {
       stack.push(ch);
     } else {
       if (stack.pop() !== map[ch]) {
@@ -33,12 +33,12 @@ function isValid(s: string): boolean {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', isValid('()'), '期望: true');
-  console.log('测试2:', isValid('()[]{}'), '期望: true');
-  console.log('测试3:', isValid('(]'), '期望: false');
-  console.log('测试4:', isValid('([)]'), '期望: false');
-  console.log('测试5:', isValid('{[]}'), '期望: true');
-  console.log('测试6:', isValid(''), '期望: true');
+  console.log("测试1:", isValid("()"), "期望: true");
+  console.log("测试2:", isValid("()[]{}"), "期望: true");
+  console.log("测试3:", isValid("(]"), "期望: false");
+  console.log("测试4:", isValid("([)]"), "期望: false");
+  console.log("测试5:", isValid("{[]}"), "期望: true");
+  console.log("测试6:", isValid(""), "期望: true");
 }
 
 test();

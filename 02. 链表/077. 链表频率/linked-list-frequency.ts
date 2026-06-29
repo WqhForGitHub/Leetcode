@@ -107,7 +107,7 @@ console.log("===== 077. 链表频率 =====");
 // [1,1,2,2,2,3] -> 频率: 1->2, 2->3, 3->1 => [2,3,1]
 console.log(
   "方法1 [1,1,2,2,2,3]:",
-  listToArray(frequenciesOfElements(arrayToList([1, 1, 2, 2, 2, 3])))
+  listToArray(frequenciesOfElements(arrayToList([1, 1, 2, 2, 2, 3]))),
 );
 // [3,1,2,3] -> 1->1, 2->1, 3->2 => [1,1,2]
 console.log("方法1 [3,1,2,3]:", listToArray(frequenciesOfElements(arrayToList([3, 1, 2, 3]))));
@@ -119,11 +119,11 @@ console.log("方法1 []:", listToArray(frequenciesOfElements(arrayToList([]))));
 // 方法2 测试
 console.log(
   "方法2 [1,1,2,2,2,3]:",
-  listToArray(frequenciesOfElementsObject(arrayToList([1, 1, 2, 2, 2, 3])))
+  listToArray(frequenciesOfElementsObject(arrayToList([1, 1, 2, 2, 2, 3]))),
 ); // [2,3,1]
 console.log(
   "方法2 [3,1,2,3]:",
-  listToArray(frequenciesOfElementsObject(arrayToList([3, 1, 2, 3])))
+  listToArray(frequenciesOfElementsObject(arrayToList([3, 1, 2, 3]))),
 ); // [1,1,2]
 
 export {};

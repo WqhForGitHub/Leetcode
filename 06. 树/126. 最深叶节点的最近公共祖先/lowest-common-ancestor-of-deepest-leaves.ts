@@ -70,11 +70,7 @@ function lcaDeepestLeavesBFS(root: TreeNode | null): TreeNode | null {
   return lca;
 }
 
-function findLCA(
-  root: TreeNode | null,
-  p: TreeNode,
-  q: TreeNode
-): TreeNode | null {
+function findLCA(root: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
   if (root === null || root === p || root === q) return root;
   const left = findLCA(root.left, p, q);
   const right = findLCA(root.right, p, q);
@@ -115,9 +111,7 @@ function buildTree(arr: (number | null)[]): TreeNode | null {
 // 最深叶节点为 7 和 4，它们的 LCA 是 2
 console.log(
   "测试1 DFS:",
-  lcaDeepestLeaves(
-    buildTree([3, 5, 1, 6, 2, 0, 8, null, null, 7, 4])
-  )?.val
+  lcaDeepestLeaves(buildTree([3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]))?.val,
 ); // 期望 2
 
 // 测试2: root = [1]
@@ -126,14 +120,8 @@ console.log("测试2 DFS:", lcaDeepestLeaves(buildTree([1]))?.val); // 期望 1
 
 // 测试3: root = [0,1,3,null,2]
 // 最深叶节点为 2，返回 2 本身
-console.log(
-  "测试3 DFS:",
-  lcaDeepestLeaves(buildTree([0, 1, 3, null, 2]))?.val
-); // 期望 2
+console.log("测试3 DFS:", lcaDeepestLeaves(buildTree([0, 1, 3, null, 2]))?.val); // 期望 2
 
-console.log(
-  "测试3 BFS:",
-  lcaDeepestLeavesBFS(buildTree([0, 1, 3, null, 2]))?.val
-); // 期望 2
+console.log("测试3 BFS:", lcaDeepestLeavesBFS(buildTree([0, 1, 3, null, 2]))?.val); // 期望 2
 
 export {};

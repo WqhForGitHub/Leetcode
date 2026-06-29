@@ -44,10 +44,7 @@ console.log("===== 157. 链表组件 =====");
 const head1 = new ListNode(0, new ListNode(1, new ListNode(2, new ListNode(3))));
 console.log(numComponents(head1, [0, 1, 3])); // 期望: 2
 // 链表 [0,1,2,3,4], nums=[0,3,1,4] -> 组件 [0,1] [3] [4] = 3? 或按连续定义
-const head2 = new ListNode(
-  0,
-  new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))),
-);
+const head2 = new ListNode(0, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))));
 console.log(numComponents(head2, [0, 3, 1, 4])); // 期望: 2
 
 export {};

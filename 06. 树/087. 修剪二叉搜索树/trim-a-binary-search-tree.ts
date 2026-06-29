@@ -21,11 +21,7 @@ class TreeNode {
 // - 若 node.val < low：左子树全部舍弃，返回修剪后的右子树
 // - 若 node.val > high：右子树全部舍弃，返回修剪后的左子树
 // - 否则：递归修剪左右子树并保留当前节点
-function trimBST(
-  root: TreeNode | null,
-  low: number,
-  high: number
-): TreeNode | null {
+function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | null {
   if (root === null) return null;
   if (root.val < low) {
     // 当前节点太小，连同左子树都舍弃
@@ -44,11 +40,7 @@ function trimBST(
 // 方法2：迭代
 // 先找到第一个在范围内的根节点
 // 然后分别迭代修剪左子树（删太小的）和右子树（删太大的）
-function trimBSTIterative(
-  root: TreeNode | null,
-  low: number,
-  high: number
-): TreeNode | null {
+function trimBSTIterative(root: TreeNode | null, low: number, high: number): TreeNode | null {
   if (root === null) return null;
   // 找到第一个在 [low, high] 范围内的根
   while (root !== null && (root.val < low || root.val > high)) {

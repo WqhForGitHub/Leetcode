@@ -59,22 +59,15 @@ console.log(
   areSentencesSimilarTwo(
     ["great", "acting", "skills"],
     ["fine", "drama", "talent"],
-    [["great", "good"], ["fine", "good"], ["acting", "drama"], ["skills", "talent"]],
+    [
+      ["great", "good"],
+      ["fine", "good"],
+      ["acting", "drama"],
+      ["skills", "talent"],
+    ],
   ),
 ); // 期望: true (great-good-fine 可传递)
-console.log(
-  areSentencesSimilarTwo(
-    ["great"],
-    ["great"],
-    [],
-  ),
-); // 期望: true
-console.log(
-  areSentencesSimilarTwo(
-    ["great"],
-    ["doubleplus", "good"],
-    [["great", "good"]],
-  ),
-); // 期望: false
+console.log(areSentencesSimilarTwo(["great"], ["great"], [])); // 期望: true
+console.log(areSentencesSimilarTwo(["great"], ["doubleplus", "good"], [["great", "good"]])); // 期望: false
 
 export {};

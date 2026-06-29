@@ -27,15 +27,18 @@ function matrixSum(nums: number[][]): number {
 function matrixSumHeap(nums: number[][]): number {
   const m = nums.length;
   const n = nums[0].length;
-  const heaps: number[][] = nums.map(row => [...row]);
+  const heaps: number[][] = nums.map((row) => [...row]);
   const siftDown = (heap: number[], i: number, len: number): void => {
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l] > heap[s]) s = l;
       if (r < len && heap[r] > heap[s]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   for (const heap of heaps) {
@@ -59,7 +62,15 @@ function matrixSumHeap(nums: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 155. 矩阵中的和 =====");
-console.log("排序:", matrixSum([[7, 2, 1], [6, 4, 2], [6, 5, 3], [3, 2, 1]])); // 期望 15
+console.log(
+  "排序:",
+  matrixSum([
+    [7, 2, 1],
+    [6, 4, 2],
+    [6, 5, 3],
+    [3, 2, 1],
+  ]),
+); // 期望 15
 console.log("堆:", matrixSumHeap([[1]])); // 期望 1
 
 export {};

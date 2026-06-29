@@ -21,10 +21,7 @@ class TreeNode {
 // 与 LC1110 相同思路，但 to_delete 为单个值
 // 后序遍历：先处理子节点，再处理当前节点
 // 若当前节点被删除，其子节点（若存在）成为新树的根，加入结果
-function deleteTreeNodes(
-  root: TreeNode | null,
-  target: number
-): TreeNode[] {
+function deleteTreeNodes(root: TreeNode | null, target: number): TreeNode[] {
   const result: TreeNode[] = [];
 
   function dfs(node: TreeNode | null, isRoot: boolean): TreeNode | null {

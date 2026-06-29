@@ -15,10 +15,7 @@ class ListNode {
   }
 }
 
-function getIntersectionNode(
-  headA: ListNode | null,
-  headB: ListNode | null,
-): ListNode | null {
+function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
   // 哈希集合记录链表 A 的所有节点引用
   const visited: Set<ListNode> = new Set();
   let cur: ListNode | null = headA;

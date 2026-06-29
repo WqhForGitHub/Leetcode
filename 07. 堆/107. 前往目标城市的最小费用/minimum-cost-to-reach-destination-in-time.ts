@@ -14,7 +14,9 @@ function minCost(maxTime: number, edges: number[][], passingFees: number[]): num
     graph[v].push({ to: u, time: t });
   }
   // minCost[city][time] = 到达 city 用 time 的最小费用
-  const minCostArr: number[][] = Array.from({ length: n }, () => new Array(maxTime + 1).fill(Infinity));
+  const minCostArr: number[][] = Array.from({ length: n }, () =>
+    new Array(maxTime + 1).fill(Infinity),
+  );
   const heap: Array<{ cost: number; city: number; time: number }> = [];
   const push = (v: { cost: number; city: number; time: number }): void => {
     heap.push(v);
@@ -71,6 +73,23 @@ function minCost(maxTime: number, edges: number[][], passingFees: number[]): num
 // 测试
 // ============================================================
 console.log("===== 107. 前往目标城市的最小费用 =====");
-console.log("费用:", minCost(30, [[0, 1, 10], [1, 2, 10], [2, 5, 10], [0, 3, 1], [3, 3, 1], [3, 6, 1], [6, 5, 1], [2, 4, 1], [4, 5, 1]], [5, 1, 2, 20, 20, 3, 2])); // 期望 11
+console.log(
+  "费用:",
+  minCost(
+    30,
+    [
+      [0, 1, 10],
+      [1, 2, 10],
+      [2, 5, 10],
+      [0, 3, 1],
+      [3, 3, 1],
+      [3, 6, 1],
+      [6, 5, 1],
+      [2, 4, 1],
+      [4, 5, 1],
+    ],
+    [5, 1, 2, 20, 20, 3, 2],
+  ),
+); // 期望 11
 
 export {};

@@ -10,7 +10,12 @@ function minCost(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const heap: Array<{ c: number; r: number; col: number }> = [];
   const push = (v: { c: number; r: number; col: number }): void => {
     heap.push(v);
@@ -69,7 +74,12 @@ function minCostBFS(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const deque: Array<[number, number, number]> = [[0, 0, 0]];
   dist[0][0] = 0;
   let head = 0;
@@ -97,7 +107,22 @@ function minCostBFS(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 064. 使网格图至少有一条有效路径的最小代价 =====");
-console.log("Dijkstra:", minCost([[1, 1, 1, 1], [2, 2, 2, 2], [1, 1, 1, 1], [2, 2, 2, 2]])); // 期望 3
-console.log("BFS:", minCostBFS([[1, 1, 3], [3, 2, 2], [1, 1, 4]])); // 期望 0
+console.log(
+  "Dijkstra:",
+  minCost([
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+  ]),
+); // 期望 3
+console.log(
+  "BFS:",
+  minCostBFS([
+    [1, 1, 3],
+    [3, 2, 2],
+    [1, 1, 4],
+  ]),
+); // 期望 0
 
 export {};

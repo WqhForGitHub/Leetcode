@@ -6,7 +6,12 @@
 // 时间复杂度：O(n^2 log n)，空间复杂度：O(n)
 
 // 方法1：Dijkstra + 最小堆
-function minCost(startPos: number[], homePos: number[], rowCosts: number[], colCosts: number[]): number {
+function minCost(
+  startPos: number[],
+  homePos: number[],
+  rowCosts: number[],
+  colCosts: number[],
+): number {
   const [sr, sc] = startPos;
   const [hr, hc] = homePos;
   let cost = 0;
@@ -25,7 +30,12 @@ function minCost(startPos: number[], homePos: number[], rowCosts: number[], colC
 }
 
 // 方法2：直接计算
-function minCostDirect(startPos: number[], homePos: number[], rowCosts: number[], colCosts: number[]): number {
+function minCostDirect(
+  startPos: number[],
+  homePos: number[],
+  rowCosts: number[],
+  colCosts: number[],
+): number {
   const [sr, sc] = startPos;
   const [hr, hc] = homePos;
   let cost = 0;
@@ -54,8 +64,10 @@ function minCostSpecial(start: number[], target: number[], specialRoads: number[
   const siftUp = (i: number): void => {
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (heap[i][0] < heap[p][0]) { [heap[i], heap[p]] = [heap[p], heap[i]]; i = p; }
-      else break;
+      if (heap[i][0] < heap[p][0]) {
+        [heap[i], heap[p]] = [heap[p], heap[i]];
+        i = p;
+      } else break;
     }
   };
   const siftDown = (): void => {
@@ -63,11 +75,14 @@ function minCostSpecial(start: number[], target: number[], specialRoads: number[
     const len = heap.length;
     while (true) {
       let s = i;
-      const l = 2 * i + 1, r = 2 * i + 2;
+      const l = 2 * i + 1,
+        r = 2 * i + 2;
       if (l < len && heap[l][0] < heap[s][0]) s = l;
       if (r < len && heap[r][0] < heap[s][0]) s = r;
-      if (s !== i) { [heap[i], heap[s]] = [heap[s], heap[i]]; i = s; }
-      else break;
+      if (s !== i) {
+        [heap[i], heap[s]] = [heap[s], heap[i]];
+        i = s;
+      } else break;
     }
   };
   const seen: Set<string> = new Set();
@@ -112,6 +127,16 @@ function minCostSpecial(start: number[], target: number[], specialRoads: number[
 // ============================================================
 console.log("===== 154. 前往目标的最小代价 =====");
 console.log("直接:", minCost([1, 0], [2, 3], [5, 4, 3], [8, 2, 6, 7])); // 期望 17
-console.log("特殊:", minCostSpecial([1, 1], [4, 5], [[1, 2, 3, 3, 2], [3, 4, 4, 5, 1]])); // 期望 5
+console.log(
+  "特殊:",
+  minCostSpecial(
+    [1, 1],
+    [4, 5],
+    [
+      [1, 2, 3, 3, 2],
+      [3, 4, 4, 5, 1],
+    ],
+  ),
+); // 期望 5
 
 export {};

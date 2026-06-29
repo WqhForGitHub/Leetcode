@@ -20,10 +20,7 @@ class Checkout1 {
 
   push_back(value: number): void {
     this.queue.push(value);
-    while (
-      this.maxDeque.length > 0 &&
-      this.maxDeque[this.maxDeque.length - 1] < value
-    ) {
+    while (this.maxDeque.length > 0 && this.maxDeque[this.maxDeque.length - 1] < value) {
       this.maxDeque.pop();
     }
     this.maxDeque.push(value);
@@ -52,11 +49,7 @@ class Checkout2 {
 
   private pushToStack(stack: number[], maxStack: number[], val: number): void {
     stack.push(val);
-    maxStack.push(
-      maxStack.length === 0
-        ? val
-        : Math.max(maxStack[maxStack.length - 1], val),
-    );
+    maxStack.push(maxStack.length === 0 ? val : Math.max(maxStack[maxStack.length - 1], val));
   }
 
   private popFromStack(stack: number[], maxStack: number[]): number {
@@ -65,10 +58,8 @@ class Checkout2 {
   }
 
   get_max(): number {
-    const inMaxVal =
-      this.inMax.length > 0 ? this.inMax[this.inMax.length - 1] : -Infinity;
-    const outMaxVal =
-      this.outMax.length > 0 ? this.outMax[this.outMax.length - 1] : -Infinity;
+    const inMaxVal = this.inMax.length > 0 ? this.inMax[this.inMax.length - 1] : -Infinity;
+    const outMaxVal = this.outMax.length > 0 ? this.outMax[this.outMax.length - 1] : -Infinity;
     const result = Math.max(inMaxVal, outMaxVal);
     return result === -Infinity ? -1 : result;
   }

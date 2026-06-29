@@ -46,10 +46,7 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
 
 // 方法2：迭代栈
 // 使用栈从后序遍历末尾开始构造
-function buildTreeIterative(
-  inorder: number[],
-  postorder: number[]
-): TreeNode | null {
+function buildTreeIterative(inorder: number[], postorder: number[]): TreeNode | null {
   if (postorder.length === 0) return null;
   const root = new TreeNode(postorder[postorder.length - 1]);
   const stack: TreeNode[] = [root];
@@ -62,10 +59,7 @@ function buildTreeIterative(
       stack.push(node.right);
     } else {
       // 弹出栈顶直到不匹配，确定左子树的父节点
-      while (
-        stack.length > 0 &&
-        stack[stack.length - 1].val === inorder[inorderIndex]
-      ) {
+      while (stack.length > 0 && stack[stack.length - 1].val === inorder[inorderIndex]) {
         node = stack.pop()!;
         inorderIndex--;
       }
@@ -102,16 +96,10 @@ function treeToArray(root: TreeNode | null): (number | null)[] {
 console.log("===== 012. 从中序与后序遍历序列构造二叉树 =====");
 // 测试1: inorder=[9,3,15,20,7], postorder=[9,15,7,20,3] -> [3,9,20,null,null,15,7]
 const tree1 = buildTree([9, 3, 15, 20, 7], [9, 15, 7, 20, 3]);
-console.log(
-  "in=[9,3,15,20,7], post=[9,15,7,20,3] (递归):",
-  JSON.stringify(treeToArray(tree1))
-); // [3,9,20,null,null,15,7]
+console.log("in=[9,3,15,20,7], post=[9,15,7,20,3] (递归):", JSON.stringify(treeToArray(tree1))); // [3,9,20,null,null,15,7]
 
 const tree1b = buildTreeIterative([9, 3, 15, 20, 7], [9, 15, 7, 20, 3]);
-console.log(
-  "in=[9,3,15,20,7], post=[9,15,7,20,3] (迭代):",
-  JSON.stringify(treeToArray(tree1b))
-); // [3,9,20,null,null,15,7]
+console.log("in=[9,3,15,20,7], post=[9,15,7,20,3] (迭代):", JSON.stringify(treeToArray(tree1b))); // [3,9,20,null,null,15,7]
 
 // 测试2: inorder=[-1], postorder=[-1] -> [-1]
 const tree2 = buildTree([-1], [-1]);

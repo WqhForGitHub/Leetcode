@@ -82,11 +82,7 @@ console.log("===== 028. 二叉搜索树迭代器 =====");
 //        9    20
 // 中序: [3,7,9,15,20]
 function buildTree028(): TreeNode {
-  return new TreeNode(
-    7,
-    new TreeNode(3),
-    new TreeNode(15, new TreeNode(9), new TreeNode(20))
-  );
+  return new TreeNode(7, new TreeNode(3), new TreeNode(15, new TreeNode(9), new TreeNode(20)));
 }
 
 const iter1 = new BSTIterator(buildTree028());

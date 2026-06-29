@@ -108,7 +108,7 @@ console.log("测试1 DFS:", maxLevelSumDFS(buildTree([1, 7, 0, 7, -8, null, null
 // 测试2: root = [989,null,10250,98693,-89388,null,null,null,-32127]
 console.log(
   "测试2 BFS:",
-  maxLevelSum(buildTree([989, null, 10250, 98693, -89388, null, null, null, -32127]))
+  maxLevelSum(buildTree([989, null, 10250, 98693, -89388, null, null, null, -32127])),
 ); // 期望 2
 
 // 测试3: 单节点 [1]

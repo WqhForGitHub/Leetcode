@@ -35,11 +35,17 @@ class MovieRentingSystem {
   }
   drop(shop: number, movie: number): void {
     const price = this.shopMovie.get(`${shop},${movie}`)!;
-    const idx = this.rented.findIndex((x) => x.shop === shop && x.movie === movie && x.price === price);
+    const idx = this.rented.findIndex(
+      (x) => x.shop === shop && x.movie === movie && x.price === price,
+    );
     this.rented.splice(idx, 1);
     const list = this.unrented.get(movie)!;
     let pos = 0;
-    while (pos < list.length && (list[pos].price < price || (list[pos].price === price && list[pos].shop < shop))) pos++;
+    while (
+      pos < list.length &&
+      (list[pos].price < price || (list[pos].price === price && list[pos].shop < shop))
+    )
+      pos++;
     list.splice(pos, 0, { shop, price });
   }
   report(): number[][] {
@@ -58,7 +64,8 @@ class MovieRentingSystemHeap {
       if (!this.unrented.has(movie)) this.unrented.set(movie, []);
       this.unrented.get(movie)!.push({ shop, price });
     }
-    for (const list of this.unrented.values()) list.sort((a, b) => a.price - b.price || a.shop - b.shop);
+    for (const list of this.unrented.values())
+      list.sort((a, b) => a.price - b.price || a.shop - b.shop);
   }
   search(movie: number): number[] {
     return (this.unrented.get(movie) ?? []).slice(0, 5).map((x) => x.shop);
@@ -77,7 +84,11 @@ class MovieRentingSystemHeap {
     this.rented.splice(idx, 1);
     const list = this.unrented.get(movie)!;
     let pos = 0;
-    while (pos < list.length && (list[pos].price < price || (list[pos].price === price && list[pos].shop < shop))) pos++;
+    while (
+      pos < list.length &&
+      (list[pos].price < price || (list[pos].price === price && list[pos].shop < shop))
+    )
+      pos++;
     list.splice(pos, 0, { shop, price });
   }
   report(): number[][] {
@@ -89,7 +100,14 @@ class MovieRentingSystemHeap {
 // 测试
 // ============================================================
 console.log("===== 100. 设计电影租借系统 =====");
-const mrs = new MovieRentingSystem(3, [[0, 1, 5], [0, 2, 6], [0, 3, 7], [1, 1, 4], [1, 2, 7], [2, 1, 5]]);
+const mrs = new MovieRentingSystem(3, [
+  [0, 1, 5],
+  [0, 2, 6],
+  [0, 3, 7],
+  [1, 1, 4],
+  [1, 2, 7],
+  [2, 1, 5],
+]);
 console.log("search:", mrs.search(1)); // 期望 [1,0,2]
 mrs.rent(0, 1);
 mrs.rent(1, 2);

@@ -69,11 +69,7 @@ function maxTaskAssign1(
     let j = mid - 1; // 任务指针（从大到小）
     for (let i = mid - 1; i >= 0; i--) {
       // 把当前工人不吃药能做的任务加入队尾
-      while (
-        j >= 0 &&
-        taskList[j] > workerList[i] - 0 &&
-        taskList[j] <= workerList[i]
-      ) {
+      while (j >= 0 && taskList[j] > workerList[i] - 0 && taskList[j] <= workerList[i]) {
         deque.push(taskList[j]);
         j--;
       }
@@ -175,16 +171,8 @@ function maxTaskAssign2(
 // ------------------------------------------------------------
 function test(): void {
   console.log("测试1:", maxTaskAssign2([3, 2, 1], [3, 3, 3], 1, 1), "期望: 3");
-  console.log(
-    "测试2:",
-    maxTaskAssign2([5, 4, 3, 3, 2, 2], [5, 5, 5, 5, 5, 5], 1, 2),
-    "期望: 5",
-  );
-  console.log(
-    "测试3:",
-    maxTaskAssign2([10, 15, 30], [0, 10, 10, 10, 10], 3, 10),
-    "期望: 2",
-  );
+  console.log("测试2:", maxTaskAssign2([5, 4, 3, 3, 2, 2], [5, 5, 5, 5, 5, 5], 1, 2), "期望: 5");
+  console.log("测试3:", maxTaskAssign2([10, 15, 30], [0, 10, 10, 10, 10], 3, 10), "期望: 2");
 }
 
 test();

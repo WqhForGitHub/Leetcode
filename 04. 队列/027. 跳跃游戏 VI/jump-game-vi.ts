@@ -58,10 +58,8 @@ function maxResult2(nums: number[], k: number): number {
       const left = 2 * i + 1;
       const right = 2 * i + 2;
       let largest = i;
-      if (left < heap.length && heap[left].val > heap[largest].val)
-        largest = left;
-      if (right < heap.length && heap[right].val > heap[largest].val)
-        largest = right;
+      if (left < heap.length && heap[left].val > heap[largest].val) largest = left;
+      if (right < heap.length && heap[right].val > heap[largest].val) largest = right;
       if (largest === i) break;
       [heap[largest], heap[i]] = [heap[i], heap[largest]];
       i = largest;
@@ -86,11 +84,7 @@ function maxResult2(nums: number[], k: number): number {
 function test(): void {
   console.log("测试1:", maxResult1([1, -1, -2, 4, -7, 3], 2), "期望: 7");
   console.log("测试2:", maxResult1([10, -5, -2, 4, 0, 3], 3), "期望: 17");
-  console.log(
-    "测试3:",
-    maxResult1([1, -5, -20, 4, -1, 3, -6, -3], 2),
-    "期望: 0",
-  );
+  console.log("测试3:", maxResult1([1, -5, -20, 4, -1, 3, -6, -3], 2), "期望: 0");
   console.log("测试4:", maxResult2([1, -1, -2, 4, -7, 3], 2), "期望: 7");
   console.log("测试5:", maxResult2([10, -5, -2, 4, 0, 3], 3), "期望: 17");
 }

@@ -51,15 +51,52 @@ console.log("===== 157. 子树中标签相同的节点数 =====");
 //     1(b)  2(a)
 //    / \    / \
 //   4(e)5(d)3(d)6(c)
-console.log("测试1:", countSubTrees(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], "abaedcd"));
+console.log(
+  "测试1:",
+  countSubTrees(
+    7,
+    [
+      [0, 1],
+      [0, 2],
+      [1, 4],
+      [1, 5],
+      [2, 3],
+      [2, 6],
+    ],
+    "abaedcd",
+  ),
+);
 // 期望 [2,1,1,1,1,1,1]
 
 // 测试2: n=4, edges=[[0,2],[0,3],[1,2]], labels="aeed"
-console.log("测试2:", countSubTrees(4, [[0, 2], [0, 3], [1, 2]], "aeed"));
+console.log(
+  "测试2:",
+  countSubTrees(
+    4,
+    [
+      [0, 2],
+      [0, 3],
+      [1, 2],
+    ],
+    "aeed",
+  ),
+);
 // 期望 [1,1,2,1]
 
 // 测试3: n=5, edges=[[0,1],[0,2],[1,3],[0,4]], labels="aabab"
-console.log("测试3:", countSubTrees(5, [[0, 1], [0, 2], [1, 3], [0, 4]], "aabab"));
+console.log(
+  "测试3:",
+  countSubTrees(
+    5,
+    [
+      [0, 1],
+      [0, 2],
+      [1, 3],
+      [0, 4],
+    ],
+    "aabab",
+  ),
+);
 // 期望 [3,2,1,1,1]
 
 export {};

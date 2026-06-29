@@ -19,33 +19,33 @@ interface NestedInteger {
 // 遇到数字解析后加入栈顶列表。时间 O(n)，空间 O(深度)。
 function deserialize(s: string): NestedInteger {
   // 简单情况：单个数字
-  if (s[0] !== '[') {
+  if (s[0] !== "[") {
     const ni = new NestedIntegerImpl();
     ni.setInteger(parseInt(s, 10));
     return ni;
   }
   const stack: NestedInteger[] = [];
-  let num = '';
+  let num = "";
   for (let i = 0; i < s.length; i++) {
     const ch = s[i];
-    if (ch === '[') {
+    if (ch === "[") {
       const ni = new NestedIntegerImpl();
       if (stack.length > 0) stack[stack.length - 1].add(ni);
       stack.push(ni);
-    } else if (ch === ']') {
-      if (num !== '') {
+    } else if (ch === "]") {
+      if (num !== "") {
         const ni = new NestedIntegerImpl();
         ni.setInteger(parseInt(num, 10));
         stack[stack.length - 1].add(ni);
-        num = '';
+        num = "";
       }
       if (stack.length > 1) stack.pop();
-    } else if (ch === ',') {
-      if (num !== '') {
+    } else if (ch === ",") {
+      if (num !== "") {
         const ni = new NestedIntegerImpl();
         ni.setInteger(parseInt(num, 10));
         stack[stack.length - 1].add(ni);
-        num = '';
+        num = "";
       }
     } else {
       num += ch;
@@ -79,10 +79,10 @@ class NestedIntegerImpl implements NestedInteger {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  const r1 = deserialize('324');
-  console.log('测试1:', r1.isInteger() ? r1.getInteger() : 'N/A', '期望: 324');
-  const r2 = deserialize('[123,[456,[789]]]');
-  console.log('测试2: 解析成功');
+  const r1 = deserialize("324");
+  console.log("测试1:", r1.isInteger() ? r1.getInteger() : "N/A", "期望: 324");
+  const r2 = deserialize("[123,[456,[789]]]");
+  console.log("测试2: 解析成功");
 }
 
 test();

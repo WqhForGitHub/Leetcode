@@ -57,7 +57,12 @@ function suggestedProductsTrie(products: string[], searchWord: string): string[]
 // 测试
 // ============================================================
 console.log("===== 059. 搜索推荐系统 =====");
-console.log("双指针:", JSON.stringify(suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse")));
+console.log(
+  "双指针:",
+  JSON.stringify(
+    suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
+  ),
+);
 // 期望 [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
 
 export {};

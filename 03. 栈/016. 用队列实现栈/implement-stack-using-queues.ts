@@ -69,9 +69,9 @@ function test(): void {
   const s = new MyStack();
   s.push(1);
   s.push(2);
-  console.log('测试1 top:', s.top(), '期望: 2');
-  console.log('测试2 pop:', s.pop(), '期望: 2');
-  console.log('测试3 empty:', s.empty(), '期望: false');
+  console.log("测试1 top:", s.top(), "期望: 2");
+  console.log("测试2 pop:", s.pop(), "期望: 2");
+  console.log("测试3 empty:", s.empty(), "期望: false");
 }
 
 test();

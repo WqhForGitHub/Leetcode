@@ -9,7 +9,12 @@
 function minimumEffortPath(heights: number[][]): number {
   const m = heights.length;
   const n = heights[0].length;
-  const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  const dirs = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
   const effort: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
   effort[0][0] = 0;
   const heap: Array<{ e: number; r: number; c: number }> = [];
@@ -72,8 +77,10 @@ function minimumEffortPathUF(heights: number[][]): number {
   for (let r = 0; r < m; r++) {
     for (let c = 0; c < n; c++) {
       const idx = r * n + c;
-      if (r + 1 < m) edges.push({ d: Math.abs(heights[r][c] - heights[r + 1][c]), u: idx, v: (r + 1) * n + c });
-      if (c + 1 < n) edges.push({ d: Math.abs(heights[r][c] - heights[r][c + 1]), u: idx, v: r * n + c + 1 });
+      if (r + 1 < m)
+        edges.push({ d: Math.abs(heights[r][c] - heights[r + 1][c]), u: idx, v: (r + 1) * n + c });
+      if (c + 1 < n)
+        edges.push({ d: Math.abs(heights[r][c] - heights[r][c + 1]), u: idx, v: r * n + c + 1 });
     }
   }
   edges.sort((a, b) => a.d - b.d);
@@ -96,7 +103,21 @@ function minimumEffortPathUF(heights: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 078. 最小体力消耗路径 =====");
-console.log("Dijkstra:", minimumEffortPath([[1, 2, 2], [3, 8, 2], [5, 3, 5]])); // 期望 2
-console.log("并查集:", minimumEffortPathUF([[1, 2, 3], [3, 8, 4], [5, 3, 5]])); // 期望 1
+console.log(
+  "Dijkstra:",
+  minimumEffortPath([
+    [1, 2, 2],
+    [3, 8, 2],
+    [5, 3, 5],
+  ]),
+); // 期望 2
+console.log(
+  "并查集:",
+  minimumEffortPathUF([
+    [1, 2, 3],
+    [3, 8, 4],
+    [5, 3, 5],
+  ]),
+); // 期望 1
 
 export {};

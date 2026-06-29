@@ -13,18 +13,18 @@
 function evalRPN(tokens: string[]): number {
   const stack: number[] = [];
   for (const t of tokens) {
-    if (t === '+' || t === '-' || t === '*' || t === '/') {
+    if (t === "+" || t === "-" || t === "*" || t === "/") {
       const b = stack.pop()!;
       const a = stack.pop()!;
       let r: number;
       switch (t) {
-        case '+':
+        case "+":
           r = a + b;
           break;
-        case '-':
+        case "-":
           r = a - b;
           break;
-        case '*':
+        case "*":
           r = a * b;
           break;
         default:
@@ -43,9 +43,13 @@ function evalRPN(tokens: string[]): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', evalRPN(['2', '1', '+', '3', '*']), '期望: 9');
-  console.log('测试2:', evalRPN(['4', '13', '5', '/', '+']), '期望: 6');
-  console.log('测试3:', evalRPN(['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+']), '期望: 22');
+  console.log("测试1:", evalRPN(["2", "1", "+", "3", "*"]), "期望: 9");
+  console.log("测试2:", evalRPN(["4", "13", "5", "/", "+"]), "期望: 6");
+  console.log(
+    "测试3:",
+    evalRPN(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]),
+    "期望: 22",
+  );
 }
 
 test();

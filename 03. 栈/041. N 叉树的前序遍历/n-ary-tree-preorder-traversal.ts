@@ -56,13 +56,9 @@ function test(): void {
   //  3  2  4
   // / \
   //5  6
-  const root = new Node(1, [
-    new Node(3, [new Node(5), new Node(6)]),
-    new Node(2),
-    new Node(4),
-  ]);
-  console.log('测试1 - 迭代:', preorder(root), '期望: [1,3,5,6,2,4]');
-  console.log('测试2 - 递归:', preorderRecursive(root), '期望: [1,3,5,6,2,4]');
+  const root = new Node(1, [new Node(3, [new Node(5), new Node(6)]), new Node(2), new Node(4)]);
+  console.log("测试1 - 迭代:", preorder(root), "期望: [1,3,5,6,2,4]");
+  console.log("测试2 - 递归:", preorderRecursive(root), "期望: [1,3,5,6,2,4]");
 }
 
 test();

@@ -72,11 +72,7 @@ console.log("===== 027. 上下翻转二叉树 =====");
 //        / \
 //       3   1
 function buildTree027(): TreeNode {
-  return new TreeNode(
-    1,
-    new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-    new TreeNode(3)
-  );
+  return new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
 }
 
 function treeToList(root: TreeNode | null): (number | null)[] {

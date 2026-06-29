@@ -28,10 +28,7 @@ class SegTree {
     this.tree[index] = val;
     index >>= 1;
     while (index > 0) {
-      this.tree[index] = Math.max(
-        this.tree[2 * index],
-        this.tree[2 * index + 1],
-      );
+      this.tree[index] = Math.max(this.tree[2 * index], this.tree[2 * index + 1]);
       index >>= 1;
     }
   }
@@ -85,8 +82,7 @@ function lengthOfLIS2(nums: number[], k: number): number {
     if (lb === rb) {
       for (let i = l; i <= r; i++) res = Math.max(res, val[i]);
     } else {
-      for (let i = l; i < (lb + 1) * blockSize; i++)
-        res = Math.max(res, val[i]);
+      for (let i = l; i < (lb + 1) * blockSize; i++) res = Math.max(res, val[i]);
       for (let b = lb + 1; b < rb; b++) res = Math.max(res, blockMax[b]);
       for (let i = rb * blockSize; i <= r; i++) res = Math.max(res, val[i]);
     }
@@ -114,18 +110,10 @@ function lengthOfLIS2(nums: number[], k: number): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log(
-    "测试1:",
-    lengthOfLIS1([4, 2, 1, 4, 3, 4, 5, 8, 15], 3),
-    "期望: 5",
-  );
+  console.log("测试1:", lengthOfLIS1([4, 2, 1, 4, 3, 4, 5, 8, 15], 3), "期望: 5");
   console.log("测试2:", lengthOfLIS1([7, 4, 5, 1, 8, 12, 4, 7], 5), "期望: 4");
   console.log("测试3:", lengthOfLIS1([1, 5], 1), "期望: 1");
-  console.log(
-    "测试4:",
-    lengthOfLIS2([4, 2, 1, 4, 3, 4, 5, 8, 15], 3),
-    "期望: 5",
-  );
+  console.log("测试4:", lengthOfLIS2([4, 2, 1, 4, 3, 4, 5, 8, 15], 3), "期望: 5");
   console.log("测试5:", lengthOfLIS2([7, 4, 5, 1, 8, 12, 4, 7], 5), "期望: 4");
 }
 

@@ -9,11 +9,7 @@
 // 方法1：并查集+入度检查（推荐）
 // 有效二叉树条件：1) 一个根（入度为0）；2) 其余节点入度均为1；
 // 3) 无环（并查集合并时检测）；4) 全部连通
-function validateBinaryTreeNodes(
-  n: number,
-  leftChild: number[],
-  rightChild: number[]
-): boolean {
+function validateBinaryTreeNodes(n: number, leftChild: number[], rightChild: number[]): boolean {
   const parent = new Array(n).fill(0).map((_, i) => i);
   const indegree = new Array(n).fill(0);
 
@@ -56,11 +52,7 @@ function validateBinaryTreeNodes(
 
 // 方法2：BFS
 // 找到唯一入度为0的根，从根开始BFS，若能访问所有节点且无重复访问，则合法
-function validateBinaryTreeNodesBFS(
-  n: number,
-  leftChild: number[],
-  rightChild: number[]
-): boolean {
+function validateBinaryTreeNodesBFS(n: number, leftChild: number[], rightChild: number[]): boolean {
   const indegree = new Array(n).fill(0);
   for (let i = 0; i < n; i++) {
     if (leftChild[i] !== -1) indegree[leftChild[i]]++;

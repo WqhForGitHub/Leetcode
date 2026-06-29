@@ -21,10 +21,7 @@ function replaceWords(dictionary: string[], sentence: string): string {
     return word;
   };
 
-  return sentence
-    .split(" ")
-    .map(replaceWord)
-    .join(" ");
+  return sentence.split(" ").map(replaceWord).join(" ");
 }
 
 // ============================================================
@@ -32,9 +29,7 @@ function replaceWords(dictionary: string[], sentence: string): string {
 // ============================================================
 console.log("===== 117. 单词替换 =====");
 // 测试 1
-console.log(
-  replaceWords(["cat", "bat", "rat"], "the cattle was rattled by the battery"),
-); // 期望: "the cat was rat by the bat"
+console.log(replaceWords(["cat", "bat", "rat"], "the cattle was rattled by the battery")); // 期望: "the cat was rat by the bat"
 // 测试 2
 console.log(replaceWords(["a", "b", "c"], "aadsfasf absbs bbab cadsfafs")); // 期望: "a a b c"
 // 测试 3: 无匹配词根

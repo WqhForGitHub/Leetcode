@@ -59,11 +59,11 @@ function test(): void {
   stk.push(5);
   stk.push(1);
   stk.push(5);
-  console.log('测试1 top:', stk.top(), '期望: 5');
-  console.log('测试2 popMax:', stk.popMax(), '期望: 5');
-  console.log('测试3 top:', stk.top(), '期望: 1');
-  console.log('测试4 peekMax:', stk.peekMax(), '期望: 5');
-  console.log('测试5 pop:', stk.pop(), '期望: 1');
+  console.log("测试1 top:", stk.top(), "期望: 5");
+  console.log("测试2 popMax:", stk.popMax(), "期望: 5");
+  console.log("测试3 top:", stk.top(), "期望: 1");
+  console.log("测试4 peekMax:", stk.peekMax(), "期望: 5");
+  console.log("测试5 pop:", stk.pop(), "期望: 1");
 }
 
 test();

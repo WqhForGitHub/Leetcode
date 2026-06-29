@@ -85,7 +85,7 @@ console.log("[2,1,3]:", longestConsecutive(tree2)); // 3
 const tree3 = new TreeNode(
   3,
   new TreeNode(2, new TreeNode(1), null),
-  new TreeNode(4, null, new TreeNode(5))
+  new TreeNode(4, null, new TreeNode(5)),
 );
 console.log("递增5:", longestConsecutive(tree3)); // 5
 
@@ -99,7 +99,7 @@ console.log("递增5:", longestConsecutive(tree3)); // 5
 const tree4 = new TreeNode(
   1,
   new TreeNode(3, new TreeNode(4), null),
-  new TreeNode(2, null, new TreeNode(1))
+  new TreeNode(2, null, new TreeNode(1)),
 );
 console.log("递减4:", longestConsecutive(tree4)); // 4
 

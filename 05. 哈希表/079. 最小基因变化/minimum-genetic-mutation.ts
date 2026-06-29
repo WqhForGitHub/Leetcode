@@ -46,11 +46,7 @@ function minMutation(start: string, end: string, bank: string[]): number {
 // ============================================================
 console.log("===== 079. 最小基因变化 =====");
 console.log(minMutation("AACCGGTT", "AACCGGTA", ["AACCGGTA"])); // 期望输出: 1
-console.log(
-  minMutation("AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"]),
-); // 期望输出: 2
-console.log(
-  minMutation("AAAAACCC", "AACCCCCC", ["AAAACCCC", "AAACCCCC", "AACCCCCC"]),
-); // 期望输出: 3
+console.log(minMutation("AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"])); // 期望输出: 2
+console.log(minMutation("AAAAACCC", "AACCCCCC", ["AAAACCCC", "AAACCCCC", "AACCCCCC"])); // 期望输出: 3
 
 export {};

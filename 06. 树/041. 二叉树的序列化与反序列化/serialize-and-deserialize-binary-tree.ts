@@ -122,11 +122,7 @@ function levelOrder(root: TreeNode | null): (number | null)[] {
 // 测试
 // ============================================================
 console.log("===== 041. 二叉树的序列化与反序列化 =====");
-const tree41 = new TreeNode(
-  1,
-  new TreeNode(2),
-  new TreeNode(3, new TreeNode(4), new TreeNode(5))
-);
+const tree41 = new TreeNode(1, new TreeNode(2), new TreeNode(3, new TreeNode(4), new TreeNode(5)));
 const codecBFS = new CodecBFS();
 const data41 = codecBFS.serialize(tree41);
 console.log("BFS 序列化:", data41);

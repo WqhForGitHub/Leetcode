@@ -78,7 +78,25 @@ function kthLargestValueSort(matrix: number[][], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 087. 找出第 K 大的异或坐标值 =====");
-console.log("堆:", kthLargestValue([[5, 2], [1, 6]], 1)); // 期望 7
-console.log("排序:", kthLargestValueSort([[5, 2], [1, 6]], 2)); // 期望 5
+console.log(
+  "堆:",
+  kthLargestValue(
+    [
+      [5, 2],
+      [1, 6],
+    ],
+    1,
+  ),
+); // 期望 7
+console.log(
+  "排序:",
+  kthLargestValueSort(
+    [
+      [5, 2],
+      [1, 6],
+    ],
+    2,
+  ),
+); // 期望 5
 
 export {};

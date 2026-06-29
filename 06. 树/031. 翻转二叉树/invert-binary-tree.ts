@@ -70,7 +70,7 @@ console.log("===== 031. 翻转二叉树 =====");
 const tree31 = new TreeNode(
   4,
   new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(7, new TreeNode(6), new TreeNode(9))
+  new TreeNode(7, new TreeNode(6), new TreeNode(9)),
 );
 const inverted31 = invertTree(tree31);
 console.log("递归翻转:", levelOrder(inverted31)); // 期望 [4,7,2,9,6,3,1]
@@ -78,7 +78,7 @@ console.log("递归翻转:", levelOrder(inverted31)); // 期望 [4,7,2,9,6,3,1]
 const tree31b = new TreeNode(
   4,
   new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-  new TreeNode(7, new TreeNode(6), new TreeNode(9))
+  new TreeNode(7, new TreeNode(6), new TreeNode(9)),
 );
 const inverted31b = invertTreeBFS(tree31b);
 console.log("BFS翻转:", levelOrder(inverted31b)); // 期望 [4,7,2,9,6,3,1]

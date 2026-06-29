@@ -67,7 +67,13 @@ console.log("===== 098. 树中距离之和 =====");
 //        / | \
 //       3  4  5
 // ans = [8,12,6,10,10,10]
-const result1 = sumOfDistancesInTree(6, [[0, 1], [0, 2], [2, 3], [2, 4], [2, 5]]);
+const result1 = sumOfDistancesInTree(6, [
+  [0, 1],
+  [0, 2],
+  [2, 3],
+  [2, 4],
+  [2, 5],
+]);
 console.log("测试1:", result1); // 期望 [8,12,6,10,10,10]
 
 // 测试2: n = 2, edges = [[1,0]]
@@ -83,7 +89,11 @@ console.log("测试3:", result3); // 期望 [0]
 // 测试4: 链状树 n = 4, edges = [[0,1],[1,2],[2,3]]
 // 0-1-2-3
 // ans: 0->1+2+3=6, 1->1+1+2=4, 2->2+1+1=4, 3->3+2+1=6
-const result4 = sumOfDistancesInTree(4, [[0, 1], [1, 2], [2, 3]]);
+const result4 = sumOfDistancesInTree(4, [
+  [0, 1],
+  [1, 2],
+  [2, 3],
+]);
 console.log("测试4:", result4); // 期望 [6,4,4,6]
 
 export {};

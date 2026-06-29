@@ -52,7 +52,7 @@ console.log("===== 016. 平衡二叉树 =====");
 const balancedTree = new TreeNode(
   3,
   new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
+  new TreeNode(20, new TreeNode(15), new TreeNode(7)),
 );
 console.log("自顶向下 [3,9,20,null,null,15,7]:", isBalanced(balancedTree)); // true
 console.log("自底向上 [3,9,20,null,null,15,7]:", isBalancedBottomUp(balancedTree)); // true
@@ -60,12 +60,8 @@ console.log("自底向上 [3,9,20,null,null,15,7]:", isBalancedBottomUp(balanced
 // 构造不平衡树: [1,2,2,3,3,null,null,4,4]
 const unbalancedTree = new TreeNode(
   1,
-  new TreeNode(
-    2,
-    new TreeNode(3, new TreeNode(4), new TreeNode(4)),
-    new TreeNode(3)
-  ),
-  new TreeNode(2)
+  new TreeNode(2, new TreeNode(3, new TreeNode(4), new TreeNode(4)), new TreeNode(3)),
+  new TreeNode(2),
 );
 console.log("自顶向下 [1,2,2,3,3,null,null,4,4]:", isBalanced(unbalancedTree)); // false
 console.log("自底向上 [1,2,2,3,3,null,null,4,4]:", isBalancedBottomUp(unbalancedTree)); // false

@@ -12,24 +12,24 @@
 function calculate(s: string): number {
   const stack: number[] = [];
   let num = 0;
-  let sign = '+';
+  let sign = "+";
   for (let i = 0; i < s.length; i++) {
     const ch = s[i];
-    if (ch >= '0' && ch <= '9') {
-      num = num * 10 + (ch.charCodeAt(0) - '0'.charCodeAt(0));
+    if (ch >= "0" && ch <= "9") {
+      num = num * 10 + (ch.charCodeAt(0) - "0".charCodeAt(0));
     }
-    if ((ch !== ' ' && isNaN(Number(ch))) || i === s.length - 1) {
+    if ((ch !== " " && isNaN(Number(ch))) || i === s.length - 1) {
       switch (sign) {
-        case '+':
+        case "+":
           stack.push(num);
           break;
-        case '-':
+        case "-":
           stack.push(-num);
           break;
-        case '*':
+        case "*":
           stack.push(stack.pop()! * num);
           break;
-        case '/':
+        case "/":
           stack.push(Math.trunc(stack.pop()! / num));
           break;
       }
@@ -44,10 +44,10 @@ function calculate(s: string): number {
 // 测试
 // ------------------------------------------------------------
 function test(): void {
-  console.log('测试1:', calculate('3+2*2'), '期望: 7');
-  console.log('测试2:', calculate(' 3/2 '), '期望: 1');
-  console.log('测试3:', calculate(' 3+5 / 2 '), '期望: 5');
-  console.log('测试4:', calculate('14-3/2'), '期望: 13');
+  console.log("测试1:", calculate("3+2*2"), "期望: 7");
+  console.log("测试2:", calculate(" 3/2 "), "期望: 1");
+  console.log("测试3:", calculate(" 3+5 / 2 "), "期望: 5");
+  console.log("测试4:", calculate("14-3/2"), "期望: 13");
 }
 
 test();
