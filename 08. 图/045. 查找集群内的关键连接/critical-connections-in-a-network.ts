@@ -7,10 +7,7 @@
 // 时间复杂度：O(V+E)，空间复杂度：O(V+E)
 
 // 方法1：Tarjan 求桥（迭代版，推荐避免栈溢出）
-function criticalConnections(
-  n: number,
-  connections: number[][],
-): number[][] {
+function criticalConnections(n: number, connections: number[][]): number[][] {
   const graph: number[][] = Array.from({ length: n }, () => []);
   for (const [u, v] of connections) {
     graph[u].push(v);
@@ -62,10 +59,7 @@ function criticalConnections(
 }
 
 // 方法2：Tarjan 求桥（递归版，简洁但深层图可能栈溢出）
-function criticalConnectionsRecursive(
-  n: number,
-  connections: number[][],
-): number[][] {
+function criticalConnectionsRecursive(n: number, connections: number[][]): number[][] {
   const graph: number[][] = Array.from({ length: n }, () => []);
   for (const [u, v] of connections) {
     graph[u].push(v);
@@ -126,11 +120,6 @@ console.log(
     ]),
   ),
 ); // 期望 [[1,3]]
-console.log(
-  "迭代 Tarjan 全桥:",
-  JSON.stringify(
-    criticalConnections(2, [[0, 1]]),
-  ),
-); // 期望 [[0,1]]
+console.log("迭代 Tarjan 全桥:", JSON.stringify(criticalConnections(2, [[0, 1]]))); // 期望 [[0,1]]
 
 export {};

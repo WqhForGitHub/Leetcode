@@ -57,9 +57,28 @@ function canFinishBFS(numCourses: number, prerequisites: number[][]): boolean {
 console.log("===== 002. 课程表 =====");
 console.log("DFS:", canFinishDFS(2, [[1, 0]])); // 期望 true
 console.log("BFS:", canFinishBFS(2, [[1, 0]])); // 期望 true
-console.log("DFS:", canFinishDFS(2, [[1, 0], [0, 1]])); // 期望 false
-console.log("BFS:", canFinishBFS(2, [[1, 0], [0, 1]])); // 期望 false
-console.log("DFS:", canFinishDFS(4, [[1, 0], [2, 1], [3, 2]])); // 期望 true
+console.log(
+  "DFS:",
+  canFinishDFS(2, [
+    [1, 0],
+    [0, 1],
+  ]),
+); // 期望 false
+console.log(
+  "BFS:",
+  canFinishBFS(2, [
+    [1, 0],
+    [0, 1],
+  ]),
+); // 期望 false
+console.log(
+  "DFS:",
+  canFinishDFS(4, [
+    [1, 0],
+    [2, 1],
+    [3, 2],
+  ]),
+); // 期望 true
 console.log("BFS:", canFinishBFS(1, [])); // 期望 true
 
 export {};

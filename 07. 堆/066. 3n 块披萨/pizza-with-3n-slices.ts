@@ -27,8 +27,8 @@ function maxSizeSlices(slices: number[]): number {
 function maxSizeSlicesGreedy(slices: number[]): number {
   const n = slices.length;
   // 双向链表
-  let prev: number[] = new Array(n);
-  let next: number[] = new Array(n);
+  const prev: number[] = new Array(n);
+  const next: number[] = new Array(n);
   const vals: number[] = slices.slice();
   for (let i = 0; i < n; i++) {
     prev[i] = (i - 1 + n) % n;

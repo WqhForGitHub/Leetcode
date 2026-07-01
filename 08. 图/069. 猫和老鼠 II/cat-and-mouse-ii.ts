@@ -9,12 +9,7 @@
 // 时间复杂度：O((m*n)^2 * (mouseJump+catJump))，空间复杂度：O((m*n)^2)
 
 // 通用：生成某点一步可达的所有格子（含原地不动）
-function buildMoves1728(
-  grid: string[],
-  rows: number,
-  cols: number,
-  maxJump: number,
-): number[][] {
+function buildMoves1728(grid: string[], rows: number, cols: number, maxJump: number): number[][] {
   const dirs = [
     [-1, 0],
     [1, 0],
@@ -157,8 +152,7 @@ function canMouseWin2(grid: string[], catJump: number, mouseJump: number): boole
   const limit = 2 * C;
   // 记忆键：把 step 也编入，避免不同剩余深度相互污染
   const memo = new Map<number, boolean>();
-  const keyOf = (m: number, c: number, step: number): number =>
-    (m * C + c) * (limit + 1) + step;
+  const keyOf = (m: number, c: number, step: number): number => (m * C + c) * (limit + 1) + step;
 
   const solve = (m: number, c: number, step: number): boolean => {
     if (m === food) return true; // 鼠到食物
@@ -198,21 +192,11 @@ function canMouseWin2(grid: string[], catJump: number, mouseJump: number): boole
 // 测试
 // ============================================================
 console.log("===== 069. 猫和老鼠 II =====");
-console.log(
-  canMouseWin1(
-    [".....", "M...F", ".....", ".....", "C...."],
-    1,
-    1,
-  ),
-);
+console.log(canMouseWin1([".....", "M...F", ".....", ".....", "C...."], 1, 1));
 // 期望: true （鼠离食物近且先手，猫追不上也来不及到食物）
-console.log(
-  canMouseWin1(["M..FC", ".....", "....."], 1, 1),
-);
+console.log(canMouseWin1(["M..FC", ".....", "....."], 1, 1));
 // 期望: false （猫与食物相邻，鼠先手后猫一步到食物，猫赢）
-console.log(
-  canMouseWin2([".....", "M...F", ".....", ".....", "C...."], 1, 1),
-);
+console.log(canMouseWin2([".....", "M...F", ".....", ".....", "C...."], 1, 1));
 // 期望: true
 console.log(canMouseWin2(["M..FC", ".....", "....."], 1, 1));
 // 期望: false

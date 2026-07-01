@@ -13,7 +13,7 @@ function minimumCostII(nums: number[], k: number, dist: number): number {
   // 需要选 k-1 个元素，其中相邻选择距离不超过 dist
   // 滑动窗口 + 维护最小的 k-2 个元素
   const windowSize = dist + 1;
-  let windowSum = 0;
+  const windowSum = 0;
   let result = Infinity;
   // 最小堆维护最小的 k-2 个元素，最大堆维护其余
   // 使用两个 multiset

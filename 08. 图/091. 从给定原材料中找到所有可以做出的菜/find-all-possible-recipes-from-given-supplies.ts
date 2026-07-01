@@ -9,11 +9,7 @@
 // 方法1：拓扑排序 Kahn（推荐）
 // 把"做菜"建成依赖图：做菜 r 依赖每个原材料；若原材料是另一道菜，则建立 r -> ingredient 的入边。
 // 入度为 0 表示所有原材料都已就绪，可入队并产出去更新依赖它的菜。
-function findAllRecipes(
-  recipes: string[],
-  ingredients: string[][],
-  supplies: string[]
-): string[] {
+function findAllRecipes(recipes: string[], ingredients: string[][], supplies: string[]): string[] {
   const supplySet = new Set<string>(supplies);
   // 邻接表：原材料 -> 依赖它的菜
   const graph = new Map<string, string[]>();
@@ -57,7 +53,7 @@ function findAllRecipes(
 function findAllRecipesDFS(
   recipes: string[],
   ingredients: string[][],
-  supplies: string[]
+  supplies: string[],
 ): string[] {
   const supplySet = new Set<string>(supplies);
   const recipeIndex = new Map<string, number>();
@@ -95,28 +91,41 @@ function findAllRecipesDFS(
 // 测试
 // ============================================================
 console.log("===== 091. 从给定原材料中找到所有可以做出的菜 =====");
-console.log(findAllRecipes(
-  ["bread"],
-  [["yeast", "flour"]],
-  ["yeast", "flour", "corn"]
-)); // 期望: ["bread"]
+console.log(findAllRecipes(["bread"], [["yeast", "flour"]], ["yeast", "flour", "corn"])); // 期望: ["bread"]
 
-console.log(findAllRecipes(
-  ["bread", "sandwich"],
-  [["yeast", "flour"], ["bread", "meat"]],
-  ["yeast", "flour", "meat"]
-)); // 期望: ["bread","sandwich"]
+console.log(
+  findAllRecipes(
+    ["bread", "sandwich"],
+    [
+      ["yeast", "flour"],
+      ["bread", "meat"],
+    ],
+    ["yeast", "flour", "meat"],
+  ),
+); // 期望: ["bread","sandwich"]
 
-console.log(findAllRecipes(
-  ["bread", "sandwich", "burger"],
-  [["yeast", "flour"], ["bread", "meat"], ["sandwich", "meat", "bread"]],
-  ["yeast", "flour", "meat"]
-)); // 期望: ["bread","sandwich","burger"]
+console.log(
+  findAllRecipes(
+    ["bread", "sandwich", "burger"],
+    [
+      ["yeast", "flour"],
+      ["bread", "meat"],
+      ["sandwich", "meat", "bread"],
+    ],
+    ["yeast", "flour", "meat"],
+  ),
+); // 期望: ["bread","sandwich","burger"]
 
-console.log(findAllRecipesDFS(
-  ["bread", "sandwich", "burger"],
-  [["yeast", "flour"], ["bread", "meat"], ["sandwich", "meat", "bread"]],
-  ["yeast", "flour", "meat"]
-)); // 期望: ["bread","sandwich","burger"]
+console.log(
+  findAllRecipesDFS(
+    ["bread", "sandwich", "burger"],
+    [
+      ["yeast", "flour"],
+      ["bread", "meat"],
+      ["sandwich", "meat", "bread"],
+    ],
+    ["yeast", "flour", "meat"],
+  ),
+); // 期望: ["bread","sandwich","burger"]
 
 export {};

@@ -41,7 +41,6 @@ function constrainedSubsetSum1(nums: number[], k: number): number {
 function constrainedSubsetSum2(nums: number[], k: number): number {
   const n = nums.length;
   const heap: { val: number; index: number }[] = [];
-  const result = -Infinity;
   let res = -Infinity;
 
   const push = (node: { val: number; index: number }) => {
@@ -83,7 +82,6 @@ function constrainedSubsetSum2(nums: number[], k: number): number {
     push({ val: cur, index: i });
   }
   return res;
-  void result;
 }
 
 // ------------------------------------------------------------

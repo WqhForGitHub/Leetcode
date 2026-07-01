@@ -41,11 +41,37 @@ function findJudgeDegree(n: number, trust: number[][]): number {
 // ============================================================
 console.log("===== 037. 找到小镇的法官 =====");
 console.log("净度:", findJudgeNet(2, [[1, 2]])); // 期望 2
-console.log("净度:", findJudgeNet(3, [[1, 3], [2, 3]])); // 期望 3
-console.log("净度:", findJudgeNet(3, [[1, 3], [2, 3], [3, 1]])); // 期望 -1
+console.log(
+  "净度:",
+  findJudgeNet(3, [
+    [1, 3],
+    [2, 3],
+  ]),
+); // 期望 3
+console.log(
+  "净度:",
+  findJudgeNet(3, [
+    [1, 3],
+    [2, 3],
+    [3, 1],
+  ]),
+); // 期望 -1
 console.log("双数组:", findJudgeDegree(2, [[1, 2]])); // 期望 2
-console.log("双数组:", findJudgeDegree(3, [[1, 3], [2, 3]])); // 期望 3
-console.log("双数组:", findJudgeDegree(3, [[1, 3], [2, 3], [3, 1]])); // 期望 -1
+console.log(
+  "双数组:",
+  findJudgeDegree(3, [
+    [1, 3],
+    [2, 3],
+  ]),
+); // 期望 3
+console.log(
+  "双数组:",
+  findJudgeDegree(3, [
+    [1, 3],
+    [2, 3],
+    [3, 1],
+  ]),
+); // 期望 -1
 console.log("双数组:", findJudgeDegree(1, [])); // 期望 1
 
 export {};

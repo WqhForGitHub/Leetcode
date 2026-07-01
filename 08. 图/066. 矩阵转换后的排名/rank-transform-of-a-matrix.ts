@@ -25,9 +25,7 @@ function matrixRankTransform1(matrix: number[][]): number[][] {
 
   const rowRank = new Array<number>(m).fill(0);
   const colRank = new Array<number>(n).fill(0);
-  const result: number[][] = Array.from({ length: m }, () =>
-    new Array<number>(n).fill(0),
-  );
+  const result: number[][] = Array.from({ length: m }, () => new Array<number>(n).fill(0));
 
   // 并查集：按单元格下标 i*n+j
   const parent = new Array<number>(m * n);
@@ -107,9 +105,7 @@ function matrixRankTransform2(matrix: number[][]): number[][] {
 
   const rowRank = new Array<number>(m).fill(0);
   const colRank = new Array<number>(n).fill(0);
-  const result: number[][] = Array.from({ length: m }, () =>
-    new Array<number>(n).fill(0),
-  );
+  const result: number[][] = Array.from({ length: m }, () => new Array<number>(n).fill(0));
 
   for (const v of sortedValues) {
     const cells = valueToCells.get(v)!;
@@ -134,7 +130,7 @@ function matrixRankTransform2(matrix: number[][]): number[][] {
       const compCols: number[] = [];
       const queue: number[] = [r0];
       visitedRow.add(r0);
-      let isRow = true;
+      const isRow = true;
       const queueIsRow: boolean[] = [true];
       let head = 0;
       while (head < queue.length) {

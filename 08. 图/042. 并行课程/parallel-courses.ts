@@ -137,9 +137,6 @@ console.log(
     [2, 1],
   ]),
 ); // 期望 -1
-console.log(
-  "BFS 无依赖:",
-  minimumSemesters(2, []),
-); // 期望 1
+console.log("BFS 无依赖:", minimumSemesters(2, [])); // 期望 1
 
 export {};

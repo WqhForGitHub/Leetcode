@@ -144,10 +144,7 @@ console.log(
     [4, 5],
   ]),
 ); // 期望 4
-console.log(
-  "BFS 单边:",
-  treeDiameterBFS([[0, 1]]),
-); // 期望 1
+console.log("BFS 单边:", treeDiameterBFS([[0, 1]])); // 期望 1
 console.log(
   "BFS 三节点:",
   treeDiameterBFS([

@@ -59,7 +59,7 @@ function removeNodes_iterative(head: ListNode | null): ListNode | null {
   if (head === null) return null;
 
   // 1. 反转链表
-  let reversed = reverseList(head);
+  const reversed = reverseList(head);
 
   // 2. 遍历反转后的链表，仅保留 >= 已见最大值的节点（即原链表中右侧无更大值）
   const dummy = new ListNode(0, reversed);

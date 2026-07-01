@@ -86,9 +86,37 @@ function longestIncreasingPathTopo(matrix: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 009. 矩阵中的最长递增路径 =====");
-console.log("记忆化DFS:", longestIncreasingPath([[9, 9, 4], [6, 6, 8], [2, 1, 1]])); // 期望 4 (1->2->6->9)
-console.log("拓扑排序:", longestIncreasingPathTopo([[9, 9, 4], [6, 6, 8], [2, 1, 1]])); // 期望 4
-console.log("记忆化DFS:", longestIncreasingPath([[3, 4, 5], [3, 2, 6], [2, 2, 1]])); // 期望 4 (3->4->5->6)
-console.log("拓扑排序:", longestIncreasingPathTopo([[3, 4, 5], [3, 2, 6], [2, 2, 1]])); // 期望 4
+console.log(
+  "记忆化DFS:",
+  longestIncreasingPath([
+    [9, 9, 4],
+    [6, 6, 8],
+    [2, 1, 1],
+  ]),
+); // 期望 4 (1->2->6->9)
+console.log(
+  "拓扑排序:",
+  longestIncreasingPathTopo([
+    [9, 9, 4],
+    [6, 6, 8],
+    [2, 1, 1],
+  ]),
+); // 期望 4
+console.log(
+  "记忆化DFS:",
+  longestIncreasingPath([
+    [3, 4, 5],
+    [3, 2, 6],
+    [2, 2, 1],
+  ]),
+); // 期望 4 (3->4->5->6)
+console.log(
+  "拓扑排序:",
+  longestIncreasingPathTopo([
+    [3, 4, 5],
+    [3, 2, 6],
+    [2, 2, 1],
+  ]),
+); // 期望 4
 
 export {};

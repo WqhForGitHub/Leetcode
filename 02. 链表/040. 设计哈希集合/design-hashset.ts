@@ -33,7 +33,7 @@ class MyHashSet {
 
   add(key: number): void {
     const idx = this.hash(key);
-    let head = this.buckets[idx];
+    const head = this.buckets[idx];
     // 检查是否已存在
     let cur = head;
     while (cur) {
@@ -48,7 +48,7 @@ class MyHashSet {
 
   remove(key: number): void {
     const idx = this.hash(key);
-    let head = this.buckets[idx];
+    const head = this.buckets[idx];
     if (!head) return;
     if (head.val === key) {
       this.buckets[idx] = head.next;

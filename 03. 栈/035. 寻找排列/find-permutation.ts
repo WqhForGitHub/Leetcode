@@ -34,7 +34,7 @@ function findPermutationDirect(s: string): number[] {
   let i = 0;
   while (i < s.length) {
     if (s[i] === "D") {
-      let start = i;
+      const start = i;
       while (i < s.length && s[i] === "D") i++;
       // 反转 [start, i] 这段
       let l = start,

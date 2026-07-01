@@ -23,7 +23,6 @@ class Node {
 function moveSubTree(root: Node | null, p: Node, q: Node): Node {
   // p 为要移动的子树根，q 为目标父节点。题目中叫 node 和 p，这里统一为 p(被移动) 和 q(目标)
   // 判断 p 是否在 q 的子树中
-  let isInSubtree = false;
   function contains(node: Node, target: Node): boolean {
     if (node === target) return true;
     for (const c of node.children) {
@@ -31,7 +30,7 @@ function moveSubTree(root: Node | null, p: Node, q: Node): Node {
     }
     return false;
   }
-  isInSubtree = contains(p, q);
+  const isInSubtree = contains(p, q);
 
   // 找到 p 的父节点 pParent
   function findParent(node: Node | null, target: Node, parent: Node | null): Node | null {

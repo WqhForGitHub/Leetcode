@@ -24,7 +24,10 @@ function shortestAlternatingPathsBFS(
   const dist: number[][] = Array.from({ length: n }, () => [Infinity, Infinity]);
   dist[0][0] = 0;
   dist[0][1] = 0;
-  const queue: Array<[number, number]> = [[0, 0], [0, 1]];
+  const queue: Array<[number, number]> = [
+    [0, 0],
+    [0, 1],
+  ];
 
   while (queue.length > 0) {
     const [u, c] = queue.shift()!;
@@ -55,14 +58,20 @@ function shortestAlternatingPathsLayered(
   blueEdges: number[][],
 ): number[] {
   // next[c][u]：上一条边颜色为 c 时，从 u 出发的下一组邻居（需走 1-c 颜色边）
-  const adj: number[][][] = [Array.from({ length: n }, () => []), Array.from({ length: n }, () => [])];
+  const adj: number[][][] = [
+    Array.from({ length: n }, () => []),
+    Array.from({ length: n }, () => []),
+  ];
   for (const [u, v] of redEdges) adj[0][u].push(v); // 红边：从"上一条蓝"状态走
   for (const [u, v] of blueEdges) adj[1][u].push(v); // 蓝边：从"上一条红"状态走
 
   const dist: number[][] = Array.from({ length: n }, () => [-1, -1]);
   dist[0][0] = 0;
   dist[0][1] = 0;
-  let frontier: Array<[number, number]> = [[0, 0], [0, 1]];
+  let frontier: Array<[number, number]> = [
+    [0, 0],
+    [0, 1],
+  ];
   let d = 0;
   while (frontier.length > 0) {
     d++;
@@ -94,11 +103,31 @@ function shortestAlternatingPathsLayered(
 // 测试
 // ============================================================
 console.log("===== 040. 颜色交替的最短路径 =====");
-console.log("BFS:", shortestAlternatingPathsBFS(3, [[0, 1], [1, 2]], [])); // 期望 [0,1,-1]
+console.log(
+  "BFS:",
+  shortestAlternatingPathsBFS(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+    ],
+    [],
+  ),
+); // 期望 [0,1,-1]
 console.log("BFS:", shortestAlternatingPathsBFS(3, [[0, 1]], [[2, 1]])); // 期望 [0,1,-1]
 console.log("BFS:", shortestAlternatingPathsBFS(3, [[1, 0]], [[2, 1]])); // 期望 [0,-1,-1]
 console.log("BFS:", shortestAlternatingPathsBFS(3, [[0, 1]], [[1, 2]])); // 期望 [0,1,2]（红蓝交替可达 2）
-console.log("分层:", shortestAlternatingPathsLayered(3, [[0, 1], [1, 2]], [])); // 期望 [0,1,-1]
+console.log(
+  "分层:",
+  shortestAlternatingPathsLayered(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+    ],
+    [],
+  ),
+); // 期望 [0,1,-1]
 console.log("分层:", shortestAlternatingPathsLayered(3, [[0, 1]], [[2, 1]])); // 期望 [0,1,-1]
 console.log("分层:", shortestAlternatingPathsLayered(3, [[1, 0]], [[2, 1]])); // 期望 [0,-1,-1]
 console.log("分层:", shortestAlternatingPathsLayered(3, [[0, 1]], [[1, 2]])); // 期望 [0,1,2]

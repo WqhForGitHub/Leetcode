@@ -61,9 +61,31 @@ function findOrderDFS(numCourses: number, prerequisites: number[][]): number[] {
 console.log("===== 003. 课程表 II =====");
 console.log("BFS:", findOrder(2, [[1, 0]])); // 期望 [0, 1]
 console.log("DFS:", findOrderDFS(2, [[1, 0]])); // 期望 [0, 1]
-console.log("BFS:", findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]])); // 期望 [0,1,2,3] 或 [0,2,1,3]
-console.log("DFS:", findOrderDFS(4, [[1, 0], [2, 0], [3, 1], [3, 2]])); // 期望 [0,2,1,3] 或 [0,1,2,3]
+console.log(
+  "BFS:",
+  findOrder(4, [
+    [1, 0],
+    [2, 0],
+    [3, 1],
+    [3, 2],
+  ]),
+); // 期望 [0,1,2,3] 或 [0,2,1,3]
+console.log(
+  "DFS:",
+  findOrderDFS(4, [
+    [1, 0],
+    [2, 0],
+    [3, 1],
+    [3, 2],
+  ]),
+); // 期望 [0,2,1,3] 或 [0,1,2,3]
 console.log("BFS:", findOrder(1, [])); // 期望 [0]
-console.log("BFS(环):", findOrder(2, [[0, 1], [1, 0]])); // 期望 []
+console.log(
+  "BFS(环):",
+  findOrder(2, [
+    [0, 1],
+    [1, 0],
+  ]),
+); // 期望 []
 
 export {};

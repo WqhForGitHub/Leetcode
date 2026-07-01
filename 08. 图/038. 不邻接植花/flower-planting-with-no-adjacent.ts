@@ -68,10 +68,46 @@ function gardenNoAdjBFS(n: number, paths: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 038. 不邻接植花 =====");
-console.log("贪心:", gardenNoAdjGreedy(3, [[1, 2], [2, 3], [3, 1]])); // 期望 [1,2,3] 之一（合法即可）
-console.log("贪心:", gardenNoAdjGreedy(4, [[1, 2], [3, 4]])); // 期望 合法方案，如 [1,2,1,2]
-console.log("贪心:", gardenNoAdjGreedy(4, [[1, 2], [2, 3], [3, 4], [4, 1], [1, 3], [2, 4]])); // 期望 合法方案
-console.log("BFS:", gardenNoAdjBFS(3, [[1, 2], [2, 3], [3, 1]])); // 期望 合法方案
-console.log("BFS:", gardenNoAdjBFS(4, [[1, 2], [3, 4]])); // 期望 合法方案
+console.log(
+  "贪心:",
+  gardenNoAdjGreedy(3, [
+    [1, 2],
+    [2, 3],
+    [3, 1],
+  ]),
+); // 期望 [1,2,3] 之一（合法即可）
+console.log(
+  "贪心:",
+  gardenNoAdjGreedy(4, [
+    [1, 2],
+    [3, 4],
+  ]),
+); // 期望 合法方案，如 [1,2,1,2]
+console.log(
+  "贪心:",
+  gardenNoAdjGreedy(4, [
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 1],
+    [1, 3],
+    [2, 4],
+  ]),
+); // 期望 合法方案
+console.log(
+  "BFS:",
+  gardenNoAdjBFS(3, [
+    [1, 2],
+    [2, 3],
+    [3, 1],
+  ]),
+); // 期望 合法方案
+console.log(
+  "BFS:",
+  gardenNoAdjBFS(4, [
+    [1, 2],
+    [3, 4],
+  ]),
+); // 期望 合法方案
 
 export {};

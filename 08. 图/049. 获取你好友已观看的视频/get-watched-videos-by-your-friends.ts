@@ -94,7 +94,12 @@ console.log(
   JSON.stringify(
     watchedVideosByFriends(
       [["A", "B"], ["C"], ["B", "C"], ["D"]],
-      [[1, 2], [0, 3], [0, 3], [1, 2]],
+      [
+        [1, 2],
+        [0, 3],
+        [0, 3],
+        [1, 2],
+      ],
       0,
       1,
     ),
@@ -105,7 +110,12 @@ console.log(
   JSON.stringify(
     watchedVideosByFriendsV2(
       [["A", "B"], ["C"], ["B", "C"], ["D"]],
-      [[1, 2], [0, 3], [0, 3], [1, 2]],
+      [
+        [1, 2],
+        [0, 3],
+        [0, 3],
+        [1, 2],
+      ],
       0,
       2,
     ),
@@ -115,7 +125,10 @@ console.log(
   "BFS 同频按名:",
   JSON.stringify(
     watchedVideosByFriends(
-      [["x", "y"], ["a", "b"]],
+      [
+        ["x", "y"],
+        ["a", "b"],
+      ],
       [[1], [0]],
       0,
       1,

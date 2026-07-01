@@ -59,10 +59,7 @@ console.log("canConvert 显式:", canConvertExplicit("aabcc", "ccdee")); // 期�
 console.log("canConvert 显式:", canConvertExplicit("leetcode", "programs")); // 期望 false
 console.log(
   "canConvert 满射:",
-  canConvert(
-    "abcdefghijklmnopqrstuvwxyz",
-    "bcdefghijklmnopqrstuvwxyza",
-  ),
+  canConvert("abcdefghijklmnopqrstuvwxyz", "bcdefghijklmnopqrstuvwxyza"),
 ); // 期望 false（str2 用满 26 个字符）
 
 export {};

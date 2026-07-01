@@ -24,7 +24,7 @@ function removeKdigits(num: string, k: number): string {
     k--;
   }
   // 去除前导零
-  let result = stack.join("").replace(/^0+/, "");
+  const result = stack.join("").replace(/^0+/, "");
   return result === "" ? "0" : result;
 }
 

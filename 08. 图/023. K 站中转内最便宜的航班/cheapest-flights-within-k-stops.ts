@@ -48,9 +48,7 @@ function findCheapestPriceDijkstra(
 
   const INF = Number.MAX_SAFE_INTEGER;
   // price[node][stops]：到达 node 且已用 stops 次中转的最小价格
-  const price: number[][] = Array.from({ length: n }, () =>
-    new Array(k + 2).fill(INF),
-  );
+  const price: number[][] = Array.from({ length: n }, () => new Array(k + 2).fill(INF));
   price[src][0] = 0;
 
   // 优先队列：[price, node, stops]，按 price 升序
@@ -80,14 +78,90 @@ function findCheapestPriceDijkstra(
 console.log("===== 023. K 站中转内最便宜的航班 =====");
 
 // n=4, flights=[[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src=0, dst=3, k=1
-console.log(findCheapestPriceBF(4, [[0, 1, 100], [1, 2, 100], [2, 0, 100], [1, 3, 600], [2, 3, 200]], 0, 3, 1)); // 期望: 700
+console.log(
+  findCheapestPriceBF(
+    4,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [2, 0, 100],
+      [1, 3, 600],
+      [2, 3, 200],
+    ],
+    0,
+    3,
+    1,
+  ),
+); // 期望: 700
 // k=0
-console.log(findCheapestPriceBF(3, [[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 0)); // 期望: 500
+console.log(
+  findCheapestPriceBF(
+    3,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [0, 2, 500],
+    ],
+    0,
+    2,
+    0,
+  ),
+); // 期望: 500
 // k=1
-console.log(findCheapestPriceBF(3, [[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 1)); // 期望: 200
+console.log(
+  findCheapestPriceBF(
+    3,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [0, 2, 500],
+    ],
+    0,
+    2,
+    1,
+  ),
+); // 期望: 200
 
-console.log(findCheapestPriceDijkstra(4, [[0, 1, 100], [1, 2, 100], [2, 0, 100], [1, 3, 600], [2, 3, 200]], 0, 3, 1)); // 期望: 700
-console.log(findCheapestPriceDijkstra(3, [[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 0)); // 期望: 500
-console.log(findCheapestPriceDijkstra(3, [[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 1)); // 期望: 200
+console.log(
+  findCheapestPriceDijkstra(
+    4,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [2, 0, 100],
+      [1, 3, 600],
+      [2, 3, 200],
+    ],
+    0,
+    3,
+    1,
+  ),
+); // 期望: 700
+console.log(
+  findCheapestPriceDijkstra(
+    3,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [0, 2, 500],
+    ],
+    0,
+    2,
+    0,
+  ),
+); // 期望: 500
+console.log(
+  findCheapestPriceDijkstra(
+    3,
+    [
+      [0, 1, 100],
+      [1, 2, 100],
+      [0, 2, 500],
+    ],
+    0,
+    2,
+    1,
+  ),
+); // 期望: 200
 
 export {};

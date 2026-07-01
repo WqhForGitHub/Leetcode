@@ -37,7 +37,6 @@ function minCoinsII1(prices: number[]): number {
 // 时间 O(n log n)，空间 O(n)。
 function minCoinsII2(prices: number[]): number {
   const n = prices.length;
-  const size = 1;
   let m = 1;
   while (m < n + 2) m <<= 1;
   const tree: number[] = new Array(2 * m).fill(0);
@@ -74,7 +73,6 @@ function minCoinsII2(prices: number[]): number {
     update(i, dp[i]);
   }
   return dp[1];
-  void size;
 }
 
 // ------------------------------------------------------------

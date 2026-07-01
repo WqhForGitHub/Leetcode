@@ -11,8 +11,7 @@
 // ============================================================
 function minCostConnectPoints1(points: number[][]): number {
   const n = points.length;
-  const dist = (a: number[], b: number[]): number =>
-    Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+  const dist = (a: number[], b: number[]): number => Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
 
   const minDist = new Array<number>(n).fill(Infinity);
   const visited = new Array<boolean>(n).fill(false);
@@ -79,8 +78,7 @@ function minCostConnectPoints2(points: number[][]): number {
   const edges: number[][] = [];
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
-      const d =
-        Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
+      const d = Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
       edges.push([d, i, j]);
     }
   }

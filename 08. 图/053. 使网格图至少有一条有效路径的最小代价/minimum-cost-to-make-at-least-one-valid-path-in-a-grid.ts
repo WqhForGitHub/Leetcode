@@ -8,11 +8,11 @@
 
 // 方向编码：1右 2左 3下 4上
 const DIRS: number[][] = [
-  [],         // 占位
-  [0, 1],     // 1 右
-  [0, -1],    // 2 左
-  [1, 0],     // 3 下
-  [-1, 0],    // 4 上
+  [], // 占位
+  [0, 1], // 1 右
+  [0, -1], // 2 左
+  [1, 0], // 3 下
+  [-1, 0], // 4 上
 ];
 
 // ============================================================
@@ -23,7 +23,9 @@ const DIRS: number[][] = [
 function minCost01BFS(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Number.POSITIVE_INFINITY));
+  const dist: number[][] = Array.from({ length: m }, () =>
+    new Array(n).fill(Number.POSITIVE_INFINITY),
+  );
   dist[0][0] = 0;
   // 双端队列：元素 [r, c]
   const dq: [number, number][] = [[0, 0]];
@@ -53,7 +55,9 @@ function minCost01BFS(grid: number[][]): number {
 function minCostDijkstra(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Number.POSITIVE_INFINITY));
+  const dist: number[][] = Array.from({ length: m }, () =>
+    new Array(n).fill(Number.POSITIVE_INFINITY),
+  );
   dist[0][0] = 0;
   // 堆元素 [代价, r, c]，简单用数组排序模拟最小堆
   const heap: [number, number, number][] = [[0, 0, 0]];
@@ -91,12 +95,42 @@ function minCost(grid: number[][]): number {
 // ============================================================
 console.log("===== 053. 使网格图至少有一条有效路径的最小代价 =====");
 // 测试1: grid=[[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]] -> 3
-console.log(minCost([[1, 1, 1, 1], [2, 2, 2, 2], [1, 1, 1, 1], [2, 2, 2, 2]])); // 期望 3
-console.log(minCostDijkstra([[1, 1, 1, 1], [2, 2, 2, 2], [1, 1, 1, 1], [2, 2, 2, 2]])); // 期望 3
+console.log(
+  minCost([
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+  ]),
+); // 期望 3
+console.log(
+  minCostDijkstra([
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+  ]),
+); // 期望 3
 // 测试2: grid=[[1,1,3],[3,2,2],[1,1,4]] -> 0
-console.log(minCost([[1, 1, 3], [3, 2, 2], [1, 1, 4]])); // 期望 0
+console.log(
+  minCost([
+    [1, 1, 3],
+    [3, 2, 2],
+    [1, 1, 4],
+  ]),
+); // 期望 0
 // 测试3: grid=[[1,2],[4,3]] -> 1
-console.log(minCost([[1, 2], [4, 3]])); // 期望 1
-console.log(minCostDijkstra([[1, 2], [4, 3]])); // 期望 1
+console.log(
+  minCost([
+    [1, 2],
+    [4, 3],
+  ]),
+); // 期望 1
+console.log(
+  minCostDijkstra([
+    [1, 2],
+    [4, 3],
+  ]),
+); // 期望 1
 
 export {};

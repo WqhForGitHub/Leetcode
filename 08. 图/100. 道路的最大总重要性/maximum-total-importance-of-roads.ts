@@ -64,9 +64,39 @@ function maximumImportanceExplicit(n: number, roads: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 100. 道路的最大总重要性 =====");
-console.log(maximumImportance(5, [[0, 1], [1, 2], [2, 3], [0, 2], [1, 3], [2, 4]])); // 期望: 43
-console.log(maximumImportance(5, [[0, 3], [2, 4], [1, 3]])); // 期望: 20
-console.log(maximumImportanceCounting(5, [[0, 1], [1, 2], [2, 3], [0, 2], [1, 3], [2, 4]])); // 期望: 43
-console.log(maximumImportanceExplicit(5, [[0, 3], [2, 4], [1, 3]])); // 期望: 20
+console.log(
+  maximumImportance(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [0, 2],
+    [1, 3],
+    [2, 4],
+  ]),
+); // 期望: 43
+console.log(
+  maximumImportance(5, [
+    [0, 3],
+    [2, 4],
+    [1, 3],
+  ]),
+); // 期望: 20
+console.log(
+  maximumImportanceCounting(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [0, 2],
+    [1, 3],
+    [2, 4],
+  ]),
+); // 期望: 43
+console.log(
+  maximumImportanceExplicit(5, [
+    [0, 3],
+    [2, 4],
+    [1, 3],
+  ]),
+); // 期望: 20
 
 export {};

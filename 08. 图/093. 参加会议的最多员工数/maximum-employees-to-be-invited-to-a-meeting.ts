@@ -66,7 +66,7 @@ function maximumInvitationsDFS(favorite: number[]): number {
     }
     if (visited[cur] === 1) {
       // 找到环
-      let idx = path.indexOf(cur);
+      const idx = path.indexOf(cur);
       const cycleLen = path.length - idx;
       if (cycleLen === 2) {
         // 二元环带挂链，单独处理链长度

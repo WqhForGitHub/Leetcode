@@ -50,7 +50,7 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
   }
 
   // cur 指向 left 位置的节点
-  let cur = prev.next!;
+  const cur = prev.next!;
 
   // 头插法：将 [left+1, right] 的节点逐个插到 prev 之后
   for (let i = 0; i < right - left; i++) {

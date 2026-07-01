@@ -35,7 +35,7 @@ function checkIfPrerequisiteTopo(
     for (const v of adj[u]) {
       // v 的先修集合包含 u 本身，以及 u 的所有先修
       isPre[v] |= isPre[u];
-      isPre[v] |= (1n << BigInt(u));
+      isPre[v] |= 1n << BigInt(u);
       indeg[v]--;
       if (indeg[v] === 0) queue.push(v);
     }
@@ -56,7 +56,9 @@ function checkIfPrerequisiteFloyd(
   prerequisites: number[][],
   queries: number[][],
 ): boolean[] {
-  const reach: boolean[][] = Array.from({ length: numCourses }, () => new Array(numCourses).fill(false));
+  const reach: boolean[][] = Array.from({ length: numCourses }, () =>
+    new Array(numCourses).fill(false),
+  );
   for (const [u, v] of prerequisites) reach[u][v] = true;
   // Floyd：reach[i][j] = reach[i][j] || (reach[i][k] && reach[k][j])
   for (let k = 0; k < numCourses; k++) {
@@ -85,12 +87,65 @@ function checkIfPrerequisite(
 console.log("===== 055. 课程表 IV =====");
 // 测试1: numCourses=2, pre=[[1,0]], queries=[[0,1],[1,0]] -> [false, true]
 // 注意：prerequisites[a,b] 表示 a 是 b 的先修，即 a->b
-console.log(checkIfPrerequisite(2, [[1, 0]], [[0, 1], [1, 0]])); // 期望 [false, true]
-console.log(checkIfPrerequisiteFloyd(2, [[1, 0]], [[0, 1], [1, 0]])); // 期望 [false, true]
+console.log(
+  checkIfPrerequisite(
+    2,
+    [[1, 0]],
+    [
+      [0, 1],
+      [1, 0],
+    ],
+  ),
+); // 期望 [false, true]
+console.log(
+  checkIfPrerequisiteFloyd(
+    2,
+    [[1, 0]],
+    [
+      [0, 1],
+      [1, 0],
+    ],
+  ),
+); // 期望 [false, true]
 // 测试2: numCourses=2, pre=[], queries=[[1,0],[0,1]] -> [false, false]
-console.log(checkIfPrerequisite(2, [], [[1, 0], [0, 1]])); // 期望 [false, false]
+console.log(
+  checkIfPrerequisite(
+    2,
+    [],
+    [
+      [1, 0],
+      [0, 1],
+    ],
+  ),
+); // 期望 [false, false]
 // 测试3: numCourses=3, pre=[[1,2],[1,0],[2,0]], queries=[[1,0],[1,2]] -> [true, true]
-console.log(checkIfPrerequisite(3, [[1, 2], [1, 0], [2, 0]], [[1, 0], [1, 2]])); // 期望 [true, true]
-console.log(checkIfPrerequisiteFloyd(3, [[1, 2], [1, 0], [2, 0]], [[1, 0], [1, 2]])); // 期望 [true, true]
+console.log(
+  checkIfPrerequisite(
+    3,
+    [
+      [1, 2],
+      [1, 0],
+      [2, 0],
+    ],
+    [
+      [1, 0],
+      [1, 2],
+    ],
+  ),
+); // 期望 [true, true]
+console.log(
+  checkIfPrerequisiteFloyd(
+    3,
+    [
+      [1, 2],
+      [1, 0],
+      [2, 0],
+    ],
+    [
+      [1, 0],
+      [1, 2],
+    ],
+  ),
+); // 期望 [true, true]
 
 export {};

@@ -74,10 +74,7 @@ function kruskal(
 // 方法1：Kruskal + 逐边判定（推荐）
 // 时间复杂度：O(E^2 α(E))，空间复杂度：O(E)
 // ============================================================
-function findCriticalAndPseudoCriticalEdges(
-  n: number,
-  edges: number[][],
-): number[][] {
+function findCriticalAndPseudoCriticalEdges(n: number, edges: number[][]): number[][] {
   const m = edges.length;
   // 附原始索引
   const indexed: IndexedEdge[] = edges.map((e, i) => ({ u: e[0], v: e[1], w: e[2], idx: i }));
@@ -119,10 +116,7 @@ function findCriticalAndPseudoCriticalEdges(
 //   - 若该边是"必须"的（其两端点在该轮所有等价边处理完后仍跨分量）-> 关键
 // 这里给出简化版实现，与方法1互为对照。
 // ============================================================
-function findCriticalAndPseudoCriticalEdgesAdvanced(
-  n: number,
-  edges: number[][],
-): number[][] {
+function findCriticalAndPseudoCriticalEdgesAdvanced(n: number, edges: number[][]): number[][] {
   const m = edges.length;
   const indexed: IndexedEdge[] = edges.map((e, i) => ({ u: e[0], v: e[1], w: e[2], idx: i }));
   const sorted = indexed.slice().sort((a, b) => a.w - b.w);
@@ -214,7 +208,12 @@ console.log(
 ); // 期望 [[0,1],[2,3,4,5]]
 // 测试2: n=4, edges=[[0,1,1],[1,2,2],[2,3,3],[0,3,4]] -> 全是关键 [[0,1,2],[]]
 console.log(
-  findCriticalAndPseudoCriticalEdges(4, [[0, 1, 1], [1, 2, 2], [2, 3, 3], [0, 3, 4]]),
+  findCriticalAndPseudoCriticalEdges(4, [
+    [0, 1, 1],
+    [1, 2, 2],
+    [2, 3, 3],
+    [0, 3, 4],
+  ]),
 ); // 期望 [[0,1,2],[]]
 
 export {};

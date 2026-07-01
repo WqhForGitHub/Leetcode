@@ -44,20 +44,20 @@ function sliceArr(nums: number[], len: number): number[] {
 // 测试
 // ============================================================
 console.log("===== 03. 删除有序数组中的重复项 =====");
-let arr1 = [1, 1, 2];
-let len1 = removeDuplicates(arr1);
+const arr1 = [1, 1, 2];
+const len1 = removeDuplicates(arr1);
 console.log("快慢双指针 [1,1,2] 长度:", len1, "结果:", sliceArr(arr1, len1)); // 期望结果 长度 2, [1,2]
 
-let arr2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-let len2 = removeDuplicates(arr2);
+const arr2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+const len2 = removeDuplicates(arr2);
 console.log("快慢双指针 长度:", len2, "结果:", sliceArr(arr2, len2)); // 期望结果 长度 5, [0,1,2,3,4]
 
-let arr3 = [1, 1, 2];
-let len3 = removeDuplicatesGeneral(arr3);
+const arr3 = [1, 1, 2];
+const len3 = removeDuplicatesGeneral(arr3);
 console.log("通用双指针 [1,1,2] 长度:", len3, "结果:", sliceArr(arr3, len3)); // 期望结果 长度 2, [1,2]
 
-let arr4: number[] = [];
-let len4 = removeDuplicates(arr4);
+const arr4: number[] = [];
+const len4 = removeDuplicates(arr4);
 console.log("空数组 长度:", len4); // 期望结果 0
 
 export {};

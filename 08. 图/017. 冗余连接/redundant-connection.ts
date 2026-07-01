@@ -76,9 +76,37 @@ function findRedundantConnectionDFS(edges: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 017. 冗余连接 =====");
-console.log(findRedundantConnection([[1, 2], [1, 3], [2, 3]])); // [2,3]
-console.log(findRedundantConnectionDFS([[1, 2], [1, 3], [2, 3]])); // [2,3]
-console.log(findRedundantConnection([[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]])); // [1,4]
-console.log(findRedundantConnectionDFS([[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]])); // [1,4]
+console.log(
+  findRedundantConnection([
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // [2,3]
+console.log(
+  findRedundantConnectionDFS([
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // [2,3]
+console.log(
+  findRedundantConnection([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [1, 4],
+    [1, 5],
+  ]),
+); // [1,4]
+console.log(
+  findRedundantConnectionDFS([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [1, 4],
+    [1, 5],
+  ]),
+); // [1,4]
 
 export {};

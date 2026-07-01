@@ -95,7 +95,7 @@ function getCoprimesStack(nums: number[], edges: number[][]): number[] {
     const val = nums[node];
     // 在路径栈中找最近的互质祖先
     let bestNode = -1;
-    let bestDepth = -1;
+    const bestDepth = -1;
     for (let i = path.length - 1; i >= 0; i--) {
       if (gcd(val, path[i][1]) === 1) {
         bestNode = path[i][0];

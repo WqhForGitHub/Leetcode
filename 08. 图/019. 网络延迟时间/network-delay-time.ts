@@ -37,8 +37,8 @@ class MinHeap<T> {
       let i = 0;
       const n = this.data.length;
       while (true) {
-        let l = 2 * i + 1;
-        let r = 2 * i + 2;
+        const l = 2 * i + 1;
+        const r = 2 * i + 2;
         let smallest = i;
         if (l < n && this.less(this.data[l], this.data[smallest])) smallest = l;
         if (r < n && this.less(this.data[r], this.data[smallest])) smallest = r;
@@ -134,9 +134,39 @@ function networkDelayTimeSPFA(times: number[][], n: number, k: number): number {
 // 测试
 // ============================================================
 console.log("===== 019. 网络延迟时间 =====");
-console.log(networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2)); // 2
-console.log(networkDelayTimeBellman([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2)); // 2
-console.log(networkDelayTimeSPFA([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2)); // 2
+console.log(
+  networkDelayTime(
+    [
+      [2, 1, 1],
+      [2, 3, 1],
+      [3, 4, 1],
+    ],
+    4,
+    2,
+  ),
+); // 2
+console.log(
+  networkDelayTimeBellman(
+    [
+      [2, 1, 1],
+      [2, 3, 1],
+      [3, 4, 1],
+    ],
+    4,
+    2,
+  ),
+); // 2
+console.log(
+  networkDelayTimeSPFA(
+    [
+      [2, 1, 1],
+      [2, 3, 1],
+      [3, 4, 1],
+    ],
+    4,
+    2,
+  ),
+); // 2
 console.log(networkDelayTime([[1, 2, 1]], 2, 2)); // -1
 console.log(networkDelayTimeBellman([[1, 2, 1]], 2, 2)); // -1
 console.log(networkDelayTimeSPFA([[1, 2, 1]], 2, 2)); // -1

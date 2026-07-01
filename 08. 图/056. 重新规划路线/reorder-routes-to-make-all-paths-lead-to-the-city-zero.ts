@@ -73,12 +73,45 @@ function minReorder(n: number, connections: number[][]): number {
 console.log("===== 056. 重新规划路线 =====");
 // 测试1: n=6, connections=[[0,1],[1,3],[2,3],[4,0],[5,4]] -> 2
 // 翻转 0->1 与 1->3 后：2->3->1->0，所有城市均可到达 0
-console.log(minReorder(6, [[0, 1], [1, 3], [2, 3], [4, 0], [5, 4]])); // 期望 2
-console.log(minReorderBFS(6, [[0, 1], [1, 3], [2, 3], [4, 0], [5, 4]])); // 期望 2
+console.log(
+  minReorder(6, [
+    [0, 1],
+    [1, 3],
+    [2, 3],
+    [4, 0],
+    [5, 4],
+  ]),
+); // 期望 2
+console.log(
+  minReorderBFS(6, [
+    [0, 1],
+    [1, 3],
+    [2, 3],
+    [4, 0],
+    [5, 4],
+  ]),
+); // 期望 2
 // 测试2: n=5, connections=[[1,0],[1,2],[3,2],[3,4]] -> 2
-console.log(minReorder(5, [[1, 0], [1, 2], [3, 2], [3, 4]])); // 期望 2
+console.log(
+  minReorder(5, [
+    [1, 0],
+    [1, 2],
+    [3, 2],
+    [3, 4],
+  ]),
+); // 期望 2
 // 测试3: n=3, connections=[[1,0],[2,0]] -> 0
-console.log(minReorder(3, [[1, 0], [2, 0]])); // 期望 0
-console.log(minReorderBFS(3, [[1, 0], [2, 0]])); // 期望 0
+console.log(
+  minReorder(3, [
+    [1, 0],
+    [2, 0],
+  ]),
+); // 期望 0
+console.log(
+  minReorderBFS(3, [
+    [1, 0],
+    [2, 0],
+  ]),
+); // 期望 0
 
 export {};

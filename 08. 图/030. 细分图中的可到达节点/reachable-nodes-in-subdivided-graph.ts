@@ -51,12 +51,7 @@ class MinHeap {
 // 统计逻辑：对每个原始节点 u，若 dist[u] <= maxMoves 则可达（+1）。
 // 对每条边 (u,v,cnt)：从 u 侧剩余步数 a=max(0,maxMoves-dist[u])，
 // 从 v 侧剩余 b=max(0,maxMoves-dist[v])，该边可访问细分节点数 = min(cnt, a+b)。
-function countReachable(
-  n: number,
-  edges: number[][],
-  dist: number[],
-  maxMoves: number,
-): number {
+function countReachable(n: number, edges: number[][], dist: number[], maxMoves: number): number {
   let total = 0;
   // 原始节点
   for (let u = 0; u < n; u++) {
@@ -74,11 +69,7 @@ function countReachable(
 // 方法1：Dijkstra + 二叉堆（推荐）
 // 思路：边 (u,v,cnt) 的通过代价为 cnt+1。Dijkstra 求节点 0 到各原始节点最短步数，
 // 再按上述公式统计。
-function reachableNodesDijkstra(
-  edges: number[][],
-  maxMoves: number,
-  n: number,
-): number {
+function reachableNodesDijkstra(edges: number[][], maxMoves: number, n: number): number {
   const adj: number[][][] = Array.from({ length: n }, () => []);
   for (const [u, v, cnt] of edges) {
     adj[u].push([v, cnt + 1]); // 通过该边的代价 = cnt+1
@@ -106,11 +97,7 @@ function reachableNodesDijkstra(
 
 // 方法2：Dijkstra + 线性扫描（朴素 O(n^2)）
 // 思路：相同算法，但用线性扫描找最小未确定节点，无需堆实现。
-function reachableNodesDijkstraLinear(
-  edges: number[][],
-  maxMoves: number,
-  n: number,
-): number {
+function reachableNodesDijkstraLinear(edges: number[][], maxMoves: number, n: number): number {
   const adj: number[][][] = Array.from({ length: n }, () => []);
   for (const [u, v, cnt] of edges) {
     adj[u].push([v, cnt + 1]);
@@ -146,11 +133,65 @@ function reachableNodesDijkstraLinear(
 // ============================================================
 console.log("===== 030. 细分图中的可到达节点 =====");
 
-console.log(reachableNodesDijkstra([[0, 1, 10], [0, 2, 1], [1, 2, 2]], 6, 3)); // 期望: 13
-console.log(reachableNodesDijkstra([[0, 1, 4], [1, 2, 6], [0, 2, 8], [1, 3, 1]], 10, 4)); // 期望: 23
-console.log(reachableNodesDijkstra([[1, 2, 4], [1, 4, 5], [1, 3, 1], [2, 3, 4], [3, 4, 5]], 17, 5)); // 期望: 1
+console.log(
+  reachableNodesDijkstra(
+    [
+      [0, 1, 10],
+      [0, 2, 1],
+      [1, 2, 2],
+    ],
+    6,
+    3,
+  ),
+); // 期望: 13
+console.log(
+  reachableNodesDijkstra(
+    [
+      [0, 1, 4],
+      [1, 2, 6],
+      [0, 2, 8],
+      [1, 3, 1],
+    ],
+    10,
+    4,
+  ),
+); // 期望: 23
+console.log(
+  reachableNodesDijkstra(
+    [
+      [1, 2, 4],
+      [1, 4, 5],
+      [1, 3, 1],
+      [2, 3, 4],
+      [3, 4, 5],
+    ],
+    17,
+    5,
+  ),
+); // 期望: 1
 
-console.log(reachableNodesDijkstraLinear([[0, 1, 10], [0, 2, 1], [1, 2, 2]], 6, 3)); // 期望: 13
-console.log(reachableNodesDijkstraLinear([[0, 1, 4], [1, 2, 6], [0, 2, 8], [1, 3, 1]], 10, 4)); // 期望: 23
+console.log(
+  reachableNodesDijkstraLinear(
+    [
+      [0, 1, 10],
+      [0, 2, 1],
+      [1, 2, 2],
+    ],
+    6,
+    3,
+  ),
+); // 期望: 13
+console.log(
+  reachableNodesDijkstraLinear(
+    [
+      [0, 1, 4],
+      [1, 2, 6],
+      [0, 2, 8],
+      [1, 3, 1],
+    ],
+    10,
+    4,
+  ),
+); // 期望: 23
 
 export {};

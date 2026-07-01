@@ -118,11 +118,53 @@ function findRedundantDirectedConnectionBrute(edges: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 018. 冗余连接 II =====");
-console.log(findRedundantDirectedConnection([[1, 2], [1, 3], [2, 3]])); // [2,3]
-console.log(findRedundantDirectedConnectionBrute([[1, 2], [1, 3], [2, 3]])); // [2,3]
-console.log(findRedundantDirectedConnection([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]])); // [4,1]
-console.log(findRedundantDirectedConnectionBrute([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]])); // [4,1]
-console.log(findRedundantDirectedConnection([[1, 2], [2, 3], [3, 1], [4, 2]])); // [1,2]
-console.log(findRedundantDirectedConnectionBrute([[1, 2], [2, 3], [3, 1], [4, 2]])); // [1,2]
+console.log(
+  findRedundantDirectedConnection([
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // [2,3]
+console.log(
+  findRedundantDirectedConnectionBrute([
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // [2,3]
+console.log(
+  findRedundantDirectedConnection([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 1],
+    [1, 5],
+  ]),
+); // [4,1]
+console.log(
+  findRedundantDirectedConnectionBrute([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 1],
+    [1, 5],
+  ]),
+); // [4,1]
+console.log(
+  findRedundantDirectedConnection([
+    [1, 2],
+    [2, 3],
+    [3, 1],
+    [4, 2],
+  ]),
+); // [1,2]
+console.log(
+  findRedundantDirectedConnectionBrute([
+    [1, 2],
+    [2, 3],
+    [3, 1],
+    [4, 2],
+  ]),
+); // [1,2]
 
 export {};

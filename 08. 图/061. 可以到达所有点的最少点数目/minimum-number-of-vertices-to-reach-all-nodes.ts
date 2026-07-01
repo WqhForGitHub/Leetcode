@@ -45,11 +45,35 @@ function findSmallestSetOfVertices2(n: number, edges: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 061. 可以到达所有点的最少点数目 =====");
-console.log(findSmallestSetOfVertices1(6, [[0, 1], [0, 2], [2, 5], [3, 4], [4, 2]]));
+console.log(
+  findSmallestSetOfVertices1(6, [
+    [0, 1],
+    [0, 2],
+    [2, 5],
+    [3, 4],
+    [4, 2],
+  ]),
+);
 // 期望: [0, 3]
-console.log(findSmallestSetOfVertices1(5, [[0, 1], [2, 1], [3, 1], [1, 4], [2, 4]]));
+console.log(
+  findSmallestSetOfVertices1(5, [
+    [0, 1],
+    [2, 1],
+    [3, 1],
+    [1, 4],
+    [2, 4],
+  ]),
+);
 // 期望: [0, 2, 3]
-console.log(findSmallestSetOfVertices2(6, [[0, 1], [0, 2], [2, 5], [3, 4], [4, 2]]));
+console.log(
+  findSmallestSetOfVertices2(6, [
+    [0, 1],
+    [0, 2],
+    [2, 5],
+    [3, 4],
+    [4, 2],
+  ]),
+);
 // 期望: [0, 3]
 
 export {};

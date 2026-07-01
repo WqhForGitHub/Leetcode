@@ -89,13 +89,55 @@ function isBipartiteUF(graph: number[][]): boolean {
 // ============================================================
 console.log("===== 022. 判断二分图 =====");
 
-console.log(isBipartiteBFS([[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]])); // 期望: false
-console.log(isBipartiteBFS([[1, 3], [0, 2], [1, 3], [0, 2]])); // 期望: true
+console.log(
+  isBipartiteBFS([
+    [1, 2, 3],
+    [0, 2],
+    [0, 1, 3],
+    [0, 2],
+  ]),
+); // 期望: false
+console.log(
+  isBipartiteBFS([
+    [1, 3],
+    [0, 2],
+    [1, 3],
+    [0, 2],
+  ]),
+); // 期望: true
 
-console.log(isBipartiteDFS([[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]])); // 期望: false
-console.log(isBipartiteDFS([[1, 3], [0, 2], [1, 3], [0, 2]])); // 期望: true
+console.log(
+  isBipartiteDFS([
+    [1, 2, 3],
+    [0, 2],
+    [0, 1, 3],
+    [0, 2],
+  ]),
+); // 期望: false
+console.log(
+  isBipartiteDFS([
+    [1, 3],
+    [0, 2],
+    [1, 3],
+    [0, 2],
+  ]),
+); // 期望: true
 
-console.log(isBipartiteUF([[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]])); // 期望: false
-console.log(isBipartiteUF([[1, 3], [0, 2], [1, 3], [0, 2]])); // 期望: true
+console.log(
+  isBipartiteUF([
+    [1, 2, 3],
+    [0, 2],
+    [0, 1, 3],
+    [0, 2],
+  ]),
+); // 期望: false
+console.log(
+  isBipartiteUF([
+    [1, 3],
+    [0, 2],
+    [1, 3],
+    [0, 2],
+  ]),
+); // 期望: true
 
 export {};

@@ -57,11 +57,57 @@ function validTreeDFS(n: number, edges: number[][]): boolean {
 // 测试
 // ============================================================
 console.log("===== 004. 以图判树 =====");
-console.log("UF:", validTreeUF(5, [[0, 1], [0, 2], [0, 3], [1, 4]])); // 期望 true
-console.log("DFS:", validTreeDFS(5, [[0, 1], [0, 2], [0, 3], [1, 4]])); // 期望 true
-console.log("UF:", validTreeUF(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]])); // 期望 false（有环）
-console.log("DFS:", validTreeDFS(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]])); // 期望 false
-console.log("UF:", validTreeUF(4, [[0, 1], [2, 3]])); // 期望 false（不连通）
-console.log("DFS:", validTreeDFS(4, [[0, 1], [2, 3]])); // 期望 false
+console.log(
+  "UF:",
+  validTreeUF(5, [
+    [0, 1],
+    [0, 2],
+    [0, 3],
+    [1, 4],
+  ]),
+); // 期望 true
+console.log(
+  "DFS:",
+  validTreeDFS(5, [
+    [0, 1],
+    [0, 2],
+    [0, 3],
+    [1, 4],
+  ]),
+); // 期望 true
+console.log(
+  "UF:",
+  validTreeUF(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [1, 3],
+    [1, 4],
+  ]),
+); // 期望 false（有环）
+console.log(
+  "DFS:",
+  validTreeDFS(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [1, 3],
+    [1, 4],
+  ]),
+); // 期望 false
+console.log(
+  "UF:",
+  validTreeUF(4, [
+    [0, 1],
+    [2, 3],
+  ]),
+); // 期望 false（不连通）
+console.log(
+  "DFS:",
+  validTreeDFS(4, [
+    [0, 1],
+    [2, 3],
+  ]),
+); // 期望 false
 
 export {};

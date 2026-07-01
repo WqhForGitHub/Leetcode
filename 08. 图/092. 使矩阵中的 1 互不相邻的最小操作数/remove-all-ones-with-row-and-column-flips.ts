@@ -71,11 +71,45 @@ function canRemoveAllOnes(grid: number[][]): boolean {
 // 测试
 // ============================================================
 console.log("===== 092. 使矩阵中的 1 互不相邻的最小操作数 =====");
-console.log(removeOnesOps([[0, 1, 0], [1, 0, 1], [0, 1, 0]])); // 期望: 可行方案
-console.log(removeOnesCount([[0, 1, 0], [1, 0, 1], [0, 1, 0]])); // 期望: 行列翻转总数
-console.log(canRemoveAllOnes([[0, 1, 0], [1, 0, 1], [0, 1, 0]])); // 期望: true
-console.log(canRemoveAllOnes([[1, 0, 1], [0, 1, 0], [1, 1, 0]])); // 期望: false（不可行）
-console.log(removeOnesOps([[1, 1, 1], [1, 1, 1]])); // 期望: 仅翻转行或列
-console.log(removeOnesCount([[1, 1, 1], [1, 1, 1]])); // 期望: 1 或 2
+console.log(
+  removeOnesOps([
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0],
+  ]),
+); // 期望: 可行方案
+console.log(
+  removeOnesCount([
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0],
+  ]),
+); // 期望: 行列翻转总数
+console.log(
+  canRemoveAllOnes([
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0],
+  ]),
+); // 期望: true
+console.log(
+  canRemoveAllOnes([
+    [1, 0, 1],
+    [0, 1, 0],
+    [1, 1, 0],
+  ]),
+); // 期望: false（不可行）
+console.log(
+  removeOnesOps([
+    [1, 1, 1],
+    [1, 1, 1],
+  ]),
+); // 期望: 仅翻转行或列
+console.log(
+  removeOnesCount([
+    [1, 1, 1],
+    [1, 1, 1],
+  ]),
+); // 期望: 1 或 2
 
 export {};

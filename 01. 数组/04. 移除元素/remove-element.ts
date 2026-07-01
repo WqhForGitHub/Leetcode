@@ -44,20 +44,20 @@ function sliceArr(nums: number[], len: number): number[] {
 // 测试
 // ============================================================
 console.log("===== 04. 移除元素 =====");
-let arr1 = [3, 2, 2, 3];
-let len1 = removeElement(arr1, 3);
+const arr1 = [3, 2, 2, 3];
+const len1 = removeElement(arr1, 3);
 console.log("从头扫描 [3,2,2,3] 移除3:", len1, "结果:", sliceArr(arr1, len1)); // 期望结果 2, [2,2]
 
-let arr2 = [0, 1, 2, 2, 3, 0, 4, 2];
-let len2 = removeElement(arr2, 2);
+const arr2 = [0, 1, 2, 2, 3, 0, 4, 2];
+const len2 = removeElement(arr2, 2);
 console.log("从头扫描 移除2:", len2, "结果:", sliceArr(arr2, len2)); // 期望结果 5, [0,1,3,0,4]
 
-let arr3 = [3, 2, 2, 3];
-let len3 = removeElementSwap(arr3, 3);
+const arr3 = [3, 2, 2, 3];
+const len3 = removeElementSwap(arr3, 3);
 console.log("首尾交换 [3,2,2,3] 移除3:", len3, "结果:", sliceArr(arr3, len3)); // 期望结果 2
 
-let arr4 = [0, 1, 2, 2, 3, 0, 4, 2];
-let len4 = removeElementSwap(arr4, 2);
+const arr4 = [0, 1, 2, 2, 3, 0, 4, 2];
+const len4 = removeElementSwap(arr4, 2);
 console.log("首尾交换 移除2:", len4, "结果:", sliceArr(arr4, len4)); // 期望结果 5
 
 export {};

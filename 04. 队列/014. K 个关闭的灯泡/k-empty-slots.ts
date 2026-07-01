@@ -20,7 +20,7 @@ function kEmptySlots1(bulbs: number[], k: number): number {
   let left = 0;
   let right = k + 1;
   let result = Infinity;
-  let i = 0;
+  let i: number;
   while (right < n) {
     // 检查 (left, right) 之间所有 days 是否都大于两端较小值
     for (i = left + 1; i < right; i++) {

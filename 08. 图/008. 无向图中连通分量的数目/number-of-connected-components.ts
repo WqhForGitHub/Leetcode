@@ -54,10 +54,40 @@ function countComponentsDFS(n: number, edges: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 008. 无向图中连通分量的数目 =====");
-console.log("UF:", countComponentsUF(5, [[0, 1], [1, 2], [3, 4]])); // 期望 2
-console.log("DFS:", countComponentsDFS(5, [[0, 1], [1, 2], [3, 4]])); // 期望 2
-console.log("UF:", countComponentsUF(5, [[0, 1], [1, 2], [2, 3], [3, 4]])); // 期望 1
-console.log("DFS:", countComponentsDFS(5, [[0, 1], [1, 2], [2, 3], [3, 4]])); // 期望 1
+console.log(
+  "UF:",
+  countComponentsUF(5, [
+    [0, 1],
+    [1, 2],
+    [3, 4],
+  ]),
+); // 期望 2
+console.log(
+  "DFS:",
+  countComponentsDFS(5, [
+    [0, 1],
+    [1, 2],
+    [3, 4],
+  ]),
+); // 期望 2
+console.log(
+  "UF:",
+  countComponentsUF(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望 1
+console.log(
+  "DFS:",
+  countComponentsDFS(5, [
+    [0, 1],
+    [1, 2],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望 1
 console.log("UF:", countComponentsUF(3, [])); // 期望 3
 console.log("DFS:", countComponentsDFS(3, [])); // 期望 3
 

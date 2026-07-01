@@ -98,11 +98,7 @@ console.log(
     [3, 4],
   ]),
 ); // 期望 3
-console.log(
-  largestPathValue("a", [
-    [0, 0],
-  ]),
-); // 期望 -1（自环）
+console.log(largestPathValue("a", [[0, 0]])); // 期望 -1（自环）
 console.log(
   largestPathValueDFS("abaca", [
     [0, 1],

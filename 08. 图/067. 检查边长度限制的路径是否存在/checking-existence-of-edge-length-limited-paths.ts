@@ -71,9 +71,7 @@ function distanceLimitedPathsExist2(
   queries: number[][],
 ): boolean[] {
   edgeList.sort((a, b) => a[2] - b[2]);
-  const order = queries
-    .map((q, i) => [q[2], i])
-    .sort((a, b) => a[0] - b[0]);
+  const order = queries.map((q, i) => [q[2], i]).sort((a, b) => a[0] - b[0]);
 
   const uf = new UF1697(n);
   const result = new Array<boolean>(queries.length).fill(false);

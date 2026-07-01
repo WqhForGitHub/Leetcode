@@ -66,7 +66,7 @@ function doubleIt(head: ListNode | null): ListNode | null {
   if (head === null) return null;
 
   // 1. 反转链表
-  let reversedHead = reverseList(head);
+  const reversedHead = reverseList(head);
 
   // 2. 从低位开始翻倍，处理进位
   let cur: ListNode | null = reversedHead;

@@ -37,7 +37,7 @@ function findUnsortedSubarray(nums: number[]): number {
 // 方法2：双指针 O(1) 空间
 // ------------------------------------------------------------
 function findUnsortedSubarrayO1(nums: number[]): number {
-  let n = nums.length;
+  const n = nums.length;
   let max = -Infinity,
     min = Infinity;
   let right = -1,

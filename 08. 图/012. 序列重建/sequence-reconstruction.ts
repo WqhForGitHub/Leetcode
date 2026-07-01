@@ -89,14 +89,64 @@ function sequenceReconstructionPairs(org: number[], seqs: number[][]): boolean {
 // 测试
 // ============================================================
 console.log("===== 012. 序列重建 =====");
-console.log(sequenceReconstruction([1, 2, 3], [[1, 2], [2, 3]])); // true
-console.log(sequenceReconstructionPairs([1, 2, 3], [[1, 2], [2, 3]])); // true
-console.log(sequenceReconstruction([1, 2, 3], [[1, 2], [1, 3]])); // false
-console.log(sequenceReconstructionPairs([1, 2, 3], [[1, 2], [1, 3]])); // false
+console.log(
+  sequenceReconstruction(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [2, 3],
+    ],
+  ),
+); // true
+console.log(
+  sequenceReconstructionPairs(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [2, 3],
+    ],
+  ),
+); // true
+console.log(
+  sequenceReconstruction(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [1, 3],
+    ],
+  ),
+); // false
+console.log(
+  sequenceReconstructionPairs(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [1, 3],
+    ],
+  ),
+); // false
 console.log(sequenceReconstruction([1, 2, 3], [[1, 2]])); // false
 console.log(sequenceReconstructionPairs([1, 2, 3], [[1, 2]])); // false
-console.log(sequenceReconstruction([1, 2, 3], [[1, 2], [1, 3], [2, 3]])); // true
-console.log(sequenceReconstructionPairs([1, 2, 3], [[1, 2], [1, 3], [2, 3]])); // true
+console.log(
+  sequenceReconstruction(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [1, 3],
+      [2, 3],
+    ],
+  ),
+); // true
+console.log(
+  sequenceReconstructionPairs(
+    [1, 2, 3],
+    [
+      [1, 2],
+      [1, 3],
+      [2, 3],
+    ],
+  ),
+); // true
 console.log(sequenceReconstruction([1], [[1]])); // true
 console.log(sequenceReconstructionPairs([1], [[1]])); // true
 console.log(sequenceReconstruction([1], [[], []])); // false

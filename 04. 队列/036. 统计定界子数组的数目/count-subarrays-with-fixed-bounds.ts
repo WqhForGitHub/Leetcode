@@ -42,8 +42,8 @@ function countSubarrays2(nums: number[], minK: number, maxK: number): number {
   let left = 0;
   const minDeque: number[] = [];
   const maxDeque: number[] = [];
-  let minPos = -1;
-  let maxPos = -1;
+  const minPos = -1;
+  const maxPos = -1;
 
   for (let right = 0; right < n; right++) {
     while (minDeque.length > 0 && nums[minDeque[minDeque.length - 1]] >= nums[right]) {
@@ -76,7 +76,7 @@ function countSubarrays2(nums: number[], minK: number, maxK: number): number {
   }
   // 更精确的统计
   result = 0;
-  badPos: {
+  {
     let bp = -1;
     let mp = -1;
     let xp = -1;

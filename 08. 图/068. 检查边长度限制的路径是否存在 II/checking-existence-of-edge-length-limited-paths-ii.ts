@@ -54,9 +54,8 @@ class DistanceLimitedNeighbors1 {
 
     // 构建倍增表
     this.maxLevel = this.nodeCount > 1 ? Math.floor(Math.log2(this.nodeCount)) + 1 : 1;
-    this.parent = Array.from(
-      { length: this.maxLevel + 1 },
-      () => new Array<number>(maxNodes).fill(-1),
+    this.parent = Array.from({ length: this.maxLevel + 1 }, () =>
+      new Array<number>(maxNodes).fill(-1),
     );
     // parent[0]：直接父亲
     for (let node = n; node < this.nodeCount; node++) {

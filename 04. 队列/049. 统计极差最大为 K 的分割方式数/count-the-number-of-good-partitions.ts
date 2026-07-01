@@ -50,7 +50,7 @@ function countPartitions2(nums: number[], k: number): number {
   const maxDeque: number[] = [];
   const minDeque: number[] = [];
   let left = 0;
-  let segments = 0;
+  const segments = 0;
   for (let i = 0; i < n; i++) {
     while (maxDeque.length > 0 && nums[maxDeque[maxDeque.length - 1]] <= nums[i]) maxDeque.pop();
     maxDeque.push(i);

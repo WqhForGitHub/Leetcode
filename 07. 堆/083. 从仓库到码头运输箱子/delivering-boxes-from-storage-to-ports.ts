@@ -57,9 +57,7 @@ function boxDelivering(
     while (deque.length > 0) {
       const k = deque[deque.length - 1];
       let exK = 0;
-      let exI = 0;
       for (let t = k + 1; t < i; t++) if (boxes[t][0] !== boxes[t - 1][0]) exK++;
-      for (let t = i; t < i; t++) if (false) exI++;
       const valK = dp[k] + 2 + exK;
       const valI = dp[i] + 2;
       if (valI <= valK) deque.pop();

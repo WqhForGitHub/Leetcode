@@ -12,9 +12,7 @@
 function maximalNetworkRank1(n: number, roads: number[][]): number {
   const degree = new Array<number>(n).fill(0);
   // 用邻接矩阵记录是否直接相连
-  const connected: boolean[][] = Array.from({ length: n }, () =>
-    new Array<boolean>(n).fill(false),
-  );
+  const connected: boolean[][] = Array.from({ length: n }, () => new Array<boolean>(n).fill(false));
   for (const [a, b] of roads) {
     degree[a]++;
     degree[b]++;

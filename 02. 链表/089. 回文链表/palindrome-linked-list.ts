@@ -59,7 +59,7 @@ function isPalindrome(head: ListNode | null): boolean {
   }
 
   // 第二步：反转后半部分（从 slow.next 开始）
-  let secondHalf: ListNode | null = reverseList(slow.next);
+  const secondHalf: ListNode | null = reverseList(slow.next);
 
   // 第三步：逐节点比较前半部分与反转后的后半部分
   let p1: ListNode | null = head;

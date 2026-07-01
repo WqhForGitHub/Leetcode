@@ -120,7 +120,7 @@ function sortListBottomUp(head: ListNode | null): ListNode | null {
 
     while (curr !== null) {
       // 取第一段长度为 subLength 的子链表
-      let head1: ListNode | null = curr;
+      const head1: ListNode | null = curr;
       let count1 = 1;
       while (curr !== null && count1 < subLength) {
         curr = curr.next;
@@ -135,7 +135,7 @@ function sortListBottomUp(head: ListNode | null): ListNode | null {
       }
 
       // 取第二段长度为 subLength 的子链表
-      let head2: ListNode | null = next1;
+      const head2: ListNode | null = next1;
       curr = next1;
       let count2 = 1;
       while (curr !== null && count2 < subLength) {

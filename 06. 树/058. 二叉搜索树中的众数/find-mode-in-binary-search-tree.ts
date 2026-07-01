@@ -78,7 +78,7 @@ function findModeMorris(root: TreeNode | null): number[] {
   }
 
   let curr: TreeNode | null = root;
-  let prev: TreeNode | null = null;
+  let prev: TreeNode | null;
 
   while (curr !== null) {
     if (curr.left === null) {

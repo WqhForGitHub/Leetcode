@@ -15,9 +15,7 @@ function shortestPathLength(graph: number[][]): number {
   const fullMask = (1 << n) - 1;
 
   // visited[mask][node]：是否已入队
-  const visited: boolean[][] = Array.from({ length: 1 << n }, () =>
-    new Array(n).fill(false),
-  );
+  const visited: boolean[][] = Array.from({ length: 1 << n }, () => new Array(n).fill(false));
 
   const queue: number[][] = []; // [node, mask, dist]
   // 每个节点都可作为起点
@@ -49,9 +47,7 @@ function shortestPathLengthDP(graph: number[][]): number {
   const INF = Number.MAX_SAFE_INTEGER >> 1;
 
   // BFS 求任意两点最短路
-  const dist: number[][] = Array.from({ length: n }, () =>
-    new Array(n).fill(INF),
-  );
+  const dist: number[][] = Array.from({ length: n }, () => new Array(n).fill(INF));
   for (let s = 0; s < n; s++) {
     dist[s][s] = 0;
     const queue: number[] = [s];
@@ -68,9 +64,7 @@ function shortestPathLengthDP(graph: number[][]): number {
 
   const fullMask = (1 << n) - 1;
   // dp[mask][i]：访问 mask 且终点在 i 的最短路径长度
-  const dp: number[][] = Array.from({ length: 1 << n }, () =>
-    new Array(n).fill(INF),
-  );
+  const dp: number[][] = Array.from({ length: 1 << n }, () => new Array(n).fill(INF));
   for (let i = 0; i < n; i++) dp[1 << i][i] = 0;
 
   for (let mask = 1; mask <= fullMask; mask++) {

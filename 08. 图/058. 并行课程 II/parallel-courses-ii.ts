@@ -110,16 +110,83 @@ function minNumberOfSemesters(n: number, relations: number[][], k: number): numb
 // ============================================================
 console.log("===== 058. 并行课程 II =====");
 // 测试1: n=3, relations=[[1,3],[2,3]], k=2 -> 2（1,2 同学期；3 第二学期）
-console.log(minNumberOfSemesters(3, [[1, 3], [2, 3]], 2)); // 期望 2
-console.log(minNumberOfSemestersBFS(3, [[1, 3], [2, 3]], 2)); // 期望 2
+console.log(
+  minNumberOfSemesters(
+    3,
+    [
+      [1, 3],
+      [2, 3],
+    ],
+    2,
+  ),
+); // 期望 2
+console.log(
+  minNumberOfSemestersBFS(
+    3,
+    [
+      [1, 3],
+      [2, 3],
+    ],
+    2,
+  ),
+); // 期望 2
 // 测试2: n=3, relations=[[1,2],[2,3]], k=2 -> 3（链式必须 3 学期）
-console.log(minNumberOfSemesters(3, [[1, 2], [2, 3]], 2)); // 期望 3
+console.log(
+  minNumberOfSemesters(
+    3,
+    [
+      [1, 2],
+      [2, 3],
+    ],
+    2,
+  ),
+); // 期望 3
 // 测试3: n=3, relations=[[1,2],[2,3]], k=1 -> 3
-console.log(minNumberOfSemesters(3, [[1, 2], [2, 3]], 1)); // 期望 3
-console.log(minNumberOfSemestersBFS(3, [[1, 2], [2, 3]], 1)); // 期望 3
+console.log(
+  minNumberOfSemesters(
+    3,
+    [
+      [1, 2],
+      [2, 3],
+    ],
+    1,
+  ),
+); // 期望 3
+console.log(
+  minNumberOfSemestersBFS(
+    3,
+    [
+      [1, 2],
+      [2, 3],
+    ],
+    1,
+  ),
+); // 期望 3
 // 测试4: n=5, relations=[[1,2],[1,3],[2,4],[3,5]], k=2 -> 3
-console.log(minNumberOfSemesters(5, [[1, 2], [1, 3], [2, 4], [3, 5]], 2)); // 期望 3
-console.log(minNumberOfSemestersBFS(5, [[1, 2], [1, 3], [2, 4], [3, 5]], 2)); // 期望 3
+console.log(
+  minNumberOfSemesters(
+    5,
+    [
+      [1, 2],
+      [1, 3],
+      [2, 4],
+      [3, 5],
+    ],
+    2,
+  ),
+); // 期望 3
+console.log(
+  minNumberOfSemestersBFS(
+    5,
+    [
+      [1, 2],
+      [1, 3],
+      [2, 4],
+      [3, 5],
+    ],
+    2,
+  ),
+); // 期望 3
 // 测试5: n=4, relations=[], k=2 -> 2
 console.log(minNumberOfSemesters(4, [], 2)); // 期望 2
 console.log(minNumberOfSemestersBFS(4, [], 2)); // 期望 2

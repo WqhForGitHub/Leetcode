@@ -38,8 +38,8 @@ class MinHeap<T> {
       let i = 0;
       const n = this.data.length;
       while (true) {
-        let l = 2 * i + 1;
-        let r = 2 * i + 2;
+        const l = 2 * i + 1;
+        const r = 2 * i + 2;
         let smallest = i;
         if (l < n && this.less(this.data[l], this.data[smallest])) smallest = l;
         if (r < n && this.less(this.data[r], this.data[smallest])) smallest = r;

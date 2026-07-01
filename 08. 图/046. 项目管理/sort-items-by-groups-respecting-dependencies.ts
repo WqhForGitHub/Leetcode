@@ -30,12 +30,7 @@ function topologicalSort(
 }
 
 // 方法1：两层拓扑排序（推荐）
-function sortItems(
-  n: number,
-  m: number,
-  group: number[],
-  beforeItems: number[][],
-): number[] {
+function sortItems(n: number, m: number, group: number[], beforeItems: number[][]): number[] {
   // 1. 给 group=-1 的项目分配独立组（用 m 起始的编号，避免与已有组冲突）
   const groupOf: number[] = new Array(n);
   let groupId = m;
@@ -111,11 +106,7 @@ function sortItems(
   }
 
   // 4. 对组间做拓扑
-  const groupOrder = topologicalSort(
-    [...allGroups],
-    groupGraph,
-    new Map(groupIndegree),
-  );
+  const groupOrder = topologicalSort([...allGroups], groupGraph, new Map(groupIndegree));
   if (groupOrder === null) return [];
 
   // 5. 按组序拼接组内拓扑结果
@@ -133,19 +124,9 @@ console.log("===== 046. 项目管理 =====");
 console.log(
   "用例1:",
   JSON.stringify(
-    sortItems(
-      8,
-      2,
-      [-1, -1, 1, 0, 0, 1, 0, -1],
-      [[], [6], [5], [6], [3, 6], [], [], []],
-    ),
+    sortItems(8, 2, [-1, -1, 1, 0, 0, 1, 0, -1], [[], [6], [5], [6], [3, 6], [], [], []]),
   ),
 ); // 期望一种合法序，例如 [6,3,4,1,5,2,0,7]
-console.log(
-  "用例2:",
-  JSON.stringify(
-    sortItems(2, 1, [0, 0], [[1], [0]]),
-  ),
-); // 期望 []（同组内 0->1 与 1->0 形成环）
+console.log("用例2:", JSON.stringify(sortItems(2, 1, [0, 0], [[1], [0]]))); // 期望 []（同组内 0->1 与 1->0 形成环）
 
 export {};

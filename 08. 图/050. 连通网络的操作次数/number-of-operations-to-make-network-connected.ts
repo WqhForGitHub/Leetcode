@@ -132,7 +132,10 @@ console.log(
 ); // 期望 0（线足够且已全部连通）
 console.log(
   "并查集 线不足:",
-  makeConnected(5, [[0, 1], [2, 3]]),
+  makeConnected(5, [
+    [0, 1],
+    [2, 3],
+  ]),
 ); // 期望 -1
 console.log(
   "DFS:",

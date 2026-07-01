@@ -81,10 +81,10 @@ function findCrossingTime2(n: number, k: number, time: number[][]): number {
     return b - a;
   };
 
-  let waitLeft: number[] = [];
-  let waitRight: number[] = [];
-  let workLeft: [number, number][] = [];
-  let workRight: [number, number][] = [];
+  const waitLeft: number[] = [];
+  const waitRight: number[] = [];
+  const workLeft: [number, number][] = [];
+  const workRight: [number, number][] = [];
 
   for (let i = 0; i < k; i++) waitLeft.push(i);
 

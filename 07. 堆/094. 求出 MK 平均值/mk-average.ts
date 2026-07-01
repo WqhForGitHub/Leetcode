@@ -23,7 +23,7 @@ class MKAverage {
     if (this.queue.length > this.m) {
       const out = this.queue.shift()!;
       // 从对应集合移除
-      if (out <= this.lower[this.lower.length - 1] ?? Infinity) {
+      if (out <= (this.lower[this.lower.length - 1] ?? Infinity)) {
         const idx = this.lower.indexOf(out);
         this.lower.splice(idx, 1);
         // 从 middle 补一个
@@ -31,7 +31,7 @@ class MKAverage {
           this.lower.push(this.middle.shift()!);
           this.lower.sort((a, b) => a - b);
         }
-      } else if (out >= this.upper[0] ?? -Infinity) {
+      } else if (out >= (this.upper[0] ?? -Infinity)) {
         const idx = this.upper.indexOf(out);
         this.upper.splice(idx, 1);
         if (this.middle.length > 0) {

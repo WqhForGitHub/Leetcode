@@ -98,7 +98,7 @@ function testInsert(): void {
   console.log(circularListToArray(head, 4)); // [3,4,1,2]
 
   // 空链表
-  let h2 = insert(null, 1);
+  const h2 = insert(null, 1);
   console.log(circularListToArray(h2, 2)); // [1,1]
 
   // 所有节点相同

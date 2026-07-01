@@ -21,7 +21,7 @@ function fractionToDecimal(numerator: number, denominator: number): string {
 
   // 取绝对值进行运算（注意使用 Math.trunc 避免精度问题，使用 BigInt 兼容大整数）
   // 这里用 Number 实现，适用于题目范围
-  let n = Math.abs(numerator);
+  const n = Math.abs(numerator);
   const d = Math.abs(denominator);
 
   // 整数部分

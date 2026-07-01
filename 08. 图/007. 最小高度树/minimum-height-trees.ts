@@ -74,10 +74,42 @@ function findMinHeightTreesBrute(n: number, edges: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 007. 最小高度树 =====");
-console.log("剥叶子:", findMinHeightTrees(4, [[1, 0], [1, 2], [1, 3]])); // 期望 [1]
-console.log("暴力:", findMinHeightTreesBrute(4, [[1, 0], [1, 2], [1, 3]])); // 期望 [1]
-console.log("剥叶子:", findMinHeightTrees(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])); // 期望 [3, 4]
-console.log("暴力:", findMinHeightTreesBrute(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])); // 期望 [3, 4]
+console.log(
+  "剥叶子:",
+  findMinHeightTrees(4, [
+    [1, 0],
+    [1, 2],
+    [1, 3],
+  ]),
+); // 期望 [1]
+console.log(
+  "暴力:",
+  findMinHeightTreesBrute(4, [
+    [1, 0],
+    [1, 2],
+    [1, 3],
+  ]),
+); // 期望 [1]
+console.log(
+  "剥叶子:",
+  findMinHeightTrees(6, [
+    [3, 0],
+    [3, 1],
+    [3, 2],
+    [3, 4],
+    [5, 4],
+  ]),
+); // 期望 [3, 4]
+console.log(
+  "暴力:",
+  findMinHeightTreesBrute(6, [
+    [3, 0],
+    [3, 1],
+    [3, 2],
+    [3, 4],
+    [5, 4],
+  ]),
+); // 期望 [3, 4]
 console.log("剥叶子:", findMinHeightTrees(1, [])); // 期望 [0]
 
 export {};

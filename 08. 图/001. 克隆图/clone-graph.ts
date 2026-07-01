@@ -68,9 +68,15 @@ n4.neighbors = [n1, n3];
 const cloneA = cloneGraphDFS(n1);
 const cloneB = cloneGraphBFS(n1);
 console.log("DFS 克隆起点 val:", cloneA?.val); // 期望 1
-console.log("DFS 克隆邻居:", cloneA?.neighbors.map((n) => n.val)); // 期望 [2, 4]
+console.log(
+  "DFS 克隆邻居:",
+  cloneA?.neighbors.map((n) => n.val),
+); // 期望 [2, 4]
 console.log("BFS 克隆起点 val:", cloneB?.val); // 期望 1
-console.log("BFS 克隆邻居:", cloneB?.neighbors.map((n) => n.val)); // 期望 [2, 4]
+console.log(
+  "BFS 克隆邻居:",
+  cloneB?.neighbors.map((n) => n.val),
+); // 期望 [2, 4]
 console.log("DFS 与原图不同对象:", cloneA !== n1); // 期望 true
 console.log("空图:", cloneGraphDFS(null)); // 期望 null
 

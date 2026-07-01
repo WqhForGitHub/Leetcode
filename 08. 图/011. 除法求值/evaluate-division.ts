@@ -49,11 +49,7 @@ class WeightedUnionFind {
 }
 
 // 方法1：带权并查集（推荐）
-function calcEquation(
-  equations: string[][],
-  values: number[],
-  queries: string[][],
-): number[] {
+function calcEquation(equations: string[][], values: number[], queries: string[][]): number[] {
   const uf = new WeightedUnionFind();
   for (let i = 0; i < equations.length; i++) {
     uf.union(equations[i][0], equations[i][1], values[i]);
@@ -62,11 +58,7 @@ function calcEquation(
 }
 
 // 方法2：Floyd 传递闭包
-function calcEquationFloyd(
-  equations: string[][],
-  values: number[],
-  queries: string[][],
-): number[] {
+function calcEquationFloyd(equations: string[][], values: number[], queries: string[][]): number[] {
   const dist: Map<string, Map<string, number>> = new Map();
   const get = (a: string, b: string): number => {
     return dist.get(a)?.get(b) ?? -1;
@@ -103,11 +95,7 @@ function calcEquationFloyd(
 }
 
 // 方法3：DFS 搜索路径并累乘
-function calcEquationDFS(
-  equations: string[][],
-  values: number[],
-  queries: string[][],
-): number[] {
+function calcEquationDFS(equations: string[][], values: number[], queries: string[][]): number[] {
   const graph: Map<string, Map<string, number>> = new Map();
   for (let i = 0; i < equations.length; i++) {
     const [a, b] = equations[i];
@@ -134,16 +122,34 @@ function calcEquationDFS(
 // 测试
 // ============================================================
 console.log("===== 011. 除法求值 =====");
-const eq1 = [["a", "b"], ["b", "c"]];
+const eq1 = [
+  ["a", "b"],
+  ["b", "c"],
+];
 const v1 = [2.0, 3.0];
-const q1 = [["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"]];
+const q1 = [
+  ["a", "c"],
+  ["b", "a"],
+  ["a", "e"],
+  ["a", "a"],
+  ["x", "x"],
+];
 console.log(calcEquation(eq1, v1, q1)); // [6.0, 0.5, -1.0, 1.0, -1.0]
 console.log(calcEquationFloyd(eq1, v1, q1)); // [6.0, 0.5, -1.0, 1.0, -1.0]
 console.log(calcEquationDFS(eq1, v1, q1)); // [6.0, 0.5, -1.0, 1.0, -1.0]
 
-const eq2 = [["a", "b"], ["b", "c"], ["bc", "cd"]];
+const eq2 = [
+  ["a", "b"],
+  ["b", "c"],
+  ["bc", "cd"],
+];
 const v2 = [1.5, 2.5, 5.0];
-const q2 = [["a", "c"], ["c", "b"], ["bc", "cd"], ["cd", "bc"]];
+const q2 = [
+  ["a", "c"],
+  ["c", "b"],
+  ["bc", "cd"],
+  ["cd", "bc"],
+];
 console.log(calcEquation(eq2, v2, q2)); // [3.75, 0.4, 5.0, 0.2]
 
 export {};

@@ -64,19 +64,19 @@ function mergeForward(nums1: number[], m: number, nums2: number[], n: number): v
 // 测试
 // ============================================================
 console.log("===== 07. 合并两个有序数组 =====");
-let test1 = [1, 2, 3, 0, 0, 0];
+const test1 = [1, 2, 3, 0, 0, 0];
 merge(test1, 3, [2, 5, 6], 3);
 console.log("从后往前 [1,2,3,0,0,0] + [2,5,6]:", test1); // 期望结果 [1,2,2,3,5,6]
 
-let test2 = [1, 2, 3, 0, 0, 0];
+const test2 = [1, 2, 3, 0, 0, 0];
 mergeForward(test2, 3, [2, 5, 6], 3);
 console.log("从前往后 [1,2,3,0,0,0] + [2,5,6]:", test2); // 期望结果 [1,2,2,3,5,6]
 
-let test3 = [0];
+const test3 = [0];
 merge(test3, 0, [1], 1);
 console.log("从后往前 [0] + [1]:", test3); // 期望结果 [1]
 
-let test4 = [1];
+const test4 = [1];
 merge(test4, 1, [], 0);
 console.log("从后往前 [1] + []:", test4); // 期望结果 [1]
 

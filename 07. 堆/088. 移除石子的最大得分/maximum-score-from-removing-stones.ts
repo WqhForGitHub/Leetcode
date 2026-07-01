@@ -50,7 +50,7 @@ function maximumScoreMath(a: number, b: number, c: number): number {
 
 // 方法3：排序模拟
 function maximumScoreSort(a: number, b: number, c: number): number {
-  let arr = [a, b, c].sort((x, y) => y - x);
+  const arr = [a, b, c].sort((x, y) => y - x);
   let result = 0;
   while (arr[1] > 0) {
     arr[0]--;

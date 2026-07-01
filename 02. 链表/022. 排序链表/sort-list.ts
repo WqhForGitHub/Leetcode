@@ -108,7 +108,7 @@ function sortListBottomUp(head: ListNode | null): ListNode | null {
 
     while (curr !== null) {
       // 找到第一个子链表（长度 subLength）
-      let head1 = curr;
+      const head1 = curr;
       let count = 1;
       while (curr !== null && count < subLength) {
         curr = curr.next;

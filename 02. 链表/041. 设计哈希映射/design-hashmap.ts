@@ -35,7 +35,7 @@ class MyHashMap {
   // 插入或更新 key 对应的 value
   put(key: number, value: number): void {
     const idx = this.hash(key);
-    let head = this.buckets[idx];
+    const head = this.buckets[idx];
     let cur = head;
     while (cur) {
       if (cur.key === key) {
@@ -64,7 +64,7 @@ class MyHashMap {
   // 删除指定 key
   remove(key: number): void {
     const idx = this.hash(key);
-    let head = this.buckets[idx];
+    const head = this.buckets[idx];
     if (!head) return;
     if (head.key === key) {
       this.buckets[idx] = head.next;

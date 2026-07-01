@@ -47,7 +47,10 @@ function findCelebrityBrute(n: number): number {
 // 测试（用邻接矩阵模拟 knows API）
 // ============================================================
 console.log("===== 006. 搜寻名人 =====");
-const g = globalThis as unknown as { knows?: (a: number, b: number) => boolean; __matrix?: number[][] };
+const g = globalThis as unknown as {
+  knows?: (a: number, b: number) => boolean;
+  __matrix?: number[][];
+};
 g.knows = (a: number, b: number): boolean => g.__matrix![a][b] === 1;
 const runWith = (n: number, matrix: number[][]): number => {
   g.__matrix = matrix;

@@ -41,8 +41,8 @@ function longestConsecutiveV2(root: TreeNode | null): number {
   let maxLen = 0;
   function dfs(node: TreeNode | null): number {
     if (node === null) return 0;
-    let leftLen = dfs(node.left);
-    let rightLen = dfs(node.right);
+    const leftLen = dfs(node.left);
+    const rightLen = dfs(node.right);
     // 检查左子节点是否能延续
     let cur = 1;
     if (node.left !== null && node.left.val === node.val + 1) {

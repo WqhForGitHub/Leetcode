@@ -51,7 +51,7 @@ function minCost(maxTime: number, edges: number[][], passingFees: number[]): num
   };
   minCostArr[0][0] = passingFees[0];
   push({ cost: passingFees[0], city: 0, time: 0 });
-  let result = Infinity;
+  const result = Infinity;
   while (heap.length > 0) {
     const cur = pop()!;
     if (cur.city === n - 1) return cur.cost;

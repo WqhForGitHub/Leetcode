@@ -108,10 +108,46 @@ function maxProbability(
 // ============================================================
 console.log("===== 059. 概率最大的路径 =====");
 // 测试1: n=3, edges=[[0,1],[1,2],[0,2]], succProb=[0.5,0.5,0.2], start=0, end=2 -> 0.25
-console.log(maxProbability(3, [[0, 1], [1, 2], [0, 2]], [0.5, 0.5, 0.2], 0, 2)); // 期望 0.25
-console.log(maxProbabilitySPFA(3, [[0, 1], [1, 2], [0, 2]], [0.5, 0.5, 0.2], 0, 2)); // 期望 0.25
+console.log(
+  maxProbability(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+      [0, 2],
+    ],
+    [0.5, 0.5, 0.2],
+    0,
+    2,
+  ),
+); // 期望 0.25
+console.log(
+  maxProbabilitySPFA(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+      [0, 2],
+    ],
+    [0.5, 0.5, 0.2],
+    0,
+    2,
+  ),
+); // 期望 0.25
 // 测试2: n=3, edges=[[0,1],[1,2],[0,2]], succProb=[0.5,0.5,0.3], start=0, end=2 -> 0.3
-console.log(maxProbability(3, [[0, 1], [1, 2], [0, 2]], [0.5, 0.5, 0.3], 0, 2)); // 期望 0.3
+console.log(
+  maxProbability(
+    3,
+    [
+      [0, 1],
+      [1, 2],
+      [0, 2],
+    ],
+    [0.5, 0.5, 0.3],
+    0,
+    2,
+  ),
+); // 期望 0.3
 // 测试3: n=2, edges=[[0,1]], succProb=[0.5], start=0, end=1 -> 0.5
 console.log(maxProbability(2, [[0, 1]], [0.5], 0, 1)); // 期望 0.5
 console.log(maxProbabilitySPFA(2, [[0, 1]], [0.5], 0, 1)); // 期望 0.5

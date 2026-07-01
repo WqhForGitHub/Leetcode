@@ -43,9 +43,7 @@ class Excel {
     this.H = H;
     this.W = W.charCodeAt(0) - "A".charCodeAt(0) + 1;
     this.val = Array.from({ length: H + 1 }, () => new Array(this.W + 1).fill(0));
-    this.formula = Array.from({ length: H + 1 }, () =>
-      new Array(this.W + 1).fill(null),
-    );
+    this.formula = Array.from({ length: H + 1 }, () => new Array(this.W + 1).fill(null));
   }
 
   private col(c: string): number {
@@ -103,9 +101,7 @@ class ExcelTopo {
     this.H = H;
     this.W = W.charCodeAt(0) - "A".charCodeAt(0) + 1;
     this.val = Array.from({ length: H + 1 }, () => new Array(this.W + 1).fill(0));
-    this.formula = Array.from({ length: H + 1 }, () =>
-      new Array(this.W + 1).fill(null),
-    );
+    this.formula = Array.from({ length: H + 1 }, () => new Array(this.W + 1).fill(null));
   }
 
   private col(c: string): number {

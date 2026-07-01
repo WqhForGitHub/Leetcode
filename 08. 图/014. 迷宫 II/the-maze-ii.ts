@@ -37,8 +37,8 @@ class MinHeap<T> {
       let i = 0;
       const n = this.data.length;
       while (true) {
-        let l = 2 * i + 1;
-        let r = 2 * i + 2;
+        const l = 2 * i + 1;
+        const r = 2 * i + 2;
         let smallest = i;
         if (l < n && this.less(this.data[l], this.data[smallest])) smallest = l;
         if (r < n && this.less(this.data[r], this.data[smallest])) smallest = r;
@@ -78,14 +78,15 @@ function roll(
 }
 
 // 方法1：Dijkstra + 二叉堆（推荐）
-function shortestDistance(
-  maze: number[][],
-  start: number[],
-  destination: number[],
-): number {
+function shortestDistance(maze: number[][], start: number[], destination: number[]): number {
   const m = maze.length;
   const n = maze[0].length;
-  const dirs = [[1, 0], [0, -1], [0, 1], [-1, 0]];
+  const dirs = [
+    [1, 0],
+    [0, -1],
+    [0, 1],
+    [-1, 0],
+  ];
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
   const [sr, sc] = start;
   const [tr, tc] = destination;
@@ -112,14 +113,15 @@ function shortestDistance(
 }
 
 // 方法2：SPFA（队列式 Bellman-Ford）
-function shortestDistanceSPFA(
-  maze: number[][],
-  start: number[],
-  destination: number[],
-): number {
+function shortestDistanceSPFA(maze: number[][], start: number[], destination: number[]): number {
   const m = maze.length;
   const n = maze[0].length;
-  const dirs = [[1, 0], [0, -1], [0, 1], [-1, 0]];
+  const dirs = [
+    [1, 0],
+    [0, -1],
+    [0, 1],
+    [-1, 0],
+  ];
   const dist: number[][] = Array.from({ length: m }, () => new Array(n).fill(Infinity));
   const inQueue: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
   const [sr, sc] = start;

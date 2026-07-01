@@ -8,11 +8,7 @@
 // 时间复杂度：O(E log E)，空间复杂度：O(V+E)
 
 // 方法1：虚拟节点 + Kruskal（推荐）
-function minCostToSupplyWaterKruskal(
-  n: number,
-  wells: number[],
-  pipes: number[][],
-): number {
+function minCostToSupplyWaterKruskal(n: number, wells: number[], pipes: number[][]): number {
   // 把所有边收集起来：well 作为虚拟节点 0 到 i+1 的边
   const edges: number[][] = [];
   for (let i = 0; i < wells.length; i++) {
@@ -53,15 +49,8 @@ function minCostToSupplyWaterKruskal(
 }
 
 // 方法2：虚拟节点 + Prim
-function minCostToSupplyWaterPrim(
-  n: number,
-  wells: number[],
-  pipes: number[][],
-): number {
-  const graph: Array<Array<{ to: number; w: number }>> = Array.from(
-    { length: n + 1 },
-    () => [],
-  );
+function minCostToSupplyWaterPrim(n: number, wells: number[], pipes: number[][]): number {
+  const graph: Array<Array<{ to: number; w: number }>> = Array.from({ length: n + 1 }, () => []);
   // 虚拟节点 0 到各房子
   for (let i = 0; i < wells.length; i++) {
     graph[0].push({ to: i + 1, w: wells[i] });
@@ -130,19 +119,27 @@ function minCostToSupplyWaterPrim(
 console.log("===== 044. 水资源分配优化 =====");
 console.log(
   "Kruskal:",
-  minCostToSupplyWaterKruskal(3, [1, 2, 2], [[1, 2, 1], [2, 3, 1]]),
+  minCostToSupplyWaterKruskal(
+    3,
+    [1, 2, 2],
+    [
+      [1, 2, 1],
+      [2, 3, 1],
+    ],
+  ),
 ); // 期望 3
 console.log(
   "Prim:",
-  minCostToSupplyWaterPrim(3, [1, 2, 2], [[1, 2, 1], [2, 3, 1]]),
+  minCostToSupplyWaterPrim(
+    3,
+    [1, 2, 2],
+    [
+      [1, 2, 1],
+      [2, 3, 1],
+    ],
+  ),
 ); // 期望 3
-console.log(
-  "Kruskal 只打井:",
-  minCostToSupplyWaterKruskal(2, [1, 2], []),
-); // 期望 3
-console.log(
-  "Prim 只打井:",
-  minCostToSupplyWaterPrim(2, [1, 2], []),
-); // 期望 3
+console.log("Kruskal 只打井:", minCostToSupplyWaterKruskal(2, [1, 2], [])); // 期望 3
+console.log("Prim 只打井:", minCostToSupplyWaterPrim(2, [1, 2], [])); // 期望 3
 
 export {};

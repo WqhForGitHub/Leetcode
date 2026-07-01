@@ -76,11 +76,49 @@ function removeStonesDFS(stones: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 035. 移除最多的同行或同列石头 =====");
-console.log("UF:", removeStonesUF([[0, 0], [0, 1], [1, 0], [1, 2], [2, 1], [2, 2]])); // 期望 5
-console.log("UF:", removeStonesUF([[0, 0], [0, 2], [1, 1], [2, 0], [2, 2]])); // 期望 3
+console.log(
+  "UF:",
+  removeStonesUF([
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 2],
+    [2, 1],
+    [2, 2],
+  ]),
+); // 期望 5
+console.log(
+  "UF:",
+  removeStonesUF([
+    [0, 0],
+    [0, 2],
+    [1, 1],
+    [2, 0],
+    [2, 2],
+  ]),
+); // 期望 3
 console.log("UF:", removeStonesUF([[0, 0]])); // 期望 0
-console.log("DFS:", removeStonesDFS([[0, 0], [0, 1], [1, 0], [1, 2], [2, 1], [2, 2]])); // 期望 5
-console.log("DFS:", removeStonesDFS([[0, 0], [0, 2], [1, 1], [2, 0], [2, 2]])); // 期望 3
+console.log(
+  "DFS:",
+  removeStonesDFS([
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 2],
+    [2, 1],
+    [2, 2],
+  ]),
+); // 期望 5
+console.log(
+  "DFS:",
+  removeStonesDFS([
+    [0, 0],
+    [0, 2],
+    [1, 1],
+    [2, 0],
+    [2, 2],
+  ]),
+); // 期望 3
 console.log("DFS:", removeStonesDFS([[0, 0]])); // 期望 0
 
 export {};

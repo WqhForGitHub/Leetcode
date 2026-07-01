@@ -124,9 +124,6 @@ console.log(
     [3, 4, 4],
   ]),
 ); // 期望 -1
-console.log(
-  "Prim 单点:",
-  minimumCostPrim(1, []),
-); // 期望 0
+console.log("Prim 单点:", minimumCostPrim(1, [])); // 期望 0
 
 export {};

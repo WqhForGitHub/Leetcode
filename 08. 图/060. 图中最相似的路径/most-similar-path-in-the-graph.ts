@@ -168,7 +168,11 @@ const adj1: number[][] = [[1], [0, 2], [1]];
   console.log(p2, "cost=", pathCost(p2, tp), "valid=", isValidPath(adj1, p2)); // 期望 [1,2,1] cost 1
 }
 // 测试3: 三角形图 0-1-2-0
-const adj2: number[][] = [[1, 2], [0, 2], [0, 1]];
+const adj2: number[][] = [
+  [1, 2],
+  [0, 2],
+  [0, 1],
+];
 {
   const tp = [0, 1, 2, 0];
   const p = mostSimilarPath(adj2, tp);

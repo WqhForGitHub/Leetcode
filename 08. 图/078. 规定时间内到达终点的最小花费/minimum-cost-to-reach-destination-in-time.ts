@@ -7,11 +7,7 @@
 // 时间复杂度：O(maxTime * (N+E))，空间复杂度：O(maxTime * N)
 
 // 方法1：时间分层 DP（推荐）
-function minCost(
-  maxTime: number,
-  edges: number[][],
-  passingFees: number[],
-): number {
+function minCost(maxTime: number, edges: number[][], passingFees: number[]): number {
   const n = passingFees.length;
   const g: Array<Array<[number, number]>> = Array.from({ length: n }, () => []);
   for (const [u, v, t] of edges) {
@@ -21,9 +17,7 @@ function minCost(
 
   const INF = Infinity;
   // dp[t][u] = 恰好在时刻 t 到达城市 u 时的最小总过路费
-  const dp: number[][] = Array.from({ length: maxTime + 1 }, () =>
-    new Array<number>(n).fill(INF),
-  );
+  const dp: number[][] = Array.from({ length: maxTime + 1 }, () => new Array<number>(n).fill(INF));
   dp[0][0] = passingFees[0];
 
   let ans = INF;
@@ -45,11 +39,7 @@ function minCost(
 }
 
 // 方法2：Dijkstra 状态 (城市, 时间) - 以花费为关键字
-function minCostDijkstra(
-  maxTime: number,
-  edges: number[][],
-  passingFees: number[],
-): number {
+function minCostDijkstra(maxTime: number, edges: number[][], passingFees: number[]): number {
   const n = passingFees.length;
   const g: Array<Array<[number, number]>> = Array.from({ length: n }, () => []);
   for (const [u, v, t] of edges) {

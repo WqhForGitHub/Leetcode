@@ -58,13 +58,47 @@ function findItineraryPQ(tickets: Array<[string, string]>): string[] {
 // 测试
 // ============================================================
 console.log("===== 010. 重新安排行程 =====");
-console.log("Hierholzer:", findItinerary([["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]));
+console.log(
+  "Hierholzer:",
+  findItinerary([
+    ["MUC", "LHR"],
+    ["JFK", "MUC"],
+    ["SFO", "SJC"],
+    ["LHR", "SFO"],
+  ]),
+);
 // 期望 ["JFK","MUC","LHR","SFO","SJC"]
-console.log("PQ:", findItineraryPQ([["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]));
+console.log(
+  "PQ:",
+  findItineraryPQ([
+    ["MUC", "LHR"],
+    ["JFK", "MUC"],
+    ["SFO", "SJC"],
+    ["LHR", "SFO"],
+  ]),
+);
 // 期望 ["JFK","MUC","LHR","SFO","SJC"]
-console.log("Hierholzer:", findItinerary([["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]));
+console.log(
+  "Hierholzer:",
+  findItinerary([
+    ["JFK", "SFO"],
+    ["JFK", "ATL"],
+    ["SFO", "ATL"],
+    ["ATL", "JFK"],
+    ["ATL", "SFO"],
+  ]),
+);
 // 期望 ["JFK","ATL","JFK","SFO","ATL","SFO"]
-console.log("PQ:", findItineraryPQ([["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]));
+console.log(
+  "PQ:",
+  findItineraryPQ([
+    ["JFK", "SFO"],
+    ["JFK", "ATL"],
+    ["SFO", "ATL"],
+    ["ATL", "JFK"],
+    ["ATL", "SFO"],
+  ]),
+);
 // 期望 ["JFK","ATL","JFK","SFO","ATL","SFO"]
 
 export {};

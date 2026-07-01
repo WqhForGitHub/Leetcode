@@ -82,8 +82,24 @@ function sumOfDistancesInTreeBrute(n: number, edges: number[][]): number[] {
 // ============================================================
 console.log("===== 026. 树中距离之和 =====");
 
-console.log(sumOfDistancesInTree(6, [[0, 1], [0, 2], [2, 3], [2, 4], [2, 5]])); // 期望: [8,12,6,10,10,10]
-console.log(sumOfDistancesInTreeBrute(6, [[0, 1], [0, 2], [2, 3], [2, 4], [2, 5]])); // 期望: [8,12,6,10,10,10]
+console.log(
+  sumOfDistancesInTree(6, [
+    [0, 1],
+    [0, 2],
+    [2, 3],
+    [2, 4],
+    [2, 5],
+  ]),
+); // 期望: [8,12,6,10,10,10]
+console.log(
+  sumOfDistancesInTreeBrute(6, [
+    [0, 1],
+    [0, 2],
+    [2, 3],
+    [2, 4],
+    [2, 5],
+  ]),
+); // 期望: [8,12,6,10,10,10]
 
 console.log(sumOfDistancesInTree(1, [])); // 期望: [0]
 console.log(sumOfDistancesInTree(2, [[1, 0]])); // 期望: [1,1]

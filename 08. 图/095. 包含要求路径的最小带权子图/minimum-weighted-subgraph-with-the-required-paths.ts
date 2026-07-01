@@ -11,7 +11,7 @@ function minimumWeight(
   edges: number[][],
   src1: number,
   src2: number,
-  dest: number
+  dest: number,
 ): number {
   const adj: number[][][] = Array.from({ length: n }, () => []);
   const radj: number[][][] = Array.from({ length: n }, () => []); // 反图
@@ -21,7 +21,7 @@ function minimumWeight(
   }
 
   const dijkstra = (start: number, graph: number[][][]): bigint[] => {
-    const dist = new Array<bigint>(n).fill((1n << 62n));
+    const dist = new Array<bigint>(n).fill(1n << 62n);
     dist[start] = 0n;
     // 最小堆：[距离, 节点]
     const heap: [bigint, number][] = [[0n, start]];
@@ -49,13 +49,13 @@ function minimumWeight(
   const d2 = dijkstra(src2, adj); // 从 src2 到各点
   const dr = dijkstra(dest, radj); // 从 dest 反向（即各点到 dest）
 
-  let ans = (1n << 62n);
+  let ans = 1n << 62n;
   for (let x = 0; x < n; x++) {
-    if (d1[x] === (1n << 62n) || d2[x] === (1n << 62n) || dr[x] === (1n << 62n)) continue;
+    if (d1[x] === 1n << 62n || d2[x] === 1n << 62n || dr[x] === 1n << 62n) continue;
     const total = d1[x] + d2[x] + dr[x];
     if (total < ans) ans = total;
   }
-  return ans >= (1n << 62n) ? -1 : Number(ans);
+  return ans >= 1n << 62n ? -1 : Number(ans);
 }
 
 // 方法2：使用 Map 邻接 + 堆优化（同样的三次 Dijkstra，结构更清晰）
@@ -64,7 +64,7 @@ function minimumWeightV2(
   edges: number[][],
   src1: number,
   src2: number,
-  dest: number
+  dest: number,
 ): number {
   const buildGraph = (reversed: boolean) => {
     const g = new Map<number, [number, number][]>();
@@ -116,22 +116,57 @@ function minimumWeightV2(
 // 测试
 // ============================================================
 console.log("===== 095. 包含要求路径的最小带权子图 =====");
-console.log(minimumWeight(
-  6,
-  [[0, 2, 2], [0, 5, 6], [1, 0, 3], [1, 4, 5], [2, 1, 1], [2, 3, 3], [2, 3, 4], [3, 4, 2], [4, 5, 1]],
-  0, 1, 5
-)); // 期望: 9
+console.log(
+  minimumWeight(
+    6,
+    [
+      [0, 2, 2],
+      [0, 5, 6],
+      [1, 0, 3],
+      [1, 4, 5],
+      [2, 1, 1],
+      [2, 3, 3],
+      [2, 3, 4],
+      [3, 4, 2],
+      [4, 5, 1],
+    ],
+    0,
+    1,
+    5,
+  ),
+); // 期望: 9
 
-console.log(minimumWeight(
-  3,
-  [[0, 1, 1], [2, 1, 1]],
-  0, 2, 1
-)); // 期望: 2
+console.log(
+  minimumWeight(
+    3,
+    [
+      [0, 1, 1],
+      [2, 1, 1],
+    ],
+    0,
+    2,
+    1,
+  ),
+); // 期望: 2
 
-console.log(minimumWeightV2(
-  6,
-  [[0, 2, 2], [0, 5, 6], [1, 0, 3], [1, 4, 5], [2, 1, 1], [2, 3, 3], [2, 3, 4], [3, 4, 2], [4, 5, 1]],
-  0, 1, 5
-)); // 期望: 9
+console.log(
+  minimumWeightV2(
+    6,
+    [
+      [0, 2, 2],
+      [0, 5, 6],
+      [1, 0, 3],
+      [1, 4, 5],
+      [2, 1, 1],
+      [2, 3, 3],
+      [2, 3, 4],
+      [3, 4, 2],
+      [4, 5, 1],
+    ],
+    0,
+    1,
+    5,
+  ),
+); // 期望: 9
 
 export {};

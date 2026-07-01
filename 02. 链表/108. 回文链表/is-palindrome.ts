@@ -61,8 +61,8 @@ function isPalindrome(head: ListNode | null): boolean {
   // slow 位于前半段的最后一个节点
 
   // 2. 反转后半部分
-  let secondHalf: ListNode | null = reverseList(slow.next);
-  let firstHalf: ListNode | null = head;
+  const secondHalf: ListNode | null = reverseList(slow.next);
+  const firstHalf: ListNode | null = head;
 
   // 3. 比较前半段与反转后的后半段
   let p1: ListNode | null = firstHalf;

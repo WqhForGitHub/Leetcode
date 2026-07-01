@@ -53,7 +53,7 @@ function buildIntersectLists(
     }
   }
   // 构造 A 链表
-  let headA: ListNode | null = null;
+  let headA: ListNode | null;
   if (arrA.length > 0) {
     headA = new ListNode(arrA[0]);
     let cur: ListNode | null = headA;
@@ -66,7 +66,7 @@ function buildIntersectLists(
     headA = commonHead;
   }
   // 构造 B 链表
-  let headB: ListNode | null = null;
+  let headB: ListNode | null;
   if (arrB.length > 0) {
     headB = new ListNode(arrB[0]);
     let cur: ListNode | null = headB;

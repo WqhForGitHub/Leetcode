@@ -59,7 +59,7 @@ function plusOne(head: ListNode | null): ListNode | null {
   if (head === null) return new ListNode(1);
 
   // 1. 反转链表（低位在前）
-  let curr = reverseList(head);
+  const curr = reverseList(head);
 
   // 2. 加一并处理进位
   let carry = 1;

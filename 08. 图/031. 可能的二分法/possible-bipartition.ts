@@ -83,11 +83,57 @@ function possibleBipartitionUF(n: number, dislikes: number[][]): boolean {
 // 测试
 // ============================================================
 console.log("===== 031. 可能的二分法 =====");
-console.log("BFS:", possibleBipartitionBFS(4, [[1, 2], [1, 3], [2, 4]])); // 期望 true
-console.log("BFS:", possibleBipartitionBFS(3, [[1, 2], [1, 3], [2, 3]])); // 期望 false
-console.log("BFS:", possibleBipartitionBFS(5, [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]])); // 期望 false
-console.log("UF:", possibleBipartitionUF(4, [[1, 2], [1, 3], [2, 4]])); // 期望 true
-console.log("UF:", possibleBipartitionUF(3, [[1, 2], [1, 3], [2, 3]])); // 期望 false
-console.log("UF:", possibleBipartitionUF(5, [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]])); // 期望 false
+console.log(
+  "BFS:",
+  possibleBipartitionBFS(4, [
+    [1, 2],
+    [1, 3],
+    [2, 4],
+  ]),
+); // 期望 true
+console.log(
+  "BFS:",
+  possibleBipartitionBFS(3, [
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // 期望 false
+console.log(
+  "BFS:",
+  possibleBipartitionBFS(5, [
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [1, 5],
+  ]),
+); // 期望 false
+console.log(
+  "UF:",
+  possibleBipartitionUF(4, [
+    [1, 2],
+    [1, 3],
+    [2, 4],
+  ]),
+); // 期望 true
+console.log(
+  "UF:",
+  possibleBipartitionUF(3, [
+    [1, 2],
+    [1, 3],
+    [2, 3],
+  ]),
+); // 期望 false
+console.log(
+  "UF:",
+  possibleBipartitionUF(5, [
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [1, 5],
+  ]),
+); // 期望 false
 
 export {};
