@@ -74,14 +74,8 @@ function numSmallerByFrequency2(queries: string[], words: string[]): number[] {
 // ============================================================
 console.log("===== 140. 比较字符串最小字母出现频次 =====");
 console.log("方法1:", numSmallerByFrequency(["cbd"], ["zaaaz"])); // 期望: [1]
-console.log(
-  "方法1:",
-  numSmallerByFrequency(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"])
-); // 期望: [1,2]
+console.log("方法1:", numSmallerByFrequency(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"])); // 期望: [1,2]
 console.log("方法2:", numSmallerByFrequency2(["cbd"], ["zaaaz"])); // 期望: [1]
-console.log(
-  "方法2:",
-  numSmallerByFrequency2(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"])
-); // 期望: [1,2]
+console.log("方法2:", numSmallerByFrequency2(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"])); // 期望: [1,2]
 
 export {};

@@ -89,11 +89,17 @@ function findMaximizedCapital(k: number, w: number, profits: number[], capital: 
 // 测试
 // ============================================================
 console.log("===== 051. IPO =====");
-console.log("k=2,w=0,profits=[1,2,3],capital=[0,1,1]:",
-  findMaximizedCapital(2, 0, [1, 2, 3], [0, 1, 1])); // 期望 4
-console.log("k=3,w=0,profits=[1,2,3],capital=[0,1,2]:",
-  findMaximizedCapital(3, 0, [1, 2, 3], [0, 1, 2])); // 期望 6
-console.log("k=1,w=2,profits=[1,2,3],capital=[1,10,3]:",
-  findMaximizedCapital(1, 2, [1, 2, 3], [1, 10, 3])); // 期望 3 (仅能承担 cap=1 的项目)
+console.log(
+  "k=2,w=0,profits=[1,2,3],capital=[0,1,1]:",
+  findMaximizedCapital(2, 0, [1, 2, 3], [0, 1, 1]),
+); // 期望 4
+console.log(
+  "k=3,w=0,profits=[1,2,3],capital=[0,1,2]:",
+  findMaximizedCapital(3, 0, [1, 2, 3], [0, 1, 2]),
+); // 期望 6
+console.log(
+  "k=1,w=2,profits=[1,2,3],capital=[1,10,3]:",
+  findMaximizedCapital(1, 2, [1, 2, 3], [1, 10, 3]),
+); // 期望 3 (仅能承担 cap=1 的项目)
 
 export {};

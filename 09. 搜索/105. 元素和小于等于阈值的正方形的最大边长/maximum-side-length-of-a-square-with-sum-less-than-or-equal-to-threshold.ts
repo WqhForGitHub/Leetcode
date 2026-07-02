@@ -5,10 +5,7 @@
 // 矩阵中边长不超过阈值和的正方形的最大边长。
 
 // 方法1：前缀和 + 二分查找
-function maxSideLength(
-  mat: number[][],
-  threshold: number
-): number {
+function maxSideLength(mat: number[][], threshold: number): number {
   const m = mat.length;
   const n = mat[0].length;
   // 二维前缀和
@@ -18,8 +15,7 @@ function maxSideLength(
   }
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= n; j++) {
-      prefix[i][j] =
-        mat[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
+      prefix[i][j] = mat[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
     }
   }
   // 二分查找最大边长
@@ -41,12 +37,11 @@ function hasSquareWithSum(
   prefix: number[][],
   m: number,
   n: number,
-  threshold: number
+  threshold: number,
 ): boolean {
   for (let i = k; i <= m; i++) {
     for (let j = k; j <= n; j++) {
-      const sum =
-        prefix[i][j] - prefix[i - k][j] - prefix[i][j - k] + prefix[i - k][j - k];
+      const sum = prefix[i][j] - prefix[i - k][j] - prefix[i][j - k] + prefix[i - k][j - k];
       if (sum <= threshold) return true;
     }
   }
@@ -54,10 +49,7 @@ function hasSquareWithSum(
 }
 
 // 方法2：前缀和 + 线性扫描（O(mn)）
-function maxSideLengthLinear(
-  mat: number[][],
-  threshold: number
-): number {
+function maxSideLengthLinear(mat: number[][], threshold: number): number {
   const m = mat.length;
   const n = mat[0].length;
   const prefix = new Array(m + 1);
@@ -66,8 +58,7 @@ function maxSideLengthLinear(
   }
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= n; j++) {
-      prefix[i][j] =
-        mat[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
+      prefix[i][j] = mat[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
     }
   }
   let result = 0;
@@ -77,7 +68,8 @@ function maxSideLengthLinear(
       if (
         i >= len &&
         j >= len &&
-        prefix[i][j] - prefix[i - len][j] - prefix[i][j - len] + prefix[i - len][j - len] <= threshold
+        prefix[i][j] - prefix[i - len][j] - prefix[i][j - len] + prefix[i - len][j - len] <=
+          threshold
       ) {
         result = len;
       }
@@ -90,9 +82,29 @@ function maxSideLengthLinear(
 // 测试
 // ============================================================
 console.log("===== 105. 元素和小于等于阈值的正方形的最大边长 =====");
-console.log("二分 [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]],4:",
-  maxSideLength([[1, 1, 3, 2, 4, 3, 2], [1, 1, 3, 2, 4, 3, 2], [1, 1, 3, 2, 4, 3, 2]], 4)); // 2
-console.log("线性 [[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]],1:",
-  maxSideLengthLinear([[2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2], [2, 2, 2, 2, 2]], 1)); // 0
+console.log(
+  "二分 [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]],4:",
+  maxSideLength(
+    [
+      [1, 1, 3, 2, 4, 3, 2],
+      [1, 1, 3, 2, 4, 3, 2],
+      [1, 1, 3, 2, 4, 3, 2],
+    ],
+    4,
+  ),
+); // 2
+console.log(
+  "线性 [[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]],1:",
+  maxSideLengthLinear(
+    [
+      [2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2],
+    ],
+    1,
+  ),
+); // 0
 
 export {};

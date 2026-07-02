@@ -41,7 +41,7 @@ function smallestGoodBaseMath(n: string): string {
   const maxLen = BigInt(n).toString(2).length;
   for (let m = maxLen; m >= 2; m--) {
     // k ≈ n^(1/(m-1))
-    let k = 1n;
+    const k = 1n;
     // 用 BigInt 近似开方
     let lo = 2n;
     let hi = num;

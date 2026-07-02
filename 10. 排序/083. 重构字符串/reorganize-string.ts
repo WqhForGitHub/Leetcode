@@ -15,7 +15,7 @@ function reorganizeString(s: string): string {
 
   // 检查是否可能：某字符出现次数超过半数则不可能
   const maxCount = Math.max(...counts);
-  if (maxCount > Math.floor((s.length + 1) / 2)) return '';
+  if (maxCount > Math.floor((s.length + 1) / 2)) return "";
 
   // 构建最大堆（用数组模拟，按 count 降序）
   // 元素: [字符索引, 出现次数]
@@ -51,7 +51,7 @@ function reorganizeString(s: string): string {
     result.push(String.fromCharCode(heap[0][0] + 97));
   }
 
-  return result.join('');
+  return result.join("");
 }
 
 // 方法2：计数 + 奇偶位置放置（O(n)）
@@ -74,9 +74,9 @@ function reorganizeString2(s: string): string {
   }
 
   // 如果最多字符超过半数，不可能
-  if (maxCount > Math.floor((s.length + 1) / 2)) return '';
+  if (maxCount > Math.floor((s.length + 1) / 2)) return "";
 
-  const result: string[] = new Array(s.length).fill('');
+  const result: string[] = new Array(s.length).fill("");
   let idx = 0;
 
   // 先放出现最多的字符到偶数位置
@@ -96,7 +96,7 @@ function reorganizeString2(s: string): string {
     }
   }
 
-  return result.join('');
+  return result.join("");
 }
 
 // ============================================================

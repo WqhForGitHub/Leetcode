@@ -45,9 +45,7 @@ class Solution497 {
 // 测试
 // ============================================================
 console.log("===== 042. 非重叠矩形中的随机点 =====");
-const sol497 = new Solution497([
-  [1, 1, 5, 5],
-]);
+const sol497 = new Solution497([[1, 1, 5, 5]]);
 console.log("pick:", sol497.pick()); // 随机点
 const sol497b = new Solution497([
   [-2, -2, -1, -1],

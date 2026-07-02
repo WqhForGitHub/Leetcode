@@ -42,8 +42,7 @@ function kthSmallestPrimeFractionHeap(arr: number[], k: number): number[] {
   for (let i = 0; i < n - 1; i++) {
     heap.push([i, n - 1]);
   }
-  const compare = (a: Pair, b: Pair) =>
-    arr[a[0]] * arr[b[1]] - arr[b[0]] * arr[a[1]];
+  const compare = (a: Pair, b: Pair) => arr[a[0]] * arr[b[1]] - arr[b[0]] * arr[a[1]];
   for (let i = 0; i < k - 1; i++) {
     heap.sort(compare);
     const [ni, dj] = heap.shift()!;

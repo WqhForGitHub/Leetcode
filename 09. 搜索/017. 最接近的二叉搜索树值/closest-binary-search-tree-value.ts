@@ -33,10 +33,7 @@ function closestValue(root: TreeNode270 | null, target: number): number {
 }
 
 // 方法2：中序遍历得到有序数组再二分（O(n)）
-function closestValueInorder(
-  root: TreeNode270 | null,
-  target: number
-): number {
+function closestValueInorder(root: TreeNode270 | null, target: number): number {
   const vals: number[] = [];
   function inorder(node: TreeNode270 | null) {
     if (!node) return;
@@ -56,10 +53,7 @@ function closestValueInorder(
     }
   }
   // 比较 left 和 left-1
-  if (
-    left > 0 &&
-    Math.abs(vals[left - 1] - target) <= Math.abs(vals[left] - target)
-  ) {
+  if (left > 0 && Math.abs(vals[left - 1] - target) <= Math.abs(vals[left] - target)) {
     return vals[left - 1];
   }
   return vals[left];
@@ -72,7 +66,7 @@ console.log("===== 017. 最接近的二叉搜索树值 =====");
 const bst = new TreeNode270(
   4,
   new TreeNode270(2, new TreeNode270(1), new TreeNode270(3)),
-  new TreeNode270(5)
+  new TreeNode270(5),
 );
 console.log("BST搜索 4,3.714286:", closestValue(bst, 3.714286)); // 4
 console.log("中序 4,3.714286:", closestValueInorder(bst, 3.714286)); // 4

@@ -10,7 +10,7 @@ function maxProfit1648(inventory: number[], orders: number): number {
   // 排序（降序）
   inventory.sort((a, b) => b - a);
   let result = 0;
-  let n = inventory.length;
+  const n = inventory.length;
   // 二分找阈值 T，使得所有 > T 的颜色都卖到 T
   let lo = 0;
   let hi = inventory[0];
@@ -50,13 +50,13 @@ function maxProfit1648Greedy(inventory: number[], orders: number): number {
     const total = count * diff;
     if (total <= remaining) {
       // 卖掉所有这些颜色到 inventory[i+1]
-      result += count * (BigInt(inventory[i]) + BigInt(inventory[i + 1]) + 1n) * diff / 2n;
+      result += (count * (BigInt(inventory[i]) + BigInt(inventory[i + 1]) + 1n) * diff) / 2n;
       remaining -= total;
     } else {
       // 只能卖 remaining 个
       const q = remaining / count;
       const r = remaining % count;
-      result += count * (BigInt(inventory[i]) + BigInt(inventory[i]) - q + 1n) * q / 2n;
+      result += (count * (BigInt(inventory[i]) + BigInt(inventory[i]) - q + 1n) * q) / 2n;
       result += r * (BigInt(inventory[i]) - q);
       remaining = 0n;
     }

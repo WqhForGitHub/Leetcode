@@ -36,8 +36,30 @@ function intersectionSizeTwo(intervals: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 080. 设置交集大小至少为2 =====");
-console.log("结果:", intersectionSizeTwo([[1, 3], [3, 7], [8, 9]])); // 期望 5
-console.log("结果:", intersectionSizeTwo([[1, 2], [2, 3], [2, 4], [4, 5]])); // 期望 5
-console.log("结果:", intersectionSizeTwo([[1, 2], [3, 4], [5, 6]])); // 期望 6
+console.log(
+  "结果:",
+  intersectionSizeTwo([
+    [1, 3],
+    [3, 7],
+    [8, 9],
+  ]),
+); // 期望 5
+console.log(
+  "结果:",
+  intersectionSizeTwo([
+    [1, 2],
+    [2, 3],
+    [2, 4],
+    [4, 5],
+  ]),
+); // 期望 5
+console.log(
+  "结果:",
+  intersectionSizeTwo([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ]),
+); // 期望 6
 
 export {};

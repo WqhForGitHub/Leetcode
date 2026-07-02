@@ -53,12 +53,7 @@ function wiggleSortIIQuickselect(nums: number[]): void {
 }
 
 // 快速选择：返回 nums[lo..hi] 中升序第 k 小（0-indexed）的元素值
-function quickselect(
-  nums: number[],
-  lo: number,
-  hi: number,
-  k: number
-): number {
+function quickselect(nums: number[], lo: number, hi: number, k: number): number {
   if (lo === hi) return nums[lo];
   const pivotIdx = lo + Math.floor(Math.random() * (hi - lo + 1));
   const pivotVal = nums[pivotIdx];

@@ -24,12 +24,7 @@ function longestCommonSubpath(n: number, paths: number[][]): number {
   return result;
 }
 
-function getCommon(
-  paths: number[][],
-  len: number,
-  base: bigint,
-  mod: bigint
-): boolean {
+function getCommon(paths: number[][], len: number, base: bigint, mod: bigint): boolean {
   let common: Set<bigint> | null = null;
   for (const path of paths) {
     const seen = new Set<bigint>();
@@ -93,7 +88,14 @@ function longestCommonSubpathBrute(n: number, paths: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 155. 最长公共子路径 =====");
-console.log("哈希 5,[[0,1,2,3,4],[2,3,4],[4,0,1,2,3]]:", longestCommonSubpath(5, [[0, 1, 2, 3, 4], [2, 3, 4], [4, 0, 1, 2, 3]])); // 2
+console.log(
+  "哈希 5,[[0,1,2,3,4],[2,3,4],[4,0,1,2,3]]:",
+  longestCommonSubpath(5, [
+    [0, 1, 2, 3, 4],
+    [2, 3, 4],
+    [4, 0, 1, 2, 3],
+  ]),
+); // 2
 console.log("暴力 3,[[0],[1],[2]]:", longestCommonSubpathBrute(3, [[0], [1], [2]])); // 0
 
 export {};

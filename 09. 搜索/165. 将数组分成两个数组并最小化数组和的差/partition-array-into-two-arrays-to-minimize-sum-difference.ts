@@ -13,22 +13,32 @@ function minimumDifference(nums: number[]): number {
   const right = nums.slice(half);
 
   // leftSums[k] = 从左半部分选 k 个元素的所有可能和
-  const leftSums: number[][] = Array(half + 1).fill(null).map(() => []);
-  const rightSums: number[][] = Array(half + 1).fill(null).map(() => []);
+  const leftSums: number[][] = Array(half + 1)
+    .fill(null)
+    .map(() => []);
+  const rightSums: number[][] = Array(half + 1)
+    .fill(null)
+    .map(() => []);
 
-  for (let mask = 0; mask < (1 << half); mask++) {
+  for (let mask = 0; mask < 1 << half; mask++) {
     let sum = 0;
     let count = 0;
     for (let i = 0; i < half; i++) {
-      if (mask & (1 << i)) { sum += left[i]; count++; }
+      if (mask & (1 << i)) {
+        sum += left[i];
+        count++;
+      }
     }
     leftSums[count].push(sum);
   }
-  for (let mask = 0; mask < (1 << half); mask++) {
+  for (let mask = 0; mask < 1 << half; mask++) {
     let sum = 0;
     let count = 0;
     for (let i = 0; i < half; i++) {
-      if (mask & (1 << i)) { sum += right[i]; count++; }
+      if (mask & (1 << i)) {
+        sum += right[i];
+        count++;
+      }
     }
     rightSums[count].push(sum);
   }

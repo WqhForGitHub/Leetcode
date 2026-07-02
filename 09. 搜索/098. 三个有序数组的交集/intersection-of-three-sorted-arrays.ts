@@ -5,11 +5,7 @@
 // 三个升序数组的交集（共同元素）。
 
 // 方法1：三指针法
-function arraysIntersection(
-  arr1: number[],
-  arr2: number[],
-  arr3: number[]
-): number[] {
+function arraysIntersection(arr1: number[], arr2: number[], arr3: number[]): number[] {
   let i = 0;
   let j = 0;
   let k = 0;
@@ -31,11 +27,7 @@ function arraysIntersection(
 }
 
 // 方法2：二分查找（以一个数组为基准）
-function arraysIntersectionBinary(
-  arr1: number[],
-  arr2: number[],
-  arr3: number[]
-): number[] {
+function arraysIntersectionBinary(arr1: number[], arr2: number[], arr3: number[]): number[] {
   const result: number[] = [];
   for (const val of arr1) {
     if (binarySearch98(arr2, val) && binarySearch98(arr3, val)) {
@@ -58,11 +50,7 @@ function binarySearch98(arr: number[], target: number): boolean {
 }
 
 // 方法3：哈希集合计数
-function arraysIntersectionHash(
-  arr1: number[],
-  arr2: number[],
-  arr3: number[]
-): number[] {
+function arraysIntersectionHash(arr1: number[], arr2: number[], arr3: number[]): number[] {
   const count = new Map<number, number>();
   for (const v of arr1) count.set(v, (count.get(v) || 0) + 1);
   for (const v of arr2) count.set(v, (count.get(v) || 0) + 1);
@@ -78,9 +66,13 @@ function arraysIntersectionHash(
 // 测试
 // ============================================================
 console.log("===== 098. 三个有序数组的交集 =====");
-console.log("三指针 [1,2,3,4,5],[1,2,5,7,9],[1,3,4,5,8]:",
-  arraysIntersection([1, 2, 3, 4, 5], [1, 2, 5, 7, 9], [1, 3, 4, 5, 8])); // [1,5]
-console.log("二分 [1,2,3,4,5],[1,2,5,7,9],[1,3,4,5,8]:",
-  arraysIntersectionBinary([1, 2, 3, 4, 5], [1, 2, 5, 7, 9], [1, 3, 4, 5, 8])); // [1,5]
+console.log(
+  "三指针 [1,2,3,4,5],[1,2,5,7,9],[1,3,4,5,8]:",
+  arraysIntersection([1, 2, 3, 4, 5], [1, 2, 5, 7, 9], [1, 3, 4, 5, 8]),
+); // [1,5]
+console.log(
+  "二分 [1,2,3,4,5],[1,2,5,7,9],[1,3,4,5,8]:",
+  arraysIntersectionBinary([1, 2, 3, 4, 5], [1, 2, 5, 7, 9], [1, 3, 4, 5, 8]),
+); // [1,5]
 
 export {};

@@ -62,6 +62,9 @@ console.log("===== 125. 删除最短的子数组使剩余数组有序 =====");
 console.log("双指针 [1,2,3,10,4,2,3,5]:", findLengthOfShortestSubarray([1, 2, 3, 10, 4, 2, 3, 5])); // 3
 console.log("双指针 [5,4,3,2,1]:", findLengthOfShortestSubarray([5, 4, 3, 2, 1])); // 4
 console.log("双指针 [1,2,3]:", findLengthOfShortestSubarray([1, 2, 3])); // 0
-console.log("二分 [1,2,3,10,4,2,3,5]:", findLengthOfShortestSubarrayBinary([1, 2, 3, 10, 4, 2, 3, 5])); // 3
+console.log(
+  "二分 [1,2,3,10,4,2,3,5]:",
+  findLengthOfShortestSubarrayBinary([1, 2, 3, 10, 4, 2, 3, 5]),
+); // 3
 
 export {};

@@ -29,10 +29,7 @@ function superEggDrop(K: number, N: number): number {
           hi = mid;
         }
       }
-      dp[i][j] = 1 + Math.max(
-        dp[i - 1][lo - 1],
-        dp[i][j - lo]
-      );
+      dp[i][j] = 1 + Math.max(dp[i - 1][lo - 1], dp[i][j - lo]);
     }
   }
   return dp[K][N];

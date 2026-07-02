@@ -9,10 +9,15 @@
 // 方法1：按索引排序 + 从右向左替换（推荐，O(n * k) 时间，O(n) 空间）
 // 先将替换操作按 indices 升序排序，再从右向左依次替换。
 // 从右向左保证左侧索引位置在结果串中始终有效；匹配判断对原始 s 进行。
-function findReplaceString(s: string, indices: number[], sources: string[], targets: string[]): string {
+function findReplaceString(
+  s: string,
+  indices: number[],
+  sources: string[],
+  targets: string[],
+): string {
   const k = indices.length;
   const order: number[] = Array.from({ length: k }, (_, i) => i).sort(
-    (a, b) => indices[a] - indices[b]
+    (a, b) => indices[a] - indices[b],
   );
 
   let result = s;
@@ -32,7 +37,12 @@ function findReplaceString(s: string, indices: number[], sources: string[], targ
 // 方法2：标记数组 + 顺序构建（O(n + k * |src|) 时间，O(n) 空间）
 // 先用 match[i] 记录原串位置 i 处是否发生替换及其替换编号，
 // 再顺序扫描原串：命中则追加 target 并跳过 source 长度，否则追加当前字符。
-function findReplaceStringBuild(s: string, indices: number[], sources: string[], targets: string[]): string {
+function findReplaceStringBuild(
+  s: string,
+  indices: number[],
+  sources: string[],
+  targets: string[],
+): string {
   const n = s.length;
   const k = indices.length;
   const match: number[] = new Array(n).fill(-1);
@@ -63,17 +73,29 @@ function findReplaceStringBuild(s: string, indices: number[], sources: string[],
 // 测试
 // ============================================================
 console.log("===== 092. 字符串中的查找与替换 =====");
-console.log("右向左 abcd,[0,2],[ab,cd],[eee,ffff]:",
-  findReplaceString("abcd", [0, 2], ["ab", "cd"], ["eee", "ffff"])); // 期望 "eeeffff"
-console.log("右向左 abcd,[0,2],[a,cd],[eee,ffff]:",
-  findReplaceString("abcd", [0, 2], ["a", "cd"], ["eee", "ffff"])); // 期望 "eeebffff"
-console.log("右向左 vmokgggqzp,[3,5,1],[kg,ggq,mo],[s,so,bfr]:",
-  findReplaceString("vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"])); // 期望 "vbfrssozp"
-console.log("构建法 abcd,[0,2],[ab,cd],[eee,ffff]:",
-  findReplaceStringBuild("abcd", [0, 2], ["ab", "cd"], ["eee", "ffff"])); // 期望 "eeeffff"
-console.log("构建法 abcd,[0,2],[a,cd],[eee,ffff]:",
-  findReplaceStringBuild("abcd", [0, 2], ["a", "cd"], ["eee", "ffff"])); // 期望 "eeebffff"
-console.log("构建法 vmokgggqzp,[3,5,1],[kg,ggq,mo],[s,so,bfr]:",
-  findReplaceStringBuild("vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"])); // 期望 "vbfrssozp"
+console.log(
+  "右向左 abcd,[0,2],[ab,cd],[eee,ffff]:",
+  findReplaceString("abcd", [0, 2], ["ab", "cd"], ["eee", "ffff"]),
+); // 期望 "eeeffff"
+console.log(
+  "右向左 abcd,[0,2],[a,cd],[eee,ffff]:",
+  findReplaceString("abcd", [0, 2], ["a", "cd"], ["eee", "ffff"]),
+); // 期望 "eeebffff"
+console.log(
+  "右向左 vmokgggqzp,[3,5,1],[kg,ggq,mo],[s,so,bfr]:",
+  findReplaceString("vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"]),
+); // 期望 "vbfrssozp"
+console.log(
+  "构建法 abcd,[0,2],[ab,cd],[eee,ffff]:",
+  findReplaceStringBuild("abcd", [0, 2], ["ab", "cd"], ["eee", "ffff"]),
+); // 期望 "eeeffff"
+console.log(
+  "构建法 abcd,[0,2],[a,cd],[eee,ffff]:",
+  findReplaceStringBuild("abcd", [0, 2], ["a", "cd"], ["eee", "ffff"]),
+); // 期望 "eeebffff"
+console.log(
+  "构建法 vmokgggqzp,[3,5,1],[kg,ggq,mo],[s,so,bfr]:",
+  findReplaceStringBuild("vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"]),
+); // 期望 "vbfrssozp"
 
 export {};

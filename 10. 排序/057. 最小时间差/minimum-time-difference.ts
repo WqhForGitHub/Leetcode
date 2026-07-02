@@ -70,7 +70,13 @@ console.log("排序法 ['23:59','00:00']:", findMinDifference(["23:59", "00:00"]
 console.log("排序法 ['00:00','23:59','00:00']:", findMinDifference(["00:00", "23:59", "00:00"])); // 期望 0
 console.log("排序法 ['12:12','00:13','00:12']:", findMinDifference(["12:12", "00:13", "00:12"])); // 期望 1
 console.log("桶排序法 ['23:59','00:00']:", findMinDifferenceBucket(["23:59", "00:00"])); // 期望 1
-console.log("桶排序法 ['00:00','23:59','00:00']:", findMinDifferenceBucket(["00:00", "23:59", "00:00"])); // 期望 0
-console.log("桶排序法 ['12:12','00:13','00:12']:", findMinDifferenceBucket(["12:12", "00:13", "00:12"])); // 期望 1
+console.log(
+  "桶排序法 ['00:00','23:59','00:00']:",
+  findMinDifferenceBucket(["00:00", "23:59", "00:00"]),
+); // 期望 0
+console.log(
+  "桶排序法 ['12:12','00:13','00:12']:",
+  findMinDifferenceBucket(["12:12", "00:13", "00:12"]),
+); // 期望 1
 
 export {};

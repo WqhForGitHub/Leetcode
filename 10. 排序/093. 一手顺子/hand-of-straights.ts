@@ -67,17 +67,17 @@ function isNStraightHandMap(hand: number[], groupSize: number): boolean {
 // 测试
 // ============================================================
 console.log("===== 093. 一手顺子 =====");
-console.log("排序贪心 [1,2,3,6,2,3,4,7,8],3:",
-  isNStraightHand([1, 2, 3, 6, 2, 3, 4, 7, 8], 3)); // 期望 true
-console.log("排序贪心 [1,2,3,4,5],4:",
-  isNStraightHand([1, 2, 3, 4, 5], 4)); // 期望 false
-console.log("排序贪心 [3,2,1,2,3,4,3,4,5,9,10,11],3:",
-  isNStraightHand([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3)); // 期望 true
-console.log("回退法 [1,2,3,6,2,3,4,7,8],3:",
-  isNStraightHandMap([1, 2, 3, 6, 2, 3, 4, 7, 8], 3)); // 期望 true
-console.log("回退法 [1,2,3,4,5],4:",
-  isNStraightHandMap([1, 2, 3, 4, 5], 4)); // 期望 false
-console.log("回退法 [3,2,1,2,3,4,3,4,5,9,10,11],3:",
-  isNStraightHandMap([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3)); // 期望 true
+console.log("排序贪心 [1,2,3,6,2,3,4,7,8],3:", isNStraightHand([1, 2, 3, 6, 2, 3, 4, 7, 8], 3)); // 期望 true
+console.log("排序贪心 [1,2,3,4,5],4:", isNStraightHand([1, 2, 3, 4, 5], 4)); // 期望 false
+console.log(
+  "排序贪心 [3,2,1,2,3,4,3,4,5,9,10,11],3:",
+  isNStraightHand([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3),
+); // 期望 true
+console.log("回退法 [1,2,3,6,2,3,4,7,8],3:", isNStraightHandMap([1, 2, 3, 6, 2, 3, 4, 7, 8], 3)); // 期望 true
+console.log("回退法 [1,2,3,4,5],4:", isNStraightHandMap([1, 2, 3, 4, 5], 4)); // 期望 false
+console.log(
+  "回退法 [3,2,1,2,3,4,3,4,5,9,10,11],3:",
+  isNStraightHandMap([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3),
+); // 期望 true
 
 export {};

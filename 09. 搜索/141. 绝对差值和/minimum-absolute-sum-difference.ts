@@ -56,6 +56,9 @@ function minAbsoluteSumDiffBrute(nums1: number[], nums2: number[]): number {
 // ============================================================
 console.log("===== 141. 绝对差值和 =====");
 console.log("二分 [1,7,5],[2,3,5]:", minAbsoluteSumDiff([1, 7, 5], [2, 3, 5])); // 3
-console.log("二分 [2,4,6,8,10],[2,4,6,8,10]:", minAbsoluteSumDiff([2, 4, 6, 8, 10], [2, 4, 6, 8, 10])); // 0
+console.log(
+  "二分 [2,4,6,8,10],[2,4,6,8,10]:",
+  minAbsoluteSumDiff([2, 4, 6, 8, 10], [2, 4, 6, 8, 10]),
+); // 0
 
 export {};

@@ -51,13 +51,55 @@ function findLongestChain_dp(pairs: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 069. 最长数对链 =====");
-console.log("贪心 [[1,2],[2,3],[3,4]]:", findLongestChain([[1, 2], [2, 3], [3, 4]])); // 期望 2
-console.log("贪心 [[1,2],[7,8],[4,5]]:", findLongestChain([[1, 2], [7, 8], [4, 5]])); // 期望 3
-console.log("贪心 [[1,10],[2,3],[4,5],[6,7]]:",
-  findLongestChain([[1, 10], [2, 3], [4, 5], [6, 7]])); // 期望 3
-console.log("DP [[1,2],[2,3],[3,4]]:", findLongestChain_dp([[1, 2], [2, 3], [3, 4]])); // 期望 2
-console.log("DP [[1,2],[7,8],[4,5]]:", findLongestChain_dp([[1, 2], [7, 8], [4, 5]])); // 期望 3
-console.log("DP [[1,10],[2,3],[4,5],[6,7]]:",
-  findLongestChain_dp([[1, 10], [2, 3], [4, 5], [6, 7]])); // 期望 3
+console.log(
+  "贪心 [[1,2],[2,3],[3,4]]:",
+  findLongestChain([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望 2
+console.log(
+  "贪心 [[1,2],[7,8],[4,5]]:",
+  findLongestChain([
+    [1, 2],
+    [7, 8],
+    [4, 5],
+  ]),
+); // 期望 3
+console.log(
+  "贪心 [[1,10],[2,3],[4,5],[6,7]]:",
+  findLongestChain([
+    [1, 10],
+    [2, 3],
+    [4, 5],
+    [6, 7],
+  ]),
+); // 期望 3
+console.log(
+  "DP [[1,2],[2,3],[3,4]]:",
+  findLongestChain_dp([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望 2
+console.log(
+  "DP [[1,2],[7,8],[4,5]]:",
+  findLongestChain_dp([
+    [1, 2],
+    [7, 8],
+    [4, 5],
+  ]),
+); // 期望 3
+console.log(
+  "DP [[1,10],[2,3],[4,5],[6,7]]:",
+  findLongestChain_dp([
+    [1, 10],
+    [2, 3],
+    [4, 5],
+    [6, 7],
+  ]),
+); // 期望 3
 
 export {};

@@ -20,13 +20,7 @@ class MockFontInfo implements FontInfo {
 }
 
 // 方法1：二分查找
-function maxFont(
-  text: string,
-  w: number,
-  h: number,
-  fonts: number[],
-  fontInfo: FontInfo
-): number {
+function maxFont(text: string, w: number, h: number, fonts: number[], fontInfo: FontInfo): number {
   const n = fonts.length;
   let left = 0;
   let right = n - 1;
@@ -61,9 +55,9 @@ function maxFontLinear(
   w: number,
   h: number,
   fonts: number[],
-  fontInfo: FontInfo
+  fontInfo: FontInfo,
 ): number {
-  let result = -1;
+  const result = -1;
   for (let i = fonts.length - 1; i >= 0; i--) {
     const fontSize = fonts[i];
     if (fontInfo.getHeight(fontSize) > h) continue;
@@ -84,7 +78,13 @@ function maxFontLinear(
 // ============================================================
 console.log("===== 127. 找出适应屏幕的最大字号 =====");
 const fontInfo = new MockFontInfo();
-console.log("二分 'hello',50,10,[1,2,3,4,5,6,7,8]:", maxFont("hello", 50, 10, [1, 2, 3, 4, 5, 6, 7, 8], fontInfo)); // 5 (hello = 5*5 = 25, 6*5=30 > 50? no... 实际取决于接口)
-console.log("线性 'hello',50,10,[1,2,3,4,5,6,7,8]:", maxFontLinear("hello", 50, 10, [1, 2, 3, 4, 5, 6, 7, 8], fontInfo));
+console.log(
+  "二分 'hello',50,10,[1,2,3,4,5,6,7,8]:",
+  maxFont("hello", 50, 10, [1, 2, 3, 4, 5, 6, 7, 8], fontInfo),
+); // 5 (hello = 5*5 = 25, 6*5=30 > 50? no... 实际取决于接口)
+console.log(
+  "线性 'hello',50,10,[1,2,3,4,5,6,7,8]:",
+  maxFontLinear("hello", 50, 10, [1, 2, 3, 4, 5, 6, 7, 8], fontInfo),
+);
 
 export {};

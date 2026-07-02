@@ -19,7 +19,7 @@ class TreeNode1214 {
 function twoSumBSTs(
   root1: TreeNode1214 | null,
   root2: TreeNode1214 | null,
-  target: number
+  target: number,
 ): boolean {
   const list1: number[] = [];
   const list2: number[] = [];
@@ -48,7 +48,7 @@ function inorder(node: TreeNode1214 | null, list: number[]): void {
 function twoSumBSTsHash(
   root1: TreeNode1214 | null,
   root2: TreeNode1214 | null,
-  target: number
+  target: number,
 ): boolean {
   const set = new Set<number>();
   function collect(node: TreeNode1214 | null): void {
@@ -70,7 +70,7 @@ function twoSumBSTsHash(
 function twoSumBSTsSearch(
   root1: TreeNode1214 | null,
   root2: TreeNode1214 | null,
-  target: number
+  target: number,
 ): boolean {
   function searchInBST(node: TreeNode1214 | null, val: number): boolean {
     if (!node) return false;

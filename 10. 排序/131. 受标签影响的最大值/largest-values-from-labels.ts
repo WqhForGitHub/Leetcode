@@ -11,7 +11,7 @@ function largestValsFromLabels(
   values: number[],
   labels: number[],
   numWanted: number,
-  useLimit: number
+  useLimit: number,
 ): number {
   const n = values.length;
   const idx = Array.from({ length: n }, (_, i) => i);

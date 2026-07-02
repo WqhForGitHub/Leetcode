@@ -68,6 +68,9 @@ function kthSmallestProduct(nums1: number[], nums2: number[], k: number): number
 console.log("===== 166. 两个有序数组的第 K 小乘积 =====");
 console.log("[2,5],[3,4],2:", kthSmallestProduct([2, 5], [3, 4], 2)); // 8
 console.log("[-4,-2,0,3],[2,4],6:", kthSmallestProduct([-4, -2, 0, 3], [2, 4], 6)); // 0
-console.log("[-2,-1,0,1,2],[-3,-1,2,4,5],3:", kthSmallestProduct([-2, -1, 0, 1, 2], [-3, -1, 2, 4, 5], 3)); // -6
+console.log(
+  "[-2,-1,0,1,2],[-3,-1,2,4,5],3:",
+  kthSmallestProduct([-2, -1, 0, 1, 2], [-3, -1, 2, 4, 5], 3),
+); // -6
 
 export {};

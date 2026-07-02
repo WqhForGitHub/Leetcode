@@ -64,6 +64,9 @@ console.log("升序 g=[10,9,8,7], s=[5,6,7,8]:", findContentChildren([10, 9, 8, 
 
 console.log("降序 g=[1,2,3], s=[1,1]:", findContentChildren_desc([1, 2, 3], [1, 1])); // 期望: 1
 console.log("降序 g=[1,2], s=[1,2,3]:", findContentChildren_desc([1, 2], [1, 2, 3])); // 期望: 2
-console.log("降序 g=[10,9,8,7], s=[5,6,7,8]:", findContentChildren_desc([10, 9, 8, 7], [5, 6, 7, 8])); // 期望: 2
+console.log(
+  "降序 g=[10,9,8,7], s=[5,6,7,8]:",
+  findContentChildren_desc([10, 9, 8, 7], [5, 6, 7, 8]),
+); // 期望: 2
 
 export {};

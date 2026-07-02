@@ -12,10 +12,7 @@ class CustomFunction {
 }
 
 // 方法1：暴力枚举
-function findSolution(
-  customfunction: CustomFunction,
-  z: number
-): number[][] {
+function findSolution(customfunction: CustomFunction, z: number): number[][] {
   const result: number[][] = [];
   for (let x = 1; x <= 1000; x++) {
     for (let y = 1; y <= 1000; y++) {
@@ -32,10 +29,7 @@ function findSolution(
 }
 
 // 方法2：二分查找
-function findSolutionBinary(
-  customfunction: CustomFunction,
-  z: number
-): number[][] {
+function findSolutionBinary(customfunction: CustomFunction, z: number): number[][] {
   const result: number[][] = [];
   for (let x = 1; x <= 1000; x++) {
     if (customfunction.f(x, 1) > z) break;
@@ -58,10 +52,7 @@ function findSolutionBinary(
 }
 
 // 方法3：双指针（假设 f 关于 x 和 y 都单调递增）
-function findSolutionTwoPointer(
-  customfunction: CustomFunction,
-  z: number
-): number[][] {
+function findSolutionTwoPointer(customfunction: CustomFunction, z: number): number[][] {
   const result: number[][] = [];
   let x = 1;
   let y = 1000;

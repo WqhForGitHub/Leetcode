@@ -72,9 +72,15 @@ function findBestValue2(arr: number[], target: number): number {
 console.log("===== 154. 转变数组后最接近目标值的数组和 =====");
 console.log("方法1 [4,9,3], target=10:", findBestValue([4, 9, 3], 10)); // 3
 console.log("方法1 [2,3,5], target=10:", findBestValue([2, 3, 5], 10)); // 5
-console.log("方法1 [60864,25176,32091,14585,60817,22329,90980], target=54703:", findBestValue([60864, 25176, 32091, 14585, 60817, 22329, 90980], 54703)); // 7815 (sum=54705, diff=2)
+console.log(
+  "方法1 [60864,25176,32091,14585,60817,22329,90980], target=54703:",
+  findBestValue([60864, 25176, 32091, 14585, 60817, 22329, 90980], 54703),
+); // 7815 (sum=54705, diff=2)
 console.log("方法2 [4,9,3], target=10:", findBestValue2([4, 9, 3], 10)); // 3
 console.log("方法2 [2,3,5], target=10:", findBestValue2([2, 3, 5], 10)); // 5
-console.log("方法2 [60864,25176,32091,14585,60817,22329,90980], target=54703:", findBestValue2([60864, 25176, 32091, 14585, 60817, 22329, 90980], 54703)); // 7815
+console.log(
+  "方法2 [60864,25176,32091,14585,60817,22329,90980], target=54703:",
+  findBestValue2([60864, 25176, 32091, 14585, 60817, 22329, 90980], 54703),
+); // 7815
 
 export {};

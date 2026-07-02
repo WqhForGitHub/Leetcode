@@ -90,7 +90,7 @@ function maxTotalFruitsSliding(fruits: number[][], startPos: number, k: number):
         // 窗口横跨 startPos
         const cost = Math.min(
           2 * (startPos - l) + (r - startPos),
-          2 * (r - startPos) + (startPos - l)
+          2 * (r - startPos) + (startPos - l),
         );
         if (cost <= k) {
           result = Math.max(result, prefix[right + 1] - prefix[left]);
@@ -108,9 +108,44 @@ function maxTotalFruitsSliding(fruits: number[][], startPos: number, k: number):
 // 测试
 // ============================================================
 console.log("===== 174. 摘水果 =====");
-console.log("二分 [[2,8],[6,3],[8,6]],5,4:", maxTotalFruits([[2, 8], [6, 3], [8, 6]], 5, 4)); // 9
-console.log("二分 [[0,9],[4,1],[5,7],[6,2],[7,4],[10,9]],5,4:",
-  maxTotalFruits([[0, 9], [4, 1], [5, 7], [6, 2], [7, 4], [10, 9]], 5, 4)); // 14
-console.log("滑动 [[2,8],[6,3],[8,6]],5,4:", maxTotalFruitsSliding([[2, 8], [6, 3], [8, 6]], 5, 4)); // 9
+console.log(
+  "二分 [[2,8],[6,3],[8,6]],5,4:",
+  maxTotalFruits(
+    [
+      [2, 8],
+      [6, 3],
+      [8, 6],
+    ],
+    5,
+    4,
+  ),
+); // 9
+console.log(
+  "二分 [[0,9],[4,1],[5,7],[6,2],[7,4],[10,9]],5,4:",
+  maxTotalFruits(
+    [
+      [0, 9],
+      [4, 1],
+      [5, 7],
+      [6, 2],
+      [7, 4],
+      [10, 9],
+    ],
+    5,
+    4,
+  ),
+); // 14
+console.log(
+  "滑动 [[2,8],[6,3],[8,6]],5,4:",
+  maxTotalFruitsSliding(
+    [
+      [2, 8],
+      [6, 3],
+      [8, 6],
+    ],
+    5,
+    4,
+  ),
+); // 9
 
 export {};

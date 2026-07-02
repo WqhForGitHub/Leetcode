@@ -19,10 +19,10 @@ function customSortString(order: string, s: string): string {
     return orderMap.has(c) ? orderMap.get(c)! : order.length;
   };
 
-  const chars = s.split('');
+  const chars = s.split("");
   chars.sort((a, b) => getPriority(a) - getPriority(b));
 
-  return chars.join('');
+  return chars.join("");
 }
 
 // 方法2：计数排序（O(n)）
@@ -55,7 +55,7 @@ function customSortString2(order: string, s: string): string {
     }
   }
 
-  return result.join('');
+  return result.join("");
 }
 
 // ============================================================

@@ -47,17 +47,17 @@ function carFleetStack(target: number, position: number[], speed: number[]): num
 // 测试
 // ============================================================
 console.log("===== 094. 车队 =====");
-console.log("比较法 target=12,[10,8,0,5,3],[2,4,1,1,3]:",
-  carFleet(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3])); // 期望 3
-console.log("比较法 target=10,[3],[3]:",
-  carFleet(10, [3], [3])); // 期望 1
-console.log("比较法 target=100,[0,2,4],[4,2,1]:",
-  carFleet(100, [0, 2, 4], [4, 2, 1])); // 期望 1
-console.log("栈法 target=12,[10,8,0,5,3],[2,4,1,1,3]:",
-  carFleetStack(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3])); // 期望 3
-console.log("栈法 target=10,[3],[3]:",
-  carFleetStack(10, [3], [3])); // 期望 1
-console.log("栈法 target=100,[0,2,4],[4,2,1]:",
-  carFleetStack(100, [0, 2, 4], [4, 2, 1])); // 期望 1
+console.log(
+  "比较法 target=12,[10,8,0,5,3],[2,4,1,1,3]:",
+  carFleet(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]),
+); // 期望 3
+console.log("比较法 target=10,[3],[3]:", carFleet(10, [3], [3])); // 期望 1
+console.log("比较法 target=100,[0,2,4],[4,2,1]:", carFleet(100, [0, 2, 4], [4, 2, 1])); // 期望 1
+console.log(
+  "栈法 target=12,[10,8,0,5,3],[2,4,1,1,3]:",
+  carFleetStack(12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]),
+); // 期望 3
+console.log("栈法 target=10,[3],[3]:", carFleetStack(10, [3], [3])); // 期望 1
+console.log("栈法 target=100,[0,2,4],[4,2,1]:", carFleetStack(100, [0, 2, 4], [4, 2, 1])); // 期望 1
 
 export {};

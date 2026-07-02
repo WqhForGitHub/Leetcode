@@ -5,10 +5,7 @@
 // 每输入一个字符，返回最多3个词典中以当前前缀开头的词。
 
 // 方法1：排序 + 二分查找
-function suggestedProducts(
-  products: string[],
-  searchWord: string
-): string[][] {
+function suggestedProducts(products: string[], searchWord: string): string[][] {
   products.sort();
   const result: string[][] = [];
   let prefix = "";
@@ -45,10 +42,7 @@ class TrieNode1268 {
   }
 }
 
-function suggestedProductsTrie(
-  products: string[],
-  searchWord: string
-): string[][] {
+function suggestedProductsTrie(products: string[], searchWord: string): string[][] {
   const root = new TrieNode1268();
   products.sort();
   // 构建 Trie
@@ -83,10 +77,16 @@ function suggestedProductsTrie(
 // 测试
 // ============================================================
 console.log("===== 103. 搜索推荐系统 =====");
-console.log("二分 ['mobile','mouse','moneypot','monitor','mousepad'],'mouse':",
-  JSON.stringify(suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse")));
+console.log(
+  "二分 ['mobile','mouse','moneypot','monitor','mousepad'],'mouse':",
+  JSON.stringify(
+    suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
+  ),
+);
 // [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
-console.log("Trie ['havana'],'havana':",
-  JSON.stringify(suggestedProductsTrie(["havana"], "havana")));
+console.log(
+  "Trie ['havana'],'havana':",
+  JSON.stringify(suggestedProductsTrie(["havana"], "havana")),
+);
 
 export {};

@@ -102,29 +102,17 @@ function invalidTransactions2(transactions: string[]): string[] {
 // 测试
 // ============================================================
 console.log("===== 139. 查询无效交易 =====");
+console.log("方法1:", invalidTransactions(["alice,20,800,mtv", "alice,50,100,beijing"])); // 期望: ["alice,20,800,mtv","alice,50,100,beijing"]
+console.log("方法1:", invalidTransactions(["alice,20,800,mtv", "alice,50,1200,mtv"])); // 期望: ["alice,50,1200,mtv"]
 console.log(
   "方法1:",
-  invalidTransactions(["alice,20,800,mtv", "alice,50,100,beijing"])
-); // 期望: ["alice,20,800,mtv","alice,50,100,beijing"]
-console.log(
-  "方法1:",
-  invalidTransactions(["alice,20,800,mtv", "alice,50,1200,mtv"])
-); // 期望: ["alice,50,1200,mtv"]
-console.log(
-  "方法1:",
-  invalidTransactions(["alice,20,800,mtv", "alice,50,1200,mtv", "alice,20,800,beijing"])
+  invalidTransactions(["alice,20,800,mtv", "alice,50,1200,mtv", "alice,20,800,beijing"]),
 ); // 期望: ["alice,20,800,mtv","alice,50,1200,mtv","alice,20,800,beijing"]
+console.log("方法2:", invalidTransactions2(["alice,20,800,mtv", "alice,50,100,beijing"])); // 期望: ["alice,20,800,mtv","alice,50,100,beijing"]
+console.log("方法2:", invalidTransactions2(["alice,20,800,mtv", "alice,50,1200,mtv"])); // 期望: ["alice,50,1200,mtv"]
 console.log(
   "方法2:",
-  invalidTransactions2(["alice,20,800,mtv", "alice,50,100,beijing"])
-); // 期望: ["alice,20,800,mtv","alice,50,100,beijing"]
-console.log(
-  "方法2:",
-  invalidTransactions2(["alice,20,800,mtv", "alice,50,1200,mtv"])
-); // 期望: ["alice,50,1200,mtv"]
-console.log(
-  "方法2:",
-  invalidTransactions2(["alice,20,800,mtv", "alice,50,1200,mtv", "alice,20,800,beijing"])
+  invalidTransactions2(["alice,20,800,mtv", "alice,50,1200,mtv", "alice,20,800,beijing"]),
 ); // 期望: ["alice,20,800,mtv","alice,50,1200,mtv","alice,20,800,beijing"]
 
 export {};

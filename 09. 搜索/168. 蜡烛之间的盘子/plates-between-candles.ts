@@ -14,7 +14,7 @@ function platesBetweenCandles(s: string, queries: number[][]): number[] {
   const prefix = new Array(n + 1).fill(0);
   for (let i = 0; i < n; i++) {
     prefix[i + 1] = prefix[i];
-    if (s[i] === '|') {
+    if (s[i] === "|") {
       candles.push(i);
     } else {
       prefix[i + 1]++;
@@ -60,13 +60,13 @@ function platesBetweenCandlesPre(s: string, queries: number[][]): number[] {
 
   let last = -1;
   for (let i = 0; i < n; i++) {
-    if (s[i] === '|') last = i;
+    if (s[i] === "|") last = i;
     leftCandle[i] = last;
-    prefix[i + 1] = prefix[i] + (s[i] === '*' ? 1 : 0);
+    prefix[i + 1] = prefix[i] + (s[i] === "*" ? 1 : 0);
   }
   last = n;
   for (let i = n - 1; i >= 0; i--) {
-    if (s[i] === '|') last = i;
+    if (s[i] === "|") last = i;
     rightCandle[i] = last;
   }
 
@@ -87,9 +87,19 @@ function platesBetweenCandlesPre(s: string, queries: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 168. 蜡烛之间的盘子 =====");
-console.log("二分 **|**|**|**,[[2,5],[5,9]]:",
-  platesBetweenCandles("**|**|**|**", [[2, 5], [5, 9]])); // [5, 4]
-console.log("预计算 **|**|**|**,[[2,5],[5,9]]:",
-  platesBetweenCandlesPre("**|**|**|**", [[2, 5], [5, 9]])); // [5, 4]
+console.log(
+  "二分 **|**|**|**,[[2,5],[5,9]]:",
+  platesBetweenCandles("**|**|**|**", [
+    [2, 5],
+    [5, 9],
+  ]),
+); // [5, 4]
+console.log(
+  "预计算 **|**|**|**,[[2,5],[5,9]]:",
+  platesBetweenCandlesPre("**|**|**|**", [
+    [2, 5],
+    [5, 9],
+  ]),
+); // [5, 4]
 
 export {};

@@ -14,11 +14,7 @@ interface Job {
 // dp[i] 表示考虑前 i 个工作（按 end 排序）能获得的最大利润。
 // 对于第 i 个工作，要么不做 dp[i-1]，要么做：找到最后一个结束时间 <= 当前开始时间的工作 k，
 // 利润为 dp[k+1] + profit，取较大值。
-function jobScheduling(
-  startTime: number[],
-  endTime: number[],
-  profit: number[]
-): number {
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
   const n: number = startTime.length;
   const jobs: Job[] = Array.from({ length: n }, (_, i) => ({
     start: startTime[i],
@@ -52,11 +48,7 @@ function jobScheduling(
 
 // 方法2：按开始时间排序 + 记忆化搜索 + 二分（O(n log n)）
 // 从左到右递归：对每个工作选或不选，选则跳到下一个开始时间 >= 当前结束时间的工作。
-function jobScheduling2(
-  startTime: number[],
-  endTime: number[],
-  profit: number[]
-): number {
+function jobScheduling2(startTime: number[], endTime: number[], profit: number[]): number {
   const n: number = startTime.length;
   const jobs: Job[] = Array.from({ length: n }, (_, i) => ({
     start: startTime[i],
@@ -98,21 +90,9 @@ function jobScheduling2(
 // 测试
 // ============================================================
 console.log("===== 148. 规划兼职工作 =====");
-console.log(
-  "方法1:",
-  jobScheduling([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])
-); // 期望: 120
-console.log(
-  "方法1:",
-  jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60])
-); // 期望: 150
-console.log(
-  "方法1:",
-  jobScheduling([1, 1, 1], [2, 3, 4], [5, 6, 4])
-); // 期望: 6
-console.log(
-  "方法2:",
-  jobScheduling2([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])
-); // 期望: 120
+console.log("方法1:", jobScheduling([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])); // 期望: 120
+console.log("方法1:", jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60])); // 期望: 150
+console.log("方法1:", jobScheduling([1, 1, 1], [2, 3, 4], [5, 6, 4])); // 期望: 6
+console.log("方法2:", jobScheduling2([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])); // 期望: 120
 
 export {};

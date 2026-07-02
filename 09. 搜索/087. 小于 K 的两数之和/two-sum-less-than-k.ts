@@ -51,8 +51,14 @@ function twoSumLessThanKBinary(nums: number[], k: number): number {
 // 测试
 // ============================================================
 console.log("===== 087. 小于 K 的两数之和 =====");
-console.log("双指针 [34,23,1,24,75,33,54,8],60:", twoSumLessThanK([34, 23, 1, 24, 75, 33, 54, 8], 60)); // 58
+console.log(
+  "双指针 [34,23,1,24,75,33,54,8],60:",
+  twoSumLessThanK([34, 23, 1, 24, 75, 33, 54, 8], 60),
+); // 58
 console.log("双指针 [10,20,30],15:", twoSumLessThanK([10, 20, 30], 15)); // -1
-console.log("二分 [34,23,1,24,75,33,54,8],60:", twoSumLessThanKBinary([34, 23, 1, 24, 75, 33, 54, 8], 60)); // 58
+console.log(
+  "二分 [34,23,1,24,75,33,54,8],60:",
+  twoSumLessThanKBinary([34, 23, 1, 24, 75, 33, 54, 8], 60),
+); // 58
 
 export {};

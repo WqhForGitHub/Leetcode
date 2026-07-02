@@ -13,9 +13,7 @@ function assignBikes(workers: number[][], bikes: number[][]): number[] {
   const pairs: Array<[number, number, number]> = []; // [dist, worker, bike]
   for (let i = 0; i < W; i++) {
     for (let j = 0; j < B; j++) {
-      const dist =
-        Math.abs(workers[i][0] - bikes[j][0]) +
-        Math.abs(workers[i][1] - bikes[j][1]);
+      const dist = Math.abs(workers[i][0] - bikes[j][0]) + Math.abs(workers[i][1] - bikes[j][1]);
       pairs.push([dist, i, j]);
     }
   }
@@ -43,16 +41,11 @@ function assignBikes2(workers: number[][], bikes: number[][]): number[] {
   const W = workers.length;
   const B = bikes.length;
   const MAX_D = 2001;
-  const buckets: Array<Array<[number, number]>> = Array.from(
-    { length: MAX_D },
-    () => []
-  );
+  const buckets: Array<Array<[number, number]>> = Array.from({ length: MAX_D }, () => []);
 
   for (let i = 0; i < W; i++) {
     for (let j = 0; j < B; j++) {
-      const d =
-        Math.abs(workers[i][0] - bikes[j][0]) +
-        Math.abs(workers[i][1] - bikes[j][1]);
+      const d = Math.abs(workers[i][0] - bikes[j][0]) + Math.abs(workers[i][1] - bikes[j][1]);
       buckets[d].push([i, j]);
     }
   }
@@ -77,15 +70,61 @@ function assignBikes2(workers: number[][], bikes: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 126. 校园自行车分配 =====");
-console.log("方法1:", assignBikes([[0, 0], [2, 1]], [[1, 2], [3, 3]])); // 期望: [1,0]
 console.log(
   "方法1:",
-  assignBikes([[0, 0], [1, 1], [2, 0]], [[1, 0], [2, 2], [2, 1]])
+  assignBikes(
+    [
+      [0, 0],
+      [2, 1],
+    ],
+    [
+      [1, 2],
+      [3, 3],
+    ],
+  ),
+); // 期望: [1,0]
+console.log(
+  "方法1:",
+  assignBikes(
+    [
+      [0, 0],
+      [1, 1],
+      [2, 0],
+    ],
+    [
+      [1, 0],
+      [2, 2],
+      [2, 1],
+    ],
+  ),
 ); // 期望: [0,2,1]
-console.log("方法2:", assignBikes2([[0, 0], [2, 1]], [[1, 2], [3, 3]])); // 期望: [1,0]
 console.log(
   "方法2:",
-  assignBikes2([[0, 0], [1, 1], [2, 0]], [[1, 0], [2, 2], [2, 1]])
+  assignBikes2(
+    [
+      [0, 0],
+      [2, 1],
+    ],
+    [
+      [1, 2],
+      [3, 3],
+    ],
+  ),
+); // 期望: [1,0]
+console.log(
+  "方法2:",
+  assignBikes2(
+    [
+      [0, 0],
+      [1, 1],
+      [2, 0],
+    ],
+    [
+      [1, 0],
+      [2, 2],
+      [2, 1],
+    ],
+  ),
 ); // 期望: [0,2,1]
 
 export {};

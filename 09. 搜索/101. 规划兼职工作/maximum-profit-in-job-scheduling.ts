@@ -5,11 +5,7 @@
 // 给定工作开始时间、结束时间、利润，求不重叠工作的最大利润。
 
 // 方法1：排序 + 动态规划 + 二分查找
-function jobScheduling(
-  startTime: number[],
-  endTime: number[],
-  profit: number[]
-): number {
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
   const n = startTime.length;
   const jobs = startTime
     .map((s, i) => ({ s, e: endTime[i], p: profit[i] }))
@@ -37,11 +33,7 @@ function jobScheduling(
 }
 
 // 方法2：排序 + 递归 + 记忆化
-function jobSchedulingMemo(
-  startTime: number[],
-  endTime: number[],
-  profit: number[]
-): number {
+function jobSchedulingMemo(startTime: number[], endTime: number[], profit: number[]): number {
   const n = startTime.length;
   const jobs = startTime
     .map((s, i) => ({ s, e: endTime[i], p: profit[i] }))
@@ -74,9 +66,13 @@ function jobSchedulingMemo(
 // 测试
 // ============================================================
 console.log("===== 101. 规划兼职工作 =====");
-console.log("DP [1,2,3,3],[3,4,5,6],[50,10,40,70]:",
-  jobScheduling([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])); // 120
-console.log("DP [1,2,3,4,6],[3,5,10,6,9],[20,20,100,70,60]:",
-  jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60])); // 150
+console.log(
+  "DP [1,2,3,3],[3,4,5,6],[50,10,40,70]:",
+  jobScheduling([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70]),
+); // 120
+console.log(
+  "DP [1,2,3,4,6],[3,5,10,6,9],[20,20,100,70,60]:",
+  jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60]),
+); // 150
 
 export {};

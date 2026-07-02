@@ -9,11 +9,7 @@
 // 方法1：双指针扫描空闲区间（推荐，O(n + m)）
 // 同时遍历两人的空闲区间，取两者的交集，若交集长度 >= duration 即返回。
 // 移动结束时间较小的指针（因为该区间已无法与对方后续区间产生更大交集）。
-function minAvailableDuration(
-  slot1: number[][],
-  slot2: number[][],
-  duration: number
-): number[] {
+function minAvailableDuration(slot1: number[][], slot2: number[][], duration: number): number[] {
   let i: number = 0;
   let j: number = 0;
   while (i < slot1.length && j < slot2.length) {
@@ -41,11 +37,7 @@ interface ScheduleEvent {
   delta: number; // +1 进入, -1 离开
 }
 
-function minAvailableDuration2(
-  slot1: number[][],
-  slot2: number[][],
-  duration: number
-): number[] {
+function minAvailableDuration2(slot1: number[][], slot2: number[][], duration: number): number[] {
   const events: ScheduleEvent[] = [];
   for (const [s, e] of slot1) {
     events.push({ time: s, person: 1, delta: 1 });
@@ -99,9 +91,9 @@ console.log(
         [0, 15],
         [60, 70],
       ],
-      8
-    )
-  )
+      8,
+    ),
+  ),
 ); // 期望: [60,68]
 console.log(
   "方法1:",
@@ -116,9 +108,9 @@ console.log(
         [0, 15],
         [60, 70],
       ],
-      12
-    )
-  )
+      12,
+    ),
+  ),
 ); // 期望: []
 console.log(
   "方法2:",
@@ -133,9 +125,9 @@ console.log(
         [0, 15],
         [60, 70],
       ],
-      8
-    )
-  )
+      8,
+    ),
+  ),
 ); // 期望: [60,68]
 
 export {};

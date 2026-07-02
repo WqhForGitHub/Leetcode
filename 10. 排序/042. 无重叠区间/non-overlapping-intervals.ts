@@ -59,12 +59,54 @@ function eraseOverlapIntervals_byStart(intervals: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 042. 无重叠区间 =====");
-console.log("按右端点 [[1,2],[2,3],[3,4],[1,3]]:", eraseOverlapIntervals_byEnd([[1, 2], [2, 3], [3, 4], [1, 3]])); // 期望: 1
-console.log("按右端点 [[1,2],[1,2],[1,2]]:", eraseOverlapIntervals_byEnd([[1, 2], [1, 2], [1, 2]])); // 期望: 2
-console.log("按右端点 [[1,2],[2,3]]:", eraseOverlapIntervals_byEnd([[1, 2], [2, 3]])); // 期望: 0
+console.log(
+  "按右端点 [[1,2],[2,3],[3,4],[1,3]]:",
+  eraseOverlapIntervals_byEnd([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [1, 3],
+  ]),
+); // 期望: 1
+console.log(
+  "按右端点 [[1,2],[1,2],[1,2]]:",
+  eraseOverlapIntervals_byEnd([
+    [1, 2],
+    [1, 2],
+    [1, 2],
+  ]),
+); // 期望: 2
+console.log(
+  "按右端点 [[1,2],[2,3]]:",
+  eraseOverlapIntervals_byEnd([
+    [1, 2],
+    [2, 3],
+  ]),
+); // 期望: 0
 
-console.log("按左端点 [[1,2],[2,3],[3,4],[1,3]]:", eraseOverlapIntervals_byStart([[1, 2], [2, 3], [3, 4], [1, 3]])); // 期望: 1
-console.log("按左端点 [[1,2],[1,2],[1,2]]:", eraseOverlapIntervals_byStart([[1, 2], [1, 2], [1, 2]])); // 期望: 2
-console.log("按左端点 [[1,2],[2,3]]:", eraseOverlapIntervals_byStart([[1, 2], [2, 3]])); // 期望: 0
+console.log(
+  "按左端点 [[1,2],[2,3],[3,4],[1,3]]:",
+  eraseOverlapIntervals_byStart([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [1, 3],
+  ]),
+); // 期望: 1
+console.log(
+  "按左端点 [[1,2],[1,2],[1,2]]:",
+  eraseOverlapIntervals_byStart([
+    [1, 2],
+    [1, 2],
+    [1, 2],
+  ]),
+); // 期望: 2
+console.log(
+  "按左端点 [[1,2],[2,3]]:",
+  eraseOverlapIntervals_byStart([
+    [1, 2],
+    [2, 3],
+  ]),
+); // 期望: 0
 
 export {};

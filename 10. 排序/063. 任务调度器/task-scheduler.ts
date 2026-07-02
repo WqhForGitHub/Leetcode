@@ -70,11 +70,29 @@ function leastIntervalSimulate(tasks: string[], n: number): number {
 // 测试
 // ============================================================
 console.log("===== 063. 任务调度器 =====");
-console.log("公式法 ['A','A','A','B','B','B'], n=2:", leastInterval(["A", "A", "A", "B", "B", "B"], 2)); // 期望 8
-console.log("公式法 ['A','A','A','B','B','B'], n=0:", leastInterval(["A", "A", "A", "B", "B", "B"], 0)); // 期望 6
-console.log("公式法 ['A','A','A','A','A','A','B','C','D','E','F','G'], n=2:", leastInterval(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)); // 期望 16
-console.log("模拟法 ['A','A','A','B','B','B'], n=2:", leastIntervalSimulate(["A", "A", "A", "B", "B", "B"], 2)); // 期望 8
-console.log("模拟法 ['A','A','A','B','B','B'], n=0:", leastIntervalSimulate(["A", "A", "A", "B", "B", "B"], 0)); // 期望 6
-console.log("模拟法 ['A','A','A','A','A','A','B','C','D','E','F','G'], n=2:", leastIntervalSimulate(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)); // 期望 16
+console.log(
+  "公式法 ['A','A','A','B','B','B'], n=2:",
+  leastInterval(["A", "A", "A", "B", "B", "B"], 2),
+); // 期望 8
+console.log(
+  "公式法 ['A','A','A','B','B','B'], n=0:",
+  leastInterval(["A", "A", "A", "B", "B", "B"], 0),
+); // 期望 6
+console.log(
+  "公式法 ['A','A','A','A','A','A','B','C','D','E','F','G'], n=2:",
+  leastInterval(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2),
+); // 期望 16
+console.log(
+  "模拟法 ['A','A','A','B','B','B'], n=2:",
+  leastIntervalSimulate(["A", "A", "A", "B", "B", "B"], 2),
+); // 期望 8
+console.log(
+  "模拟法 ['A','A','A','B','B','B'], n=0:",
+  leastIntervalSimulate(["A", "A", "A", "B", "B", "B"], 0),
+); // 期望 6
+console.log(
+  "模拟法 ['A','A','A','A','A','A','B','C','D','E','F','G'], n=2:",
+  leastIntervalSimulate(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2),
+); // 期望 16
 
 export {};

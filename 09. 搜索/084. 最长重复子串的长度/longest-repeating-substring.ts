@@ -58,7 +58,11 @@ function hasRepeatingHash(s: string, len: number, base: number, mod: bigint): bo
   }
   seen.add(hash);
   for (let i = len; i < s.length; i++) {
-    hash = (hash * BigInt(base) + BigInt(s.charCodeAt(i) - 97) - BigInt(s.charCodeAt(i - len) - 97) * power) % mod;
+    hash =
+      (hash * BigInt(base) +
+        BigInt(s.charCodeAt(i) - 97) -
+        BigInt(s.charCodeAt(i - len) - 97) * power) %
+      mod;
     if (hash < 0n) hash += mod;
     if (seen.has(hash)) return true;
     seen.add(hash);

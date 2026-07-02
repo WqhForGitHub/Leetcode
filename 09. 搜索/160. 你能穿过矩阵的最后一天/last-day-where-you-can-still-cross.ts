@@ -26,7 +26,12 @@ function canCross(row: number, col: number, cells: number[][], day: number): boo
     grid[cells[i][0] - 1][cells[i][1] - 1] = 1; // 水为1
   }
   // BFS 从顶部到底部
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const queue: [number, number][] = [];
   for (let j = 0; j < col; j++) {
     if (grid[0][j] === 0) {
@@ -56,7 +61,12 @@ function latestDayToCrossUF(row: number, col: number, cells: number[][]): number
   const top = n; // 虚拟顶部节点
   const bottom = n + 1; // 虚拟底部节点
   const water = new Set<number>();
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
 
   function find(x: number): number {
     if (parent[x] !== x) parent[x] = find(parent[x]);
@@ -93,9 +103,37 @@ function latestDayToCrossUF(row: number, col: number, cells: number[][]): number
 // 测试
 // ============================================================
 console.log("===== 160. 你能穿过矩阵的最后一天 =====");
-console.log("BFS 2,2,[[1,1],[2,1],[1,2],[2,2]]:", latestDayToCross(2, 2, [[1, 1], [2, 1], [1, 2], [2, 2]])); // 2
-console.log("BFS 3,3,[[1,2],[2,1],[3,3],[2,2],[1,1],[1,3],[2,3],[3,2],[3,1]]:",
-  latestDayToCross(3, 3, [[1, 2], [2, 1], [3, 3], [2, 2], [1, 1], [1, 3], [2, 3], [3, 2], [3, 1]])); // 3
-console.log("UF 2,2,[[1,1],[2,1],[1,2],[2,2]]:", latestDayToCrossUF(2, 2, [[1, 1], [2, 1], [1, 2], [2, 2]])); // 2
+console.log(
+  "BFS 2,2,[[1,1],[2,1],[1,2],[2,2]]:",
+  latestDayToCross(2, 2, [
+    [1, 1],
+    [2, 1],
+    [1, 2],
+    [2, 2],
+  ]),
+); // 2
+console.log(
+  "BFS 3,3,[[1,2],[2,1],[3,3],[2,2],[1,1],[1,3],[2,3],[3,2],[3,1]]:",
+  latestDayToCross(3, 3, [
+    [1, 2],
+    [2, 1],
+    [3, 3],
+    [2, 2],
+    [1, 1],
+    [1, 3],
+    [2, 3],
+    [3, 2],
+    [3, 1],
+  ]),
+); // 3
+console.log(
+  "UF 2,2,[[1,1],[2,1],[1,2],[2,2]]:",
+  latestDayToCrossUF(2, 2, [
+    [1, 1],
+    [2, 1],
+    [1, 2],
+    [2, 2],
+  ]),
+); // 2
 
 export {};

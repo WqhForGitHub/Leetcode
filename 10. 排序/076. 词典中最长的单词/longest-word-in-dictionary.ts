@@ -22,7 +22,7 @@ function longestWord(words: string[]): string {
     }
     if (valid) return word;
   }
-  return '';
+  return "";
 }
 
 // 方法2：字典树 + DFS（O(所有单词长度之和)）
@@ -34,13 +34,13 @@ interface TrieNode {
 }
 
 function longestWord2(words: string[]): string {
-  const root: TrieNode = { children: new Map(), word: '' };
+  const root: TrieNode = { children: new Map(), word: "" };
   for (const w of words) {
     let node = root;
     for (const ch of w) {
       let child = node.children.get(ch);
       if (!child) {
-        child = { children: new Map(), word: '' };
+        child = { children: new Map(), word: "" };
         node.children.set(ch, child);
       }
       node = child;
@@ -48,7 +48,7 @@ function longestWord2(words: string[]): string {
     node.word = w;
   }
 
-  let result = '';
+  let result = "";
   const dfs = (node: TrieNode): void => {
     if (
       node.word.length > result.length ||

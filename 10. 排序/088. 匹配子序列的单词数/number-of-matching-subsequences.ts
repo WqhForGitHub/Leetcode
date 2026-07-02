@@ -106,11 +106,17 @@ function numMatchingSubseq2(s: string, words: string[]): number {
 console.log("===== 088. 匹配子序列的单词数 =====");
 
 console.log("测试1:", numMatchingSubseq("abcde", ["a", "bb", "acd", "ace"])); // 期望: 3
-console.log("测试2:", numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"])); // 期望: 2
+console.log(
+  "测试2:",
+  numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"]),
+); // 期望: 2
 console.log("测试3:", numMatchingSubseq("bbb", ["b", "bb", "bbb", "bbbb"])); // 期望: 3
 
 console.log("方法2测试1:", numMatchingSubseq2("abcde", ["a", "bb", "acd", "ace"])); // 期望: 3
-console.log("方法2测试2:", numMatchingSubseq2("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"])); // 期望: 2
+console.log(
+  "方法2测试2:",
+  numMatchingSubseq2("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"]),
+); // 期望: 2
 console.log("方法2测试3:", numMatchingSubseq2("bbb", ["b", "bb", "bbb", "bbbb"])); // 期望: 3
 
 export {};

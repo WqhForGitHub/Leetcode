@@ -21,10 +21,7 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
 }
 
 // 方法2：对数 + 前缀和 + 二分（O(n log n)）
-function numSubarrayProductLessThanKLog(
-  nums: number[],
-  k: number
-): number {
+function numSubarrayProductLessThanKLog(nums: number[], k: number): number {
   if (k <= 1) return 0;
   const logK = Math.log(k);
   const prefix = [0];

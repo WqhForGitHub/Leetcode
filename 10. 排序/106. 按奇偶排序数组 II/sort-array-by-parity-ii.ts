@@ -55,9 +55,29 @@ function isValidParityII(nums: number[]): boolean {
 // 测试
 // ============================================================
 console.log("===== 106. 按奇偶排序数组 II =====");
-console.log("双指针:", JSON.stringify(sortArrayByParityII([4, 2, 5, 7])), "合法?", isValidParityII(sortArrayByParityII([4, 2, 5, 7]))); // 期望合法
-console.log("双指针:", JSON.stringify(sortArrayByParityII([2, 3])), "合法?", isValidParityII(sortArrayByParityII([2, 3]))); // 期望合法
-console.log("额外空间:", JSON.stringify(sortArrayByParityIIExtra([4, 2, 5, 7])), "合法?", isValidParityII(sortArrayByParityIIExtra([4, 2, 5, 7]))); // 期望合法
-console.log("额外空间:", JSON.stringify(sortArrayByParityIIExtra([2, 3])), "合法?", isValidParityII(sortArrayByParityIIExtra([2, 3]))); // 期望合法
+console.log(
+  "双指针:",
+  JSON.stringify(sortArrayByParityII([4, 2, 5, 7])),
+  "合法?",
+  isValidParityII(sortArrayByParityII([4, 2, 5, 7])),
+); // 期望合法
+console.log(
+  "双指针:",
+  JSON.stringify(sortArrayByParityII([2, 3])),
+  "合法?",
+  isValidParityII(sortArrayByParityII([2, 3])),
+); // 期望合法
+console.log(
+  "额外空间:",
+  JSON.stringify(sortArrayByParityIIExtra([4, 2, 5, 7])),
+  "合法?",
+  isValidParityII(sortArrayByParityIIExtra([4, 2, 5, 7])),
+); // 期望合法
+console.log(
+  "额外空间:",
+  JSON.stringify(sortArrayByParityIIExtra([2, 3])),
+  "合法?",
+  isValidParityII(sortArrayByParityIIExtra([2, 3])),
+); // 期望合法
 
 export {};

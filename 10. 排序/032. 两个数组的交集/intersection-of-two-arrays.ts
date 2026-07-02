@@ -54,6 +54,9 @@ function sortArr(arr: number[]): number[] {
 console.log("哈希集合 [1,2,2,1] & [2,2]:", sortArr(intersection([1, 2, 2, 1], [2, 2]))); // 期望 [2]
 console.log("哈希集合 [4,9,5] & [9,4,9,8,4]:", sortArr(intersection([4, 9, 5], [9, 4, 9, 8, 4]))); // 期望 [4,9]
 console.log("双指针 [1,2,2,1] & [2,2]:", sortArr(intersectionTwoPointers([1, 2, 2, 1], [2, 2]))); // 期望 [2]
-console.log("双指针 [4,9,5] & [9,4,9,8,4]:", sortArr(intersectionTwoPointers([4, 9, 5], [9, 4, 9, 8, 4]))); // 期望 [4,9]
+console.log(
+  "双指针 [4,9,5] & [9,4,9,8,4]:",
+  sortArr(intersectionTwoPointers([4, 9, 5], [9, 4, 9, 8, 4])),
+); // 期望 [4,9]
 
 export {};

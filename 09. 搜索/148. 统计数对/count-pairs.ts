@@ -5,10 +5,7 @@
 // 统计满足条件的数对数量。
 
 // 方法1：排序 + 二分查找
-function countPairs1889(
-  packages: number[],
-  boxes: number[][]
-): number {
+function countPairs1889(packages: number[], boxes: number[][]): number {
   const mod = 1_000_000_007;
   packages.sort((a, b) => a - b);
   const n = packages.length;
@@ -19,7 +16,7 @@ function countPairs1889(
     supplierBoxes.sort((a, b) => a - b);
     let waste = 0;
     let prev = 0;
-    let possible = true;
+    const possible = true;
     for (const boxSize of supplierBoxes) {
       // 找 packages 中 <= boxSize 的最大索引
       let lo = prev;
@@ -47,10 +44,7 @@ function countPairs1889(
 }
 
 // 方法2：暴力
-function countPairs1889Brute(
-  packages: number[],
-  boxes: number[][]
-): number {
+function countPairs1889Brute(packages: number[], boxes: number[][]): number {
   const mod = 1_000_000_007;
   let result = Infinity;
   for (const supplierBoxes of boxes) {
@@ -81,9 +75,19 @@ function countPairs1889Brute(
 // 测试
 // ============================================================
 console.log("===== 148. 统计数对 =====");
-console.log("二分 [2,3,5],[[4,8],[2,8]]:",
-  countPairs1889([2, 3, 5], [[4, 8], [2, 8]])); // 6
-console.log("二分 [3,5,8,10,11,12],[[12],[11,9],[10,5,14]]:",
-  countPairs1889([3, 5, 8, 10, 11, 12], [[12], [11, 9], [10, 5, 14]])); // 9
+console.log(
+  "二分 [2,3,5],[[4,8],[2,8]]:",
+  countPairs1889(
+    [2, 3, 5],
+    [
+      [4, 8],
+      [2, 8],
+    ],
+  ),
+); // 6
+console.log(
+  "二分 [3,5,8,10,11,12],[[12],[11,9],[10,5,14]]:",
+  countPairs1889([3, 5, 8, 10, 11, 12], [[12], [11, 9], [10, 5, 14]]),
+); // 9
 
 export {};

@@ -7,7 +7,12 @@
 // 求最多能完成的任务数。
 
 // 方法1：二分答案 + 贪心 + 双端队列
-function maxTaskAssign(tasks: number[], workers: number[], pills: number, strength: number): number {
+function maxTaskAssign(
+  tasks: number[],
+  workers: number[],
+  pills: number,
+  strength: number,
+): number {
   tasks.sort((a, b) => a - b);
   workers.sort((a, b) => a - b);
 
@@ -58,6 +63,9 @@ function maxTaskAssign(tasks: number[], workers: number[], pills: number, streng
 console.log("===== 171. 你可以安排的最多任务数目 =====");
 console.log("[3,2,1],[3,3,3],1,1:", maxTaskAssign([3, 2, 1], [3, 3, 3], 1, 1)); // 3
 console.log("[5,4,3,2,1],[2,1,1],1,3:", maxTaskAssign([5, 4, 3, 2, 1], [2, 1, 1], 1, 3)); // 3
-console.log("[10,15,30],[0,10,10,10,10],3,10:", maxTaskAssign([10, 15, 30], [0, 10, 10, 10, 10], 3, 10)); // 2
+console.log(
+  "[10,15,30],[0,10,10,10,10],3,10:",
+  maxTaskAssign([10, 15, 30], [0, 10, 10, 10, 10], 3, 10),
+); // 2
 
 export {};

@@ -66,7 +66,10 @@ function isPossibleDivide2(nums: number[], k: number): boolean {
 // ============================================================
 console.log("===== 153. 划分数组为连续数字的集合 =====");
 console.log("方法1 [1,2,3,3,4,4,5,6], k=4:", isPossibleDivide([1, 2, 3, 3, 4, 4, 5, 6], 4)); // true
-console.log("方法1 [3,2,1,2,3,4,3,4,5,9,10,11], k=3:", isPossibleDivide([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3)); // true
+console.log(
+  "方法1 [3,2,1,2,3,4,3,4,5,9,10,11], k=3:",
+  isPossibleDivide([3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11], 3),
+); // true
 console.log("方法1 [1,2,3,4], k=3:", isPossibleDivide([1, 2, 3, 4], 3)); // false
 console.log("方法2 [1,2,3,3,4,4,5,6], k=4:", isPossibleDivide2([1, 2, 3, 3, 4, 4, 5, 6], 4)); // true
 console.log("方法2 [1,2,3,4], k=3:", isPossibleDivide2([1, 2, 3, 4], 3)); // false

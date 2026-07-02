@@ -6,11 +6,7 @@
 // 找出包含所有黑色像素的最小矩形面积。假设黑色像素连通。
 
 // 方法1：二分查找边界（O(m log n + n log m)）
-function minArea(
-  image: string[][],
-  x: number,
-  y: number
-): number {
+function minArea(image: string[][], x: number, y: number): number {
   const m = image.length;
   const n = image[0].length;
   // 找左边界：第一个列中存在黑色像素的列
@@ -24,12 +20,7 @@ function minArea(
   return (right - left + 1) * (bottom - top + 1);
 }
 
-function searchCol(
-  image: string[][],
-  low: number,
-  high: number,
-  findFirst: boolean
-): number {
+function searchCol(image: string[][], low: number, high: number, findFirst: boolean): number {
   while (low < high) {
     const mid = Math.floor((low + high) / 2);
     const hasBlack = image.some((row) => row[mid] === "1");
@@ -42,12 +33,7 @@ function searchCol(
   return low;
 }
 
-function searchRow(
-  image: string[][],
-  low: number,
-  high: number,
-  findFirst: boolean
-): number {
+function searchRow(image: string[][], low: number, high: number, findFirst: boolean): number {
   while (low < high) {
     const mid = Math.floor((low + high) / 2);
     const hasBlack = image[mid].includes("1");

@@ -20,12 +20,7 @@ function minDays(bloomDay: number[], m: number, k: number): number {
   return left;
 }
 
-function canMake(
-  bloomDay: number[],
-  m: number,
-  k: number,
-  day: number
-): boolean {
+function canMake(bloomDay: number[], m: number, k: number, day: number): boolean {
   let bouquets = 0;
   let flowers = 0;
   for (const d of bloomDay) {

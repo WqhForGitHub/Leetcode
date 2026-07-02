@@ -33,7 +33,7 @@ function binarySearchableNumbers(nums: number[]): number {
 // 方法2：单调栈
 function binarySearchableNumbersStack(nums: number[]): number {
   const n = nums.length;
-  let count = 0;
+  const count = 0;
   const stack: number[] = []; // 存储候选元素
   let rightMin = Infinity;
   for (let i = n - 1; i >= 0; i--) {

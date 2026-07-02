@@ -16,7 +16,7 @@ function maximumNumberOfOnes(
   width: number,
   height: number,
   sideLength: number,
-  maxOnes: number
+  maxOnes: number,
 ): number {
   // 计算行方向上模 k 等于 i 的行数
   const rowCount = (i: number): number => {

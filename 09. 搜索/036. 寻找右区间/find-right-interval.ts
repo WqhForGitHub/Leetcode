@@ -35,12 +35,8 @@ function findRightInterval(intervals: number[][]): number[] {
 // 方法2：哈希表 + 排序 + 双指针
 function findRightIntervalHash(intervals: number[][]): number[] {
   const n = intervals.length;
-  const sortedByStart = intervals
-    .map((iv, idx) => [iv[0], idx])
-    .sort((a, b) => a[0] - b[0]);
-  const sortedByEnd = intervals
-    .map((iv, idx) => [iv[1], idx])
-    .sort((a, b) => a[0] - b[0]);
+  const sortedByStart = intervals.map((iv, idx) => [iv[0], idx]).sort((a, b) => a[0] - b[0]);
+  const sortedByEnd = intervals.map((iv, idx) => [iv[1], idx]).sort((a, b) => a[0] - b[0]);
   const result = new Array(n).fill(-1);
   let j = 0;
   for (const [end, idx] of sortedByEnd) {
@@ -56,17 +52,14 @@ function findRightIntervalHash(intervals: number[][]): number[] {
 // 测试
 // ============================================================
 console.log("===== 036. 寻找右区间 =====");
-console.log(
-  "二分 [[1,2]]:",
-  findRightInterval([[1, 2]])
-); // [-1]
+console.log("二分 [[1,2]]:", findRightInterval([[1, 2]])); // [-1]
 console.log(
   "二分 [[3,4],[2,3],[1,2]]:",
   findRightInterval([
     [3, 4],
     [2, 3],
     [1, 2],
-  ])
+  ]),
 ); // [-1,0,1]
 console.log(
   "二分 [[1,4],[2,3],[3,4]]:",
@@ -74,7 +67,7 @@ console.log(
     [1, 4],
     [2, 3],
     [3, 4],
-  ])
+  ]),
 ); // [-1,2,-1]
 
 export {};

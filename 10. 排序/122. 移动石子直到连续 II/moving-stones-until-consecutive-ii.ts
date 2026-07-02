@@ -24,7 +24,7 @@ function numMovesStonesII(stones: number[]): number[] {
   // 最大移动次数
   const maxMoves = Math.max(
     stones[n - 2] - stones[0] - (n - 2),
-    stones[n - 1] - stones[1] - (n - 2)
+    stones[n - 1] - stones[1] - (n - 2),
   );
 
   // 最小移动次数：滑动窗口

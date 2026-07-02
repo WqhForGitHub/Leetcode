@@ -32,11 +32,7 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
       if ((m + n) % 2 === 1) {
         return Math.max(nums1LeftMax, nums2LeftMax);
       } else {
-        return (
-          (Math.max(nums1LeftMax, nums2LeftMax) +
-            Math.min(nums1RightMin, nums2RightMin)) /
-          2
-        );
+        return (Math.max(nums1LeftMax, nums2LeftMax) + Math.min(nums1RightMin, nums2RightMin)) / 2;
       }
     } else if (nums1LeftMax > nums2RightMin) {
       right = i - 1;
@@ -48,10 +44,7 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
 }
 
 // 方法2：归并合并法（O(m+n)，简单直观）
-function findMedianSortedArraysMerge(
-  nums1: number[],
-  nums2: number[]
-): number {
+function findMedianSortedArraysMerge(nums1: number[], nums2: number[]): number {
   const merged: number[] = [];
   let i = 0;
   let j = 0;

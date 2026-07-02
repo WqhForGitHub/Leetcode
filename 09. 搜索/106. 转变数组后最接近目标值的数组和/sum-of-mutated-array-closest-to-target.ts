@@ -80,6 +80,9 @@ function findBestValueEnum(arr: number[], target: number): number {
 console.log("===== 106. 转变数组后最接近目标值的数组和 =====");
 console.log("二分 [4,9,3],10:", findBestValue([4, 9, 3], 10)); // 3
 console.log("二分 [2,3,5],10:", findBestValue([2, 3, 5], 10)); // 5
-console.log("二分 [60864,25176,36908,9978,22746,18703],56803:", findBestValue([60864, 25176, 36908, 9978, 22746, 18703], 56803)); // 11361
+console.log(
+  "二分 [60864,25176,36908,9978,22746,18703],56803:",
+  findBestValue([60864, 25176, 36908, 9978, 22746, 18703], 56803),
+); // 11361
 
 export {};

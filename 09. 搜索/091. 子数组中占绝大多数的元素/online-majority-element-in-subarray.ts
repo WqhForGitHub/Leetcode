@@ -19,7 +19,7 @@ class MajorityChecker {
     }
     // 按出现频率从高到低排序
     this.buckets = Array.from(this.pos.keys()).sort(
-      (a, b) => this.pos.get(b)!.length - this.pos.get(a)!.length
+      (a, b) => this.pos.get(b)!.length - this.pos.get(a)!.length,
     );
   }
 
@@ -79,10 +79,7 @@ class MajorityCheckerSegTree {
     const mid = Math.floor((lo + hi) / 2);
     this.build(node * 2, lo, mid);
     this.build(node * 2 + 1, mid + 1, hi);
-    this.tree[node] = this.merge(
-      this.tree[node * 2],
-      this.tree[node * 2 + 1]
-    );
+    this.tree[node] = this.merge(this.tree[node * 2], this.tree[node * 2 + 1]);
   }
 
   private merge(a: number[], b: number[]): number[] {
@@ -101,19 +98,13 @@ class MajorityCheckerSegTree {
     return count >= threshold ? candidate : -1;
   }
 
-  private queryHelper(
-    node: number,
-    lo: number,
-    hi: number,
-    left: number,
-    right: number
-  ): number[] {
+  private queryHelper(node: number, lo: number, hi: number, left: number, right: number): number[] {
     if (lo > right || hi < left) return [0, 0];
     if (left <= lo && hi <= right) return this.tree[node];
     const mid = Math.floor((lo + hi) / 2);
     return this.merge(
       this.queryHelper(node * 2, lo, mid, left, right),
-      this.queryHelper(node * 2 + 1, mid + 1, hi, left, right)
+      this.queryHelper(node * 2 + 1, mid + 1, hi, left, right),
     );
   }
 }

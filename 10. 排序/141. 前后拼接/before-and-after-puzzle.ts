@@ -53,21 +53,12 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 // 测试
 // ============================================================
 console.log("===== 141. 前后拼接 =====");
+console.log("方法1:", beforeAndAfterPuzzles(["writing code", "code rocks"])); // 期望: ["writing code rocks"]
+console.log("方法1:", beforeAndAfterPuzzles(["a", "b", "a"])); // 期望: ["a"] （"a" 与 "a" 共用单词合并后仍是 "a"）
+console.log("方法1:", beforeAndAfterPuzzles(["a b", "b c", "c d"])); // 期望: ["a b c","b c d"]
 console.log(
   "方法1:",
-  beforeAndAfterPuzzles(["writing code", "code rocks"])
-); // 期望: ["writing code rocks"]
-console.log(
-  "方法1:",
-  beforeAndAfterPuzzles(["a", "b", "a"])
-); // 期望: ["a"] （"a" 与 "a" 共用单词合并后仍是 "a"）
-console.log(
-  "方法1:",
-  beforeAndAfterPuzzles(["a b", "b c", "c d"])
-); // 期望: ["a b c","b c d"]
-console.log(
-  "方法1:",
-  beforeAndAfterPuzzles(["mission statement", "a quick bite to eat", "a chip off the old block"])
+  beforeAndAfterPuzzles(["mission statement", "a quick bite to eat", "a chip off the old block"]),
 ); // 期望: [] （不存在首尾词相同的可拼接对）
 
 export {};

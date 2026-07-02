@@ -29,9 +29,9 @@ class SnapshotArray {
   get(index: number, snap_id: number): number {
     const map = this.snaps[index];
     // 二分找 <= snap_id 的最大版本
-    let result = 0;
-    let lo = 0;
-    let hi = this.snapId;
+    const result = 0;
+    const lo = 0;
+    const hi = this.snapId;
     // 由于 key 是 snap_id，需要遍历太慢，改用数组
     const keys = Array.from(map.keys()).sort((a, b) => a - b);
     let l = 0;

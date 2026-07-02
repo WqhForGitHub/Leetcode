@@ -47,7 +47,7 @@ function numDistinctIslands2(grid: number[][]): number {
       const normalized = transformed
         .map(([r, c]) => [r - minR, c - minC] as [number, number])
         .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-      candidates.push(normalized.map(([r, c]) => `${r},${c}`).join(';'));
+      candidates.push(normalized.map(([r, c]) => `${r},${c}`).join(";"));
     }
     candidates.sort();
     return candidates[0];
@@ -70,22 +70,31 @@ function numDistinctIslands2(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 074. 不同岛屿的数量 II =====");
-console.log("结果:", numDistinctIslands2([
-  [1, 1, 0, 0, 0],
-  [1, 0, 0, 0, 0],
-  [0, 0, 0, 0, 1],
-  [0, 0, 0, 1, 1],
-])); // 期望 1
-console.log("结果:", numDistinctIslands2([
-  [1, 1, 0, 0, 0],
-  [1, 1, 0, 0, 0],
-  [0, 0, 0, 1, 1],
-  [0, 0, 0, 1, 1],
-])); // 期望 1
-console.log("结果:", numDistinctIslands2([
-  [1, 0, 0],
-  [0, 1, 0],
-  [0, 0, 0],
-])); // 期望 1（两个单格旋转后相同）
+console.log(
+  "结果:",
+  numDistinctIslands2([
+    [1, 1, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1],
+    [0, 0, 0, 1, 1],
+  ]),
+); // 期望 1
+console.log(
+  "结果:",
+  numDistinctIslands2([
+    [1, 1, 0, 0, 0],
+    [1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1],
+    [0, 0, 0, 1, 1],
+  ]),
+); // 期望 1
+console.log(
+  "结果:",
+  numDistinctIslands2([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ]),
+); // 期望 1（两个单格旋转后相同）
 
 export {};

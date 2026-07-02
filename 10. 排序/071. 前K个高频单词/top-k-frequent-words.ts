@@ -126,13 +126,15 @@ function topKFrequent_heap(words: string[], k: number): string[] {
 // 测试
 // ============================================================
 console.log("===== 071. 前K个高频单词 =====");
-console.log("排序法:",
-  topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望 ["i","love"]
-console.log("排序法:",
-  topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)); // 期望 ["the","is","sunny","day"]
-console.log("最小堆:",
-  topKFrequent_heap(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望 ["i","love"]
-console.log("最小堆:",
-  topKFrequent_heap(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4)); // 期望 ["the","is","sunny","day"]
+console.log("排序法:", topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望 ["i","love"]
+console.log(
+  "排序法:",
+  topKFrequent(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4),
+); // 期望 ["the","is","sunny","day"]
+console.log("最小堆:", topKFrequent_heap(["i", "love", "leetcode", "i", "love", "coding"], 2)); // 期望 ["i","love"]
+console.log(
+  "最小堆:",
+  topKFrequent_heap(["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4),
+); // 期望 ["the","is","sunny","day"]
 
 export {};

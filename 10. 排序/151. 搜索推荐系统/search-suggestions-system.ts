@@ -7,13 +7,10 @@
 // 方法1：排序 + 二分查找（推荐，O(n log n + m * log n)）
 // 先对 products 排序，对每个前缀用二分找到第一个 >= 前缀的位置，
 // 从该位置向后取最多 3 个以该前缀开头的产品。
-function suggestedProducts(
-  products: string[],
-  searchWord: string
-): string[][] {
+function suggestedProducts(products: string[], searchWord: string): string[][] {
   products.sort();
   const result: string[][] = [];
-  let prefix: string = '';
+  let prefix: string = "";
   for (const ch of searchWord) {
     prefix += ch;
     // 二分找第一个 >= prefix 的下标
@@ -28,11 +25,7 @@ function suggestedProducts(
       }
     }
     const matches: string[] = [];
-    for (
-      let i = lo;
-      i < products.length && matches.length < 3;
-      i++
-    ) {
+    for (let i = lo; i < products.length && matches.length < 3; i++) {
       if (products[i].startsWith(prefix)) {
         matches.push(products[i]);
       } else {
@@ -51,10 +44,7 @@ class TrieNode {
   suggestions: string[] = [];
 }
 
-function suggestedProducts2(
-  products: string[],
-  searchWord: string
-): string[][] {
+function suggestedProducts2(products: string[], searchWord: string): string[][] {
   products.sort();
   const root: TrieNode = new TrieNode();
   for (const p of products) {
@@ -96,24 +86,15 @@ console.log("===== 151. 搜索推荐系统 =====");
 console.log(
   "方法1:",
   JSON.stringify(
-    suggestedProducts(
-      ['mobile', 'mouse', 'moneypot', 'monitor', 'mousepad'],
-      'mouse'
-    )
-  )
+    suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
+  ),
 ); // 期望: [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
-console.log(
-  "方法1:",
-  JSON.stringify(suggestedProducts(['havana'], 'havana'))
-); // 期望: [["havana"],["havana"],["havana"],["havana"],["havana"],["havana"]]
+console.log("方法1:", JSON.stringify(suggestedProducts(["havana"], "havana"))); // 期望: [["havana"],["havana"],["havana"],["havana"],["havana"],["havana"]]
 console.log(
   "方法2:",
   JSON.stringify(
-    suggestedProducts2(
-      ['mobile', 'mouse', 'moneypot', 'monitor', 'mousepad'],
-      'mouse'
-    )
-  )
+    suggestedProducts2(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
+  ),
 ); // 期望: 同上
 
 export {};

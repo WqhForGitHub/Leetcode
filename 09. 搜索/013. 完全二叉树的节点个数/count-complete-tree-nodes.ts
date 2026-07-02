@@ -89,7 +89,7 @@ console.log("===== 013. 完全二叉树的节点个数 =====");
 const tree = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-  new TreeNode(3, new TreeNode(6), null)
+  new TreeNode(3, new TreeNode(6), null),
 );
 console.log("特性法:", countNodes(tree)); // 6
 console.log("二分法:", countNodesBinary(tree)); // 6

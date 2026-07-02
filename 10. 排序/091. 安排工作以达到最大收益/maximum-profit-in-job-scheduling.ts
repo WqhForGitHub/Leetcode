@@ -37,7 +37,11 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 // 方法2：按难度排序 + 预处理最大利润 + 二分查找（O((n+m) log n) 时间）
 // 预处理每个难度位置对应的最大利润前缀，对每个工人二分找到能力上限位置，
 // 取该位置的最大利润。
-function maxProfitAssignmentBinary(difficulty: number[], profit: number[], worker: number[]): number {
+function maxProfitAssignmentBinary(
+  difficulty: number[],
+  profit: number[],
+  worker: number[],
+): number {
   const n = difficulty.length;
   const jobs: Job826[] = difficulty.map((d, i) => ({ d, p: profit[i] }));
   jobs.sort((a, b) => a.d - b.d);
@@ -74,13 +78,21 @@ function maxProfitAssignmentBinary(difficulty: number[], profit: number[], worke
 // 测试
 // ============================================================
 console.log("===== 091. 安排工作以达到最大收益 =====");
-console.log("双指针 [2,4,6,8,10]/[10,20,30,40,50]/[4,5,6,7]:",
-  maxProfitAssignment([2, 4, 6, 8, 10], [10, 20, 30, 40, 50], [4, 5, 6, 7])); // 期望 100
-console.log("双指针 [85,47,57]/[24,66,99]/[40,25,25]:",
-  maxProfitAssignment([85, 47, 57], [24, 66, 99], [40, 25, 25])); // 期望 0
-console.log("二分 [2,4,6,8,10]/[10,20,30,40,50]/[4,5,6,7]:",
-  maxProfitAssignmentBinary([2, 4, 6, 8, 10], [10, 20, 30, 40, 50], [4, 5, 6, 7])); // 期望 100
-console.log("二分 [85,47,57]/[24,66,99]/[40,25,25]:",
-  maxProfitAssignmentBinary([85, 47, 57], [24, 66, 99], [40, 25, 25])); // 期望 0
+console.log(
+  "双指针 [2,4,6,8,10]/[10,20,30,40,50]/[4,5,6,7]:",
+  maxProfitAssignment([2, 4, 6, 8, 10], [10, 20, 30, 40, 50], [4, 5, 6, 7]),
+); // 期望 100
+console.log(
+  "双指针 [85,47,57]/[24,66,99]/[40,25,25]:",
+  maxProfitAssignment([85, 47, 57], [24, 66, 99], [40, 25, 25]),
+); // 期望 0
+console.log(
+  "二分 [2,4,6,8,10]/[10,20,30,40,50]/[4,5,6,7]:",
+  maxProfitAssignmentBinary([2, 4, 6, 8, 10], [10, 20, 30, 40, 50], [4, 5, 6, 7]),
+); // 期望 100
+console.log(
+  "二分 [85,47,57]/[24,66,99]/[40,25,25]:",
+  maxProfitAssignmentBinary([85, 47, 57], [24, 66, 99], [40, 25, 25]),
+); // 期望 0
 
 export {};

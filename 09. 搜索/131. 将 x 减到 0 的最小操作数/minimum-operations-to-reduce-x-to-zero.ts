@@ -65,9 +65,9 @@ function minOperationsBinary(nums: number[], x: number): number {
   for (let i = 0; i <= n && prefix[i] <= x; i++) {
     const need = x - prefix[i];
     // 在后缀和中二分查找
-    let lo = i;
+    const lo = i;
     let hi = n;
-    let suffixSum = 0;
+    let suffixSum: number;
     while (lo < hi) {
       suffixSum = 0;
       let j = n - 1;

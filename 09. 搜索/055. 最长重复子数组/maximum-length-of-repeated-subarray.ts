@@ -44,7 +44,7 @@ function hasCommon(
   nums2: number[],
   len: number,
   base: number,
-  mod: number
+  mod: number,
 ): boolean {
   const set = new Set<number>();
   let hash = 0;

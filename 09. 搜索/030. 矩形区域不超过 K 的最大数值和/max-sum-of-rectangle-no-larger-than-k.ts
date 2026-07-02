@@ -55,10 +55,7 @@ function maxSumNoLargerThanK(arr: number[], k: number): number {
 }
 
 // 方法2：固定上下行 + 前缀和 + 暴力（O(m² n²)，适合小数据）
-function maxSumSubmatrixBrute(
-  matrix: number[][],
-  k: number
-): number {
+function maxSumSubmatrixBrute(matrix: number[][], k: number): number {
   const m = matrix.length;
   const n = matrix[0].length;
   let result = -Infinity;
@@ -93,8 +90,8 @@ console.log(
       [1, 0, 1],
       [0, -2, 3],
     ],
-    2
-  )
+    2,
+  ),
 ); // 2
 console.log(
   "暴力 [[1,0,1],[0,-2,3]],2:",
@@ -103,8 +100,8 @@ console.log(
       [1, 0, 1],
       [0, -2, 3],
     ],
-    2
-  )
+    2,
+  ),
 ); // 2
 
 export {};

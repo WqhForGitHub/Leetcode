@@ -21,11 +21,12 @@ function mergeCount(
   right: number,
   lower: number,
   upper: number,
-  temp: number[]
+  temp: number[],
 ): number {
   if (left >= right) return 0;
   const mid = Math.floor((left + right) / 2);
-  let count = mergeCount(sums, left, mid, lower, upper, temp) +
+  let count =
+    mergeCount(sums, left, mid, lower, upper, temp) +
     mergeCount(sums, mid + 1, right, lower, upper, temp);
   // 统计
   let l = mid + 1;
@@ -50,11 +51,7 @@ function mergeCount(
 }
 
 // 方法2：二叉索引树 / 树状数组（O(n log n)）
-function countRangeSumBIT(
-  nums: number[],
-  lower: number,
-  upper: number
-): number {
+function countRangeSumBIT(nums: number[], lower: number, upper: number): number {
   const n = nums.length;
   const prefix = new Array(n + 1).fill(0);
   for (let i = 0; i < n; i++) {

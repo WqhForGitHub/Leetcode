@@ -16,11 +16,11 @@ function makeLargestSpecial(s: string): string {
   let start = 0;
 
   for (let i = 0; i < s.length; i++) {
-    count += s[i] === '1' ? 1 : -1;
+    count += s[i] === "1" ? 1 : -1;
     if (count === 0) {
       // s[start..i] 是一个特殊字符串，形式为 1 + inner + 0
       const inner = s.substring(start + 1, i);
-      const sub = '1' + makeLargestSpecial(inner) + '0';
+      const sub = "1" + makeLargestSpecial(inner) + "0";
       parts.push(sub);
       start = i + 1;
     }
@@ -29,7 +29,7 @@ function makeLargestSpecial(s: string): string {
   // 按字典序降序排列，使拼接结果最大
   parts.sort((a, b) => (a < b ? 1 : a > b ? -1 : 0));
 
-  return parts.join('');
+  return parts.join("");
 }
 
 // 方法2：迭代式分治（O(n²/log n)）
@@ -42,20 +42,18 @@ function makeLargestSpecial2(s: string): string {
   let start = 0;
 
   for (let i = 0; i < s.length; i++) {
-    count += s[i] === '1' ? 1 : -1;
+    count += s[i] === "1" ? 1 : -1;
     if (count === 0) {
       const inner = s.substring(start + 1, i);
       // 对内部字符串递归处理（这里直接调用方法1的逻辑）
-      const processedInner = inner.length <= 2
-        ? inner
-        : makeLargestSpecial2(inner);
-      parts.push('1' + processedInner + '0');
+      const processedInner = inner.length <= 2 ? inner : makeLargestSpecial2(inner);
+      parts.push("1" + processedInner + "0");
       start = i + 1;
     }
   }
 
   parts.sort((a, b) => (a < b ? 1 : a > b ? -1 : 0));
-  return parts.join('');
+  return parts.join("");
 }
 
 // ============================================================

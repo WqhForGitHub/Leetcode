@@ -5,10 +5,7 @@
 // 颜色数组 colors（1,2,3），对每个查询返回最近的指定颜色距离。
 
 // 方法1：预处理 + 二分查找
-function shortestDistanceColor(
-  colors: number[],
-  queries: number[][]
-): number[] {
+function shortestDistanceColor(colors: number[], queries: number[][]): number[] {
   // pos[color] = color 出现的所有位置
   const pos: Map<number, number[]> = new Map();
   for (let i = 0; i < colors.length; i++) {
@@ -40,10 +37,7 @@ function shortestDistanceColor(
 }
 
 // 方法2：双向预处理（O(n)）
-function shortestDistanceColorDP(
-  colors: number[],
-  queries: number[][]
-): number[] {
+function shortestDistanceColorDP(colors: number[], queries: number[][]): number[] {
   const n = colors.length;
   const dist: number[][] = new Array(n);
   for (let i = 0; i < n; i++) {
@@ -81,9 +75,27 @@ function shortestDistanceColorDP(
 // 测试
 // ============================================================
 console.log("===== 093. 与目标颜色间的最短距离 =====");
-console.log("二分 [1,1,2,1,3,2,2,3,3],:",
-  shortestDistanceColor([1, 1, 2, 1, 3, 2, 2, 3, 3], [[1, 3], [2, 2], [6, 1]])); // [3,0,3]
-console.log("DP [1,1,2,1,3,2,2,3,3],:",
-  shortestDistanceColorDP([1, 1, 2, 1, 3, 2, 2, 3, 3], [[1, 3], [2, 2], [6, 1]])); // [3,0,3]
+console.log(
+  "二分 [1,1,2,1,3,2,2,3,3],:",
+  shortestDistanceColor(
+    [1, 1, 2, 1, 3, 2, 2, 3, 3],
+    [
+      [1, 3],
+      [2, 2],
+      [6, 1],
+    ],
+  ),
+); // [3,0,3]
+console.log(
+  "DP [1,1,2,1,3,2,2,3,3],:",
+  shortestDistanceColorDP(
+    [1, 1, 2, 1, 3, 2, 2, 3, 3],
+    [
+      [1, 3],
+      [2, 2],
+      [6, 1],
+    ],
+  ),
+); // [3,0,3]
 
 export {};

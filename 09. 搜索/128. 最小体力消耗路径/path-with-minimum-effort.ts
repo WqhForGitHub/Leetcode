@@ -30,7 +30,12 @@ function canReach(heights: number[][], maxDiff: number): boolean {
   const m = heights.length;
   const n = heights[0].length;
   const visited = new Array(m).fill(0).map(() => new Array(n).fill(false));
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const queue: [number, number][] = [[0, 0]];
   visited[0][0] = true;
   while (queue.length > 0) {
@@ -84,8 +89,29 @@ function minimumEffortPathUF(heights: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 128. 最小体力消耗路径 =====");
-console.log("二分 [[1,2,2],[3,8,2],[5,3,5]]:", minimumEffortPath([[1, 2, 2], [3, 8, 2], [5, 3, 5]])); // 2
-console.log("二分 [[1,2,3],[3,8,4],[5,3,5]]:", minimumEffortPath([[1, 2, 3], [3, 8, 4], [5, 3, 5]])); // 1
-console.log("UF [[1,2,2],[3,8,2],[5,3,5]]:", minimumEffortPathUF([[1, 2, 2], [3, 8, 2], [5, 3, 5]])); // 2
+console.log(
+  "二分 [[1,2,2],[3,8,2],[5,3,5]]:",
+  minimumEffortPath([
+    [1, 2, 2],
+    [3, 8, 2],
+    [5, 3, 5],
+  ]),
+); // 2
+console.log(
+  "二分 [[1,2,3],[3,8,4],[5,3,5]]:",
+  minimumEffortPath([
+    [1, 2, 3],
+    [3, 8, 4],
+    [5, 3, 5],
+  ]),
+); // 1
+console.log(
+  "UF [[1,2,2],[3,8,2],[5,3,5]]:",
+  minimumEffortPathUF([
+    [1, 2, 2],
+    [3, 8, 2],
+    [5, 3, 5],
+  ]),
+); // 2
 
 export {};

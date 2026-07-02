@@ -90,7 +90,10 @@ function listToArray(head: ListNode | null): number[] {
 
 console.log("===== 009. 对链表进行插入排序 =====");
 console.log("插入排序 [4,2,1,3]:", listToArray(insertionSortList(arrayToList([4, 2, 1, 3])))); // [1,2,3,4]
-console.log("插入排序 [-1,5,3,4,0]:", listToArray(insertionSortList(arrayToList([-1, 5, 3, 4, 0])))); // [-1,0,3,4,5]
+console.log(
+  "插入排序 [-1,5,3,4,0]:",
+  listToArray(insertionSortList(arrayToList([-1, 5, 3, 4, 0]))),
+); // [-1,0,3,4,5]
 console.log("朴素 [4,2,1,3]:", listToArray(insertionSortListNaive(arrayToList([4, 2, 1, 3])))); // [1,2,3,4]
 
 export {};

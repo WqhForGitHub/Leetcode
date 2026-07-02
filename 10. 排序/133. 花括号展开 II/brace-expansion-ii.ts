@@ -34,11 +34,7 @@ class BraceParser {
   // 解析 term：一个或多个 factor 拼接
   private parseTerm(): Set<string> {
     let result = new Set<string>([""]);
-    while (
-      this.i < this.s.length &&
-      this.s[this.i] !== "," &&
-      this.s[this.i] !== "}"
-    ) {
+    while (this.i < this.s.length && this.s[this.i] !== "," && this.s[this.i] !== "}") {
       const factor = this.parseFactor();
       const merged = new Set<string>();
       for (const prefix of result) {

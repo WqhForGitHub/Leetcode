@@ -85,12 +85,22 @@ function applyFlips(original: number[], ks: number[]): number[] {
 const test1 = [3, 2, 4, 1];
 const ks1 = pancakeSort(test1.slice());
 console.log("方法1 输入 [3,2,4,1] -> k序列:", ks1);
-console.log("方法1 排序后:", applyFlips([3, 2, 4, 1], ks1), "期望已排序:", isSorted(applyFlips([3, 2, 4, 1], ks1)));
+console.log(
+  "方法1 排序后:",
+  applyFlips([3, 2, 4, 1], ks1),
+  "期望已排序:",
+  isSorted(applyFlips([3, 2, 4, 1], ks1)),
+);
 
 const test2 = [1, 2, 3];
 const ks2 = pancakeSort(test2.slice());
 console.log("方法1 输入 [1,2,3] -> k序列:", ks2);
-console.log("方法1 排序后:", applyFlips([1, 2, 3], ks2), "期望已排序:", isSorted(applyFlips([1, 2, 3], ks2)));
+console.log(
+  "方法1 排序后:",
+  applyFlips([1, 2, 3], ks2),
+  "期望已排序:",
+  isSorted(applyFlips([1, 2, 3], ks2)),
+);
 
 const ks3 = pancakeSortByValue([3, 2, 4, 1]);
 console.log("方法2 输入 [3,2,4,1] -> k序列:", ks3, "排序后:", applyFlips([3, 2, 4, 1], ks3));

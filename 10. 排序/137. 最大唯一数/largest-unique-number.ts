@@ -28,8 +28,10 @@ function largestUniqueNumber2(nums: number[]): number {
   let i = sorted.length - 1;
   while (i >= 0) {
     // 当前数字与相邻数字都不同时只出现一次
-    if ((i === sorted.length - 1 || sorted[i] !== sorted[i + 1]) &&
-        (i === 0 || sorted[i] !== sorted[i - 1])) {
+    if (
+      (i === sorted.length - 1 || sorted[i] !== sorted[i + 1]) &&
+      (i === 0 || sorted[i] !== sorted[i - 1])
+    ) {
       return sorted[i];
     }
     // 跳过与当前相同的数字，避免重复检查

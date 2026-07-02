@@ -25,7 +25,12 @@ function canReach(grid: number[][], t: number): boolean {
   const n = grid.length;
   if (grid[0][0] > t || grid[n - 1][n - 1] > t) return false;
   const visited = new Array(n).fill(0).map(() => new Array(n).fill(false));
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const queue: [number, number][] = [[0, 0]];
   visited[0][0] = true;
   while (queue.length > 0) {
@@ -49,7 +54,12 @@ function swimInWaterUF(grid: number[][]): number {
   const positions = grid.flat().map((val, idx) => ({ val, r: Math.floor(idx / n), c: idx % n }));
   positions.sort((a, b) => a.val - b.val);
   const uf = new UnionFind788(n * n);
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const seen = new Set<number>();
   for (const { val, r, c } of positions) {
     seen.add(r * n + c);
@@ -85,8 +95,22 @@ class UnionFind788 {
 // 测试
 // ============================================================
 console.log("===== 063. 水位上升的泳池中游泳 =====");
-console.log("二分 [[0,2],[1,3]]:", swimInWater([[0, 2], [1, 3]])); // 3
-console.log("二分 [[0,1,2,3,4],[24,23,22,21,5],[12,13,14,15,16],[11,17,18,19,20],[10,9,8,7,6]]:",
-  swimInWater([[0,1,2,3,4],[24,23,22,21,5],[12,13,14,15,16],[11,17,18,19,20],[10,9,8,7,6]])); // 16
+console.log(
+  "二分 [[0,2],[1,3]]:",
+  swimInWater([
+    [0, 2],
+    [1, 3],
+  ]),
+); // 3
+console.log(
+  "二分 [[0,1,2,3,4],[24,23,22,21,5],[12,13,14,15,16],[11,17,18,19,20],[10,9,8,7,6]]:",
+  swimInWater([
+    [0, 1, 2, 3, 4],
+    [24, 23, 22, 21, 5],
+    [12, 13, 14, 15, 16],
+    [11, 17, 18, 19, 20],
+    [10, 9, 8, 7, 6],
+  ]),
+); // 16
 
 export {};

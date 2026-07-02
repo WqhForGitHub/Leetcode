@@ -41,7 +41,7 @@ function minTimeToInfectManhattan(variants: number[][], k: number): number {
   let hi = 200000;
   while (lo < hi) {
     const mid = Math.floor((lo + hi) / 2);
-    let count = 0;
+    const count = 0;
     // 统计曼哈顿距离 <= mid 的点数
     const points = new Set<string>();
     for (const [x, y] of variants) {

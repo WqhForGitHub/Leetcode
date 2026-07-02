@@ -10,7 +10,7 @@ function watchedVideosByFriends(
   watchedVideos: string[][],
   friends: number[][],
   id: number,
-  level: number
+  level: number,
 ): string[] {
   const n = friends.length;
   const visited: boolean[] = new Array(n).fill(false);
@@ -55,7 +55,12 @@ console.log("===== 156. 获取你好友已观看的视频 =====");
 // 第 1 层好友(从 0 出发): 1 和 2
 // 1 看了 ["C"], 2 看了 ["B","C"] => B:1, C:2
 const watchedVideos = [["A", "B"], ["C"], ["B", "C"], ["D"]];
-const friends = [[1, 2], [0, 3], [0, 3], [1, 2]];
+const friends = [
+  [1, 2],
+  [0, 3],
+  [0, 3],
+  [1, 2],
+];
 console.log("level=1:", watchedVideosByFriends(watchedVideos, friends, 0, 1)); // ["B","C"]
 console.log("level=2:", watchedVideosByFriends(watchedVideos, friends, 0, 2)); // ["D"]
 

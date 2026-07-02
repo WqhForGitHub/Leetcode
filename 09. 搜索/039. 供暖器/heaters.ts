@@ -43,7 +43,10 @@ function findRadiusTwoPointer(houses: number[], heaters: number[]): number {
   let j = 0;
   for (const house of houses) {
     // 找到最近的供暖器
-    while (j < heaters.length - 1 && Math.abs(heaters[j + 1] - house) <= Math.abs(heaters[j] - house)) {
+    while (
+      j < heaters.length - 1 &&
+      Math.abs(heaters[j + 1] - house) <= Math.abs(heaters[j] - house)
+    ) {
       j++;
     }
     radius = Math.max(radius, Math.abs(heaters[j] - house));

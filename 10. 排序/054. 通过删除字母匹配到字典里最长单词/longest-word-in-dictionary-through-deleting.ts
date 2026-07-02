@@ -37,10 +37,7 @@ function findLongestWordNoSort(s: string, dictionary: string[]): string {
   let best = "";
   for (const word of dictionary) {
     if (isSubsequence(word, s)) {
-      if (
-        word.length > best.length ||
-        (word.length === best.length && word < best)
-      ) {
+      if (word.length > best.length || (word.length === best.length && word < best)) {
         best = word;
       }
     }
@@ -52,13 +49,15 @@ function findLongestWordNoSort(s: string, dictionary: string[]): string {
 // 测试
 // ============================================================
 console.log("===== 054. 通过删除字母匹配到字典里最长单词 =====");
-console.log("排序 s=abpcplea, dict=[ale,apple,monkey,plea]:",
-  findLongestWord("abpcplea", ["ale", "apple", "monkey", "plea"])); // 期望 apple
-console.log("排序 s=abpcplea, dict=[a,b,c]:",
-  findLongestWord("abpcplea", ["a", "b", "c"])); // 期望 a
-console.log("不排序 s=abpcplea, dict=[ale,apple,monkey,plea]:",
-  findLongestWordNoSort("abpcplea", ["ale", "apple", "monkey", "plea"])); // 期望 apple
-console.log("不排序 s=abpcplea, dict=[a,b,c]:",
-  findLongestWordNoSort("abpcplea", ["a", "b", "c"])); // 期望 a
+console.log(
+  "排序 s=abpcplea, dict=[ale,apple,monkey,plea]:",
+  findLongestWord("abpcplea", ["ale", "apple", "monkey", "plea"]),
+); // 期望 apple
+console.log("排序 s=abpcplea, dict=[a,b,c]:", findLongestWord("abpcplea", ["a", "b", "c"])); // 期望 a
+console.log(
+  "不排序 s=abpcplea, dict=[ale,apple,monkey,plea]:",
+  findLongestWordNoSort("abpcplea", ["ale", "apple", "monkey", "plea"]),
+); // 期望 apple
+console.log("不排序 s=abpcplea, dict=[a,b,c]:", findLongestWordNoSort("abpcplea", ["a", "b", "c"])); // 期望 a
 
 export {};

@@ -51,9 +51,9 @@ function maxValue1802Alt(n: number, index: number, maxSum: number): number {
     const mid = Math.floor((lo + hi + 1) / 2);
     // 计算最小总和
     const leftLen = Math.min(mid - 1, index);
-    const leftSum = (mid - 1 + mid - leftLen) * leftLen / 2 + (index - leftLen);
+    const leftSum = ((mid - 1 + mid - leftLen) * leftLen) / 2 + (index - leftLen);
     const rightLen = Math.min(mid - 1, n - index - 1);
-    const rightSum = (mid - 1 + mid - rightLen) * rightLen / 2 + (n - index - 1 - rightLen);
+    const rightSum = ((mid - 1 + mid - rightLen) * rightLen) / 2 + (n - index - 1 - rightLen);
     const total = mid + leftSum + rightSum;
     if (total <= maxSum) lo = mid;
     else hi = mid - 1;

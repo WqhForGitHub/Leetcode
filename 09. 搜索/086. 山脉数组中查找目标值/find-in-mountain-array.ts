@@ -47,7 +47,7 @@ function binarySearchMountain(
   target: number,
   lo: number,
   hi: number,
-  ascending: boolean
+  ascending: boolean,
 ): number {
   while (lo <= hi) {
     const mid = Math.floor((lo + hi) / 2);

@@ -83,9 +83,9 @@ function findErrorNums_math(nums: number[]): number[] {
   const expectedSum = (n * (n + 1)) / 2;
   const expectedSumSq = (n * (n + 1) * (2 * n + 1)) / 6;
 
-  const diff = sum - expectedSum;          // d - m
-  const diff2 = sumSq - expectedSumSq;     // (d + m) * (d - m)
-  const sumDM = diff2 / diff;              // d + m
+  const diff = sum - expectedSum; // d - m
+  const diff2 = sumSq - expectedSumSq; // (d + m) * (d - m)
+  const sumDM = diff2 / diff; // d + m
 
   const dup = (diff + sumDM) / 2;
   const missing = (sumDM - diff) / 2;

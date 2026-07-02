@@ -49,7 +49,7 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
     }
   }
 
-  const chars: string[] = s.split('');
+  const chars: string[] = s.split("");
   for (const indices of groups.values()) {
     // 下标已天然升序（按 i 顺序加入）
     const sortedChars: string[] = indices.map((idx) => chars[idx]).sort();
@@ -57,7 +57,7 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
       chars[idx] = sortedChars[i];
     });
   }
-  return chars.join('');
+  return chars.join("");
 }
 
 // ============================================================
@@ -66,25 +66,25 @@ function smallestStringWithSwaps(s: string, pairs: number[][]): string {
 console.log("===== 146. 交换字符串中的元素 =====");
 console.log(
   "方法1:",
-  smallestStringWithSwaps('dcab', [
+  smallestStringWithSwaps("dcab", [
     [0, 3],
     [1, 2],
-  ])
+  ]),
 ); // 期望: "bacd"
 console.log(
   "方法1:",
-  smallestStringWithSwaps('dcab', [
+  smallestStringWithSwaps("dcab", [
     [0, 3],
     [1, 2],
     [0, 2],
-  ])
+  ]),
 ); // 期望: "abcd"
 console.log(
   "方法1:",
-  smallestStringWithSwaps('cba', [
+  smallestStringWithSwaps("cba", [
     [0, 1],
     [1, 2],
-  ])
+  ]),
 ); // 期望: "abc"
 
 export {};

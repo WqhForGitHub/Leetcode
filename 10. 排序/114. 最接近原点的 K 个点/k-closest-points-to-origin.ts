@@ -106,20 +106,72 @@ function kClosestHeap(points: number[][], k: number): number[][] {
 // ============================================================
 console.log("===== 114. 最接近原点的 K 个点 =====");
 
-const pts = [[1, 3], [-2, 2], [5, 8], [0, 1]];
-console.log("方法1 排序:", kClosest(pts.map((p) => p.slice()), 2)); // 期望 [[-2,2],[0,1]]
-console.log("方法2 快选:", kClosestQuickselect(pts.map((p) => p.slice()), 2));
-console.log("方法3 堆:", kClosestHeap(pts.map((p) => p.slice()), 2));
+const pts = [
+  [1, 3],
+  [-2, 2],
+  [5, 8],
+  [0, 1],
+];
+console.log(
+  "方法1 排序:",
+  kClosest(
+    pts.map((p) => p.slice()),
+    2,
+  ),
+); // 期望 [[-2,2],[0,1]]
+console.log(
+  "方法2 快选:",
+  kClosestQuickselect(
+    pts.map((p) => p.slice()),
+    2,
+  ),
+);
+console.log(
+  "方法3 堆:",
+  kClosestHeap(
+    pts.map((p) => p.slice()),
+    2,
+  ),
+);
 
-const pts2 = [[1, 1], [2, 2], [3, 3], [4, 4]];
-console.log("方法1 k=3:", kClosest(pts2.map((p) => p.slice()), 3)); // 期望 [[1,1],[2,2],[3,3]]
-console.log("方法2 k=3:", kClosestQuickselect(pts2.map((p) => p.slice()), 3));
-console.log("方法3 k=3:", kClosestHeap(pts2.map((p) => p.slice()), 3));
+const pts2 = [
+  [1, 1],
+  [2, 2],
+  [3, 3],
+  [4, 4],
+];
+console.log(
+  "方法1 k=3:",
+  kClosest(
+    pts2.map((p) => p.slice()),
+    3,
+  ),
+); // 期望 [[1,1],[2,2],[3,3]]
+console.log(
+  "方法2 k=3:",
+  kClosestQuickselect(
+    pts2.map((p) => p.slice()),
+    3,
+  ),
+);
+console.log(
+  "方法3 k=3:",
+  kClosestHeap(
+    pts2.map((p) => p.slice()),
+    3,
+  ),
+);
 
 console.log(
   "单点 k=1:",
-  kClosest([[0, 0], [1, 1]], 1),
-  "期望 [[0,0]]"
+  kClosest(
+    [
+      [0, 0],
+      [1, 1],
+    ],
+    1,
+  ),
+  "期望 [[0,0]]",
 );
 
 export {};

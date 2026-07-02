@@ -10,16 +10,10 @@ function reversePairs(nums: number[]): number {
   return mergeSort(nums, 0, nums.length - 1, temp);
 }
 
-function mergeSort(
-  nums: number[],
-  left: number,
-  right: number,
-  temp: number[]
-): number {
+function mergeSort(nums: number[], left: number, right: number, temp: number[]): number {
   if (left >= right) return 0;
   const mid = Math.floor((left + right) / 2);
-  let count = mergeSort(nums, left, mid, temp) +
-    mergeSort(nums, mid + 1, right, temp);
+  let count = mergeSort(nums, left, mid, temp) + mergeSort(nums, mid + 1, right, temp);
   // 统计翻转对
   let j = mid + 1;
   for (let i = left; i <= mid; i++) {
@@ -72,7 +66,7 @@ function reversePairsBIT(nums: number[]): number {
   for (let i = nums.length - 1; i >= 0; i--) {
     // 查找 < nums[i] 的个数
     const target = nums[i] - 1;
-    let rk = 0;
+    const rk = 0;
     // 找 target 在 rank 中的排名
     const idx = allValues.filter((v) => v <= target).length;
     count += query(idx);

@@ -62,7 +62,10 @@ function maximumRemovalsAlt(s: string, p: string, removable: number[]): number {
 // ============================================================
 console.log("===== 152. 可移除字符的最大数目 =====");
 console.log("二分 'abcacb','ab',[3,1,0]:", maximumRemovals("abcacb", "ab", [3, 1, 0])); // 2
-console.log("二分 'abcbddddd','abcd',[3,2,1,4,5,6]:", maximumRemovals("abcbddddd", "abcd", [3, 2, 1, 4, 5, 6])); // 1
+console.log(
+  "二分 'abcbddddd','abcd',[3,2,1,4,5,6]:",
+  maximumRemovals("abcbddddd", "abcd", [3, 2, 1, 4, 5, 6]),
+); // 1
 console.log("二分 'abcab','abc',[0,1,2,3,4]:", maximumRemovals("abcab", "abc", [0, 1, 2, 3, 4])); // 0
 
 export {};

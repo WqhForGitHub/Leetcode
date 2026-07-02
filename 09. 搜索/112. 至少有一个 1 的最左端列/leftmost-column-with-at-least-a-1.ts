@@ -81,9 +81,15 @@ function leftMostColumnWithOneBottomLeft(binaryMatrix: BinaryMatrix): number {
 // 测试
 // ============================================================
 console.log("===== 112. 至少有一个 1 的最左端列 =====");
-const bm = new BinaryMatrix([[0, 0], [1, 1]]);
+const bm = new BinaryMatrix([
+  [0, 0],
+  [1, 1],
+]);
 console.log("二分:", leftMostColumnWithOne(bm)); // 0
-const bm2 = new BinaryMatrix([[0, 0], [0, 0]]);
+const bm2 = new BinaryMatrix([
+  [0, 0],
+  [0, 0],
+]);
 console.log("右上角:", leftMostColumnWithOneTopRight(bm2)); // -1
 
 export {};

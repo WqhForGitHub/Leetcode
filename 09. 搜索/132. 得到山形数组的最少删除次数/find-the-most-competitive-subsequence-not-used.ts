@@ -29,7 +29,8 @@ function mostCompetitiveBinary(nums: number[], k: number): number[] {
   const result: number[] = [];
   for (let i = 0; i < k; i++) {
     // 在 [start, n - (k - i)] 范围内找最小值
-    let start = result.length > 0 ? findLastGE(nums, result[result.length - 1], i > 0 ? n - k + i : 0) : 0;
+    const start =
+      result.length > 0 ? findLastGE(nums, result[result.length - 1], i > 0 ? n - k + i : 0) : 0;
     let minIdx = start;
     let minVal = Infinity;
     for (let j = start; j <= n - (k - i); j++) {

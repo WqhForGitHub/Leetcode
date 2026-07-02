@@ -47,7 +47,7 @@ function countLessEqual(
   target: number,
   row: number,
   sum: number,
-  memo: Map<string, number>
+  memo: Map<string, number>,
 ): number {
   if (row === mat.length) return sum <= target ? 1 : 0;
   const key = `${row},${sum}`;
@@ -66,8 +66,36 @@ function countLessEqual(
 // 测试
 // ============================================================
 console.log("===== 113. 有序矩阵中的第 k 个数组和 =====");
-console.log("堆 [[1,3,11],[2,4,6]],5:", kthSmallest1439([[1, 3, 11], [2, 4, 6]], 5)); // 7
-console.log("堆 [[1,3,11],[2,4,6]],9:", kthSmallest1439([[1, 3, 11], [2, 4, 6]], 9)); // 17
-console.log("堆 [[1,10,10],[1,4,5],[2,3,6]],7:", kthSmallest1439([[1, 10, 10], [1, 4, 5], [2, 3, 6]], 7)); // 9
+console.log(
+  "堆 [[1,3,11],[2,4,6]],5:",
+  kthSmallest1439(
+    [
+      [1, 3, 11],
+      [2, 4, 6],
+    ],
+    5,
+  ),
+); // 7
+console.log(
+  "堆 [[1,3,11],[2,4,6]],9:",
+  kthSmallest1439(
+    [
+      [1, 3, 11],
+      [2, 4, 6],
+    ],
+    9,
+  ),
+); // 17
+console.log(
+  "堆 [[1,10,10],[1,4,5],[2,3,6]],7:",
+  kthSmallest1439(
+    [
+      [1, 10, 10],
+      [1, 4, 5],
+      [2, 3, 6],
+    ],
+    7,
+  ),
+); // 9
 
 export {};

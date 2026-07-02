@@ -11,7 +11,7 @@ function filterRestaurants(
   restaurants: number[][],
   veganFriendly: number,
   maxPrice: number,
-  maxDistance: number
+  maxDistance: number,
 ): number[] {
   const filtered = restaurants.filter((r) => {
     const vegan = r[2];

@@ -69,19 +69,18 @@ function validWordAbbreviationAlt(word: string, abbr: string): boolean {
 // 测试
 // ============================================================
 console.log("===== 055. 单词缩写 =====");
-console.log("双指针 word=internationalization, abbr=i12iz4n:",
-  validWordAbbreviation("internationalization", "i12iz4n")); // 期望 true
-console.log("双指针 word=apple, abbr=a2e:",
-  validWordAbbreviation("apple", "a2e")); // 期望 false
-console.log("双指针 word=word, abbr=w2d:",
-  validWordAbbreviation("word", "w2d")); // 期望 true
-console.log("双指针 word=word, abbr=4:",
-  validWordAbbreviation("word", "4")); // 期望 true
-console.log("双指针 word=word, abbr=w0rd:",
-  validWordAbbreviation("word", "w0rd")); // 期望 false (前导零)
-console.log("备选 word=internationalization, abbr=i12iz4n:",
-  validWordAbbreviationAlt("internationalization", "i12iz4n")); // 期望 true
-console.log("备选 word=apple, abbr=a2e:",
-  validWordAbbreviationAlt("apple", "a2e")); // 期望 false
+console.log(
+  "双指针 word=internationalization, abbr=i12iz4n:",
+  validWordAbbreviation("internationalization", "i12iz4n"),
+); // 期望 true
+console.log("双指针 word=apple, abbr=a2e:", validWordAbbreviation("apple", "a2e")); // 期望 false
+console.log("双指针 word=word, abbr=w2d:", validWordAbbreviation("word", "w2d")); // 期望 true
+console.log("双指针 word=word, abbr=4:", validWordAbbreviation("word", "4")); // 期望 true
+console.log("双指针 word=word, abbr=w0rd:", validWordAbbreviation("word", "w0rd")); // 期望 false (前导零)
+console.log(
+  "备选 word=internationalization, abbr=i12iz4n:",
+  validWordAbbreviationAlt("internationalization", "i12iz4n"),
+); // 期望 true
+console.log("备选 word=apple, abbr=a2e:", validWordAbbreviationAlt("apple", "a2e")); // 期望 false
 
 export {};

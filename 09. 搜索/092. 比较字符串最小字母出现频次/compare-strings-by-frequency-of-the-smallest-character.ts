@@ -6,10 +6,7 @@
 // 返回 words 中 f(w) > f(query) 的个数。
 
 // 方法1：排序 + 二分查找
-function numSmallerByFrequency(
-  queries: string[],
-  words: string[]
-): number[] {
+function numSmallerByFrequency(queries: string[], words: string[]): number[] {
   const wordFreqs = words.map((w) => f(w)).sort((a, b) => a - b);
   const result: number[] = [];
   for (const q of queries) {
@@ -42,10 +39,7 @@ function f(s: string): number {
 }
 
 // 方法2：计数排序
-function numSmallerByFrequencyCount(
-  queries: string[],
-  words: string[]
-): number[] {
+function numSmallerByFrequencyCount(queries: string[], words: string[]): number[] {
   // f 的取值范围 1-10
   const count = new Array(12).fill(0);
   for (const w of words) {
@@ -67,6 +61,9 @@ function numSmallerByFrequencyCount(
 // ============================================================
 console.log("===== 092. 比较字符串最小字母出现频次 =====");
 console.log("二分 ['cbd'],['zaaaz']:", numSmallerByFrequency(["cbd"], ["zaaaz"])); // [1]
-console.log("二分 ['bbb','cc'],['a','aa','aaa','aaaa']:", numSmallerByFrequency(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"])); // [1,2]
+console.log(
+  "二分 ['bbb','cc'],['a','aa','aaa','aaaa']:",
+  numSmallerByFrequency(["bbb", "cc"], ["a", "aa", "aaa", "aaaa"]),
+); // [1,2]
 
 export {};

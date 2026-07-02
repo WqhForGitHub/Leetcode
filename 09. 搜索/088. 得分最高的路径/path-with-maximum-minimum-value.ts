@@ -26,7 +26,12 @@ function canReach(grid: number[][], minVal: number): boolean {
   const n = grid[0].length;
   if (grid[0][0] < minVal || grid[m - 1][n - 1] < minVal) return false;
   const visited = new Array(m).fill(0).map(() => new Array(n).fill(false));
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const queue: [number, number][] = [[0, 0]];
   visited[0][0] = true;
   while (queue.length > 0) {
@@ -48,7 +53,12 @@ function canReach(grid: number[][], minVal: number): boolean {
 function maximumMinimumPathHeap(grid: number[][]): number {
   const m = grid.length;
   const n = grid[0].length;
-  const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  const dirs = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
   const visited = new Array(m).fill(0).map(() => new Array(n).fill(false));
   // 最大堆（用数组模拟，按值降序）
   const heap: [number, number, number][] = [[grid[0][0], 0, 0]];
@@ -75,8 +85,28 @@ function maximumMinimumPathHeap(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 088. 得分最高的路径 =====");
-console.log("二分 [[5,4,5],[1,2,6],[7,4,9]]:", maximumMinimumPath([[5, 4, 5], [1, 2, 6], [7, 4, 9]])); // 4
-console.log("二分 [[2,2,1,2,2,2],[1,2,2,2,1,2]]:", maximumMinimumPath([[2, 2, 1, 2, 2, 2], [1, 2, 2, 2, 1, 2]])); // 2
-console.log("堆 [[5,4,5],[1,2,6],[7,4,9]]:", maximumMinimumPathHeap([[5, 4, 5], [1, 2, 6], [7, 4, 9]])); // 4
+console.log(
+  "二分 [[5,4,5],[1,2,6],[7,4,9]]:",
+  maximumMinimumPath([
+    [5, 4, 5],
+    [1, 2, 6],
+    [7, 4, 9],
+  ]),
+); // 4
+console.log(
+  "二分 [[2,2,1,2,2,2],[1,2,2,2,1,2]]:",
+  maximumMinimumPath([
+    [2, 2, 1, 2, 2, 2],
+    [1, 2, 2, 2, 1, 2],
+  ]),
+); // 2
+console.log(
+  "堆 [[5,4,5],[1,2,6],[7,4,9]]:",
+  maximumMinimumPathHeap([
+    [5, 4, 5],
+    [1, 2, 6],
+    [7, 4, 9],
+  ]),
+); // 4
 
 export {};

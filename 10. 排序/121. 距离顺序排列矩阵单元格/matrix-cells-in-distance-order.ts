@@ -10,11 +10,11 @@ function allCellsDistOrder(
   rows: number,
   cols: number,
   rCenter: number,
-  cCenter: number
+  cCenter: number,
 ): number[][] {
   const result: number[][] = [];
   const visited: boolean[][] = Array.from({ length: rows }, () =>
-    new Array<boolean>(cols).fill(false)
+    new Array<boolean>(cols).fill(false),
   );
 
   const queue: number[][] = [[rCenter, cCenter]];
@@ -33,13 +33,7 @@ function allCellsDistOrder(
     for (const [dr, dc] of dirs) {
       const nr = r + dr;
       const nc = c + dc;
-      if (
-        nr >= 0 &&
-        nr < rows &&
-        nc >= 0 &&
-        nc < cols &&
-        !visited[nr][nc]
-      ) {
+      if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc]) {
         visited[nr][nc] = true;
         queue.push([nr, nc]);
       }
@@ -54,7 +48,7 @@ function allCellsDistOrder2(
   rows: number,
   cols: number,
   rCenter: number,
-  cCenter: number
+  cCenter: number,
 ): number[][] {
   const cells: number[][] = [];
   for (let r = 0; r < rows; r++) {
@@ -66,7 +60,7 @@ function allCellsDistOrder2(
     (a, b) =>
       Math.abs(a[0] - rCenter) +
       Math.abs(a[1] - cCenter) -
-      (Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter))
+      (Math.abs(b[0] - rCenter) + Math.abs(b[1] - cCenter)),
   );
   return cells;
 }

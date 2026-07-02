@@ -23,10 +23,7 @@ function searchMatrixII(matrix: number[][], target: number): boolean {
 }
 
 // 方法2：每行二分查找（O(m log n)）
-function searchMatrixIIRowBinary(
-  matrix: number[][],
-  target: number
-): boolean {
+function searchMatrixIIRowBinary(matrix: number[][], target: number): boolean {
   if (matrix.length === 0 || matrix[0].length === 0) return false;
   for (const row of matrix) {
     let left = 0;

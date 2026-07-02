@@ -66,12 +66,7 @@ function countSmallerBST(nums: number[]): number[] {
   return result;
 }
 
-function insert(
-  node: BSTNode | null,
-  val: number,
-  result: number[],
-  idx: number
-): BSTNode {
+function insert(node: BSTNode | null, val: number, result: number[], idx: number): BSTNode {
   if (!node) return new BSTNode(val);
   if (val < node.val) {
     node.leftCount++;

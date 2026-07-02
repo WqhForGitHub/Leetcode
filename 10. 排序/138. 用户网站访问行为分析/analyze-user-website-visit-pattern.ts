@@ -8,11 +8,7 @@
 // 方法1：按时间排序 + 按用户分组 + 枚举每个用户的所有 3-序列 + 计数
 // 时间复杂度：O(n log n + U * C^3)，U 为用户数，C 为单个用户访问的网站数。
 // 注意：题目要求按"用户"计数，即同一用户访问相同 3-序列只算一次。
-function mostVisitedPattern(
-  username: string[],
-  timestamp: number[],
-  website: string[]
-): string[] {
+function mostVisitedPattern(username: string[], timestamp: number[], website: string[]): string[] {
   const n = username.length;
   // 1. 将三元组按时间排序
   const visits: Array<{ user: string; time: number; site: string }> = [];
@@ -72,8 +68,8 @@ console.log(
   mostVisitedPattern(
     ["joe", "joe", "joe", "james", "james", "james", "james", "mary", "mary", "mary"],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    ["home", "about", "career", "home", "cart", "maps", "home", "home", "about", "career"]
-  )
+    ["home", "about", "career", "home", "cart", "maps", "home", "home", "about", "career"],
+  ),
 ); // 期望: ["home","about","career"]
 
 console.log(
@@ -81,8 +77,8 @@ console.log(
   mostVisitedPattern(
     ["ua", "ua", "ua", "ub", "ub", "ub"],
     [1, 2, 3, 4, 5, 6],
-    ["a", "b", "c", "a", "b", "c"]
-  )
+    ["a", "b", "c", "a", "b", "c"],
+  ),
 ); // 期望: ["a","b","c"]
 
 console.log(
@@ -90,8 +86,8 @@ console.log(
   mostVisitedPattern(
     ["dow", "dow", "dow", "bow", "bow", "bow"],
     [1, 2, 3, 4, 5, 6],
-    ["a", "b", "c", "a", "b", "a"]
-  )
+    ["a", "b", "c", "a", "b", "a"],
+  ),
 ); // 期望: ["a","b","a"]
 
 export {};

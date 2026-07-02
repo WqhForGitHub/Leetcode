@@ -14,22 +14,22 @@ function countOfAtoms(formula: string): string {
   const parseAtom = (): string => {
     const start = i;
     i++; // 首字母（大写）
-    while (i < n && formula[i] >= 'a' && formula[i] <= 'z') i++;
+    while (i < n && formula[i] >= "a" && formula[i] <= "z") i++;
     return formula.substring(start, i);
   };
   const parseNumber = (): number => {
     const start = i;
-    while (i < n && formula[i] >= '0' && formula[i] <= '9') i++;
+    while (i < n && formula[i] >= "0" && formula[i] <= "9") i++;
     return i === start ? 1 : parseInt(formula.substring(start, i), 10);
   };
 
   const stack: Map<string, number>[] = [new Map()];
   while (i < n) {
     const ch = formula[i];
-    if (ch === '(') {
+    if (ch === "(") {
       stack.push(new Map());
       i++;
-    } else if (ch === ')') {
+    } else if (ch === ")") {
       i++;
       const num = parseNumber();
       const top = stack.pop()!;
@@ -57,19 +57,19 @@ function countOfAtoms2(formula: string): string {
   const parseAtom = (): string => {
     const start = i;
     i++;
-    while (i < n && formula[i] >= 'a' && formula[i] <= 'z') i++;
+    while (i < n && formula[i] >= "a" && formula[i] <= "z") i++;
     return formula.substring(start, i);
   };
   const parseNumber = (): number => {
     const start = i;
-    while (i < n && formula[i] >= '0' && formula[i] <= '9') i++;
+    while (i < n && formula[i] >= "0" && formula[i] <= "9") i++;
     return i === start ? 1 : parseInt(formula.substring(start, i), 10);
   };
 
   const parse = (): Map<string, number> => {
     const counts = new Map<string, number>();
-    while (i < n && formula[i] !== ')') {
-      if (formula[i] === '(') {
+    while (i < n && formula[i] !== ")") {
+      if (formula[i] === "(") {
         i++; // 跳过 '('
         const sub = parse();
         i++; // 跳过 ')'
@@ -91,7 +91,7 @@ function countOfAtoms2(formula: string): string {
 
 function buildResult(counts: Map<string, number>): string {
   const atoms = Array.from(counts.keys()).sort();
-  let result = '';
+  let result = "";
   for (const atom of atoms) {
     result += atom;
     const c = counts.get(atom)!;

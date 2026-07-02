@@ -48,7 +48,7 @@ console.log(
     ["JFK", "MUC"],
     ["SFO", "SJC"],
     ["LHR", "SFO"],
-  ])
+  ]),
 ); // 期望 ["JFK","MUC","LHR","SFO","SJC"]
 
 console.log(
@@ -59,7 +59,7 @@ console.log(
     ["SFO", "ATL"],
     ["ATL", "JFK"],
     ["ATL", "SFO"],
-  ])
+  ]),
 ); // 期望 ["JFK","ATL","JFK","SFO","ATL","SFO"]
 
 export {};

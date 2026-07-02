@@ -34,7 +34,7 @@ function threeSumSmallerBinary(nums: number[], target: number): number {
       // 找 nums[j+1..] 中小于 need 的个数
       let left = j + 1;
       let right = nums.length - 1;
-      let bound = j; // 第一个 >= need 的位置
+      const bound = j; // 第一个 >= need 的位置
       while (left <= right) {
         const mid = Math.floor((left + right) / 2);
         if (nums[mid] < need) {

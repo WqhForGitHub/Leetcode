@@ -72,7 +72,13 @@ function numMatchingSubseqGroup(s: string, words: string[]): number {
 // 测试
 // ============================================================
 console.log("===== 065. 匹配子序列的单词数 =====");
-console.log("二分 'abcde',['a','bb','acd','ace']:", numMatchingSubseq("abcde", ["a", "bb", "acd", "ace"])); // 3
-console.log("二分 'dsahjpjauf',['ahjpjau','ja','ahbwzgqnuk','tnmlanowax']:", numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"])); // 2
+console.log(
+  "二分 'abcde',['a','bb','acd','ace']:",
+  numMatchingSubseq("abcde", ["a", "bb", "acd", "ace"]),
+); // 3
+console.log(
+  "二分 'dsahjpjauf',['ahjpjau','ja','ahbwzgqnuk','tnmlanowax']:",
+  numMatchingSubseq("dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"]),
+); // 2
 
 export {};

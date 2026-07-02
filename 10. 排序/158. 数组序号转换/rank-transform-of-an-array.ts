@@ -41,8 +41,14 @@ function arrayRankTransform2(arr: number[]): number[] {
 console.log("===== 158. 数组序号转换 =====");
 console.log("方法1 [40,10,20,30]:", arrayRankTransform([40, 10, 20, 30])); // [4,1,2,3]
 console.log("方法1 [100,100,100]:", arrayRankTransform([100, 100, 100])); // [1,1,1]
-console.log("方法1 [37,12,28,9,100,56,80,5,12]:", arrayRankTransform([37, 12, 28, 9, 100, 56, 80, 5, 12])); // [5,3,4,2,8,6,7,1,3]
+console.log(
+  "方法1 [37,12,28,9,100,56,80,5,12]:",
+  arrayRankTransform([37, 12, 28, 9, 100, 56, 80, 5, 12]),
+); // [5,3,4,2,8,6,7,1,3]
 console.log("方法2 [40,10,20,30]:", arrayRankTransform2([40, 10, 20, 30])); // [4,1,2,3]
-console.log("方法2 [37,12,28,9,100,56,80,5,12]:", arrayRankTransform2([37, 12, 28, 9, 100, 56, 80, 5, 12])); // [5,3,4,2,8,6,7,1,3]
+console.log(
+  "方法2 [37,12,28,9,100,56,80,5,12]:",
+  arrayRankTransform2([37, 12, 28, 9, 100, 56, 80, 5, 12]),
+); // [5,3,4,2,8,6,7,1,3]
 
 export {};

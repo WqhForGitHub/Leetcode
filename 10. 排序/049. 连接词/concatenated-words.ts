@@ -88,7 +88,7 @@ function canSegment(
   word: string,
   start: number,
   root: TrieNode,
-  memo: (boolean | undefined)[]
+  memo: (boolean | undefined)[],
 ): boolean {
   if (memo[start] !== undefined) return memo[start];
   let node = root;
@@ -114,20 +114,46 @@ function sortStrArr(arr: string[]): string[] {
   return [...arr].sort();
 }
 
-console.log("DP [cat,cats,catsdogcats,dog,dogcatsdog,hippopotamuses,rat,ratcatdogcat]:",
-  sortStrArr(findAllConcatenatedWordsInADict(
-    ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]
-  ))); // 期望 [catsdogcats,dogcatsdog,ratcatdogcat]
+console.log(
+  "DP [cat,cats,catsdogcats,dog,dogcatsdog,hippopotamuses,rat,ratcatdogcat]:",
+  sortStrArr(
+    findAllConcatenatedWordsInADict([
+      "cat",
+      "cats",
+      "catsdogcats",
+      "dog",
+      "dogcatsdog",
+      "hippopotamuses",
+      "rat",
+      "ratcatdogcat",
+    ]),
+  ),
+); // 期望 [catsdogcats,dogcatsdog,ratcatdogcat]
 
-console.log("DP [cat,dog,catdog]:",
-  sortStrArr(findAllConcatenatedWordsInADict(["cat", "dog", "catdog"]))); // 期望 [catdog]
+console.log(
+  "DP [cat,dog,catdog]:",
+  sortStrArr(findAllConcatenatedWordsInADict(["cat", "dog", "catdog"])),
+); // 期望 [catdog]
 
-console.log("Trie [cat,cats,catsdogcats,dog,dogcatsdog,hippopotamuses,rat,ratcatdogcat]:",
-  sortStrArr(findAllConcatenatedWordsInADictTrie(
-    ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]
-  ))); // 期望 [catsdogcats,dogcatsdog,ratcatdogcat]
+console.log(
+  "Trie [cat,cats,catsdogcats,dog,dogcatsdog,hippopotamuses,rat,ratcatdogcat]:",
+  sortStrArr(
+    findAllConcatenatedWordsInADictTrie([
+      "cat",
+      "cats",
+      "catsdogcats",
+      "dog",
+      "dogcatsdog",
+      "hippopotamuses",
+      "rat",
+      "ratcatdogcat",
+    ]),
+  ),
+); // 期望 [catsdogcats,dogcatsdog,ratcatdogcat]
 
-console.log("Trie [cat,dog,catdog]:",
-  sortStrArr(findAllConcatenatedWordsInADictTrie(["cat", "dog", "catdog"]))); // 期望 [catdog]
+console.log(
+  "Trie [cat,dog,catdog]:",
+  sortStrArr(findAllConcatenatedWordsInADictTrie(["cat", "dog", "catdog"])),
+); // 期望 [catdog]
 
 export {};

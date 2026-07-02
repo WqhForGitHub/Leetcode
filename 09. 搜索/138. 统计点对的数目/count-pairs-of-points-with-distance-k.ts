@@ -5,10 +5,7 @@
 // 统计满足 |x1-x2| + |y1-y2| = k 的点对数。
 
 // 方法1：哈希表 + 枚举
-function countPairs1782(
-  coordinates: number[][],
-  k: number
-): number {
+function countPairs1782(coordinates: number[][], k: number): number {
   const n = coordinates.length;
   const map = new Map<string, number>();
   let count = 0;
@@ -37,10 +34,7 @@ function countPairs1782(
 }
 
 // 方法2：暴力双重循环（O(n²)）
-function countPairs1782Brute(
-  coordinates: number[][],
-  k: number
-): number {
+function countPairs1782Brute(coordinates: number[][], k: number): number {
   const n = coordinates.length;
   let count = 0;
   for (let i = 0; i < n; i++) {
@@ -58,7 +52,30 @@ function countPairs1782Brute(
 // 测试
 // ============================================================
 console.log("===== 138. 统计点对的数目 =====");
-console.log("哈希 [[1,2],[4,2],[1,3],[5,2]],5:", countPairs1782([[1, 2], [4, 2], [1, 3], [5, 2]], 5)); // 2
-console.log("暴力 [[1,3],[1,3],[1,3],[1,3],[1,3]],0:", countPairs1782Brute([[1, 3], [1, 3], [1, 3], [1, 3], [1, 3]], 0)); // 10
+console.log(
+  "哈希 [[1,2],[4,2],[1,3],[5,2]],5:",
+  countPairs1782(
+    [
+      [1, 2],
+      [4, 2],
+      [1, 3],
+      [5, 2],
+    ],
+    5,
+  ),
+); // 2
+console.log(
+  "暴力 [[1,3],[1,3],[1,3],[1,3],[1,3]],0:",
+  countPairs1782Brute(
+    [
+      [1, 3],
+      [1, 3],
+      [1, 3],
+      [1, 3],
+      [1, 3],
+    ],
+    0,
+  ),
+); // 10
 
 export {};

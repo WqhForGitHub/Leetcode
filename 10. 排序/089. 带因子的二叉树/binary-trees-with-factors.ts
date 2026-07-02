@@ -25,7 +25,7 @@ function numFactoredBinaryTrees(arr: number[]): number {
       if (x % y === 0) {
         const z = x / y;
         if (dp.has(z)) {
-          count = (count + (dp.get(y)! * dp.get(z)!) % MOD823) % MOD823;
+          count = (count + ((dp.get(y)! * dp.get(z)!) % MOD823)) % MOD823;
         }
       }
     }

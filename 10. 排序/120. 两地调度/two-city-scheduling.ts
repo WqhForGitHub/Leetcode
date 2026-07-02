@@ -26,9 +26,7 @@ function twoCitySchedCostGain(costs: number[][]): number {
   const n = costs.length / 2;
   // gains[i] = 派第 i 人去 B 相比去 A 节省的费用
   const gains = costs.map((c) => c[0] - c[1]);
-  const order = gains
-    .map((g, i) => [g, i] as [number, number])
-    .sort((a, b) => b[0] - a[0]); // 收益从大到小
+  const order = gains.map((g, i) => [g, i] as [number, number]).sort((a, b) => b[0] - a[0]); // 收益从大到小
   let total = 0;
   for (const c of costs) total += c[0]; // 全部先去 A
   // 收益最大的前 N 人改去 B：减去 c[0]，加上 c[1]，等价于减去 gain
@@ -51,7 +49,7 @@ console.log(
     [30, 200],
     [400, 50],
     [30, 20],
-  ])
+  ]),
 ); // 期望 110
 console.log(
   "方法1 [[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]:",
@@ -62,7 +60,7 @@ console.log(
     [184, 139],
     [840, 118],
     [577, 469],
-  ])
+  ]),
 ); // 期望 1859
 console.log(
   "方法2 [[10,20],[30,200],[400,50],[30,20]]:",
@@ -71,7 +69,7 @@ console.log(
     [30, 200],
     [400, 50],
     [30, 20],
-  ])
+  ]),
 ); // 期望 110
 console.log(
   "方法2 [[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]:",
@@ -82,7 +80,7 @@ console.log(
     [184, 139],
     [840, 118],
     [577, 469],
-  ])
+  ]),
 ); // 期望 1859
 
 export {};

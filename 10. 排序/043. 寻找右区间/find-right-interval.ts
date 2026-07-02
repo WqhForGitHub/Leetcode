@@ -11,9 +11,10 @@ function findRightInterval(intervals: number[][]): number[] {
   const n = intervals.length;
 
   // 记录每个区间的起点与原始下标，按起点升序
-  const starts: Array<{ start: number; index: number }> = intervals.map(
-    (interval, i) => ({ start: interval[0], index: i })
-  );
+  const starts: Array<{ start: number; index: number }> = intervals.map((interval, i) => ({
+    start: interval[0],
+    index: i,
+  }));
   starts.sort((a, b) => a.start - b.start);
 
   const result: number[] = new Array(n).fill(-1);
@@ -44,12 +45,14 @@ function findRightInterval(intervals: number[][]): number[] {
 function findRightInterval_twoPointers(intervals: number[][]): number[] {
   const n = intervals.length;
 
-  const starts: Array<{ val: number; index: number }> = intervals.map(
-    (interval, i) => ({ val: interval[0], index: i })
-  );
-  const ends: Array<{ val: number; index: number }> = intervals.map(
-    (interval, i) => ({ val: interval[1], index: i })
-  );
+  const starts: Array<{ val: number; index: number }> = intervals.map((interval, i) => ({
+    val: interval[0],
+    index: i,
+  }));
+  const ends: Array<{ val: number; index: number }> = intervals.map((interval, i) => ({
+    val: interval[1],
+    index: i,
+  }));
 
   starts.sort((a, b) => a.val - b.val);
   ends.sort((a, b) => a.val - b.val);
@@ -76,11 +79,39 @@ function findRightInterval_twoPointers(intervals: number[][]): number[] {
 // ============================================================
 console.log("===== 043. 寻找右区间 =====");
 console.log("二分 [[1,2]]:", findRightInterval([[1, 2]])); // 期望: [-1]
-console.log("二分 [[3,4],[2,3],[1,2]]:", findRightInterval([[3, 4], [2, 3], [1, 2]])); // 期望: [-1,0,1]
-console.log("二分 [[1,4],[2,3],[3,4]]:", findRightInterval([[1, 4], [2, 3], [3, 4]])); // 期望: [-1,2,-1]
+console.log(
+  "二分 [[3,4],[2,3],[1,2]]:",
+  findRightInterval([
+    [3, 4],
+    [2, 3],
+    [1, 2],
+  ]),
+); // 期望: [-1,0,1]
+console.log(
+  "二分 [[1,4],[2,3],[3,4]]:",
+  findRightInterval([
+    [1, 4],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望: [-1,2,-1]
 
 console.log("双指针 [[1,2]]:", findRightInterval_twoPointers([[1, 2]])); // 期望: [-1]
-console.log("双指针 [[3,4],[2,3],[1,2]]:", findRightInterval_twoPointers([[3, 4], [2, 3], [1, 2]])); // 期望: [-1,0,1]
-console.log("双指针 [[1,4],[2,3],[3,4]]:", findRightInterval_twoPointers([[1, 4], [2, 3], [3, 4]])); // 期望: [-1,2,-1]
+console.log(
+  "双指针 [[3,4],[2,3],[1,2]]:",
+  findRightInterval_twoPointers([
+    [3, 4],
+    [2, 3],
+    [1, 2],
+  ]),
+); // 期望: [-1,0,1]
+console.log(
+  "双指针 [[1,4],[2,3],[3,4]]:",
+  findRightInterval_twoPointers([
+    [1, 4],
+    [2, 3],
+    [3, 4],
+  ]),
+); // 期望: [-1,2,-1]
 
 export {};

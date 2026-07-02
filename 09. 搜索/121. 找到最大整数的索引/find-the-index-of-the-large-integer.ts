@@ -59,11 +59,11 @@ function getIndexSimple(reader: ArrayReader1533): number {
   let hi = reader.length() - 1;
   while (lo < hi) {
     const mid = Math.floor((lo + hi) / 2);
-    const result = reader.compareSub(lo, mid, mid + (hi - lo) % 2, hi);
+    const result = reader.compareSub(lo, mid, mid + ((hi - lo) % 2), hi);
     if (result > 0) {
       hi = mid;
     } else if (result < 0) {
-      lo = mid + (hi - lo) % 2 + 1 - (hi - lo) % 2;
+      lo = mid + ((hi - lo) % 2) + 1 - ((hi - lo) % 2);
     } else {
       return mid;
     }

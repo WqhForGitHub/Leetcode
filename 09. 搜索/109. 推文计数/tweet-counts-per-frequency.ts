@@ -23,7 +23,7 @@ class TweetCounts {
     freq: string,
     tweetName: string,
     startTime: number,
-    endTime: number
+    endTime: number,
   ): number[] {
     if (!this.tweets.has(tweetName)) return [];
     const times = this.tweets.get(tweetName)!.sort((a, b) => a - b);
@@ -90,7 +90,7 @@ class TweetCountsSorted {
     freq: string,
     tweetName: string,
     startTime: number,
-    endTime: number
+    endTime: number,
   ): number[] {
     if (!this.tweets.has(tweetName)) return [];
     const times = this.tweets.get(tweetName)!;

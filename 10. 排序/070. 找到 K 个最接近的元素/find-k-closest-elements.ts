@@ -50,17 +50,20 @@ function findClosestElements_twoPointers(arr: number[], k: number, x: number): n
 // 测试
 // ============================================================
 console.log("===== 070. 找到 K 个最接近的元素 =====");
-console.log("二分 arr=[1,2,3,4,5],k=4,x=3:",
-  findClosestElements([1, 2, 3, 4, 5], 4, 3)); // 期望 [1,2,3,4]
-console.log("二分 arr=[1,2,3,4,5],k=4,x=-1:",
-  findClosestElements([1, 2, 3, 4, 5], 4, -1)); // 期望 [1,2,3,4]
-console.log("二分 arr=[1,1,1,10,10,10],k=1,x=9:",
-  findClosestElements([1, 1, 1, 10, 10, 10], 1, 9)); // 期望 [10]
-console.log("双指针 arr=[1,2,3,4,5],k=4,x=3:",
-  findClosestElements_twoPointers([1, 2, 3, 4, 5], 4, 3)); // 期望 [1,2,3,4]
-console.log("双指针 arr=[1,2,3,4,5],k=4,x=-1:",
-  findClosestElements_twoPointers([1, 2, 3, 4, 5], 4, -1)); // 期望 [1,2,3,4]
-console.log("双指针 arr=[1,1,1,10,10,10],k=1,x=9:",
-  findClosestElements_twoPointers([1, 1, 1, 10, 10, 10], 1, 9)); // 期望 [10]
+console.log("二分 arr=[1,2,3,4,5],k=4,x=3:", findClosestElements([1, 2, 3, 4, 5], 4, 3)); // 期望 [1,2,3,4]
+console.log("二分 arr=[1,2,3,4,5],k=4,x=-1:", findClosestElements([1, 2, 3, 4, 5], 4, -1)); // 期望 [1,2,3,4]
+console.log("二分 arr=[1,1,1,10,10,10],k=1,x=9:", findClosestElements([1, 1, 1, 10, 10, 10], 1, 9)); // 期望 [10]
+console.log(
+  "双指针 arr=[1,2,3,4,5],k=4,x=3:",
+  findClosestElements_twoPointers([1, 2, 3, 4, 5], 4, 3),
+); // 期望 [1,2,3,4]
+console.log(
+  "双指针 arr=[1,2,3,4,5],k=4,x=-1:",
+  findClosestElements_twoPointers([1, 2, 3, 4, 5], 4, -1),
+); // 期望 [1,2,3,4]
+console.log(
+  "双指针 arr=[1,1,1,10,10,10],k=1,x=9:",
+  findClosestElements_twoPointers([1, 1, 1, 10, 10, 10], 1, 9),
+); // 期望 [10]
 
 export {};

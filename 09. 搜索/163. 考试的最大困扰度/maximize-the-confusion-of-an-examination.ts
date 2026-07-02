@@ -13,14 +13,14 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
     let countT = 0;
     let countF = 0;
     for (let i = 0; i < len; i++) {
-      if (answerKey[i] === 'T') countT++;
+      if (answerKey[i] === "T") countT++;
       else countF++;
     }
     if (countT <= k || countF <= k) return true;
     for (let i = len; i < n; i++) {
-      if (answerKey[i] === 'T') countT++;
+      if (answerKey[i] === "T") countT++;
       else countF++;
-      if (answerKey[i - len] === 'T') countT--;
+      if (answerKey[i - len] === "T") countT--;
       else countF--;
       if (countT <= k || countF <= k) return true;
     }
@@ -57,7 +57,7 @@ function maxConsecutiveAnswersSliding(answerKey: string, k: number): number {
     }
     return maxLen;
   }
-  return Math.max(sliding('T'), sliding('F'));
+  return Math.max(sliding("T"), sliding("F"));
 }
 
 // ============================================================

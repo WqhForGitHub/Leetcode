@@ -55,7 +55,9 @@ console.log("===== 069. 山脉数组的峰顶索引 =====");
 console.log("二分 [0,1,0]:", peakIndexInMountainArray([0, 1, 0])); // 1
 console.log("二分 [0,2,1,0]:", peakIndexInMountainArray([0, 2, 1, 0])); // 1
 console.log("二分 [0,10,5,2]:", peakIndexInMountainArray([0, 10, 5, 2])); // 1
-console.log("三分 [24,69,100,99,79,78,67,36,26,19]:",
-  peakIndexInMountainArrayTernary([24, 69, 100, 99, 79, 78, 67, 36, 26, 19])); // 2
+console.log(
+  "三分 [24,69,100,99,79,78,67,36,26,19]:",
+  peakIndexInMountainArrayTernary([24, 69, 100, 99, 79, 78, 67, 36, 26, 19]),
+); // 2
 
 export {};

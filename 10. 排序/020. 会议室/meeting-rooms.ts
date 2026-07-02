@@ -31,14 +31,14 @@ console.log(
     { start: 0, end: 30 },
     { start: 5, end: 10 },
     { start: 15, end: 20 },
-  ])
+  ]),
 ); // 期望 false
 console.log(
   "方法1:",
   canAttendMeetings([
     { start: 7, end: 10 },
     { start: 2, end: 4 },
-  ])
+  ]),
 ); // 期望 true
 
 export {};

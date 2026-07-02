@@ -52,7 +52,12 @@ function numDistinctIslands_bfs(grid: number[][]): number {
   const signatures = new Set<string>();
 
   // 邻居方向：下、上、右、左（与 DFS 保持一致）
-  const dirs: Array<[number, number]> = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  const dirs: Array<[number, number]> = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
 
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
@@ -85,33 +90,41 @@ function numDistinctIslands_bfs(grid: number[][]): number {
 // 测试
 // ============================================================
 console.log("===== 072. 不同岛屿的数量 =====");
-console.log("DFS 两个 2x2 方块:",
+console.log(
+  "DFS 两个 2x2 方块:",
   numDistinctIslands([
     [1, 1, 0, 0, 0],
     [1, 1, 0, 0, 0],
     [0, 0, 0, 1, 1],
     [0, 0, 0, 1, 1],
-  ])); // 期望 1
-console.log("DFS L 形与横条:",
+  ]),
+); // 期望 1
+console.log(
+  "DFS L 形与横条:",
   numDistinctIslands([
     [1, 1, 0, 1, 1],
     [1, 0, 0, 0, 0],
     [0, 0, 0, 0, 1],
     [1, 1, 0, 1, 1],
-  ])); // 期望 3
-console.log("BFS 两个 2x2 方块:",
+  ]),
+); // 期望 3
+console.log(
+  "BFS 两个 2x2 方块:",
   numDistinctIslands_bfs([
     [1, 1, 0, 0, 0],
     [1, 1, 0, 0, 0],
     [0, 0, 0, 1, 1],
     [0, 0, 0, 1, 1],
-  ])); // 期望 1
-console.log("BFS L 形与横条:",
+  ]),
+); // 期望 1
+console.log(
+  "BFS L 形与横条:",
   numDistinctIslands_bfs([
     [1, 1, 0, 1, 1],
     [1, 0, 0, 0, 0],
     [0, 0, 0, 0, 1],
     [1, 1, 0, 1, 1],
-  ])); // 期望 3
+  ]),
+); // 期望 3
 
 export {};

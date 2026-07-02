@@ -71,9 +71,25 @@ function minWastedSpaceTwoPointer(packages: number[], boxes: number[][]): number
 // 测试
 // ============================================================
 console.log("===== 149. 装包裹的最小浪费空间 =====");
-console.log("二分 [2,3,5],[[4,8],[2,8]]:",
-  minWastedSpace([2, 3, 5], [[4, 8], [2, 8]])); // 6
-console.log("双指针 [2,3,5],[[4,8],[2,8]]:",
-  minWastedSpaceTwoPointer([2, 3, 5], [[4, 8], [2, 8]])); // 6
+console.log(
+  "二分 [2,3,5],[[4,8],[2,8]]:",
+  minWastedSpace(
+    [2, 3, 5],
+    [
+      [4, 8],
+      [2, 8],
+    ],
+  ),
+); // 6
+console.log(
+  "双指针 [2,3,5],[[4,8],[2,8]]:",
+  minWastedSpaceTwoPointer(
+    [2, 3, 5],
+    [
+      [4, 8],
+      [2, 8],
+    ],
+  ),
+); // 6
 
 export {};

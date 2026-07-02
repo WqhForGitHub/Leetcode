@@ -107,14 +107,14 @@ console.log(
     { start: 0, end: 30 },
     { start: 5, end: 10 },
     { start: 15, end: 20 },
-  ])
+  ]),
 ); // 期望 2
 console.log(
   "方法1:",
   minMeetingRooms([
     { start: 7, end: 10 },
     { start: 2, end: 4 },
-  ])
+  ]),
 ); // 期望 1
 console.log(
   "方法2:",
@@ -122,14 +122,14 @@ console.log(
     { start: 0, end: 30 },
     { start: 5, end: 10 },
     { start: 15, end: 20 },
-  ])
+  ]),
 ); // 期望 2
 console.log(
   "方法2:",
   minMeetingRooms2([
     { start: 7, end: 10 },
     { start: 2, end: 4 },
-  ])
+  ]),
 ); // 期望 1
 
 export {};

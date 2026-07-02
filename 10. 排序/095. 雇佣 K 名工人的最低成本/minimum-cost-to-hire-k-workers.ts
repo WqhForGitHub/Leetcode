@@ -128,13 +128,18 @@ function mincostToHireWorkersBrute(quality: number[], wage: number[], k: number)
 // 测试
 // ============================================================
 console.log("===== 095. 雇佣 K 名工人的最低成本 =====");
-console.log("堆 [10,20,5]/[70,50,30],k=2:",
-  mincostToHireWorkers([10, 20, 5], [70, 50, 30], 2)); // 期望 105
-console.log("堆 [3,1,10,10,1]/[4,8,2,2,7],k=3:",
-  mincostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3)); // 期望 30.66667
-console.log("暴力 [10,20,5]/[70,50,30],k=2:",
-  mincostToHireWorkersBrute([10, 20, 5], [70, 50, 30], 2)); // 期望 105
-console.log("暴力 [3,1,10,10,1]/[4,8,2,2,7],k=3:",
-  mincostToHireWorkersBrute([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3)); // 期望 30.66667
+console.log("堆 [10,20,5]/[70,50,30],k=2:", mincostToHireWorkers([10, 20, 5], [70, 50, 30], 2)); // 期望 105
+console.log(
+  "堆 [3,1,10,10,1]/[4,8,2,2,7],k=3:",
+  mincostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3),
+); // 期望 30.66667
+console.log(
+  "暴力 [10,20,5]/[70,50,30],k=2:",
+  mincostToHireWorkersBrute([10, 20, 5], [70, 50, 30], 2),
+); // 期望 105
+console.log(
+  "暴力 [3,1,10,10,1]/[4,8,2,2,7],k=3:",
+  mincostToHireWorkersBrute([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3),
+); // 期望 30.66667
 
 export {};

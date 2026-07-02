@@ -85,23 +85,29 @@ function employeeFreeTime2(schedule: Interval[][]): Interval[] {
 console.log("===== 081. 员工空闲时间 =====");
 
 const schedule1: Interval[][] = [
-  [{ start: 1, end: 2 }, { start: 5, end: 6 }],
+  [
+    { start: 1, end: 2 },
+    { start: 5, end: 6 },
+  ],
   [{ start: 1, end: 3 }],
-  [{ start: 4, end: 10 }]
+  [{ start: 4, end: 10 }],
 ];
 console.log("测试1:", employeeFreeTime(schedule1)); // 期望: [{ start: 3, end: 4 }]
 
 const schedule2: Interval[][] = [
-  [{ start: 1, end: 3 }, { start: 6, end: 7 }],
+  [
+    { start: 1, end: 3 },
+    { start: 6, end: 7 },
+  ],
   [{ start: 2, end: 4 }],
-  [{ start: 2, end: 5 }, { start: 9, end: 12 }]
+  [
+    { start: 2, end: 5 },
+    { start: 9, end: 12 },
+  ],
 ];
 console.log("测试2:", employeeFreeTime(schedule2)); // 期望: [{ start: 5, end: 6 }, { start: 7, end: 9 }]
 
-const schedule3: Interval[][] = [
-  [{ start: 1, end: 2 }],
-  [{ start: 2, end: 3 }]
-];
+const schedule3: Interval[][] = [[{ start: 1, end: 2 }], [{ start: 2, end: 3 }]];
 console.log("测试3:", employeeFreeTime(schedule3)); // 期望: []
 
 console.log("方法2测试1:", employeeFreeTime2(schedule1)); // 期望: [{ start: 3, end: 4 }]

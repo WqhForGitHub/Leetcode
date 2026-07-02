@@ -94,11 +94,7 @@ console.log("===== 118. 二叉树的垂序遍历 =====");
 //      9   20
 //         /  \
 //        15   7
-const root1 = new TreeNode(
-  3,
-  new TreeNode(9),
-  new TreeNode(20, new TreeNode(15), new TreeNode(7))
-);
+const root1 = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 console.log("方法1 DFS:", verticalTraversal(root1)); // 期望 [[9],[3,15],[20],[7]]
 console.log("方法2 BFS:", verticalTraversalBFS(root1)); // 期望 [[9],[3,15],[20],[7]]
 
@@ -111,7 +107,7 @@ console.log("方法2 BFS:", verticalTraversalBFS(root1)); // 期望 [[9],[3,15],
 const root2 = new TreeNode(
   1,
   new TreeNode(2, new TreeNode(4), new TreeNode(5)),
-  new TreeNode(3, null, new TreeNode(6))
+  new TreeNode(3, null, new TreeNode(6)),
 );
 console.log("方法1 DFS:", verticalTraversal(root2)); // 期望 [[4],[2],[1,5,6],[3]]
 console.log("方法2 BFS:", verticalTraversalBFS(root2));

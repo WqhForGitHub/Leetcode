@@ -53,6 +53,9 @@ console.log("样本合法(无2):", !counts73.has(2));
 const sol73b = new Solution73(5, [0, 3]);
 const ok73 = new Set<number>();
 for (let i = 0; i < 1000; i++) ok73.add(sol73b.pick());
-console.log("n=5,blacklist=[0,3] 取值集合(应为 {1,2,4}):", Array.from(ok73).sort((a, b) => a - b));
+console.log(
+  "n=5,blacklist=[0,3] 取值集合(应为 {1,2,4}):",
+  Array.from(ok73).sort((a, b) => a - b),
+);
 
 export {};

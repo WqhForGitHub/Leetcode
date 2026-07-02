@@ -41,7 +41,7 @@ function sumScoresHash(s: string): number {
     pow[i + 1] = (pow[i] * base) % mod;
   }
   function getHash(l: number, r: number): number {
-    return (hash[r] - (hash[l] * pow[r - l]) % mod + mod) % mod;
+    return (hash[r] - ((hash[l] * pow[r - l]) % mod) + mod) % mod;
   }
 
   let total = 0;
