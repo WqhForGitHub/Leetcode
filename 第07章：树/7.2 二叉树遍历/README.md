@@ -6,7 +6,9 @@
 如图 7-9 所示，层序遍历（level-order-traversal）从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。
 
 层序遍历本质上属于广度优先遍历（breadth-first traversal），也称为广度优先搜索（breadth-first search，BFS），它体现了一种“一圈一圈向外扩展”的逐层遍历方式。
+
 ![层序遍历](https://front-end-1257950569.cos.ap-guangzhou.myqcloud.com/Hello%20%E7%AE%97%E6%B3%95/%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.png)
+
 图 7-9   二叉树的层序遍历
 ## 1.1 代码实现
 
@@ -35,7 +37,9 @@ function levelOrder(root) {
 相应地，前序、中序和后序遍历都属于深度优先遍历（depth-first traversal），也称为深度优先搜索（depth-first search，DFS），它体现了一种“先走到尽头，再回溯继续”的遍历方式。
 
 图 7-10 展示了对二叉树进行深度优先遍历的工作原理。**深度优先遍历就像是绕着整棵二叉树的外围“走”一圈**，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
+
 ![二叉搜索树的前序、中序、后序遍历](https://front-end-1257950569.cos.ap-guangzhou.myqcloud.com/Hello%20%E7%AE%97%E6%B3%95/%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E3%80%81%E4%B8%AD%E5%BA%8F%E3%80%81%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.png)
+
 图 7-10   二叉搜索树的前序、中序、后序遍历
 ## 2.1 代码实现
 
